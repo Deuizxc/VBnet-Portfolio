@@ -32,7 +32,7 @@ Partial Class Week9Selector
         Button7.BackgroundImage = CType(resources.GetObject("Button7.BackgroundImage"), Image)
         Button7.BackgroundImageLayout = ImageLayout.Stretch
         Button7.FlatStyle = FlatStyle.Flat
-        Button7.Font = New Font("p5hatty", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button7.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button7.ForeColor = SystemColors.ButtonHighlight
         Button7.Location = New Point(12, 12)
         Button7.Name = "Button7"
@@ -42,7 +42,7 @@ Partial Class Week9Selector
         ' 
         ' Week9Selector
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
@@ -56,4 +56,5 @@ Partial Class Week9Selector
     End Sub
 
     Friend WithEvents Button7 As Button
+    Friend WithEvents Label9 As Label
 End Class

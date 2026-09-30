@@ -31,6 +31,7 @@ Partial Class Portfolio
         Button7 = New Button()
         Button6 = New Button()
         Button5 = New Button()
+        Button9 = New Button()
         pnlStatsPopup.SuspendLayout()
         SuspendLayout()
         ' 
@@ -110,7 +111,7 @@ Partial Class Portfolio
         pnlStatsPopup.Controls.Add(Button7)
         pnlStatsPopup.Controls.Add(Button6)
         pnlStatsPopup.Controls.Add(Button5)
-        pnlStatsPopup.Location = New Point(278, 176)
+        pnlStatsPopup.Location = New Point(700, 37)
         pnlStatsPopup.Name = "pnlStatsPopup"
         pnlStatsPopup.Size = New Size(492, 280)
         pnlStatsPopup.TabIndex = 6
@@ -167,6 +168,15 @@ Partial Class Portfolio
         Button5.TabIndex = 14
         Button5.UseVisualStyleBackColor = False
         ' 
+        ' Button9
+        ' 
+        Button9.Location = New Point(45, 205)
+        Button9.Name = "Button9"
+        Button9.Size = New Size(75, 23)
+        Button9.TabIndex = 7
+        Button9.Text = "Button9"
+        Button9.UseVisualStyleBackColor = True
+        ' 
         ' Portfolio
         ' 
         AutoScaleDimensions = New SizeF(7.0F, 15.0F)
@@ -174,6 +184,7 @@ Partial Class Portfolio
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(800, 450)
+        Controls.Add(Button9)
         Controls.Add(pnlStatsPopup)
         Controls.Add(Button4)
         Controls.Add(Button3)
@@ -197,5 +208,7 @@ Partial Class Portfolio
     Friend WithEvents Button6 As Button
     Friend WithEvents Button5 As Button
     Friend WithEvents Button7 As Button
+    Friend WithEvents Button8 As Button
+    Friend WithEvents Button9 As Button
 
 End Class

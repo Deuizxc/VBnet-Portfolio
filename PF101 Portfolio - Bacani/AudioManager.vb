@@ -6,6 +6,9 @@ Module AudioManager
     Private hoverPlayer As SoundPlayer
     Private clickPlayer As SoundPlayer
 
+    ' Timestamp tracker to prevent rapid re-triggering (debounce)
+    Private lastHoverTime As DateTime = DateTime.MinValue
+
     Public Sub InitializeAudio()
         Try
             Dim hoverPath As String = Path.Combine(Application.StartupPath, "Sounds", "hover1.wav")
@@ -25,6 +28,13 @@ Module AudioManager
     End Sub
 
     Public Sub PlayHover()
+        ' Ignore triggers if less than 180ms have elapsed since the last sound
+        If (DateTime.Now - lastHoverTime).TotalMilliseconds < 180 Then
+            Exit Sub
+        End If
+
+        lastHoverTime = DateTime.Now
+
         If hoverPlayer IsNot Nothing Then
             hoverPlayer.Play()
         End If
@@ -38,8 +48,12 @@ Module AudioManager
 
     Public Sub AttachSounds(parent As Control)
         For Each ctrl As Control In parent.Controls
-            ' Added Label check here:
+            ' Target Buttons, PictureBoxes, and Labels
             If TypeOf ctrl Is Button OrElse TypeOf ctrl Is PictureBox OrElse TypeOf ctrl Is Label Then
+                ' Strip existing handlers first to avoid stacking duplicate calls
+                RemoveHandler ctrl.MouseEnter, AddressOf Control_MouseEnter
+                RemoveHandler ctrl.Click, AddressOf Control_Click
+
                 AddHandler ctrl.MouseEnter, AddressOf Control_MouseEnter
                 AddHandler ctrl.Click, AddressOf Control_Click
             End If
