@@ -1,6 +1,13 @@
 ﻿Imports System.Runtime.CompilerServices
 
 Public Class Portfolio
+
+    Private Sub CenterStatsPanel()
+        Dim centerX As Integer = (Me.ClientSize.Width - pnlStatsPopup.Width) \ 2
+        Dim centerY As Integer = (Me.ClientSize.Height - pnlStatsPopup.Height) \ 2
+        pnlStatsPopup.Location = New Point(centerX, centerY)
+    End Sub
+
     Private Sub Label1_Click(sender As Object, e As EventArgs)
 
     End Sub
@@ -9,19 +16,24 @@ Public Class Portfolio
         Me.DoubleBuffered = True
         Me.SetStyle(ControlStyles.AllPaintingInWmPaint Or ControlStyles.UserPaint Or ControlStyles.OptimizedDoubleBuffer, True)
         Me.UpdateStyles()
+        pnlStatsPopup.Visible = False
+    End Sub
+
+    Private Sub Portfolio_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
+        If pnlStatsPopup IsNot Nothing AndAlso pnlStatsPopup.Visible Then
+            CenterStatsPanel()
+        End If
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Lessons.Show
-        Lessons.Update
-        Hide
+        Lessons.Show()
+        Lessons.Update()
+        Hide()
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         Close()
     End Sub
-
-
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Profile.Show()
@@ -29,7 +41,16 @@ Public Class Portfolio
         Me.Hide()
     End Sub
 
-    'HOVER EFFECTS
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        CenterStatsPanel()
+        pnlStatsPopup.BringToFront()
+        pnlStatsPopup.Visible = True
+    End Sub
+
+    Private Sub btnCloseStats_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        pnlStatsPopup.Visible = False
+    End Sub
+
     Private Sub Button1_MouseEnter(sender As Object, e As EventArgs) Handles Button1.MouseEnter
         Button1.ForeColor = Color.Red
         Button1.Top -= 3
@@ -89,8 +110,9 @@ Public Class Portfolio
     Private Sub Button5_Click(sender As Object, e As EventArgs)
 
     End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        pnlStatsPopup.Visible = False
+    End Sub
+
 End Class
-
-
-
-'lesson contents

@@ -27,11 +27,11 @@ Partial Class Portfolio
         Button2 = New Button()
         Button3 = New Button()
         Button4 = New Button()
-        Panel1 = New Panel()
+        pnlStatsPopup = New Panel()
         Button7 = New Button()
         Button6 = New Button()
         Button5 = New Button()
-        Panel1.SuspendLayout()
+        pnlStatsPopup.SuspendLayout()
         SuspendLayout()
         ' 
         ' Button1
@@ -43,7 +43,7 @@ Partial Class Portfolio
         Button1.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button1.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, 0)
+        Button1.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button1.ForeColor = SystemColors.ButtonHighlight
         Button1.Location = New Point(315, 115)
         Button1.Name = "Button1"
@@ -60,7 +60,7 @@ Partial Class Portfolio
         Button2.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button2.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button2.FlatStyle = FlatStyle.Flat
-        Button2.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, 0)
+        Button2.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button2.ForeColor = SystemColors.ButtonHighlight
         Button2.Location = New Point(278, 187)
         Button2.Name = "Button2"
@@ -77,7 +77,7 @@ Partial Class Portfolio
         Button3.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button3.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button3.FlatStyle = FlatStyle.Flat
-        Button3.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, 0)
+        Button3.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button3.ForeColor = SystemColors.ButtonHighlight
         Button3.Location = New Point(248, 251)
         Button3.Name = "Button3"
@@ -94,7 +94,7 @@ Partial Class Portfolio
         Button4.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button4.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button4.FlatStyle = FlatStyle.Flat
-        Button4.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, 0)
+        Button4.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button4.ForeColor = SystemColors.ButtonHighlight
         Button4.Location = New Point(222, 306)
         Button4.Name = "Button4"
@@ -102,18 +102,19 @@ Partial Class Portfolio
         Button4.TabIndex = 5
         Button4.UseVisualStyleBackColor = False
         ' 
-        ' Panel1
+        ' pnlStatsPopup
         ' 
-        Panel1.BackColor = Color.Transparent
-        Panel1.BackgroundImage = CType(resources.GetObject("Panel1.BackgroundImage"), Image)
-        Panel1.BackgroundImageLayout = ImageLayout.Stretch
-        Panel1.Controls.Add(Button7)
-        Panel1.Controls.Add(Button6)
-        Panel1.Controls.Add(Button5)
-        Panel1.Location = New Point(158, 81)
-        Panel1.Name = "Panel1"
-        Panel1.Size = New Size(492, 280)
-        Panel1.TabIndex = 6
+        pnlStatsPopup.BackColor = Color.Transparent
+        pnlStatsPopup.BackgroundImage = CType(resources.GetObject("pnlStatsPopup.BackgroundImage"), Image)
+        pnlStatsPopup.BackgroundImageLayout = ImageLayout.Stretch
+        pnlStatsPopup.Controls.Add(Button7)
+        pnlStatsPopup.Controls.Add(Button6)
+        pnlStatsPopup.Controls.Add(Button5)
+        pnlStatsPopup.Location = New Point(278, 176)
+        pnlStatsPopup.Name = "pnlStatsPopup"
+        pnlStatsPopup.Size = New Size(492, 280)
+        pnlStatsPopup.TabIndex = 6
+        pnlStatsPopup.Visible = False
         ' 
         ' Button7
         ' 
@@ -124,7 +125,7 @@ Partial Class Portfolio
         Button7.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button7.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button7.FlatStyle = FlatStyle.Flat
-        Button7.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, 0)
+        Button7.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button7.ForeColor = Color.Transparent
         Button7.Location = New Point(439, 16)
         Button7.Name = "Button7"
@@ -141,11 +142,11 @@ Partial Class Portfolio
         Button6.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button6.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button6.FlatStyle = FlatStyle.Flat
-        Button6.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, 0)
+        Button6.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button6.ForeColor = Color.Transparent
         Button6.Location = New Point(254, 195)
         Button6.Name = "Button6"
-        Button6.Size = New Size(120, 46)
+        Button6.Size = New Size(120, 57)
         Button6.TabIndex = 15
         Button6.UseVisualStyleBackColor = False
         ' 
@@ -158,7 +159,7 @@ Partial Class Portfolio
         Button5.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button5.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button5.FlatStyle = FlatStyle.Flat
-        Button5.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, 0)
+        Button5.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button5.ForeColor = Color.Transparent
         Button5.Location = New Point(90, 195)
         Button5.Name = "Button5"
@@ -173,7 +174,7 @@ Partial Class Portfolio
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(800, 450)
-        Controls.Add(Panel1)
+        Controls.Add(pnlStatsPopup)
         Controls.Add(Button4)
         Controls.Add(Button3)
         Controls.Add(Button2)
@@ -183,7 +184,7 @@ Partial Class Portfolio
         Name = "Portfolio"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Form1"
-        Panel1.ResumeLayout(False)
+        pnlStatsPopup.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
     Friend WithEvents Label1 As Label
@@ -192,7 +193,7 @@ Partial Class Portfolio
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents Button4 As Button
-    Friend WithEvents Panel1 As Panel
+    Friend WithEvents pnlStatsPopup As Panel
     Friend WithEvents Button6 As Button
     Friend WithEvents Button5 As Button
     Friend WithEvents Button7 As Button
