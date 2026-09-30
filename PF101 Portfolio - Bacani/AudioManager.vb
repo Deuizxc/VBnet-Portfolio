@@ -38,7 +38,8 @@ Module AudioManager
 
     Public Sub AttachSounds(parent As Control)
         For Each ctrl As Control In parent.Controls
-            If TypeOf ctrl Is Button OrElse TypeOf ctrl Is PictureBox Then
+            ' Added Label check here:
+            If TypeOf ctrl Is Button OrElse TypeOf ctrl Is PictureBox OrElse TypeOf ctrl Is Label Then
                 AddHandler ctrl.MouseEnter, AddressOf Control_MouseEnter
                 AddHandler ctrl.Click, AddressOf Control_Click
             End If
