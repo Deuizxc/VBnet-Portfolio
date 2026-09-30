@@ -62,7 +62,7 @@ Public Class Week7Selector
         Label6.Top += 3
         Label6.Cursor = Cursors.Default
     End Sub
-    ' test github 
+    ' test 
     Private Sub Label3_MouseEnter(sender As Object, e As EventArgs) Handles Label3.MouseEnter
         Label3.ForeColor = Color.Gold
         Label3.Top -= 3
