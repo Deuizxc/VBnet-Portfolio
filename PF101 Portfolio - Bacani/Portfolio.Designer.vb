@@ -1,0 +1,125 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+Partial Class Portfolio
+    Inherits System.Windows.Forms.Form
+
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()>
+    Protected Overrides Sub Dispose(disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()>
+    Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Portfolio))
+        Button1 = New Button()
+        Button2 = New Button()
+        Button3 = New Button()
+        Button4 = New Button()
+        SuspendLayout()
+        ' 
+        ' Button1
+        ' 
+        Button1.BackColor = Color.Transparent
+        Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), Image)
+        Button1.BackgroundImageLayout = ImageLayout.Stretch
+        Button1.FlatAppearance.BorderSize = 0
+        Button1.FlatAppearance.MouseDownBackColor = Color.Transparent
+        Button1.FlatAppearance.MouseOverBackColor = Color.Transparent
+        Button1.FlatStyle = FlatStyle.Flat
+        Button1.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button1.ForeColor = SystemColors.ButtonHighlight
+        Button1.Location = New Point(315, 115)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(156, 66)
+        Button1.TabIndex = 2
+        Button1.UseVisualStyleBackColor = False
+        ' 
+        ' Button2
+        ' 
+        Button2.BackColor = Color.Transparent
+        Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), Image)
+        Button2.BackgroundImageLayout = ImageLayout.Stretch
+        Button2.FlatAppearance.BorderSize = 0
+        Button2.FlatAppearance.MouseDownBackColor = Color.Transparent
+        Button2.FlatAppearance.MouseOverBackColor = Color.Transparent
+        Button2.FlatStyle = FlatStyle.Flat
+        Button2.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button2.ForeColor = SystemColors.ButtonHighlight
+        Button2.Location = New Point(278, 187)
+        Button2.Name = "Button2"
+        Button2.Size = New Size(156, 58)
+        Button2.TabIndex = 3
+        Button2.UseVisualStyleBackColor = False
+        ' 
+        ' Button3
+        ' 
+        Button3.BackColor = Color.Transparent
+        Button3.BackgroundImage = CType(resources.GetObject("Button3.BackgroundImage"), Image)
+        Button3.BackgroundImageLayout = ImageLayout.Stretch
+        Button3.FlatAppearance.BorderSize = 0
+        Button3.FlatAppearance.MouseDownBackColor = Color.Transparent
+        Button3.FlatAppearance.MouseOverBackColor = Color.Transparent
+        Button3.FlatStyle = FlatStyle.Flat
+        Button3.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button3.ForeColor = SystemColors.ButtonHighlight
+        Button3.Location = New Point(248, 251)
+        Button3.Name = "Button3"
+        Button3.Size = New Size(131, 49)
+        Button3.TabIndex = 4
+        Button3.UseVisualStyleBackColor = False
+        ' 
+        ' Button4
+        ' 
+        Button4.BackColor = Color.Transparent
+        Button4.BackgroundImage = CType(resources.GetObject("Button4.BackgroundImage"), Image)
+        Button4.BackgroundImageLayout = ImageLayout.Stretch
+        Button4.FlatAppearance.BorderSize = 0
+        Button4.FlatAppearance.MouseDownBackColor = Color.Transparent
+        Button4.FlatAppearance.MouseOverBackColor = Color.Transparent
+        Button4.FlatStyle = FlatStyle.Flat
+        Button4.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button4.ForeColor = SystemColors.ButtonHighlight
+        Button4.Location = New Point(222, 306)
+        Button4.Name = "Button4"
+        Button4.Size = New Size(139, 47)
+        Button4.TabIndex = 5
+        Button4.UseVisualStyleBackColor = False
+        ' 
+        ' Portfolio
+        ' 
+        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleMode = AutoScaleMode.Font
+        BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
+        BackgroundImageLayout = ImageLayout.Stretch
+        ClientSize = New Size(800, 450)
+        Controls.Add(Button4)
+        Controls.Add(Button3)
+        Controls.Add(Button2)
+        Controls.Add(Button1)
+        FormBorderStyle = FormBorderStyle.None
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
+        Name = "Portfolio"
+        StartPosition = FormStartPosition.CenterScreen
+        Text = "Form1"
+        ResumeLayout(False)
+    End Sub
+    Friend WithEvents Label1 As Label
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button4 As Button
+
+End Class
