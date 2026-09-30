@@ -52,6 +52,7 @@
         lbl.Cursor = Cursors.Default
     End Sub
     Private Sub Week11_12Selector_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        AudioManager.AttachSounds(Me)
         Me.DoubleBuffered = True
         Me.SetStyle(ControlStyles.AllPaintingInWmPaint Or ControlStyles.UserPaint Or ControlStyles.OptimizedDoubleBuffer, True)
         Me.UpdateStyles()

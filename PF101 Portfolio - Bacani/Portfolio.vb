@@ -1,5 +1,6 @@
 ﻿Imports System.Runtime.CompilerServices
 
+
 Public Class Portfolio
 
     Private Sub CenterStatsPanel()
@@ -17,6 +18,8 @@ Public Class Portfolio
         Me.SetStyle(ControlStyles.AllPaintingInWmPaint Or ControlStyles.UserPaint Or ControlStyles.OptimizedDoubleBuffer, True)
         Me.UpdateStyles()
         pnlStatsPopup.Visible = False
+        AudioManager.InitializeAudio()
+        AudioManager.AttachSounds(Me)
     End Sub
 
     Private Sub Portfolio_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
@@ -113,6 +116,17 @@ Public Class Portfolio
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
         pnlStatsPopup.Visible = False
+    End Sub
+
+    Private Sub Button5_Click_1(sender As Object, e As EventArgs) Handles Button5.Click
+        MessageBox.Show(":((", "PhAN-SiTE", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+
+        MessageBox.Show("LET'S GOOOOOOO! ٩(ˊᗜˋ*)و" & vbCrLf, "PhAN-SiTE")
+
+
     End Sub
 
 End Class

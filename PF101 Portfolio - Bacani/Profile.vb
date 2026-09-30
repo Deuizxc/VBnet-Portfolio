@@ -38,4 +38,9 @@
         Cert.Update()
         Hide()
     End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim videoUrl As String = "https://youtu.be/jWjok6UdZMw"
+        Process.Start(New ProcessStartInfo(videoUrl) With {.UseShellExecute = True})
+    End Sub
 End Class

@@ -106,6 +106,7 @@ Public Class Lessons
         Me.DoubleBuffered = True
         Me.SetStyle(ControlStyles.AllPaintingInWmPaint Or ControlStyles.UserPaint Or ControlStyles.OptimizedDoubleBuffer, True)
         Me.UpdateStyles()
+        AudioManager.AttachSounds(Me)
 
         GetType(FlowLayoutPanel).InvokeMember("DoubleBuffered",
             Reflection.BindingFlags.NonPublic Or Reflection.BindingFlags.Instance Or Reflection.BindingFlags.SetProperty,
