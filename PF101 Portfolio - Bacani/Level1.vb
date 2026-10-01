@@ -1,26 +1,23 @@
 ﻿Public Class Level1
 
-    ' --- TIMERS & CORE SETTINGS ---
     Private WithEvents gameTimer As New Timer()
     Private WithEvents countdownTimer As New Timer()
     Private timeLeft As Integer = 60
 
     Private verticalBounceHeight As Integer = 120
 
-    ' --- GAME STATE TRACKING ---
     Private boatLocation As String = "Right"
     Private slot1 As PictureBox = Nothing
     Private slot2 As PictureBox = Nothing
 
-    ' Hardcoded Boat Coordinates
-    Private boatRightX As Integer = 472
-    Private boatLeftX As Integer = 282
-    Private boatY As Integer = 483
+    ' Updated Boat Coordinates
+    Private boatRightX As Integer = 572
+    Private boatLeftX As Integer = 340
+    Private boatY As Integer = 349
 
     Private rightShorePositions As New Dictionary(Of PictureBox, Point)
     Private leftShorePositions As New Dictionary(Of PictureBox, Point)
 
-    ' --- ANIMATION VARIABLES ---
     Private movingChar As PictureBox = Nothing
     Private charStart As Point
     Private charTarget As Point
@@ -38,33 +35,31 @@
         countdownTimer.Interval = 1000
         countdownTimer.Start()
 
-        ' Snap boat directly to the starting hardcoded location
         Boat.Location = New Point(boatRightX, boatY)
 
-        ' Hardcoded Base (Right) Shore Locations
-        rightShorePositions(Priest1) = New Point(607, 429)
-        rightShorePositions(Priest2) = New Point(653, 429)
-        rightShorePositions(Priest3) = New Point(699, 429)
-        rightShorePositions(Devil1) = New Point(745, 429)
-        rightShorePositions(Devil2) = New Point(791, 429)
-        rightShorePositions(Devil3) = New Point(837, 429)
+        ' Updated Right Shore Coordinates (ORIG AREA)
+        rightShorePositions(Priest1) = New Point(739, 255)
+        rightShorePositions(Priest2) = New Point(791, 255)
+        rightShorePositions(Priest3) = New Point(843, 255)
+        rightShorePositions(Devil1) = New Point(897, 255)
+        rightShorePositions(Devil2) = New Point(949, 255)
+        rightShorePositions(Devil3) = New Point(1006, 255)
 
-        ' Hardcoded Destination (Left) Shore Locations
-        leftShorePositions(Priest1) = New Point(236, 429)
-        leftShorePositions(Priest2) = New Point(190, 429)
-        leftShorePositions(Priest3) = New Point(144, 429)
-        leftShorePositions(Devil1) = New Point(98, 429)
-        leftShorePositions(Devil2) = New Point(52, 429)
-        leftShorePositions(Devil3) = New Point(6, 429)
+        ' Updated Left Shore Coordinates (DESTINATION)
+        leftShorePositions(Priest1) = New Point(266, 264)
+        leftShorePositions(Priest2) = New Point(214, 264)
+        leftShorePositions(Priest3) = New Point(162, 264)
+        leftShorePositions(Devil1) = New Point(110, 264)
+        leftShorePositions(Devil2) = New Point(58, 264)
+        leftShorePositions(Devil3) = New Point(6, 264)
 
         Dim allCharacters = {Priest1, Priest2, Priest3, Devil1, Devil2, Devil3}
         For Each character In allCharacters
             character.Tag = "Right"
-            character.Location = rightShorePositions(character) ' Snap to base immediately
+            character.Location = rightShorePositions(character)
         Next
     End Sub
 
-    ' --- 60 SECOND COUNTDOWN ---
     Private Sub countdownTimer_Tick(sender As Object, e As EventArgs) Handles countdownTimer.Tick
         timeLeft -= 1
         Label1.Text = "Time Left: " & timeLeft
@@ -76,22 +71,17 @@
         End If
     End Sub
 
-    ' --- RETURN / MENU BUTTON ---
     Private Sub PictureBox23_Click(sender As Object, e As EventArgs) Handles PictureBox23.Click
         countdownTimer.Stop()
         Me.Hide()
-        ' Home.Show() 
     End Sub
 
-    ' --- CHARACTER CLICK LOGIC ---
     Private Sub Character_Click(sender As Object, e As EventArgs) Handles Priest1.Click, Priest2.Click, Priest3.Click, Devil1.Click, Devil2.Click, Devil3.Click
-        ' Prevent moving characters while animation or boat is active
         If movingChar IsNot Nothing OrElse isBoatMoving Then Exit Sub
 
-        Dim clickedSprite As PictureBox = CType(sender, PictureBox)
-        Dim currentState As String = clickedSprite.Tag.ToString()
+        Dim clickedSprite = CType(sender, PictureBox)
+        Dim currentState = clickedSprite.Tag.ToString
 
-        ' Character must be on the same shore as the boat to board
         If currentState = "Right" AndAlso boatLocation = "Right" Then
             BoardBoat(clickedSprite)
         ElseIf currentState = "Left" AndAlso boatLocation = "Left" Then
@@ -102,14 +92,15 @@
     End Sub
 
     Private Sub BoardBoat(p As PictureBox)
+        ' Updated Y-coordinate for characters on the boat to 271
         If slot1 Is Nothing Then
             slot1 = p
             p.Tag = "Boat1"
-            charTarget = New Point(Boat.Left + 10, Boat.Top - 40)
+            charTarget = New Point(Boat.Left + 10, 271)
         ElseIf slot2 Is Nothing Then
             slot2 = p
             p.Tag = "Boat2"
-            charTarget = New Point(Boat.Left + 60, Boat.Top - 40)
+            charTarget = New Point(Boat.Left + 60, 271)
         Else
             Exit Sub
         End If
@@ -139,16 +130,13 @@
         gameTimer.Start()
     End Sub
 
-    ' --- GO BUTTON LOGIC ---
     Private Sub btnMoveBoat_Click(sender As Object, e As EventArgs) Handles btnMoveBoat.Click
         If movingChar IsNot Nothing OrElse isBoatMoving Then Exit Sub
 
-        ' Core Rule: Boat cannot move empty
         If slot1 Is Nothing AndAlso slot2 Is Nothing Then Exit Sub
 
         isBoatMoving = True
 
-        ' Set the destination using the new exact coordinates
         If boatLocation = "Right" Then
             boatTargetX = boatLeftX
             boatLocation = "Left"
@@ -160,9 +148,7 @@
         gameTimer.Start()
     End Sub
 
-    ' --- THE MAIN ANIMATION LOOP (Jump Arcs & Boat Movement) ---
     Private Sub gameTimer_Tick(sender As Object, e As EventArgs) Handles gameTimer.Tick
-        ' 1. Parabolic Jump Arc Logic
         If movingChar IsNot Nothing Then
             jumpProgress += jumpSpeed
 
@@ -183,7 +169,6 @@
                 movingChar.Location = New Point(currentX, currentY + arcY)
             End If
 
-            ' 2. Boat Sailing Logic
         ElseIf isBoatMoving Then
             Dim diff As Integer = boatTargetX - Boat.Left
             Dim stepX As Integer = If(Math.Abs(diff) < boatMoveSpeed, diff, Math.Sign(diff) * boatMoveSpeed)
@@ -203,14 +188,12 @@
         End If
     End Sub
 
-    ' --- GAME LOGIC & RULES ---
     Private Sub CheckGameRules()
         Dim leftPriests = 0, leftDevils = 0, rightPriests = 0, rightDevils = 0
         Dim allCharacters = {Priest1, Priest2, Priest3, Devil1, Devil2, Devil3}
 
         For Each c In allCharacters
             Dim loc As String = c.Tag.ToString()
-            ' Characters in the boat count towards the shore the boat is currently at
             If loc.StartsWith("Boat") Then loc = boatLocation
 
             If c.Name.StartsWith("Priest") Then
@@ -220,7 +203,6 @@
             End If
         Next
 
-        ' Core Rule 1: Win Condition
         If leftPriests = 3 AndAlso leftDevils = 3 Then
             countdownTimer.Stop()
             MessageBox.Show("You Win! Everyone safely crossed the river.", "Victory")
@@ -228,7 +210,6 @@
             Exit Sub
         End If
 
-        ' Core Rule 2: Lose Condition (Devils outnumber Priests on ANY shore, provided Priests > 0)
         If (leftPriests > 0 AndAlso leftDevils > leftPriests) OrElse
            (rightPriests > 0 AndAlso rightDevils > rightPriests) Then
             countdownTimer.Stop()
@@ -237,30 +218,28 @@
         End If
     End Sub
 
-    ' --- RESET FUNCTION ---
     Private Sub ResetLevel()
-        ' Force stop all current animations
         gameTimer.Stop()
         movingChar = Nothing
         isBoatMoving = False
 
-        ' Empty and snap boat back to original start position using exact coordinates
         slot1 = Nothing
         slot2 = Nothing
         boatLocation = "Right"
         Boat.Location = New Point(boatRightX, boatY)
 
-        ' Snap all characters directly to their hardcoded base coordinates
         Dim allCharacters = {Priest1, Priest2, Priest3, Devil1, Devil2, Devil3}
         For Each c In allCharacters
             c.Tag = "Right"
             c.Location = rightShorePositions(c)
         Next
 
-        ' Restart Countdown
         timeLeft = 60
         Label1.Text = "Time Left: 60"
         countdownTimer.Start()
     End Sub
 
+    Private Sub PictureBox7_Click(sender As Object, e As EventArgs)
+
+    End Sub
 End Class
