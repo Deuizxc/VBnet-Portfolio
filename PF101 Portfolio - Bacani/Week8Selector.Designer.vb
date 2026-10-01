@@ -34,6 +34,7 @@ Partial Class Week8Selector
         Button7.BackColor = SystemColors.ActiveCaptionText
         Button7.BackgroundImage = CType(resources.GetObject("Button7.BackgroundImage"), Image)
         Button7.BackgroundImageLayout = ImageLayout.Stretch
+        Button7.FlatAppearance.BorderSize = 0
         Button7.FlatStyle = FlatStyle.Flat
         Button7.Font = New Font("p5hatty", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button7.ForeColor = SystemColors.ButtonHighlight

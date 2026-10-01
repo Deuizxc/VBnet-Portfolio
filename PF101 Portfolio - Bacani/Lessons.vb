@@ -125,4 +125,9 @@ Public Class Lessons
         btn.Cursor = Cursors.Default
     End Sub
 
+    Private Sub Button17_Click(sender As Object, e As EventArgs) Handles Button17.Click
+        Level1.Show()
+        Level1.Update()
+        Hide()
+    End Sub
 End Class

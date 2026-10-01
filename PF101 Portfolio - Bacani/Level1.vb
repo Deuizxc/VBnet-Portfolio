@@ -10,9 +10,10 @@
     Private slot1 As PictureBox = Nothing
     Private slot2 As PictureBox = Nothing
 
-    Private boatRightX As Integer = 572
-    Private boatLeftX As Integer = 340
-    Private boatY As Integer = 349
+    ' Updated Boat Coordinates
+    Private boatRightX As Integer = 521
+    Private boatLeftX As Integer = 396
+    Private boatY As Integer = 382
 
     Private rightShorePositions As New Dictionary(Of PictureBox, Point)
     Private leftShorePositions As New Dictionary(Of PictureBox, Point)
@@ -68,29 +69,46 @@
             c.Image = If(isLeft, lFrames(1), rFrames(1))
         End If
     End Sub
+    Private Sub Button1_MouseEnter(sender As Object, e As EventArgs) Handles Button1.MouseEnter
+        Button1.ForeColor = Color.Red
+        Button1.Top -= 3
+        Button1.Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub Button1_MouseLeave(sender As Object, e As EventArgs) Handles Button1.MouseLeave
+        Button1.ForeColor = Color.Black
+        Button1.Top += 3
+        Button1.Cursor = Cursors.Default
+    End Sub
+
 
     Private Sub Level1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.DoubleBuffered = True
         gameTimer.Interval = 16
+        Me.DoubleBuffered = True
+        Me.SetStyle(ControlStyles.AllPaintingInWmPaint Or ControlStyles.UserPaint Or ControlStyles.OptimizedDoubleBuffer, True)
+        Me.UpdateStyles()
 
         countdownTimer.Interval = 1000
         countdownTimer.Start()
 
         Boat.Location = New Point(boatRightX, boatY)
 
-        rightShorePositions(Priest1) = New Point(739, 255)
-        rightShorePositions(Priest2) = New Point(791, 255)
-        rightShorePositions(Priest3) = New Point(843, 255)
-        rightShorePositions(Devil1) = New Point(897, 255)
-        rightShorePositions(Devil2) = New Point(949, 255)
-        rightShorePositions(Devil3) = New Point(1006, 255)
+        ' Updated Homeshore (Right) Coordinates
+        rightShorePositions(Priest1) = New Point(715, 281)
+        rightShorePositions(Priest2) = New Point(767, 281)
+        rightShorePositions(Priest3) = New Point(819, 281)
+        rightShorePositions(Devil1) = New Point(871, 281)
+        rightShorePositions(Devil2) = New Point(935, 281)
+        rightShorePositions(Devil3) = New Point(999, 281)
 
-        leftShorePositions(Priest1) = New Point(266, 264)
-        leftShorePositions(Priest2) = New Point(214, 264)
-        leftShorePositions(Priest3) = New Point(162, 264)
-        leftShorePositions(Devil1) = New Point(110, 264)
-        leftShorePositions(Devil2) = New Point(58, 264)
-        leftShorePositions(Devil3) = New Point(6, 264)
+        ' Updated Leftshore (Left) Coordinates
+        leftShorePositions(Priest1) = New Point(313, 281)
+        leftShorePositions(Priest2) = New Point(261, 281)
+        leftShorePositions(Priest3) = New Point(209, 281)
+        leftShorePositions(Devil1) = New Point(145, 281)
+        leftShorePositions(Devil2) = New Point(81, 281)
+        leftShorePositions(Devil3) = New Point(12, 281)
 
         LoadAllFrames()
 
@@ -113,9 +131,9 @@
         End If
     End Sub
 
-    Private Sub PictureBox23_Click(sender As Object, e As EventArgs) Handles PictureBox23.Click
+    Private Sub PictureBox23_Click(sender As Object, e As EventArgs)
         countdownTimer.Stop()
-        Me.Hide()
+        Hide()
     End Sub
 
     Private Sub Character_Click(sender As Object, e As EventArgs) Handles Priest1.Click, Priest2.Click, Priest3.Click, Devil1.Click, Devil2.Click, Devil3.Click
@@ -137,11 +155,11 @@
         If slot1 Is Nothing Then
             slot1 = p
             p.Tag = "Boat1"
-            charTarget = New Point(Boat.Left + 10, 271)
+            charTarget = New Point(Boat.Left + 10, 304) ' Adjusted for new boatY
         ElseIf slot2 Is Nothing Then
             slot2 = p
             p.Tag = "Boat2"
-            charTarget = New Point(Boat.Left + 60, 271)
+            charTarget = New Point(Boat.Left + 60, 304) ' Adjusted for new boatY
         Else
             Exit Sub
         End If
@@ -213,10 +231,7 @@
                 ElseIf jumpProgress < 0.3 Then
                     frameIndex = 4 ' Launching up
                 Else
-                    ' Stay in the mid-air pose until touchdown. Frame 6 has floor debris
-                    ' baked into the image, so showing it in the air looked like the ground
-                    ' was being carried along. SetIdleFrame takes over on landing.
-                    frameIndex = 5
+                    frameIndex = 5 ' Mid-air
                 End If
 
                 If movingChar.Name.StartsWith("Devil") Then
@@ -320,4 +335,17 @@
         countdownTimer.Start()
     End Sub
 
+    Private Sub Button7_Click(sender As Object, e As EventArgs)
+        countdownTimer.Stop()
+        Hide()
+        Week9Selector.Show()
+        Week9Selector.Update()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        countdownTimer.Stop()
+        Me.Hide()
+        Week9Selector.Show()
+        Week9Selector.Update()
+    End Sub
 End Class

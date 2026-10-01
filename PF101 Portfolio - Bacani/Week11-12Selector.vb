@@ -1,8 +1,8 @@
 ﻿Public Class Week11_12Selector
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
-        Lessons.Show()
-        Lessons.Update()
-        Me.Hide()
+        Lessons.Show
+        Lessons.Update
+        Hide
     End Sub
     'nudge sa home button
     Private Sub Button7_MouseEnter(sender As Object, e As EventArgs) Handles Button7.MouseEnter
@@ -56,5 +56,11 @@
         Me.DoubleBuffered = True
         Me.SetStyle(ControlStyles.AllPaintingInWmPaint Or ControlStyles.UserPaint Or ControlStyles.OptimizedDoubleBuffer, True)
         Me.UpdateStyles()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
+        Lessons.Show()
+        Lessons.Update()
+        Hide()
     End Sub
 End Class

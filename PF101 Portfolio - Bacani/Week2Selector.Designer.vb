@@ -36,10 +36,11 @@ Partial Class Week2Selector
         Button7.BackColor = SystemColors.ActiveCaptionText
         Button7.BackgroundImage = CType(resources.GetObject("Button7.BackgroundImage"), Image)
         Button7.BackgroundImageLayout = ImageLayout.Stretch
+        Button7.FlatAppearance.BorderSize = 0
         Button7.FlatStyle = FlatStyle.Flat
         Button7.Font = New Font("p5hatty", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button7.ForeColor = SystemColors.ButtonHighlight
-        Button7.Location = New Point(24, 23)
+        Button7.Location = New Point(12, 12)
         Button7.Name = "Button7"
         Button7.Size = New Size(75, 31)
         Button7.TabIndex = 7

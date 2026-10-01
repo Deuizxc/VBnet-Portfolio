@@ -15,6 +15,24 @@
         Button7.Cursor = Cursors.Default
     End Sub
 
+    Private Sub Labels_MouseEnter(sender As Object, e As EventArgs) Handles _
+    Label3.MouseEnter, Label1.MouseEnter, Label3.MouseEnter
+
+        Dim lbl = DirectCast(sender, Label)
+        lbl.ForeColor = Color.Gold
+        lbl.Top -= 3
+        lbl.Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub Labels_MouseLeave(sender As Object, e As EventArgs) Handles _
+    Label3.MouseLeave, Label1.MouseLeave, Label3.MouseLeave
+
+        Dim lbl = DirectCast(sender, Label)
+        lbl.ForeColor = Color.White
+        lbl.Top += 3
+        lbl.Cursor = Cursors.Default
+    End Sub
+
     Private Sub Week9Selector_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         AudioManager.AttachSounds(Me)
         Me.DoubleBuffered = True
@@ -22,5 +40,9 @@
         Me.UpdateStyles()
     End Sub
 
-
+    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
+        Level1.Show()
+        Level1.Update()
+        Hide()
+    End Sub
 End Class

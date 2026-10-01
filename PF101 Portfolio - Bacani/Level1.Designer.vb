@@ -27,15 +27,14 @@ Partial Class Level1
         Boat = New PictureBox()
         btnMoveBoat = New Button()
         Label1 = New Label()
-        PictureBox23 = New PictureBox()
         Devil1 = New PictureBox()
         Devil2 = New PictureBox()
         Devil3 = New PictureBox()
         Priest2 = New PictureBox()
         Priest3 = New PictureBox()
+        Button1 = New Button()
         CType(Priest1, ComponentModel.ISupportInitialize).BeginInit()
         CType(Boat, ComponentModel.ISupportInitialize).BeginInit()
-        CType(PictureBox23, ComponentModel.ISupportInitialize).BeginInit()
         CType(Devil1, ComponentModel.ISupportInitialize).BeginInit()
         CType(Devil2, ComponentModel.ISupportInitialize).BeginInit()
         CType(Devil3, ComponentModel.ISupportInitialize).BeginInit()
@@ -48,7 +47,7 @@ Partial Class Level1
         Priest1.BackColor = Color.Transparent
         Priest1.BackgroundImage = CType(resources.GetObject("Priest1.BackgroundImage"), Image)
         Priest1.BackgroundImageLayout = ImageLayout.Stretch
-        Priest1.Location = New Point(739, 255)
+        Priest1.Location = New Point(715, 281)
         Priest1.Name = "Priest1"
         Priest1.Size = New Size(46, 92)
         Priest1.TabIndex = 0
@@ -56,45 +55,46 @@ Partial Class Level1
         ' 
         ' Boat
         ' 
-        Boat.BackColor = Color.SaddleBrown
-        Boat.Location = New Point(519, 377)
+        Boat.BackColor = Color.Transparent
+        Boat.BackgroundImage = CType(resources.GetObject("Boat.BackgroundImage"), Image)
+        Boat.BackgroundImageLayout = ImageLayout.Stretch
+        Boat.Location = New Point(543, 360)
         Boat.Name = "Boat"
-        Boat.Size = New Size(142, 50)
+        Boat.Size = New Size(121, 67)
         Boat.TabIndex = 6
         Boat.TabStop = False
         ' 
         ' btnMoveBoat
         ' 
-        btnMoveBoat.Location = New Point(488, 511)
+        btnMoveBoat.BackColor = Color.Transparent
+        btnMoveBoat.BackgroundImage = CType(resources.GetObject("btnMoveBoat.BackgroundImage"), Image)
+        btnMoveBoat.BackgroundImageLayout = ImageLayout.Stretch
+        btnMoveBoat.FlatAppearance.BorderSize = 0
+        btnMoveBoat.FlatStyle = FlatStyle.Flat
+        btnMoveBoat.Location = New Point(490, 489)
         btnMoveBoat.Name = "btnMoveBoat"
-        btnMoveBoat.Size = New Size(75, 23)
+        btnMoveBoat.Size = New Size(115, 43)
         btnMoveBoat.TabIndex = 7
-        btnMoveBoat.Text = "GO"
-        btnMoveBoat.UseVisualStyleBackColor = True
+        btnMoveBoat.UseVisualStyleBackColor = False
         ' 
         ' Label1
         ' 
-        Label1.AutoSize = True
-        Label1.Location = New Point(905, 29)
+        Label1.BackColor = Color.Transparent
+        Label1.Font = New Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label1.ForeColor = Color.White
+        Label1.Location = New Point(879, 9)
         Label1.Name = "Label1"
-        Label1.Size = New Size(75, 15)
+        Label1.Size = New Size(178, 53)
         Label1.TabIndex = 10
         Label1.Text = "Time Left: 60"
-        ' 
-        ' PictureBox23
-        ' 
-        PictureBox23.Location = New Point(12, 21)
-        PictureBox23.Name = "PictureBox23"
-        PictureBox23.Size = New Size(100, 23)
-        PictureBox23.TabIndex = 12
-        PictureBox23.TabStop = False
+        Label1.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' Devil1
         ' 
         Devil1.BackColor = Color.Transparent
         Devil1.BackgroundImage = CType(resources.GetObject("Devil1.BackgroundImage"), Image)
         Devil1.BackgroundImageLayout = ImageLayout.Stretch
-        Devil1.Location = New Point(895, 255)
+        Devil1.Location = New Point(871, 281)
         Devil1.Name = "Devil1"
         Devil1.Size = New Size(58, 92)
         Devil1.TabIndex = 16
@@ -105,7 +105,7 @@ Partial Class Level1
         Devil2.BackColor = Color.Transparent
         Devil2.BackgroundImage = CType(resources.GetObject("Devil2.BackgroundImage"), Image)
         Devil2.BackgroundImageLayout = ImageLayout.Stretch
-        Devil2.Location = New Point(947, 255)
+        Devil2.Location = New Point(935, 281)
         Devil2.Name = "Devil2"
         Devil2.Size = New Size(58, 92)
         Devil2.TabIndex = 17
@@ -116,7 +116,7 @@ Partial Class Level1
         Devil3.BackColor = Color.Transparent
         Devil3.BackgroundImage = CType(resources.GetObject("Devil3.BackgroundImage"), Image)
         Devil3.BackgroundImageLayout = ImageLayout.Stretch
-        Devil3.Location = New Point(999, 255)
+        Devil3.Location = New Point(999, 281)
         Devil3.Name = "Devil3"
         Devil3.Size = New Size(58, 92)
         Devil3.TabIndex = 18
@@ -127,7 +127,7 @@ Partial Class Level1
         Priest2.BackColor = Color.Transparent
         Priest2.BackgroundImage = CType(resources.GetObject("Priest2.BackgroundImage"), Image)
         Priest2.BackgroundImageLayout = ImageLayout.Stretch
-        Priest2.Location = New Point(791, 255)
+        Priest2.Location = New Point(767, 281)
         Priest2.Name = "Priest2"
         Priest2.Size = New Size(46, 92)
         Priest2.TabIndex = 20
@@ -138,11 +138,28 @@ Partial Class Level1
         Priest3.BackColor = Color.Transparent
         Priest3.BackgroundImage = CType(resources.GetObject("Priest3.BackgroundImage"), Image)
         Priest3.BackgroundImageLayout = ImageLayout.Stretch
-        Priest3.Location = New Point(843, 255)
+        Priest3.Location = New Point(819, 281)
         Priest3.Name = "Priest3"
         Priest3.Size = New Size(46, 92)
         Priest3.TabIndex = 21
         Priest3.TabStop = False
+        ' 
+        ' Button1
+        ' 
+        Button1.BackColor = Color.Transparent
+        Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), Image)
+        Button1.BackgroundImageLayout = ImageLayout.Stretch
+        Button1.FlatAppearance.BorderSize = 0
+        Button1.FlatAppearance.MouseDownBackColor = Color.Transparent
+        Button1.FlatAppearance.MouseOverBackColor = Color.Transparent
+        Button1.FlatStyle = FlatStyle.Flat
+        Button1.Font = New Font("p5hatty", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button1.ForeColor = Color.Transparent
+        Button1.Location = New Point(12, 9)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(83, 33)
+        Button1.TabIndex = 23
+        Button1.UseVisualStyleBackColor = False
         ' 
         ' Level1
         ' 
@@ -151,38 +168,38 @@ Partial Class Level1
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(1064, 559)
+        Controls.Add(Button1)
         Controls.Add(Priest3)
         Controls.Add(Devil3)
         Controls.Add(Devil2)
         Controls.Add(Devil1)
-        Controls.Add(PictureBox23)
         Controls.Add(Label1)
         Controls.Add(btnMoveBoat)
         Controls.Add(Boat)
         Controls.Add(Priest1)
         Controls.Add(Priest2)
+        FormBorderStyle = FormBorderStyle.None
         Name = "Level1"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Level1"
         CType(Priest1, ComponentModel.ISupportInitialize).EndInit()
         CType(Boat, ComponentModel.ISupportInitialize).EndInit()
-        CType(PictureBox23, ComponentModel.ISupportInitialize).EndInit()
         CType(Devil1, ComponentModel.ISupportInitialize).EndInit()
         CType(Devil2, ComponentModel.ISupportInitialize).EndInit()
         CType(Devil3, ComponentModel.ISupportInitialize).EndInit()
         CType(Priest2, ComponentModel.ISupportInitialize).EndInit()
         CType(Priest3, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
-        PerformLayout()
     End Sub
 
     Friend WithEvents Priest1 As PictureBox
     Friend WithEvents Boat As PictureBox
     Friend WithEvents btnMoveBoat As Button
     Friend WithEvents Label1 As Label
-    Friend WithEvents PictureBox23 As PictureBox
     Friend WithEvents Devil1 As PictureBox
     Friend WithEvents Devil2 As PictureBox
     Friend WithEvents Devil3 As PictureBox
     Friend WithEvents Priest2 As PictureBox
     Friend WithEvents Priest3 As PictureBox
+    Friend WithEvents Button1 As Button
 End Class
