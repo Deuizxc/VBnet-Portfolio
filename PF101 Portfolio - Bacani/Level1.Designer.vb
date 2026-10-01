@@ -57,7 +57,7 @@ Partial Class Level1
         ' Boat
         ' 
         Boat.BackColor = Color.SaddleBrown
-        Boat.Location = New Point(557, 337)
+        Boat.Location = New Point(519, 377)
         Boat.Name = "Boat"
         Boat.Size = New Size(142, 50)
         Boat.TabIndex = 6

@@ -27,28 +27,21 @@
     Private boatTargetX As Integer
     Private boatMoveSpeed As Integer = 10
 
-    ' Pre-loaded image arrays for smooth animation
-    Private rFrames(8) As Image ' Priest Right (JR)
-    Private lFrames(8) As Image ' Priest Left (JL)
-    Private rDFrames(8) As Image ' Devil Right (DR)
-    Private lDFrames(8) As Image ' Devil Left (DL)
+    Private rFrames(8) As Image
+    Private lFrames(8) As Image
+    Private rDFrames(8) As Image
+    Private lDFrames(8) As Image
 
     Private Sub LoadAllFrames()
         For i As Integer = 1 To 8
             ' Load Priests
-            rFrames(i) = LoadAsset("rJ" & i & ".png")
-            If rFrames(i) Is Nothing Then rFrames(i) = LoadAsset("JR" & i & ".png")
-
-            lFrames(i) = LoadAsset("lj" & i & ".png")
-            If lFrames(i) Is Nothing Then lFrames(i) = LoadAsset("JL" & i & ".png")
+            rFrames(i) = LoadAsset("JR" & i & ".png")
+            lFrames(i) = LoadAsset("JL" & i & ".png")
             If lFrames(i) Is Nothing Then lFrames(i) = rFrames(i)
 
             ' Load Devils
-            rDFrames(i) = LoadAsset("rD" & i & ".png")
-            If rDFrames(i) Is Nothing Then rDFrames(i) = LoadAsset("DR" & i & ".png")
-
-            lDFrames(i) = LoadAsset("lD" & i & ".png")
-            If lDFrames(i) Is Nothing Then lDFrames(i) = LoadAsset("DL" & i & ".png")
+            rDFrames(i) = LoadAsset("DR" & i & ".png")
+            lDFrames(i) = LoadAsset("DL" & i & ".png")
             If lDFrames(i) Is Nothing Then lDFrames(i) = rDFrames(i)
         Next
     End Sub
@@ -66,14 +59,13 @@
         Return Nothing
     End Function
 
-    ' Helper to instantly set a character to their correct standing frame based on their shore
-    Private Sub SetIdleFrame(pb As PictureBox)
-        Dim isLeft As Boolean = (pb.Tag.ToString() = "Left" OrElse (pb.Tag.ToString().StartsWith("Boat") AndAlso boatLocation = "Left"))
-
-        If pb.Name.StartsWith("Devil") Then
-            pb.Image = If(isLeft, lDFrames(1), rDFrames(1))
+    ' Idle frames: DR1/JR1 on the Right, DL1/JL1 on the Left
+    Private Sub SetIdleFrame(c As PictureBox)
+        Dim isLeft As Boolean = (c.Tag.ToString() = "Left" OrElse (c.Tag.ToString().StartsWith("Boat") AndAlso boatLocation = "Left"))
+        If c.Name.StartsWith("Devil") Then
+            c.Image = If(isLeft, lDFrames(1), rDFrames(1))
         Else
-            pb.Image = If(isLeft, lFrames(1), rFrames(1))
+            c.Image = If(isLeft, lFrames(1), rFrames(1))
         End If
     End Sub
 
@@ -100,14 +92,13 @@
         leftShorePositions(Devil2) = New Point(58, 264)
         leftShorePositions(Devil3) = New Point(6, 264)
 
-        ' Load all frames into memory immediately on startup
         LoadAllFrames()
 
         Dim allCharacters = {Priest1, Priest2, Priest3, Devil1, Devil2, Devil3}
         For Each character In allCharacters
             character.Tag = "Right"
             character.Location = rightShorePositions(character)
-            SetIdleFrame(character) ' Sets to JR1 / DR1
+            SetIdleFrame(character)
         Next
     End Sub
 
@@ -122,7 +113,10 @@
         End If
     End Sub
 
-
+    Private Sub PictureBox23_Click(sender As Object, e As EventArgs) Handles PictureBox23.Click
+        countdownTimer.Stop()
+        Me.Hide()
+    End Sub
 
     Private Sub Character_Click(sender As Object, e As EventArgs) Handles Priest1.Click, Priest2.Click, Priest3.Click, Devil1.Click, Devil2.Click, Devil3.Click
         If movingChar IsNot Nothing OrElse isBoatMoving Then Exit Sub
@@ -151,7 +145,6 @@
         Else
             Exit Sub
         End If
-
         StartJumpAnimation(p)
     End Sub
 
@@ -166,7 +159,6 @@
             p.Tag = "Left"
             charTarget = leftShorePositions(p)
         End If
-
         StartJumpAnimation(p)
     End Sub
 
@@ -180,11 +172,9 @@
 
     Private Sub btnMoveBoat_Click(sender As Object, e As EventArgs) Handles btnMoveBoat.Click
         If movingChar IsNot Nothing OrElse isBoatMoving Then Exit Sub
-
         If slot1 Is Nothing AndAlso slot2 Is Nothing Then Exit Sub
 
         isBoatMoving = True
-
         If boatLocation = "Right" Then
             boatTargetX = boatLeftX
             boatLocation = "Left"
@@ -192,7 +182,6 @@
             boatTargetX = boatRightX
             boatLocation = "Right"
         End If
-
         gameTimer.Start()
     End Sub
 
@@ -205,7 +194,6 @@
                 jumpProgress = 1.0
                 movingChar.Location = charTarget
 
-                ' Back to standing image based on shore when the jump ends
                 SetIdleFrame(movingChar)
                 movingChar = Nothing
 
@@ -216,20 +204,19 @@
             Else
                 Dim currentX As Integer = CInt(charStart.X + (charTarget.X - charStart.X) * jumpProgress)
                 Dim currentY As Integer = CInt(charStart.Y + (charTarget.Y - charStart.Y) * jumpProgress)
-
                 Dim arcY As Integer = CInt(-verticalBounceHeight * Math.Sin(jumpProgress * Math.PI))
                 movingChar.Location = New Point(currentX, currentY + arcY)
 
-                ' Fixed Timing: Matches the physical arc curve perfectly
-                Dim frameIndex As Integer = 1
+                Dim frameIndex As Integer
                 If jumpProgress < 0.15 Then
                     frameIndex = 3 ' Crouch/Takeoff
-                ElseIf jumpProgress >= 0.15 AndAlso jumpProgress < 0.3 Then
+                ElseIf jumpProgress < 0.3 Then
                     frameIndex = 4 ' Launching up
-                ElseIf jumpProgress >= 0.3 AndAlso jumpProgress < 0.8 Then
-                    frameIndex = 5 ' Flying Mid-Air
                 Else
-                    frameIndex = 6 ' Landing
+                    ' Stay in the mid-air pose until touchdown. Frame 6 has floor debris
+                    ' baked into the image, so showing it in the air looked like the ground
+                    ' was being carried along. SetIdleFrame takes over on landing.
+                    frameIndex = 5
                 End If
 
                 If movingChar.Name.StartsWith("Devil") Then
@@ -275,8 +262,6 @@
         ' VICTORY
         If leftPriests = 3 AndAlso leftDevils = 3 Then
             countdownTimer.Stop()
-
-            ' Set all characters to Victory Frame (7)
             For Each c In allCharacters
                 Dim isLeft As Boolean = (c.Tag.ToString() = "Left" OrElse (c.Tag.ToString().StartsWith("Boat") AndAlso boatLocation = "Left"))
                 If c.Name.StartsWith("Devil") Then
@@ -284,6 +269,7 @@
                 Else
                     c.Image = If(isLeft, lFrames(7), rFrames(7))
                 End If
+                c.Refresh() ' Force WinForms to draw before the popup
             Next
 
             MessageBox.Show("You Win! Everyone safely crossed the river.", "Victory")
@@ -296,7 +282,7 @@
            (rightPriests > 0 AndAlso rightDevils > rightPriests) Then
             countdownTimer.Stop()
 
-            ' Set ALL characters to Down/Defeat Frame (8) based on their direction
+            ' Set ALL characters to Down/Defeat Frame (8)
             For Each c In allCharacters
                 Dim isLeft As Boolean = (c.Tag.ToString() = "Left" OrElse (c.Tag.ToString().StartsWith("Boat") AndAlso boatLocation = "Left"))
                 If c.Name.StartsWith("Devil") Then
@@ -304,6 +290,7 @@
                 Else
                     c.Image = If(isLeft, lFrames(8), rFrames(8))
                 End If
+                c.Refresh() ' Force the image to render BEFORE the message box halts the program
             Next
 
             MessageBox.Show("Game Over! The Devils outnumbered the Priests.", "Defeat")
@@ -325,7 +312,7 @@
         For Each c In allCharacters
             c.Tag = "Right"
             c.Location = rightShorePositions(c)
-            SetIdleFrame(c) ' Resets everyone to frame 1 facing left toward the river
+            SetIdleFrame(c)
         Next
 
         timeLeft = 60
@@ -333,12 +320,4 @@
         countdownTimer.Start()
     End Sub
 
-    Private Sub PictureBox23_Click(sender As Object, e As EventArgs) Handles PictureBox23.Click
-        countdownTimer.Stop()
-        Me.Hide()
-    End Sub
-
-    Private Sub PictureBox7_Click(sender As Object, e As EventArgs)
-
-    End Sub
 End Class
