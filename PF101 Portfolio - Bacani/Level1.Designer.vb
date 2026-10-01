@@ -57,7 +57,7 @@ Partial Class Level1
         ' Boat
         ' 
         Boat.BackColor = Color.SaddleBrown
-        Boat.Location = New Point(363, 342)
+        Boat.Location = New Point(557, 337)
         Boat.Name = "Boat"
         Boat.Size = New Size(142, 50)
         Boat.TabIndex = 6
@@ -96,7 +96,7 @@ Partial Class Level1
         Devil1.BackgroundImageLayout = ImageLayout.Stretch
         Devil1.Location = New Point(895, 255)
         Devil1.Name = "Devil1"
-        Devil1.Size = New Size(46, 92)
+        Devil1.Size = New Size(58, 92)
         Devil1.TabIndex = 16
         Devil1.TabStop = False
         ' 
@@ -107,7 +107,7 @@ Partial Class Level1
         Devil2.BackgroundImageLayout = ImageLayout.Stretch
         Devil2.Location = New Point(947, 255)
         Devil2.Name = "Devil2"
-        Devil2.Size = New Size(46, 92)
+        Devil2.Size = New Size(58, 92)
         Devil2.TabIndex = 17
         Devil2.TabStop = False
         ' 
@@ -118,7 +118,7 @@ Partial Class Level1
         Devil3.BackgroundImageLayout = ImageLayout.Stretch
         Devil3.Location = New Point(999, 255)
         Devil3.Name = "Devil3"
-        Devil3.Size = New Size(46, 92)
+        Devil3.Size = New Size(58, 92)
         Devil3.TabIndex = 18
         Devil3.TabStop = False
         ' 
