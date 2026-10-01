@@ -126,8 +126,8 @@ Public Class Lessons
     End Sub
 
     Private Sub Button17_Click(sender As Object, e As EventArgs) Handles Button17.Click
-        Level1.Show()
-        Level1.Update()
+        Menu.Show()
+        Menu.Update()
         Hide()
     End Sub
 End Class

@@ -41,8 +41,8 @@
     End Sub
 
     Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
-        Level1.Show()
-        Level1.Update()
+        Menu.Show()
+        Menu.Update()
         Hide()
     End Sub
 End Class
