@@ -113,13 +113,13 @@ Public Class Lessons
             Nothing, FlowLayoutPanel1, New Object() {True})
     End Sub
 
-    Private Sub LessonButton_MouseEnter(sender As Object, e As EventArgs) Handles Button1.MouseEnter, Button2.MouseEnter, Button3.MouseEnter, Button4.MouseEnter, Button5.MouseEnter, Button6.MouseEnter, Button8.MouseEnter, Button9.MouseEnter, Button10.MouseEnter, Button11.MouseEnter, Button12.MouseEnter, Button13.MouseEnter, Button14.MouseEnter
+    Private Sub LessonButton_MouseEnter(sender As Object, e As EventArgs) Handles Button1.MouseEnter, Button2.MouseEnter, Button3.MouseEnter, Button4.MouseEnter, Button5.MouseEnter, Button6.MouseEnter, Button8.MouseEnter, Button9.MouseEnter, Button10.MouseEnter, Button11.MouseEnter, Button12.MouseEnter, Button13.MouseEnter, Button14.MouseEnter, Button15.MouseEnter, Button17.MouseEnter, Button16.MouseEnter
         Dim btn As Button = CType(sender, Button)
         btn.Margin = New Padding(3, 0, 3, 6)
         btn.Cursor = Cursors.Hand
     End Sub
 
-    Private Sub LessonButton_MouseLeave(sender As Object, e As EventArgs) Handles Button1.MouseLeave, Button2.MouseLeave, Button3.MouseLeave, Button4.MouseLeave, Button5.MouseLeave, Button6.MouseLeave, Button8.MouseLeave, Button9.MouseLeave, Button10.MouseLeave, Button11.MouseLeave, Button12.MouseLeave, Button13.MouseLeave, Button14.MouseLeave
+    Private Sub LessonButton_MouseLeave(sender As Object, e As EventArgs) Handles Button1.MouseLeave, Button2.MouseLeave, Button3.MouseLeave, Button4.MouseLeave, Button5.MouseLeave, Button6.MouseLeave, Button8.MouseLeave, Button9.MouseLeave, Button10.MouseLeave, Button11.MouseLeave, Button12.MouseLeave, Button13.MouseLeave, Button14.MouseLeave, Button15.MouseLeave, Button17.MouseLeave, Button16.MouseLeave
         Dim btn As Button = CType(sender, Button)
         btn.Margin = New Padding(3, 3, 3, 3)
         btn.Cursor = Cursors.Default

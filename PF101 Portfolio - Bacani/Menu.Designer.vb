@@ -24,6 +24,9 @@ Partial Class Menu
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Menu))
         Button1 = New Button()
+        Label8 = New Label()
+        Label1 = New Label()
+        Label2 = New Label()
         SuspendLayout()
         ' 
         ' Button1
@@ -43,6 +46,45 @@ Partial Class Menu
         Button1.TabIndex = 14
         Button1.UseVisualStyleBackColor = False
         ' 
+        ' Label8
+        ' 
+        Label8.AutoSize = True
+        Label8.BackColor = Color.Transparent
+        Label8.FlatStyle = FlatStyle.Flat
+        Label8.Font = New Font("Impact", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label8.ForeColor = Color.White
+        Label8.Location = New Point(448, 125)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(45, 19)
+        Label8.TabIndex = 22
+        Label8.Text = "START"
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.BackColor = Color.Transparent
+        Label1.FlatStyle = FlatStyle.Flat
+        Label1.Font = New Font("Impact", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label1.ForeColor = Color.White
+        Label1.Location = New Point(596, 267)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(45, 19)
+        Label1.TabIndex = 23
+        Label1.Text = "START"
+        ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.BackColor = Color.Transparent
+        Label2.FlatStyle = FlatStyle.Flat
+        Label2.Font = New Font("Impact", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label2.ForeColor = Color.White
+        Label2.Location = New Point(675, 409)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(45, 19)
+        Label2.TabIndex = 24
+        Label2.Text = "START"
+        ' 
         ' Menu
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -50,13 +92,20 @@ Partial Class Menu
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(800, 450)
+        Controls.Add(Label2)
+        Controls.Add(Label1)
+        Controls.Add(Label8)
         Controls.Add(Button1)
         FormBorderStyle = FormBorderStyle.None
         Name = "Menu"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Menu"
         ResumeLayout(False)
+        PerformLayout()
     End Sub
 
     Friend WithEvents Button1 As Button
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
 End Class
