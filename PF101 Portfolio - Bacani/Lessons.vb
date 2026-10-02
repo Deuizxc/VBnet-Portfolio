@@ -102,12 +102,27 @@ Public Class Lessons
         Me.Hide()
     End Sub
 
+    Private Sub FlowLayoutPanel1_Scroll(sender As Object, e As ScrollEventArgs) Handles FlowLayoutPanel1.Scroll
+        FlowLayoutPanel1.Invalidate()
+    End Sub
+
+
+
+
+
+
+
+    ' Forces the panel to redraw when using the mouse wheel
+    Private Sub FlowLayoutPanel1_MouseWheel(sender As Object, e As MouseEventArgs) Handles FlowLayoutPanel1.MouseWheel
+        FlowLayoutPanel1.Invalidate()
+    End Sub
+
     Private Sub Lessons_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        GetType(Control).GetProperty("DoubleBuffered", Reflection.BindingFlags.NonPublic Or Reflection.BindingFlags.Instance).SetValue(FlowLayoutPanel1, True, Nothing)
         Me.DoubleBuffered = True
         Me.SetStyle(ControlStyles.AllPaintingInWmPaint Or ControlStyles.UserPaint Or ControlStyles.OptimizedDoubleBuffer, True)
         Me.UpdateStyles()
         AudioManager.AttachSounds(Me)
-
         GetType(FlowLayoutPanel).InvokeMember("DoubleBuffered",
             Reflection.BindingFlags.NonPublic Or Reflection.BindingFlags.Instance Or Reflection.BindingFlags.SetProperty,
             Nothing, FlowLayoutPanel1, New Object() {True})
