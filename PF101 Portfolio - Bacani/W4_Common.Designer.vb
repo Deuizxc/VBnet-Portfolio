@@ -86,10 +86,10 @@ Partial Class W4_Common
         ' RichTextBox1
         ' 
         RichTextBox1.BorderStyle = BorderStyle.None
-        RichTextBox1.Font = New Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBox1.Location = New Point(167, 33)
+        RichTextBox1.Font = New Font("Franklin Gothic Book", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox1.Location = New Point(152, 61)
         RichTextBox1.Name = "RichTextBox1"
-        RichTextBox1.Size = New Size(222, 347)
+        RichTextBox1.Size = New Size(259, 350)
         RichTextBox1.TabIndex = 32
         RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
         ' 
@@ -97,7 +97,7 @@ Partial Class W4_Common
         ' 
         txtDemo.BackColor = Color.Black
         txtDemo.ForeColor = Color.White
-        txtDemo.Location = New Point(450, 85)
+        txtDemo.Location = New Point(484, 121)
         txtDemo.Name = "txtDemo"
         txtDemo.Size = New Size(201, 23)
         txtDemo.TabIndex = 33
@@ -108,7 +108,7 @@ Partial Class W4_Common
         CheckBox1.BackColor = SystemColors.ActiveCaptionText
         CheckBox1.Font = New Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         CheckBox1.ForeColor = Color.White
-        CheckBox1.Location = New Point(450, 186)
+        CheckBox1.Location = New Point(495, 213)
         CheckBox1.Name = "CheckBox1"
         CheckBox1.Size = New Size(126, 21)
         CheckBox1.TabIndex = 34
@@ -121,7 +121,7 @@ Partial Class W4_Common
         RadioButton1.BackColor = Color.Black
         RadioButton1.Font = New Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         RadioButton1.ForeColor = Color.White
-        RadioButton1.Location = New Point(450, 134)
+        RadioButton1.Location = New Point(495, 161)
         RadioButton1.Name = "RadioButton1"
         RadioButton1.Size = New Size(74, 20)
         RadioButton1.TabIndex = 35
@@ -135,7 +135,7 @@ Partial Class W4_Common
         RadioButton2.BackColor = Color.Black
         RadioButton2.Font = New Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         RadioButton2.ForeColor = Color.White
-        RadioButton2.Location = New Point(450, 160)
+        RadioButton2.Location = New Point(495, 187)
         RadioButton2.Name = "RadioButton2"
         RadioButton2.Size = New Size(51, 20)
         RadioButton2.TabIndex = 36
@@ -146,7 +146,7 @@ Partial Class W4_Common
         ' ProgressBar1
         ' 
         ProgressBar1.BackColor = Color.Black
-        ProgressBar1.Location = New Point(450, 306)
+        ProgressBar1.Location = New Point(484, 300)
         ProgressBar1.Name = "ProgressBar1"
         ProgressBar1.Size = New Size(201, 23)
         ProgressBar1.TabIndex = 37
@@ -158,7 +158,7 @@ Partial Class W4_Common
         Button2.FlatStyle = FlatStyle.Flat
         Button2.Font = New Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button2.ForeColor = Color.White
-        Button2.Location = New Point(475, 236)
+        Button2.Location = New Point(513, 257)
         Button2.Name = "Button2"
         Button2.Size = New Size(140, 26)
         Button2.TabIndex = 38
@@ -170,9 +170,9 @@ Partial Class W4_Common
         lblStatus.BackColor = Color.Black
         lblStatus.Font = New Font("Arial Narrow", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         lblStatus.ForeColor = Color.White
-        lblStatus.Location = New Point(446, 44)
+        lblStatus.Location = New Point(456, 74)
         lblStatus.Name = "lblStatus"
-        lblStatus.Size = New Size(216, 20)
+        lblStatus.Size = New Size(262, 28)
         lblStatus.TabIndex = 39
         lblStatus.Text = "Input your name:"
         lblStatus.TextAlign = ContentAlignment.MiddleCenter

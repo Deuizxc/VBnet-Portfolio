@@ -70,38 +70,38 @@ Partial Class W4_Layout
         ' RichTextBox1
         ' 
         RichTextBox1.BorderStyle = BorderStyle.None
-        RichTextBox1.Font = New Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBox1.Location = New Point(154, 36)
+        RichTextBox1.Font = New Font("Franklin Gothic Book", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox1.Location = New Point(156, 84)
         RichTextBox1.Name = "RichTextBox1"
-        RichTextBox1.Size = New Size(236, 355)
+        RichTextBox1.Size = New Size(280, 318)
         RichTextBox1.TabIndex = 33
         RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
         ' 
         ' TextBox1
         ' 
-        TextBox1.Location = New Point(507, 84)
+        TextBox1.Location = New Point(556, 84)
         TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(100, 23)
+        TextBox1.Size = New Size(106, 23)
         TextBox1.TabIndex = 0
         ' 
         ' TextBox2
         ' 
-        TextBox2.Location = New Point(507, 113)
+        TextBox2.Location = New Point(556, 113)
         TextBox2.Name = "TextBox2"
-        TextBox2.Size = New Size(100, 23)
+        TextBox2.Size = New Size(106, 23)
         TextBox2.TabIndex = 1
         ' 
         ' TextBox3
         ' 
-        TextBox3.Location = New Point(507, 142)
+        TextBox3.Location = New Point(556, 142)
         TextBox3.Name = "TextBox3"
-        TextBox3.Size = New Size(100, 23)
+        TextBox3.Size = New Size(106, 23)
         TextBox3.TabIndex = 2
         ' 
         ' testbox
         ' 
         testbox.BackColor = Color.Cyan
-        testbox.Location = New Point(507, 209)
+        testbox.Location = New Point(562, 200)
         testbox.Name = "testbox"
         testbox.Size = New Size(100, 30)
         testbox.TabIndex = 34
@@ -111,7 +111,7 @@ Partial Class W4_Layout
         lblLayoutStatus.BackColor = Color.Transparent
         lblLayoutStatus.Font = New Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblLayoutStatus.ForeColor = Color.White
-        lblLayoutStatus.Location = New Point(445, 272)
+        lblLayoutStatus.Location = New Point(491, 249)
         lblLayoutStatus.Name = "lblLayoutStatus"
         lblLayoutStatus.Size = New Size(227, 18)
         lblLayoutStatus.TabIndex = 35
@@ -120,15 +120,19 @@ Partial Class W4_Layout
         ' 
         ' btnToggleLayout
         ' 
-        btnToggleLayout.BackColor = SystemColors.ActiveCaptionText
+        btnToggleLayout.BackColor = Color.Transparent
+        btnToggleLayout.BackgroundImage = CType(resources.GetObject("btnToggleLayout.BackgroundImage"), Image)
+        btnToggleLayout.BackgroundImageLayout = ImageLayout.Stretch
+        btnToggleLayout.FlatAppearance.BorderSize = 0
+        btnToggleLayout.FlatAppearance.MouseDownBackColor = Color.Transparent
+        btnToggleLayout.FlatAppearance.MouseOverBackColor = Color.Transparent
         btnToggleLayout.FlatStyle = FlatStyle.Flat
         btnToggleLayout.Font = New Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnToggleLayout.ForeColor = Color.White
-        btnToggleLayout.Location = New Point(494, 316)
+        btnToggleLayout.Location = New Point(556, 284)
         btnToggleLayout.Name = "btnToggleLayout"
-        btnToggleLayout.Size = New Size(128, 42)
+        btnToggleLayout.Size = New Size(106, 37)
         btnToggleLayout.TabIndex = 36
-        btnToggleLayout.Text = "Toggle Dock/Anchor"
         btnToggleLayout.UseVisualStyleBackColor = False
         ' 
         ' Label1
@@ -136,7 +140,7 @@ Partial Class W4_Layout
         Label1.BackColor = Color.Transparent
         Label1.Font = New Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.ForeColor = Color.White
-        Label1.Location = New Point(482, 50)
+        Label1.Location = New Point(531, 52)
         Label1.Name = "Label1"
         Label1.Size = New Size(151, 18)
         Label1.TabIndex = 37

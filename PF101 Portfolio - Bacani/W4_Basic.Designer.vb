@@ -65,10 +65,10 @@ Partial Class W4_Basic
         ' RichTextBox1
         ' 
         RichTextBox1.BorderStyle = BorderStyle.None
-        RichTextBox1.Font = New Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBox1.Location = New Point(134, 37)
+        RichTextBox1.Font = New Font("Franklin Gothic Book", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox1.Location = New Point(132, 109)
         RichTextBox1.Name = "RichTextBox1"
-        RichTextBox1.Size = New Size(254, 329)
+        RichTextBox1.Size = New Size(309, 227)
         RichTextBox1.TabIndex = 31
         RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
         ' 
@@ -78,22 +78,27 @@ Partial Class W4_Basic
         RichTextBox2.BorderStyle = BorderStyle.None
         RichTextBox2.Font = New Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         RichTextBox2.ForeColor = Color.White
-        RichTextBox2.Location = New Point(405, 82)
+        RichTextBox2.Location = New Point(488, 71)
         RichTextBox2.Name = "RichTextBox2"
-        RichTextBox2.Size = New Size(281, 222)
+        RichTextBox2.ScrollBars = RichTextBoxScrollBars.None
+        RichTextBox2.Size = New Size(281, 204)
         RichTextBox2.TabIndex = 32
         RichTextBox2.Text = "Public Class Form1" & vbLf & "    Private Sub Button2_Click(...) Handles Button1.Click" & vbLf & vbLf & "        MessageBox.Show(""Sir, it's finished"")" & vbLf & vbLf & "    End Sub" & vbLf & "End Class" & vbLf & vbLf
         ' 
         ' Button2
         ' 
         Button2.BackColor = Color.Black
+        Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), Image)
+        Button2.BackgroundImageLayout = ImageLayout.Stretch
+        Button2.FlatAppearance.BorderSize = 0
+        Button2.FlatAppearance.MouseDownBackColor = Color.Transparent
+        Button2.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button2.FlatStyle = FlatStyle.Flat
         Button2.ForeColor = Color.Red
-        Button2.Location = New Point(483, 281)
+        Button2.Location = New Point(679, 244)
         Button2.Name = "Button2"
-        Button2.Size = New Size(123, 23)
+        Button2.Size = New Size(90, 31)
         Button2.TabIndex = 33
-        Button2.Text = "TEST METHOD"
         Button2.UseVisualStyleBackColor = False
         ' 
         ' W4_Basic

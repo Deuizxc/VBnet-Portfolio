@@ -81,12 +81,12 @@ Partial Class W4_Form
         ' RichTextBox1
         ' 
         RichTextBox1.BorderStyle = BorderStyle.None
-        RichTextBox1.Font = New Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBox1.Location = New Point(134, 40)
+        RichTextBox1.Font = New Font("Franklin Gothic Book", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox1.Location = New Point(211, 71)
         RichTextBox1.Name = "RichTextBox1"
-        RichTextBox1.Size = New Size(286, 164)
+        RichTextBox1.Size = New Size(325, 209)
         RichTextBox1.TabIndex = 32
-        RichTextBox1.Text = "Text: Sets the caption title." & vbLf & vbLf & "BackColor: Sets the background color.   " & vbLf & vbLf & "BackgroundImage: Sets a picture background.   " & vbLf & vbLf & "Opacity: Controls transparency."
+        RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
         ' 
         ' RichTextBox2
         ' 
@@ -94,7 +94,7 @@ Partial Class W4_Form
         RichTextBox2.BorderStyle = BorderStyle.None
         RichTextBox2.Font = New Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         RichTextBox2.ForeColor = Color.White
-        RichTextBox2.Location = New Point(490, 31)
+        RichTextBox2.Location = New Point(547, 40)
         RichTextBox2.Name = "RichTextBox2"
         RichTextBox2.Size = New Size(211, 264)
         RichTextBox2.TabIndex = 33
@@ -106,11 +106,11 @@ Partial Class W4_Form
         Label1.BackColor = Color.Transparent
         Label1.Font = New Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Label1.ForeColor = Color.White
-        Label1.Location = New Point(308, 371)
+        Label1.Location = New Point(272, 377)
         Label1.Name = "Label1"
-        Label1.Size = New Size(288, 36)
+        Label1.Size = New Size(264, 36)
         Label1.TabIndex = 34
-        Label1.Text = "The Form itself is an object. Use its properties to " & vbCrLf & "customize its look and behavior!"
+        Label1.Text = "For real, the Form is an object too! Tweak its " & vbCrLf & "properties and make it look awesome!"
         ' 
         ' W4_Form
         ' 
