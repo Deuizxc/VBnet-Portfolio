@@ -78,10 +78,10 @@ Partial Class W5_Operator
         ' RichTextBox1
         ' 
         RichTextBox1.BorderStyle = BorderStyle.None
-        RichTextBox1.Font = New Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBox1.Location = New Point(123, 38)
+        RichTextBox1.Font = New Font("Franklin Gothic Book", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox1.Location = New Point(120, 75)
         RichTextBox1.Name = "RichTextBox1"
-        RichTextBox1.Size = New Size(234, 350)
+        RichTextBox1.Size = New Size(234, 326)
         RichTextBox1.TabIndex = 30
         RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
         ' 
@@ -95,13 +95,18 @@ Partial Class W5_Operator
         ' btnCalcDivision
         ' 
         btnCalcDivision.BackColor = Color.Black
+        btnCalcDivision.BackgroundImage = CType(resources.GetObject("btnCalcDivision.BackgroundImage"), Image)
+        btnCalcDivision.BackgroundImageLayout = ImageLayout.Stretch
+        btnCalcDivision.FlatAppearance.BorderSize = 0
+        btnCalcDivision.FlatAppearance.MouseDownBackColor = Color.Transparent
+        btnCalcDivision.FlatAppearance.MouseOverBackColor = Color.Transparent
+        btnCalcDivision.FlatStyle = FlatStyle.Flat
         btnCalcDivision.Font = New Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnCalcDivision.ForeColor = Color.WhiteSmoke
-        btnCalcDivision.Location = New Point(401, 333)
+        btnCalcDivision.Location = New Point(415, 324)
         btnCalcDivision.Name = "btnCalcDivision"
-        btnCalcDivision.Size = New Size(121, 30)
+        btnCalcDivision.Size = New Size(92, 39)
         btnCalcDivision.TabIndex = 32
-        btnCalcDivision.Text = "Calculate"
         btnCalcDivision.UseVisualStyleBackColor = False
         ' 
         ' lblNormalDiv

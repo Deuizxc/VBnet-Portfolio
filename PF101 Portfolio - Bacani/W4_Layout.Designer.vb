@@ -79,31 +79,31 @@ Partial Class W4_Layout
         ' 
         ' TextBox1
         ' 
-        TextBox1.Location = New Point(556, 84)
+        TextBox1.Location = New Point(549, 84)
         TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(106, 23)
+        TextBox1.Size = New Size(113, 23)
         TextBox1.TabIndex = 0
         ' 
         ' TextBox2
         ' 
-        TextBox2.Location = New Point(556, 113)
+        TextBox2.Location = New Point(549, 113)
         TextBox2.Name = "TextBox2"
-        TextBox2.Size = New Size(106, 23)
+        TextBox2.Size = New Size(113, 23)
         TextBox2.TabIndex = 1
         ' 
         ' TextBox3
         ' 
-        TextBox3.Location = New Point(556, 142)
+        TextBox3.Location = New Point(549, 142)
         TextBox3.Name = "TextBox3"
-        TextBox3.Size = New Size(106, 23)
+        TextBox3.Size = New Size(113, 23)
         TextBox3.TabIndex = 2
         ' 
         ' testbox
         ' 
         testbox.BackColor = Color.Cyan
-        testbox.Location = New Point(562, 200)
+        testbox.Location = New Point(549, 200)
         testbox.Name = "testbox"
-        testbox.Size = New Size(100, 30)
+        testbox.Size = New Size(113, 30)
         testbox.TabIndex = 34
         ' 
         ' lblLayoutStatus
@@ -111,7 +111,7 @@ Partial Class W4_Layout
         lblLayoutStatus.BackColor = Color.Transparent
         lblLayoutStatus.Font = New Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblLayoutStatus.ForeColor = Color.White
-        lblLayoutStatus.Location = New Point(491, 249)
+        lblLayoutStatus.Location = New Point(489, 248)
         lblLayoutStatus.Name = "lblLayoutStatus"
         lblLayoutStatus.Size = New Size(227, 18)
         lblLayoutStatus.TabIndex = 35
@@ -129,9 +129,9 @@ Partial Class W4_Layout
         btnToggleLayout.FlatStyle = FlatStyle.Flat
         btnToggleLayout.Font = New Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnToggleLayout.ForeColor = Color.White
-        btnToggleLayout.Location = New Point(556, 284)
+        btnToggleLayout.Location = New Point(549, 284)
         btnToggleLayout.Name = "btnToggleLayout"
-        btnToggleLayout.Size = New Size(106, 37)
+        btnToggleLayout.Size = New Size(113, 37)
         btnToggleLayout.TabIndex = 36
         btnToggleLayout.UseVisualStyleBackColor = False
         ' 

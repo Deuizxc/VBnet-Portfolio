@@ -82,23 +82,23 @@ Partial Class W5_Variable
         ' 
         RichTextBox2.BackColor = Color.Black
         RichTextBox2.BorderStyle = BorderStyle.None
-        RichTextBox2.Font = New Font("Trebuchet MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox2.Font = New Font("Franklin Gothic Book", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         RichTextBox2.ForeColor = Color.White
-        RichTextBox2.Location = New Point(493, 19)
+        RichTextBox2.Location = New Point(468, 29)
         RichTextBox2.Name = "RichTextBox2"
         RichTextBox2.ScrollBars = RichTextBoxScrollBars.Vertical
         RichTextBox2.ShortcutsEnabled = False
-        RichTextBox2.Size = New Size(273, 263)
+        RichTextBox2.Size = New Size(284, 253)
         RichTextBox2.TabIndex = 35
         RichTextBox2.Text = resources.GetString("RichTextBox2.Text")
         ' 
         ' RichTextBox1
         ' 
         RichTextBox1.BorderStyle = BorderStyle.None
-        RichTextBox1.Font = New Font("Trebuchet MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBox1.Location = New Point(177, 28)
+        RichTextBox1.Font = New Font("Franklin Gothic Book", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox1.Location = New Point(175, 57)
         RichTextBox1.Name = "RichTextBox1"
-        RichTextBox1.Size = New Size(272, 239)
+        RichTextBox1.Size = New Size(265, 225)
         RichTextBox1.TabIndex = 36
         RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
         ' 

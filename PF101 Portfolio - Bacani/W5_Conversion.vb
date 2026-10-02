@@ -36,13 +36,13 @@ Public Class W5_Conversion
         If String.IsNullOrWhiteSpace(txtInputNumber.Text) Then Exit Sub
 
         Dim rawDecimal As Decimal = Decimal.Parse(txtInputNumber.Text)
-        lblParsed.Text = "Parsed (Decimal): " & rawDecimal.ToString("F2")
+        lblParsed.Text = "// Parsed (Decimal): " & rawDecimal.ToString("F2")
 
         Dim roundedInt As Integer = Convert.ToInt32(rawDecimal)
-        lblIntConverted.Text = "Convert.ToInt32: " & roundedInt.ToString() & " (Rounded)"
+        lblIntConverted.Text = "// Convert.ToInt32: " & roundedInt.ToString() & " (Rounded)"
 
         Dim widenedDouble As Double = roundedInt
-        lblDoubleImplicit.Text = "Implicit (Double): " & widenedDouble.ToString("F1")
+        lblDoubleImplicit.Text = "// Implicit (Double): " & widenedDouble.ToString("F1")
     End Sub
     Private Sub btnConverTest_MouseEnter(sender As Object, e As EventArgs) Handles btnConvertTest.MouseEnter
         btnConvertTest.Top -= 3

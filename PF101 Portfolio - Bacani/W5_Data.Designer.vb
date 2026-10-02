@@ -68,7 +68,7 @@ Partial Class W5_Data
         Label1.BackColor = Color.Transparent
         Label1.Font = New Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Label1.ForeColor = Color.White
-        Label1.Location = New Point(195, 371)
+        Label1.Location = New Point(200, 372)
         Label1.Name = "Label1"
         Label1.Size = New Size(378, 36)
         Label1.TabIndex = 27
@@ -77,11 +77,11 @@ Partial Class W5_Data
         ' RichTextBox1
         ' 
         RichTextBox1.BorderStyle = BorderStyle.None
-        RichTextBox1.Font = New Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBox1.Location = New Point(175, 17)
+        RichTextBox1.Font = New Font("Franklin Gothic Book", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox1.Location = New Point(174, 55)
         RichTextBox1.Name = "RichTextBox1"
         RichTextBox1.ScrollBars = RichTextBoxScrollBars.None
-        RichTextBox1.Size = New Size(276, 263)
+        RichTextBox1.Size = New Size(266, 236)
         RichTextBox1.TabIndex = 28
         RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
         ' 
@@ -89,11 +89,11 @@ Partial Class W5_Data
         ' 
         RichTextBox2.BackColor = Color.Black
         RichTextBox2.BorderStyle = BorderStyle.None
-        RichTextBox2.Font = New Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox2.Font = New Font("Franklin Gothic Book", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         RichTextBox2.ForeColor = Color.White
-        RichTextBox2.Location = New Point(492, 17)
+        RichTextBox2.Location = New Point(468, 28)
         RichTextBox2.Name = "RichTextBox2"
-        RichTextBox2.Size = New Size(273, 263)
+        RichTextBox2.Size = New Size(284, 263)
         RichTextBox2.TabIndex = 34
         RichTextBox2.Text = resources.GetString("RichTextBox2.Text")
         ' 

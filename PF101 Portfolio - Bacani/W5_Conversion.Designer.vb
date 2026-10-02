@@ -85,32 +85,36 @@ Partial Class W5_Conversion
         ' RichTextBox1
         ' 
         RichTextBox1.BorderStyle = BorderStyle.None
-        RichTextBox1.Font = New Font("Trebuchet MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBox1.Location = New Point(113, 39)
+        RichTextBox1.Font = New Font("Franklin Gothic Book", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox1.Location = New Point(128, 66)
         RichTextBox1.Name = "RichTextBox1"
-        RichTextBox1.Size = New Size(284, 350)
+        RichTextBox1.Size = New Size(284, 303)
         RichTextBox1.TabIndex = 29
         RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
         ' 
         ' txtInputNumber
         ' 
         txtInputNumber.BackColor = Color.White
-        txtInputNumber.Location = New Point(496, 85)
+        txtInputNumber.Location = New Point(469, 80)
         txtInputNumber.Name = "txtInputNumber"
-        txtInputNumber.Size = New Size(124, 23)
+        txtInputNumber.Size = New Size(252, 23)
         txtInputNumber.TabIndex = 30
         ' 
         ' btnConvertTest
         ' 
-        btnConvertTest.BackColor = Color.Black
+        btnConvertTest.BackColor = Color.Transparent
+        btnConvertTest.BackgroundImage = CType(resources.GetObject("btnConvertTest.BackgroundImage"), Image)
+        btnConvertTest.BackgroundImageLayout = ImageLayout.Stretch
+        btnConvertTest.FlatAppearance.BorderSize = 0
+        btnConvertTest.FlatAppearance.MouseDownBackColor = Color.Transparent
+        btnConvertTest.FlatAppearance.MouseOverBackColor = Color.Transparent
         btnConvertTest.FlatStyle = FlatStyle.Flat
         btnConvertTest.Font = New Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnConvertTest.ForeColor = Color.White
-        btnConvertTest.Location = New Point(519, 124)
+        btnConvertTest.Location = New Point(548, 118)
         btnConvertTest.Name = "btnConvertTest"
-        btnConvertTest.Size = New Size(75, 23)
+        btnConvertTest.Size = New Size(83, 29)
         btnConvertTest.TabIndex = 31
-        btnConvertTest.Text = "Convert"
         btnConvertTest.UseVisualStyleBackColor = False
         ' 
         ' lblParsed
@@ -119,11 +123,11 @@ Partial Class W5_Conversion
         lblParsed.BackColor = Color.Black
         lblParsed.Font = New Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblParsed.ForeColor = Color.White
-        lblParsed.Location = New Point(429, 179)
+        lblParsed.Location = New Point(470, 182)
         lblParsed.Name = "lblParsed"
-        lblParsed.Size = New Size(141, 18)
+        lblParsed.Size = New Size(153, 18)
         lblParsed.TabIndex = 32
-        lblParsed.Text = "Parsed (Decimal): -"
+        lblParsed.Text = "// Parsed (Decimal): -"
         ' 
         ' lblIntConverted
         ' 
@@ -131,11 +135,11 @@ Partial Class W5_Conversion
         lblIntConverted.BackColor = Color.Black
         lblIntConverted.Font = New Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblIntConverted.ForeColor = Color.White
-        lblIntConverted.Location = New Point(429, 219)
+        lblIntConverted.Location = New Point(470, 220)
         lblIntConverted.Name = "lblIntConverted"
-        lblIntConverted.Size = New Size(135, 18)
+        lblIntConverted.Size = New Size(147, 18)
         lblIntConverted.TabIndex = 33
-        lblIntConverted.Text = "Convert.ToInt32: -"
+        lblIntConverted.Text = "// Convert.ToInt32: -"
         ' 
         ' lblDoubleImplicit
         ' 
@@ -143,11 +147,11 @@ Partial Class W5_Conversion
         lblDoubleImplicit.BackColor = Color.Black
         lblDoubleImplicit.Font = New Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblDoubleImplicit.ForeColor = Color.White
-        lblDoubleImplicit.Location = New Point(429, 257)
+        lblDoubleImplicit.Location = New Point(469, 260)
         lblDoubleImplicit.Name = "lblDoubleImplicit"
-        lblDoubleImplicit.Size = New Size(136, 18)
+        lblDoubleImplicit.Size = New Size(148, 18)
         lblDoubleImplicit.TabIndex = 34
-        lblDoubleImplicit.Text = "Implicit (Double): -"
+        lblDoubleImplicit.Text = "// Implicit (Double): -"
         ' 
         ' Label1
         ' 
@@ -155,11 +159,11 @@ Partial Class W5_Conversion
         Label1.BackColor = Color.Black
         Label1.Font = New Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.ForeColor = Color.White
-        Label1.Location = New Point(496, 52)
+        Label1.Location = New Point(469, 45)
         Label1.Name = "Label1"
-        Label1.Size = New Size(124, 19)
+        Label1.Size = New Size(183, 19)
         Label1.TabIndex = 35
-        Label1.Text = "Input a decimal"
+        Label1.Text = "Enter a decimal value //"
         ' 
         ' W5_Conversion
         ' 

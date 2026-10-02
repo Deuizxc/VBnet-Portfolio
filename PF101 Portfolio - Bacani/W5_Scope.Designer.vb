@@ -26,9 +26,9 @@ Partial Class W5_Scope
         Button1 = New Button()
         Button7 = New Button()
         Button6 = New Button()
-        RichTextBox1 = New RichTextBox()
         RichTextBox2 = New RichTextBox()
         RichTextBox3 = New RichTextBox()
+        RichTextBox1 = New RichTextBox()
         SuspendLayout()
         ' 
         ' Button1
@@ -78,40 +78,42 @@ Partial Class W5_Scope
         Button6.TabIndex = 24
         Button6.UseVisualStyleBackColor = False
         ' 
-        ' RichTextBox1
-        ' 
-        RichTextBox1.BackColor = Color.Black
-        RichTextBox1.BorderStyle = BorderStyle.None
-        RichTextBox1.Font = New Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBox1.ForeColor = Color.White
-        RichTextBox1.Location = New Point(135, 31)
-        RichTextBox1.Name = "RichTextBox1"
-        RichTextBox1.ScrollBars = RichTextBoxScrollBars.None
-        RichTextBox1.Size = New Size(310, 74)
-        RichTextBox1.TabIndex = 37
-        RichTextBox1.Text = "VARIABLE SCOPE & LIFETIME " & vbLf & "Determines where a variable is accessible and how long it remains allocated in memory."
-        ' 
         ' RichTextBox2
         ' 
+        RichTextBox2.BackColor = Color.Black
         RichTextBox2.BorderStyle = BorderStyle.None
-        RichTextBox2.Font = New Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBox2.Location = New Point(387, 136)
+        RichTextBox2.Font = New Font("Franklin Gothic Book", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox2.ForeColor = Color.White
+        RichTextBox2.Location = New Point(380, 137)
         RichTextBox2.Name = "RichTextBox2"
-        RichTextBox2.Size = New Size(289, 256)
+        RichTextBox2.Size = New Size(300, 288)
         RichTextBox2.TabIndex = 38
         RichTextBox2.Text = resources.GetString("RichTextBox2.Text")
         ' 
         ' RichTextBox3
         ' 
-        RichTextBox3.BackColor = Color.Black
+        RichTextBox3.BackColor = Color.White
         RichTextBox3.BorderStyle = BorderStyle.None
-        RichTextBox3.Font = New Font("Trebuchet MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBox3.ForeColor = Color.White
-        RichTextBox3.Location = New Point(144, 101)
+        RichTextBox3.Font = New Font("Franklin Gothic Book", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox3.ForeColor = Color.Black
+        RichTextBox3.Location = New Point(142, 121)
         RichTextBox3.Name = "RichTextBox3"
-        RichTextBox3.Size = New Size(219, 291)
+        RichTextBox3.Size = New Size(232, 257)
         RichTextBox3.TabIndex = 39
         RichTextBox3.Text = resources.GetString("RichTextBox3.Text")
+        ' 
+        ' RichTextBox1
+        ' 
+        RichTextBox1.BackColor = Color.White
+        RichTextBox1.BorderStyle = BorderStyle.None
+        RichTextBox1.Font = New Font("Franklin Gothic Book", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox1.ForeColor = Color.Black
+        RichTextBox1.Location = New Point(142, 70)
+        RichTextBox1.Name = "RichTextBox1"
+        RichTextBox1.ScrollBars = RichTextBoxScrollBars.None
+        RichTextBox1.Size = New Size(303, 45)
+        RichTextBox1.TabIndex = 37
+        RichTextBox1.Text = "Determines where a variable is accessible and how long its memory persists."
         ' 
         ' W5_Scope
         ' 
@@ -136,7 +138,7 @@ Partial Class W5_Scope
     Friend WithEvents Button1 As Button
     Friend WithEvents Button7 As Button
     Friend WithEvents Button6 As Button
-    Friend WithEvents RichTextBox1 As RichTextBox
     Friend WithEvents RichTextBox2 As RichTextBox
     Friend WithEvents RichTextBox3 As RichTextBox
+    Friend WithEvents RichTextBox1 As RichTextBox
 End Class
