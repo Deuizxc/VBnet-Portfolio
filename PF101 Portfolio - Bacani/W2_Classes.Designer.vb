@@ -27,6 +27,7 @@ Partial Class W2_Classes
         TextBox1 = New TextBox()
         Button2 = New Button()
         RichTextBox1 = New RichTextBox()
+        Label1 = New Label()
         SuspendLayout()
         ' 
         ' Button7
@@ -52,10 +53,10 @@ Partial Class W2_Classes
         TextBox1.BorderStyle = BorderStyle.None
         TextBox1.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         TextBox1.ForeColor = SystemColors.Menu
-        TextBox1.Location = New Point(403, 64)
+        TextBox1.Location = New Point(475, 35)
         TextBox1.Multiline = True
         TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(245, 314)
+        TextBox1.Size = New Size(259, 265)
         TextBox1.TabIndex = 12
         TextBox1.Text = resources.GetString("TextBox1.Text")
         ' 
@@ -77,12 +78,24 @@ Partial Class W2_Classes
         ' RichTextBox1
         ' 
         RichTextBox1.BorderStyle = BorderStyle.None
-        RichTextBox1.Font = New Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBox1.Location = New Point(156, 74)
+        RichTextBox1.Font = New Font("Franklin Gothic Book", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox1.Location = New Point(197, 55)
         RichTextBox1.Name = "RichTextBox1"
-        RichTextBox1.Size = New Size(232, 290)
+        RichTextBox1.Size = New Size(262, 213)
         RichTextBox1.TabIndex = 18
         RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.BackColor = Color.Transparent
+        Label1.Font = New Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label1.ForeColor = Color.White
+        Label1.Location = New Point(197, 377)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(324, 36)
+        Label1.TabIndex = 27
+        Label1.Text = "A Class only defines properties and holds no memory; an " & vbCrLf & "Object is the actual instance holding real data values."
         ' 
         ' W2_Classes
         ' 
@@ -92,6 +105,7 @@ Partial Class W2_Classes
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(800, 450)
+        Controls.Add(Label1)
         Controls.Add(RichTextBox1)
         Controls.Add(Button2)
         Controls.Add(TextBox1)
@@ -109,4 +123,5 @@ Partial Class W2_Classes
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Button2 As Button
     Friend WithEvents RichTextBox1 As RichTextBox
+    Friend WithEvents Label1 As Label
 End Class
