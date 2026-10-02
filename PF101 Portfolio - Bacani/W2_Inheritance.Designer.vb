@@ -24,10 +24,11 @@ Partial Class W2_Inheritance
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(W2_Inheritance))
         Button1 = New Button()
-        TextBox1 = New TextBox()
         Button3 = New Button()
         Button2 = New Button()
         RichTextBox1 = New RichTextBox()
+        TextBox2 = New TextBox()
+        Label1 = New Label()
         SuspendLayout()
         ' 
         ' Button1
@@ -46,17 +47,6 @@ Partial Class W2_Inheritance
         Button1.Size = New Size(83, 33)
         Button1.TabIndex = 13
         Button1.UseVisualStyleBackColor = False
-        ' 
-        ' TextBox1
-        ' 
-        TextBox1.BackColor = SystemColors.InactiveCaptionText
-        TextBox1.ForeColor = SystemColors.ButtonHighlight
-        TextBox1.Location = New Point(402, 71)
-        TextBox1.Multiline = True
-        TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(248, 308)
-        TextBox1.TabIndex = 14
-        TextBox1.Text = resources.GetString("TextBox1.Text")
         ' 
         ' Button3
         ' 
@@ -91,12 +81,37 @@ Partial Class W2_Inheritance
         ' RichTextBox1
         ' 
         RichTextBox1.BorderStyle = BorderStyle.None
-        RichTextBox1.Font = New Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBox1.Location = New Point(150, 71)
+        RichTextBox1.Font = New Font("Franklin Gothic Book", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox1.Location = New Point(180, 70)
         RichTextBox1.Name = "RichTextBox1"
-        RichTextBox1.Size = New Size(236, 296)
+        RichTextBox1.Size = New Size(276, 225)
         RichTextBox1.TabIndex = 24
         RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
+        ' 
+        ' TextBox2
+        ' 
+        TextBox2.BackColor = SystemColors.InfoText
+        TextBox2.BorderStyle = BorderStyle.None
+        TextBox2.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        TextBox2.ForeColor = SystemColors.Menu
+        TextBox2.Location = New Point(487, 43)
+        TextBox2.Multiline = True
+        TextBox2.Name = "TextBox2"
+        TextBox2.Size = New Size(274, 252)
+        TextBox2.TabIndex = 25
+        TextBox2.Text = resources.GetString("TextBox2.Text")
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.BackColor = Color.Transparent
+        Label1.Font = New Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label1.ForeColor = Color.White
+        Label1.Location = New Point(205, 378)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(308, 36)
+        Label1.TabIndex = 28
+        Label1.Text = "Inheritance allows the derived class to reuse existing " & vbCrLf & "base logic without duplicating code."
         ' 
         ' W2_Inheritance
         ' 
@@ -105,10 +120,11 @@ Partial Class W2_Inheritance
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(800, 450)
+        Controls.Add(Label1)
+        Controls.Add(TextBox2)
         Controls.Add(RichTextBox1)
         Controls.Add(Button2)
         Controls.Add(Button3)
-        Controls.Add(TextBox1)
         Controls.Add(Button1)
         FormBorderStyle = FormBorderStyle.None
         Name = "W2_Inheritance"
@@ -119,8 +135,9 @@ Partial Class W2_Inheritance
     End Sub
 
     Friend WithEvents Button1 As Button
-    Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Button3 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents RichTextBox1 As RichTextBox
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents Label1 As Label
 End Class

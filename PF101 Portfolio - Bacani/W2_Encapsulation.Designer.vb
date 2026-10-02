@@ -32,9 +32,9 @@ Partial Class W2_Encapsulation
         Button7 = New Button()
         RichTextBox1 = New RichTextBox()
         Panel1 = New Panel()
-        Button3 = New Button()
         Label2 = New Label()
         Button9 = New Button()
+        Button3 = New Button()
         Panel1.SuspendLayout()
         SuspendLayout()
         ' 
@@ -64,7 +64,7 @@ Partial Class W2_Encapsulation
         Button2.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button2.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button2.FlatStyle = FlatStyle.Flat
-        Button2.Location = New Point(409, 123)
+        Button2.Location = New Point(428, 222)
         Button2.Name = "Button2"
         Button2.Size = New Size(116, 41)
         Button2.TabIndex = 15
@@ -73,17 +73,18 @@ Partial Class W2_Encapsulation
         ' Button4
         ' 
         Button4.BackColor = Color.Transparent
-        Button4.FlatAppearance.BorderSize = 2
+        Button4.BackgroundImage = CType(resources.GetObject("Button4.BackgroundImage"), Image)
+        Button4.BackgroundImageLayout = ImageLayout.Stretch
+        Button4.FlatAppearance.BorderSize = 0
         Button4.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button4.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button4.FlatStyle = FlatStyle.Flat
         Button4.Font = New Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button4.ForeColor = Color.White
-        Button4.Location = New Point(474, 300)
+        Button4.Location = New Point(504, 281)
         Button4.Name = "Button4"
-        Button4.Size = New Size(141, 38)
+        Button4.Size = New Size(107, 45)
         Button4.TabIndex = 17
-        Button4.Text = "Check balance"
         Button4.UseVisualStyleBackColor = False
         ' 
         ' Label1
@@ -91,21 +92,26 @@ Partial Class W2_Encapsulation
         Label1.AutoSize = True
         Label1.BackColor = Color.Transparent
         Label1.FlatStyle = FlatStyle.Flat
-        Label1.Font = New Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label1.Font = New Font("Franklin Gothic Book", 11.25F, FontStyle.Bold Or FontStyle.Italic, GraphicsUnit.Point, CByte(0))
         Label1.ForeColor = Color.White
         Label1.ImageAlign = ContentAlignment.MiddleLeft
-        Label1.Location = New Point(409, 58)
+        Label1.Location = New Point(428, 49)
         Label1.Name = "Label1"
-        Label1.Size = New Size(65, 20)
+        Label1.Size = New Size(72, 20)
         Label1.TabIndex = 18
         Label1.Text = "Balance:"
         ' 
         ' TextBox1
         ' 
-        TextBox1.Location = New Point(19, 38)
+        TextBox1.BackColor = Color.Black
+        TextBox1.Font = New Font("Franklin Gothic Book", 9F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        TextBox1.ForeColor = Color.White
+        TextBox1.Location = New Point(19, 43)
         TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(238, 23)
+        TextBox1.Size = New Size(238, 21)
         TextBox1.TabIndex = 19
+        TextBox1.Text = "$ [ _______________________________________ ]"
+        TextBox1.TextAlign = HorizontalAlignment.Center
         ' 
         ' Button6
         ' 
@@ -139,25 +145,47 @@ Partial Class W2_Encapsulation
         ' 
         ' RichTextBox1
         ' 
+        RichTextBox1.BackColor = Color.White
         RichTextBox1.BorderStyle = BorderStyle.None
-        RichTextBox1.Font = New Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBox1.Location = New Point(113, 57)
+        RichTextBox1.Font = New Font("Franklin Gothic Book", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox1.Location = New Point(132, 80)
         RichTextBox1.Name = "RichTextBox1"
-        RichTextBox1.Size = New Size(252, 314)
+        RichTextBox1.Size = New Size(260, 314)
         RichTextBox1.TabIndex = 23
         RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
         ' 
         ' Panel1
         ' 
-        Panel1.BackColor = Color.Black
+        Panel1.BackColor = SystemColors.ActiveCaptionText
         Panel1.Controls.Add(Label2)
         Panel1.Controls.Add(Button9)
         Panel1.Controls.Add(TextBox1)
-        Panel1.Location = New Point(409, 179)
+        Panel1.Location = New Point(417, 80)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(275, 115)
+        Panel1.Size = New Size(280, 115)
         Panel1.TabIndex = 24
         Panel1.Visible = False
+        ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.Font = New Font("Franklin Gothic Book", 9.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label2.ForeColor = Color.White
+        Label2.Location = New Point(87, 11)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(109, 17)
+        Label2.TabIndex = 21
+        Label2.Text = "ENTER AMOUNT"
+        ' 
+        ' Button9
+        ' 
+        Button9.Font = New Font("Franklin Gothic Book", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button9.Location = New Point(98, 79)
+        Button9.Name = "Button9"
+        Button9.Size = New Size(75, 23)
+        Button9.TabIndex = 20
+        Button9.Text = "CONFIRM"
+        Button9.UseVisualStyleBackColor = True
         ' 
         ' Button3
         ' 
@@ -168,30 +196,11 @@ Partial Class W2_Encapsulation
         Button3.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button3.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button3.FlatStyle = FlatStyle.Flat
-        Button3.Location = New Point(568, 123)
+        Button3.Location = New Point(558, 222)
         Button3.Name = "Button3"
         Button3.Size = New Size(116, 41)
         Button3.TabIndex = 25
         Button3.UseVisualStyleBackColor = False
-        ' 
-        ' Label2
-        ' 
-        Label2.AutoSize = True
-        Label2.ForeColor = Color.White
-        Label2.Location = New Point(87, 11)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(97, 15)
-        Label2.TabIndex = 21
-        Label2.Text = "ENTER AMOUNT"
-        ' 
-        ' Button9
-        ' 
-        Button9.Location = New Point(98, 79)
-        Button9.Name = "Button9"
-        Button9.Size = New Size(75, 23)
-        Button9.TabIndex = 20
-        Button9.Text = "CONFIRM"
-        Button9.UseVisualStyleBackColor = True
         ' 
         ' W2_Encapsulation
         ' 

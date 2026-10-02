@@ -82,10 +82,10 @@ Partial Class W2_Polymorphism
         ' RichTextBox2
         ' 
         RichTextBox2.BorderStyle = BorderStyle.None
-        RichTextBox2.Font = New Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBox2.Location = New Point(116, 42)
+        RichTextBox2.Font = New Font("Franklin Gothic Book", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox2.Location = New Point(131, 72)
         RichTextBox2.Name = "RichTextBox2"
-        RichTextBox2.Size = New Size(256, 323)
+        RichTextBox2.Size = New Size(256, 286)
         RichTextBox2.TabIndex = 19
         RichTextBox2.Text = resources.GetString("RichTextBox2.Text")
         ' 
@@ -98,7 +98,7 @@ Partial Class W2_Polymorphism
         Button4.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button4.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button4.FlatStyle = FlatStyle.Flat
-        Button4.Location = New Point(404, 219)
+        Button4.Location = New Point(434, 218)
         Button4.Name = "Button4"
         Button4.Size = New Size(150, 40)
         Button4.TabIndex = 20
@@ -113,7 +113,7 @@ Partial Class W2_Polymorphism
         Button5.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button5.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button5.FlatStyle = FlatStyle.Flat
-        Button5.Location = New Point(583, 219)
+        Button5.Location = New Point(611, 218)
         Button5.Name = "Button5"
         Button5.Size = New Size(150, 40)
         Button5.TabIndex = 22
@@ -122,10 +122,10 @@ Partial Class W2_Polymorphism
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Font = New Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label1.Location = New Point(502, 281)
+        Label1.Font = New Font("Franklin Gothic Book", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label1.Location = New Point(491, 285)
         Label1.Name = "Label1"
-        Label1.Size = New Size(156, 18)
+        Label1.Size = New Size(146, 16)
         Label1.TabIndex = 23
         Label1.Text = "What does the animal say?:"
         Label1.TextAlign = ContentAlignment.MiddleCenter

@@ -70,10 +70,10 @@ Partial Class W2_Interfaces
         ' RichTextBox1
         ' 
         RichTextBox1.BorderStyle = BorderStyle.None
-        RichTextBox1.Font = New Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBox1.Location = New Point(115, 55)
+        RichTextBox1.Font = New Font("Franklin Gothic Book", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox1.Location = New Point(162, 80)
         RichTextBox1.Name = "RichTextBox1"
-        RichTextBox1.Size = New Size(257, 312)
+        RichTextBox1.Size = New Size(257, 273)
         RichTextBox1.TabIndex = 24
         RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
         ' 
@@ -82,19 +82,19 @@ Partial Class W2_Interfaces
         Label1.AutoSize = True
         Label1.BackColor = Color.Transparent
         Label1.FlatStyle = FlatStyle.Flat
-        Label1.Font = New Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label1.Font = New Font("Franklin Gothic Book", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Label1.ForeColor = Color.White
-        Label1.Location = New Point(528, 68)
+        Label1.Location = New Point(551, 64)
         Label1.Name = "Label1"
-        Label1.Size = New Size(101, 20)
+        Label1.Size = New Size(123, 24)
         Label1.TabIndex = 25
-        Label1.Text = "Enter Amount"
+        Label1.Text = "Enter Amount:"
         ' 
         ' TextBox1
         ' 
-        TextBox1.Location = New Point(507, 100)
+        TextBox1.Location = New Point(524, 104)
         TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(142, 23)
+        TextBox1.Size = New Size(176, 23)
         TextBox1.TabIndex = 26
         ' 
         ' Button5
@@ -105,7 +105,7 @@ Partial Class W2_Interfaces
         Button5.FlatStyle = FlatStyle.Flat
         Button5.Font = New Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button5.ForeColor = Color.White
-        Button5.Location = New Point(507, 240)
+        Button5.Location = New Point(542, 259)
         Button5.Name = "Button5"
         Button5.Size = New Size(142, 32)
         Button5.TabIndex = 2
@@ -120,7 +120,7 @@ Partial Class W2_Interfaces
         Button4.FlatStyle = FlatStyle.Flat
         Button4.Font = New Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button4.ForeColor = Color.White
-        Button4.Location = New Point(507, 198)
+        Button4.Location = New Point(542, 208)
         Button4.Name = "Button4"
         Button4.Size = New Size(142, 36)
         Button4.TabIndex = 1
@@ -135,7 +135,7 @@ Partial Class W2_Interfaces
         Button2.FlatStyle = FlatStyle.Flat
         Button2.Font = New Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button2.ForeColor = Color.White
-        Button2.Location = New Point(507, 160)
+        Button2.Location = New Point(542, 160)
         Button2.Name = "Button2"
         Button2.Size = New Size(142, 32)
         Button2.TabIndex = 0
@@ -148,12 +148,12 @@ Partial Class W2_Interfaces
         Label2.BackColor = Color.Transparent
         Label2.FlatStyle = FlatStyle.Flat
         Label2.Font = New Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label2.ForeColor = Color.White
-        Label2.Location = New Point(439, 316)
+        Label2.ForeColor = Color.Red
+        Label2.Location = New Point(476, 347)
         Label2.Name = "Label2"
-        Label2.Size = New Size(61, 22)
+        Label2.Size = New Size(66, 22)
         Label2.TabIndex = 28
-        Label2.Text = "Result:"
+        Label2.Text = "Output:"
         Label2.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' Button6
@@ -165,7 +165,7 @@ Partial Class W2_Interfaces
         Button6.FlatStyle = FlatStyle.Flat
         Button6.Font = New Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button6.ForeColor = Color.Red
-        Button6.Location = New Point(507, 278)
+        Button6.Location = New Point(542, 301)
         Button6.Name = "Button6"
         Button6.Size = New Size(142, 27)
         Button6.TabIndex = 29
