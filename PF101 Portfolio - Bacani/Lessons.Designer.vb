@@ -106,7 +106,7 @@ Partial Class Lessons
         Button5.FlatStyle = FlatStyle.Flat
         Button5.Location = New Point(3, 123)
         Button5.Name = "Button5"
-        Button5.Size = New Size(368, 59)
+        Button5.Size = New Size(371, 59)
         Button5.TabIndex = 18
         Button5.UseVisualStyleBackColor = False
         ' 
