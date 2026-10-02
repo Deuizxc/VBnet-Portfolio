@@ -55,4 +55,8 @@
         Me.SetStyle(ControlStyles.AllPaintingInWmPaint Or ControlStyles.UserPaint Or ControlStyles.OptimizedDoubleBuffer, True)
         Me.UpdateStyles()
     End Sub
+
+    Private Sub lblTerminalOutput_Click(sender As Object, e As EventArgs) Handles lblTerminalOutput.Click
+
+    End Sub
 End Class

@@ -29,12 +29,10 @@ Partial Class W3_IDE
         RichTextBox1 = New RichTextBox()
         Button2 = New Button()
         Label1 = New Label()
-        Panel1 = New Panel()
         Label2 = New Label()
         Button3 = New Button()
         Button4 = New Button()
         Button5 = New Button()
-        Panel1.SuspendLayout()
         SuspendLayout()
         ' 
         ' Button1
@@ -87,10 +85,11 @@ Partial Class W3_IDE
         ' RichTextBox1
         ' 
         RichTextBox1.BorderStyle = BorderStyle.None
-        RichTextBox1.Font = New Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBox1.Location = New Point(126, 49)
+        RichTextBox1.Font = New Font("Franklin Gothic Book", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox1.Location = New Point(126, 76)
         RichTextBox1.Name = "RichTextBox1"
-        RichTextBox1.Size = New Size(250, 247)
+        RichTextBox1.ScrollBars = RichTextBoxScrollBars.None
+        RichTextBox1.Size = New Size(269, 298)
         RichTextBox1.TabIndex = 29
         RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
         ' 
@@ -109,21 +108,13 @@ Partial Class W3_IDE
         ' 
         ' Label1
         ' 
+        Label1.BackColor = Color.Transparent
         Label1.ForeColor = Color.White
-        Label1.Location = New Point(3, 0)
+        Label1.Location = New Point(424, 219)
         Label1.Name = "Label1"
-        Label1.Size = New Size(265, 174)
+        Label1.Size = New Size(302, 174)
         Label1.TabIndex = 34
         Label1.Text = "Select a window tool above to inspect its role."
-        ' 
-        ' Panel1
-        ' 
-        Panel1.BackColor = Color.Black
-        Panel1.Controls.Add(Label1)
-        Panel1.Location = New Point(440, 177)
-        Panel1.Name = "Panel1"
-        Panel1.Size = New Size(271, 185)
-        Panel1.TabIndex = 35
         ' 
         ' Label2
         ' 
@@ -184,11 +175,11 @@ Partial Class W3_IDE
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(800, 450)
+        Controls.Add(Label1)
         Controls.Add(Button5)
         Controls.Add(Button4)
         Controls.Add(Button3)
         Controls.Add(Label2)
-        Controls.Add(Panel1)
         Controls.Add(Button2)
         Controls.Add(RichTextBox1)
         Controls.Add(Button7)
@@ -198,7 +189,6 @@ Partial Class W3_IDE
         Name = "W3_IDE"
         StartPosition = FormStartPosition.CenterScreen
         Text = "W3_IDE"
-        Panel1.ResumeLayout(False)
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -209,7 +199,6 @@ Partial Class W3_IDE
     Friend WithEvents RichTextBox1 As RichTextBox
     Friend WithEvents Button2 As Button
     Friend WithEvents Label1 As Label
-    Friend WithEvents Panel1 As Panel
     Friend WithEvents Label2 As Label
     Friend WithEvents Button3 As Button
     Friend WithEvents Button4 As Button

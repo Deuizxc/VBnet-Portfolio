@@ -100,10 +100,10 @@ Partial Class W3_Components
         ' RichTextBox1
         ' 
         RichTextBox1.BorderStyle = BorderStyle.None
-        RichTextBox1.Font = New Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBox1.Location = New Point(124, 48)
+        RichTextBox1.Font = New Font("Franklin Gothic Book", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox1.Location = New Point(129, 80)
         RichTextBox1.Name = "RichTextBox1"
-        RichTextBox1.Size = New Size(250, 316)
+        RichTextBox1.Size = New Size(259, 243)
         RichTextBox1.TabIndex = 26
         RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
         ' 
@@ -114,15 +114,15 @@ Partial Class W3_Components
         Label1.FlatStyle = FlatStyle.Flat
         Label1.Font = New Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Label1.ForeColor = Color.White
-        Label1.Location = New Point(506, 80)
+        Label1.Location = New Point(494, 197)
         Label1.Name = "Label1"
-        Label1.Size = New Size(127, 22)
+        Label1.Size = New Size(165, 22)
         Label1.TabIndex = 27
-        Label1.Text = "Enter your name"
+        Label1.Text = "ENTER YOUR NAME //"
         ' 
         ' TextBox1
         ' 
-        TextBox1.Location = New Point(440, 129)
+        TextBox1.Location = New Point(443, 160)
         TextBox1.Name = "TextBox1"
         TextBox1.Size = New Size(265, 23)
         TextBox1.TabIndex = 28
@@ -130,41 +130,45 @@ Partial Class W3_Components
         ' Button3
         ' 
         Button3.BackColor = Color.Transparent
+        Button3.BackgroundImage = CType(resources.GetObject("Button3.BackgroundImage"), Image)
+        Button3.BackgroundImageLayout = ImageLayout.Stretch
+        Button3.FlatAppearance.BorderSize = 0
         Button3.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button3.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button3.FlatStyle = FlatStyle.Flat
         Button3.Font = New Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button3.ForeColor = Color.White
-        Button3.Location = New Point(459, 194)
+        Button3.Location = New Point(463, 237)
         Button3.Name = "Button3"
         Button3.Size = New Size(103, 41)
         Button3.TabIndex = 29
-        Button3.Text = "Greet user"
         Button3.UseVisualStyleBackColor = False
         ' 
         ' Button4
         ' 
         Button4.BackColor = Color.Transparent
+        Button4.BackgroundImage = CType(resources.GetObject("Button4.BackgroundImage"), Image)
+        Button4.BackgroundImageLayout = ImageLayout.Stretch
+        Button4.FlatAppearance.BorderSize = 0
         Button4.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button4.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button4.FlatStyle = FlatStyle.Flat
         Button4.Font = New Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button4.ForeColor = Color.Red
-        Button4.Location = New Point(591, 194)
+        Button4.Location = New Point(593, 237)
         Button4.Name = "Button4"
         Button4.Size = New Size(103, 41)
         Button4.TabIndex = 30
-        Button4.Text = "RESET"
         Button4.UseVisualStyleBackColor = False
         ' 
         ' Label2
         ' 
         Label2.BackColor = Color.Transparent
-        Label2.Font = New Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label2.Font = New Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Label2.ForeColor = Color.White
-        Label2.Location = New Point(475, 284)
+        Label2.Location = New Point(431, 53)
         Label2.Name = "Label2"
-        Label2.Size = New Size(201, 59)
+        Label2.Size = New Size(297, 43)
         Label2.TabIndex = 31
         Label2.Text = "Waiting for input..."
         Label2.TextAlign = ContentAlignment.MiddleCenter

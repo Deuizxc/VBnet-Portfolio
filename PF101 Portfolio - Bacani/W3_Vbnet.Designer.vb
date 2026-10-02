@@ -28,9 +28,7 @@ Partial Class W3_Vbnet
         RichTextBox1 = New RichTextBox()
         RichTextBox2 = New RichTextBox()
         btnrun = New Button()
-        Panel1 = New Panel()
         lblTerminalOutput = New Label()
-        Panel1.SuspendLayout()
         SuspendLayout()
         ' 
         ' Button1
@@ -68,10 +66,10 @@ Partial Class W3_Vbnet
         ' RichTextBox1
         ' 
         RichTextBox1.BorderStyle = BorderStyle.None
-        RichTextBox1.Font = New Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBox1.Location = New Point(125, 57)
+        RichTextBox1.Font = New Font("Franklin Gothic Book", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox1.Location = New Point(127, 93)
         RichTextBox1.Name = "RichTextBox1"
-        RichTextBox1.Size = New Size(250, 308)
+        RichTextBox1.Size = New Size(250, 281)
         RichTextBox1.TabIndex = 30
         RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
         ' 
@@ -81,43 +79,37 @@ Partial Class W3_Vbnet
         RichTextBox2.BorderStyle = BorderStyle.None
         RichTextBox2.Font = New Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         RichTextBox2.ForeColor = Color.White
-        RichTextBox2.Location = New Point(440, 59)
+        RichTextBox2.Location = New Point(434, 59)
         RichTextBox2.Name = "RichTextBox2"
-        RichTextBox2.Size = New Size(263, 222)
+        RichTextBox2.Size = New Size(273, 218)
         RichTextBox2.TabIndex = 31
         RichTextBox2.Text = "Imports System.Console" & vbLf & vbLf & "Module Module1" & vbLf & "    Sub Main()" & vbLf & "        System.Console.Write(""Hello world"")" & vbLf & "        Read()" & vbLf & "    End Sub" & vbLf & "End Module" & vbLf & vbLf & "Output: Hello world"
         ' 
         ' btnrun
         ' 
-        btnrun.BackColor = Color.Black
+        btnrun.BackColor = Color.Transparent
+        btnrun.BackgroundImage = CType(resources.GetObject("btnrun.BackgroundImage"), Image)
+        btnrun.BackgroundImageLayout = ImageLayout.Stretch
+        btnrun.FlatAppearance.BorderSize = 0
+        btnrun.FlatAppearance.MouseDownBackColor = Color.Transparent
+        btnrun.FlatAppearance.MouseOverBackColor = Color.Transparent
         btnrun.FlatStyle = FlatStyle.Flat
-        btnrun.ForeColor = Color.Red
-        btnrun.Location = New Point(103, 40)
+        btnrun.ForeColor = Color.PowderBlue
+        btnrun.Location = New Point(522, 341)
         btnrun.Name = "btnrun"
-        btnrun.Size = New Size(75, 23)
+        btnrun.Size = New Size(88, 33)
         btnrun.TabIndex = 32
-        btnrun.Text = "CLICK"
         btnrun.UseVisualStyleBackColor = False
-        ' 
-        ' Panel1
-        ' 
-        Panel1.BackColor = Color.Black
-        Panel1.BorderStyle = BorderStyle.FixedSingle
-        Panel1.Controls.Add(lblTerminalOutput)
-        Panel1.Controls.Add(btnrun)
-        Panel1.Location = New Point(440, 287)
-        Panel1.Name = "Panel1"
-        Panel1.Size = New Size(263, 78)
-        Panel1.TabIndex = 33
         ' 
         ' lblTerminalOutput
         ' 
         lblTerminalOutput.AutoSize = True
-        lblTerminalOutput.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lblTerminalOutput.BackColor = Color.Transparent
+        lblTerminalOutput.Font = New Font("Franklin Gothic Book", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         lblTerminalOutput.ForeColor = Color.White
-        lblTerminalOutput.Location = New Point(3, 10)
+        lblTerminalOutput.Location = New Point(490, 305)
         lblTerminalOutput.Name = "lblTerminalOutput"
-        lblTerminalOutput.Size = New Size(175, 14)
+        lblTerminalOutput.Size = New Size(159, 21)
         lblTerminalOutput.TabIndex = 0
         lblTerminalOutput.Text = "Click the button to try:"
         ' 
@@ -128,7 +120,8 @@ Partial Class W3_Vbnet
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(800, 450)
-        Controls.Add(Panel1)
+        Controls.Add(lblTerminalOutput)
+        Controls.Add(btnrun)
         Controls.Add(RichTextBox2)
         Controls.Add(RichTextBox1)
         Controls.Add(Button6)
@@ -137,9 +130,8 @@ Partial Class W3_Vbnet
         Name = "W3_Vbnet"
         StartPosition = FormStartPosition.CenterScreen
         Text = "W3_Vbnet"
-        Panel1.ResumeLayout(False)
-        Panel1.PerformLayout()
         ResumeLayout(False)
+        PerformLayout()
     End Sub
 
     Friend WithEvents Button1 As Button
@@ -147,6 +139,5 @@ Partial Class W3_Vbnet
     Friend WithEvents RichTextBox1 As RichTextBox
     Friend WithEvents RichTextBox2 As RichTextBox
     Friend WithEvents btnrun As Button
-    Friend WithEvents Panel1 As Panel
     Friend WithEvents lblTerminalOutput As Label
 End Class

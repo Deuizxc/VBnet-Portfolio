@@ -64,10 +64,10 @@ Partial Class W3_Programming
         ' RichTextBox1
         ' 
         RichTextBox1.BorderStyle = BorderStyle.None
-        RichTextBox1.Font = New Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBox1.Location = New Point(203, 55)
+        RichTextBox1.Font = New Font("Franklin Gothic Book", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox1.Location = New Point(205, 62)
         RichTextBox1.Name = "RichTextBox1"
-        RichTextBox1.Size = New Size(392, 222)
+        RichTextBox1.Size = New Size(392, 212)
         RichTextBox1.TabIndex = 25
         RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
         ' 
