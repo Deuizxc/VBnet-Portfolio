@@ -110,7 +110,7 @@ Partial Class Portfolio
         pnlStatsPopup.Controls.Add(Button7)
         pnlStatsPopup.Controls.Add(Button6)
         pnlStatsPopup.Controls.Add(Button5)
-        pnlStatsPopup.Location = New Point(700, 37)
+        pnlStatsPopup.Location = New Point(735, 73)
         pnlStatsPopup.Name = "pnlStatsPopup"
         pnlStatsPopup.Size = New Size(492, 280)
         pnlStatsPopup.TabIndex = 6
