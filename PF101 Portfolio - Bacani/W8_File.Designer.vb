@@ -73,11 +73,11 @@ Partial Class W8_File
         ' RichTextBox1
         ' 
         RichTextBox1.BorderStyle = BorderStyle.None
-        RichTextBox1.Font = New Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBox1.Location = New Point(129, 44)
+        RichTextBox1.Font = New Font("Franklin Gothic Book", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox1.Location = New Point(130, 79)
         RichTextBox1.Name = "RichTextBox1"
         RichTextBox1.ScrollBars = RichTextBoxScrollBars.None
-        RichTextBox1.Size = New Size(268, 340)
+        RichTextBox1.Size = New Size(267, 322)
         RichTextBox1.TabIndex = 37
         RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
         ' 

@@ -65,8 +65,8 @@ Partial Class W8_Dialog
         ' RichTextBox1
         ' 
         RichTextBox1.BorderStyle = BorderStyle.None
-        RichTextBox1.Font = New Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBox1.Location = New Point(216, 40)
+        RichTextBox1.Font = New Font("Franklin Gothic Book", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox1.Location = New Point(215, 40)
         RichTextBox1.Name = "RichTextBox1"
         RichTextBox1.ScrollBars = RichTextBoxScrollBars.None
         RichTextBox1.Size = New Size(243, 250)
@@ -76,10 +76,10 @@ Partial Class W8_Dialog
         ' RichTextBox2
         ' 
         RichTextBox2.BorderStyle = BorderStyle.None
-        RichTextBox2.Font = New Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBox2.Location = New Point(476, 40)
+        RichTextBox2.Font = New Font("Franklin Gothic Book", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox2.Location = New Point(490, 31)
         RichTextBox2.Name = "RichTextBox2"
-        RichTextBox2.Size = New Size(242, 222)
+        RichTextBox2.Size = New Size(252, 259)
         RichTextBox2.TabIndex = 37
         RichTextBox2.Text = resources.GetString("RichTextBox2.Text")
         ' 

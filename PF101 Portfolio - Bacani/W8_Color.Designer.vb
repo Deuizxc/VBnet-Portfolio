@@ -87,8 +87,8 @@ Partial Class W8_Color
         ' RichTextBox1
         ' 
         RichTextBox1.BorderStyle = BorderStyle.None
-        RichTextBox1.Font = New Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBox1.Location = New Point(128, 47)
+        RichTextBox1.Font = New Font("Franklin Gothic Book", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox1.Location = New Point(140, 53)
         RichTextBox1.Name = "RichTextBox1"
         RichTextBox1.ScrollBars = RichTextBoxScrollBars.None
         RichTextBox1.Size = New Size(266, 343)
@@ -101,15 +101,20 @@ Partial Class W8_Color
         Label2.BackColor = Color.Transparent
         Label2.Font = New Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label2.ForeColor = Color.White
-        Label2.Location = New Point(467, 83)
+        Label2.Location = New Point(469, 82)
         Label2.Name = "Label2"
-        Label2.Size = New Size(247, 20)
+        Label2.Size = New Size(256, 20)
         Label2.TabIndex = 41
-        Label2.Text = "COLOR AND FONT FORMATTER DEMO"
+        Label2.Text = "// COLOR AND FONT FORMATTER DEMO"
         ' 
         ' btnColor
         ' 
-        btnColor.BackColor = Color.Black
+        btnColor.BackColor = Color.Transparent
+        btnColor.BackgroundImage = CType(resources.GetObject("btnColor.BackgroundImage"), Image)
+        btnColor.BackgroundImageLayout = ImageLayout.Stretch
+        btnColor.FlatAppearance.BorderSize = 0
+        btnColor.FlatAppearance.MouseDownBackColor = Color.Transparent
+        btnColor.FlatAppearance.MouseOverBackColor = Color.Transparent
         btnColor.FlatStyle = FlatStyle.Flat
         btnColor.Font = New Font("Arial", 8.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnColor.ForeColor = Color.White
@@ -117,12 +122,16 @@ Partial Class W8_Color
         btnColor.Name = "btnColor"
         btnColor.Size = New Size(90, 25)
         btnColor.TabIndex = 47
-        btnColor.Text = "Change color"
         btnColor.UseVisualStyleBackColor = False
         ' 
         ' btnFont
         ' 
-        btnFont.BackColor = Color.Black
+        btnFont.BackColor = Color.Transparent
+        btnFont.BackgroundImage = CType(resources.GetObject("btnFont.BackgroundImage"), Image)
+        btnFont.BackgroundImageLayout = ImageLayout.Stretch
+        btnFont.FlatAppearance.BorderSize = 0
+        btnFont.FlatAppearance.MouseDownBackColor = Color.Transparent
+        btnFont.FlatAppearance.MouseOverBackColor = Color.Transparent
         btnFont.FlatStyle = FlatStyle.Flat
         btnFont.Font = New Font("Arial", 8.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnFont.ForeColor = Color.White
@@ -130,12 +139,16 @@ Partial Class W8_Color
         btnFont.Name = "btnFont"
         btnFont.Size = New Size(90, 25)
         btnFont.TabIndex = 48
-        btnFont.Text = "Change font"
         btnFont.UseVisualStyleBackColor = False
         ' 
         ' btnReset
         ' 
-        btnReset.BackColor = Color.Black
+        btnReset.BackColor = Color.Transparent
+        btnReset.BackgroundImage = CType(resources.GetObject("btnReset.BackgroundImage"), Image)
+        btnReset.BackgroundImageLayout = ImageLayout.Stretch
+        btnReset.FlatAppearance.BorderSize = 0
+        btnReset.FlatAppearance.MouseDownBackColor = Color.Transparent
+        btnReset.FlatAppearance.MouseOverBackColor = Color.Transparent
         btnReset.FlatStyle = FlatStyle.Flat
         btnReset.Font = New Font("Arial", 8.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnReset.ForeColor = Color.White
@@ -143,7 +156,6 @@ Partial Class W8_Color
         btnReset.Name = "btnReset"
         btnReset.Size = New Size(90, 25)
         btnReset.TabIndex = 49
-        btnReset.Text = "Reset"
         btnReset.UseVisualStyleBackColor = False
         ' 
         ' lblColorInfo
@@ -164,7 +176,7 @@ Partial Class W8_Color
         lblFontInfo.BackColor = Color.Transparent
         lblFontInfo.Font = New Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblFontInfo.ForeColor = Color.White
-        lblFontInfo.Location = New Point(443, 279)
+        lblFontInfo.Location = New Point(443, 286)
         lblFontInfo.Name = "lblFontInfo"
         lblFontInfo.Size = New Size(130, 20)
         lblFontInfo.TabIndex = 51
@@ -176,7 +188,7 @@ Partial Class W8_Color
         lblSample.BorderStyle = BorderStyle.FixedSingle
         lblSample.Font = New Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblSample.ForeColor = Color.White
-        lblSample.Location = New Point(443, 126)
+        lblSample.Location = New Point(453, 132)
         lblSample.Name = "lblSample"
         lblSample.Size = New Size(282, 37)
         lblSample.TabIndex = 52
@@ -188,9 +200,9 @@ Partial Class W8_Color
         lblFeedback.BackColor = Color.Transparent
         lblFeedback.Font = New Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblFeedback.ForeColor = Color.LimeGreen
-        lblFeedback.Location = New Point(443, 308)
+        lblFeedback.Location = New Point(443, 327)
         lblFeedback.Name = "lblFeedback"
-        lblFeedback.Size = New Size(282, 44)
+        lblFeedback.Size = New Size(292, 44)
         lblFeedback.TabIndex = 53
         lblFeedback.Text = "Executed: Ready"
         ' 
