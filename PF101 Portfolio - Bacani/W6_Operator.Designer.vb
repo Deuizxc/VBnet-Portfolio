@@ -91,12 +91,12 @@ Partial Class W6_Operator
         ' RichTextBox1
         ' 
         RichTextBox1.BorderStyle = BorderStyle.None
-        RichTextBox1.Font = New Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBox1.Location = New Point(133, 38)
+        RichTextBox1.Font = New Font("Franklin Gothic Book", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox1.Location = New Point(126, 67)
         RichTextBox1.Margin = New Padding(3, 4, 3, 4)
         RichTextBox1.Name = "RichTextBox1"
         RichTextBox1.ScrollBars = RichTextBoxScrollBars.None
-        RichTextBox1.Size = New Size(241, 362)
+        RichTextBox1.Size = New Size(249, 343)
         RichTextBox1.TabIndex = 31
         RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
         ' 

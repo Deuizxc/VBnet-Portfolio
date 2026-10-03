@@ -90,24 +90,24 @@ Partial Class W6_Repeat
         ' RichTextBox1
         ' 
         RichTextBox1.BorderStyle = BorderStyle.None
-        RichTextBox1.Font = New Font("Trebuchet MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBox1.Location = New Point(176, 17)
+        RichTextBox1.Font = New Font("Franklin Gothic Book", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox1.Location = New Point(150, 69)
         RichTextBox1.Name = "RichTextBox1"
-        RichTextBox1.Size = New Size(228, 364)
+        RichTextBox1.Size = New Size(253, 333)
         RichTextBox1.TabIndex = 33
         RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
         ' 
         ' TextBox1
         ' 
-        TextBox1.Location = New Point(446, 84)
+        TextBox1.Location = New Point(487, 89)
         TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(145, 22)
+        TextBox1.Size = New Size(154, 22)
         TextBox1.TabIndex = 34
         ' 
         ' RadioButton1
         ' 
         RadioButton1.AutoSize = True
-        RadioButton1.BackColor = Color.Black
+        RadioButton1.BackColor = Color.Transparent
         RadioButton1.Font = New Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         RadioButton1.ForeColor = Color.White
         RadioButton1.Location = New Point(449, 147)
@@ -121,7 +121,7 @@ Partial Class W6_Repeat
         ' RadioButton2
         ' 
         RadioButton2.AutoSize = True
-        RadioButton2.BackColor = Color.Black
+        RadioButton2.BackColor = Color.Transparent
         RadioButton2.Font = New Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         RadioButton2.ForeColor = Color.White
         RadioButton2.Location = New Point(449, 173)
@@ -137,7 +137,7 @@ Partial Class W6_Repeat
         ListBox1.BackColor = Color.Black
         ListBox1.ForeColor = Color.White
         ListBox1.FormattingEnabled = True
-        ListBox1.Location = New Point(446, 275)
+        ListBox1.Location = New Point(446, 296)
         ListBox1.Name = "ListBox1"
         ListBox1.Size = New Size(171, 88)
         ListBox1.TabIndex = 37
@@ -145,22 +145,22 @@ Partial Class W6_Repeat
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.BackColor = Color.Black
-        Label1.Font = New Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label1.ForeColor = Color.White
-        Label1.Location = New Point(446, 53)
+        Label1.BackColor = Color.Transparent
+        Label1.Font = New Font("Franklin Gothic Book", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label1.ForeColor = Color.Black
+        Label1.Location = New Point(435, 41)
         Label1.Name = "Label1"
-        Label1.Size = New Size(145, 18)
+        Label1.Size = New Size(152, 20)
         Label1.TabIndex = 38
         Label1.Text = "Enter repeat count:"
         ' 
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.BackColor = Color.Black
+        Label2.BackColor = Color.Transparent
         Label2.Font = New Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label2.ForeColor = Color.White
-        Label2.Location = New Point(446, 119)
+        Label2.Location = New Point(496, 126)
         Label2.Name = "Label2"
         Label2.Size = New Size(136, 18)
         Label2.TabIndex = 39
@@ -169,10 +169,10 @@ Partial Class W6_Repeat
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.BackColor = Color.Black
+        Label3.BackColor = Color.Transparent
         Label3.Font = New Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label3.ForeColor = Color.White
-        Label3.Location = New Point(446, 366)
+        Label3.Location = New Point(446, 387)
         Label3.Name = "Label3"
         Label3.Size = New Size(101, 15)
         Label3.TabIndex = 40
@@ -180,34 +180,42 @@ Partial Class W6_Repeat
         ' 
         ' Button2
         ' 
-        Button2.BackColor = Color.Black
+        Button2.BackColor = Color.Transparent
+        Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), Image)
+        Button2.BackgroundImageLayout = ImageLayout.Stretch
+        Button2.FlatAppearance.BorderSize = 0
+        Button2.FlatAppearance.MouseDownBackColor = Color.Transparent
+        Button2.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button2.FlatStyle = FlatStyle.Flat
         Button2.Font = New Font("Arial", 8.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Button2.ForeColor = Color.White
-        Button2.Location = New Point(446, 248)
+        Button2.Location = New Point(449, 259)
         Button2.Name = "Button2"
-        Button2.Size = New Size(75, 21)
+        Button2.Size = New Size(70, 31)
         Button2.TabIndex = 41
-        Button2.Text = "Run"
         Button2.UseVisualStyleBackColor = False
         ' 
         ' Button3
         ' 
-        Button3.BackColor = Color.Black
+        Button3.BackColor = Color.Transparent
+        Button3.BackgroundImage = CType(resources.GetObject("Button3.BackgroundImage"), Image)
+        Button3.BackgroundImageLayout = ImageLayout.Stretch
+        Button3.FlatAppearance.BorderSize = 0
+        Button3.FlatAppearance.MouseDownBackColor = Color.Transparent
+        Button3.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button3.FlatStyle = FlatStyle.Flat
         Button3.Font = New Font("Arial", 8.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Button3.ForeColor = Color.White
-        Button3.Location = New Point(542, 248)
+        Button3.Location = New Point(542, 259)
         Button3.Name = "Button3"
-        Button3.Size = New Size(75, 21)
+        Button3.Size = New Size(75, 31)
         Button3.TabIndex = 42
-        Button3.Text = "Clear"
         Button3.UseVisualStyleBackColor = False
         ' 
         ' RadioButton3
         ' 
         RadioButton3.AutoSize = True
-        RadioButton3.BackColor = Color.Black
+        RadioButton3.BackColor = Color.Transparent
         RadioButton3.Font = New Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         RadioButton3.ForeColor = Color.White
         RadioButton3.Location = New Point(449, 198)
@@ -221,7 +229,7 @@ Partial Class W6_Repeat
         ' RadioButton4
         ' 
         RadioButton4.AutoSize = True
-        RadioButton4.BackColor = Color.Black
+        RadioButton4.BackColor = Color.Transparent
         RadioButton4.Font = New Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         RadioButton4.ForeColor = Color.White
         RadioButton4.Location = New Point(449, 222)

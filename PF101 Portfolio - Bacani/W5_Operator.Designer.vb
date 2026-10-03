@@ -79,7 +79,7 @@ Partial Class W5_Operator
         ' 
         RichTextBox1.BorderStyle = BorderStyle.None
         RichTextBox1.Font = New Font("Franklin Gothic Book", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBox1.Location = New Point(120, 75)
+        RichTextBox1.Location = New Point(119, 75)
         RichTextBox1.Name = "RichTextBox1"
         RichTextBox1.Size = New Size(234, 326)
         RichTextBox1.TabIndex = 30

@@ -67,10 +67,10 @@ Partial Class W6_Selection
         ' RichTextBox1
         ' 
         RichTextBox1.BorderStyle = BorderStyle.None
-        RichTextBox1.Font = New Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBox1.Location = New Point(183, 26)
+        RichTextBox1.Font = New Font("Franklin Gothic Book", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox1.Location = New Point(184, 48)
         RichTextBox1.Name = "RichTextBox1"
-        RichTextBox1.Size = New Size(274, 261)
+        RichTextBox1.Size = New Size(274, 251)
         RichTextBox1.TabIndex = 30
         RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
         ' 

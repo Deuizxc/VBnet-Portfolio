@@ -56,6 +56,7 @@ Partial Class W6_Classes
         Button7.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button7.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button7.FlatStyle = FlatStyle.Flat
+        Button7.Font = New Font("Franklin Gothic Book", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button7.Location = New Point(695, 418)
         Button7.Name = "Button7"
         Button7.Size = New Size(93, 20)
@@ -80,10 +81,10 @@ Partial Class W6_Classes
         ' RichTextBox1
         ' 
         RichTextBox1.BorderStyle = BorderStyle.None
-        RichTextBox1.Font = New Font("Trebuchet MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBox1.Location = New Point(128, 28)
+        RichTextBox1.Font = New Font("Franklin Gothic Book", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox1.Location = New Point(130, 44)
         RichTextBox1.Name = "RichTextBox1"
-        RichTextBox1.Size = New Size(268, 381)
+        RichTextBox1.Size = New Size(278, 365)
         RichTextBox1.TabIndex = 32
         RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
         ' 
@@ -91,11 +92,11 @@ Partial Class W6_Classes
         ' 
         RichTextBox2.BackColor = Color.Black
         RichTextBox2.BorderStyle = BorderStyle.None
-        RichTextBox2.Font = New Font("Trebuchet MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox2.Font = New Font("Franklin Gothic Book", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         RichTextBox2.ForeColor = Color.White
-        RichTextBox2.Location = New Point(416, 19)
+        RichTextBox2.Location = New Point(423, 54)
         RichTextBox2.Name = "RichTextBox2"
-        RichTextBox2.Size = New Size(264, 390)
+        RichTextBox2.Size = New Size(252, 375)
         RichTextBox2.TabIndex = 35
         RichTextBox2.Text = resources.GetString("RichTextBox2.Text")
         ' 
