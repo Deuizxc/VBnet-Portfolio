@@ -29,6 +29,7 @@ Partial Class W7_Dimension
         RichTextBox1 = New RichTextBox()
         RichTextBox2 = New RichTextBox()
         Label1 = New Label()
+        RichTextBox3 = New RichTextBox()
         SuspendLayout()
         ' 
         ' Button1
@@ -81,10 +82,10 @@ Partial Class W7_Dimension
         ' RichTextBox1
         ' 
         RichTextBox1.BorderStyle = BorderStyle.None
-        RichTextBox1.Font = New Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBox1.Location = New Point(203, 29)
+        RichTextBox1.Font = New Font("Franklin Gothic Book", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox1.Location = New Point(196, 46)
         RichTextBox1.Name = "RichTextBox1"
-        RichTextBox1.Size = New Size(242, 260)
+        RichTextBox1.Size = New Size(228, 221)
         RichTextBox1.TabIndex = 35
         RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
         ' 
@@ -94,9 +95,9 @@ Partial Class W7_Dimension
         RichTextBox2.BorderStyle = BorderStyle.None
         RichTextBox2.Font = New Font("Trebuchet MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         RichTextBox2.ForeColor = Color.White
-        RichTextBox2.Location = New Point(472, 22)
+        RichTextBox2.Location = New Point(430, 55)
         RichTextBox2.Name = "RichTextBox2"
-        RichTextBox2.Size = New Size(271, 267)
+        RichTextBox2.Size = New Size(253, 146)
         RichTextBox2.TabIndex = 36
         RichTextBox2.Text = resources.GetString("RichTextBox2.Text")
         ' 
@@ -106,11 +107,23 @@ Partial Class W7_Dimension
         Label1.BackColor = Color.Transparent
         Label1.Font = New Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Label1.ForeColor = Color.White
-        Label1.Location = New Point(244, 368)
+        Label1.Location = New Point(248, 363)
         Label1.Name = "Label1"
-        Label1.Size = New Size(390, 36)
+        Label1.Size = New Size(380, 54)
         Label1.TabIndex = 38
-        Label1.Text = "Dim scores(2, 3) gives you 3 rows and 4 columns—that's 12 slots total!" & vbCrLf & " Use nested loops whenever you need to check every single box."
+        Label1.Text = "Listen up! scores(2, 3) means 3 rows and 4 columns—that's 12 slots " & vbCrLf & "total! Just let nested loops do the legwork while you " & vbCrLf & "take a break!"
+        ' 
+        ' RichTextBox3
+        ' 
+        RichTextBox3.BackColor = Color.Black
+        RichTextBox3.BorderStyle = BorderStyle.None
+        RichTextBox3.Font = New Font("Trebuchet MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox3.ForeColor = Color.White
+        RichTextBox3.Location = New Point(430, 207)
+        RichTextBox3.Name = "RichTextBox3"
+        RichTextBox3.Size = New Size(304, 101)
+        RichTextBox3.TabIndex = 39
+        RichTextBox3.Text = "For r As Integer = 0 To 2" & vbLf & "    For c As Integer = 0 To 3" & vbLf & "        scores(r, c) = 0" & vbLf & "    Next c" & vbLf & "Next r"
         ' 
         ' W7_Dimension
         ' 
@@ -119,6 +132,7 @@ Partial Class W7_Dimension
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(800, 450)
+        Controls.Add(RichTextBox3)
         Controls.Add(Label1)
         Controls.Add(RichTextBox2)
         Controls.Add(RichTextBox1)
@@ -139,4 +153,5 @@ Partial Class W7_Dimension
     Friend WithEvents RichTextBox1 As RichTextBox
     Friend WithEvents RichTextBox2 As RichTextBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents RichTextBox3 As RichTextBox
 End Class

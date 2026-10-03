@@ -23,8 +23,8 @@ Partial Class W7_Array
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(W7_Array))
-        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Button1 = New Button()
         Button7 = New Button()
         RichTextBox1 = New RichTextBox()
@@ -77,10 +77,10 @@ Partial Class W7_Array
         ' RichTextBox1
         ' 
         RichTextBox1.BorderStyle = BorderStyle.None
-        RichTextBox1.Font = New Font("Trebuchet MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        RichTextBox1.Location = New Point(125, 43)
+        RichTextBox1.Font = New Font("Franklin Gothic Book", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox1.Location = New Point(141, 62)
         RichTextBox1.Name = "RichTextBox1"
-        RichTextBox1.Size = New Size(239, 317)
+        RichTextBox1.Size = New Size(239, 238)
         RichTextBox1.TabIndex = 34
         RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
         ' 
@@ -90,11 +90,11 @@ Partial Class W7_Array
         Label2.BackColor = Color.Transparent
         Label2.Font = New Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label2.ForeColor = Color.White
-        Label2.Location = New Point(445, 41)
+        Label2.Location = New Point(485, 37)
         Label2.Name = "Label2"
-        Label2.Size = New Size(189, 20)
+        Label2.Size = New Size(144, 20)
         Label2.TabIndex = 39
-        Label2.Text = "ARRAY MEMORY INSPECTOR"
+        Label2.Text = "// ARRAY INDEX DEMO"
         ' 
         ' Label1
         ' 
@@ -102,7 +102,7 @@ Partial Class W7_Array
         Label1.BackColor = Color.Transparent
         Label1.Font = New Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.ForeColor = Color.White
-        Label1.Location = New Point(396, 91)
+        Label1.Location = New Point(406, 79)
         Label1.Name = "Label1"
         Label1.Size = New Size(169, 20)
         Label1.TabIndex = 40
@@ -114,7 +114,7 @@ Partial Class W7_Array
         Label3.BackColor = Color.Transparent
         Label3.Font = New Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label3.ForeColor = Color.White
-        Label3.Location = New Point(396, 196)
+        Label3.Location = New Point(406, 192)
         Label3.Name = "Label3"
         Label3.Size = New Size(46, 20)
         Label3.TabIndex = 41
@@ -126,7 +126,7 @@ Partial Class W7_Array
         Label4.BackColor = Color.Transparent
         Label4.Font = New Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label4.ForeColor = Color.White
-        Label4.Location = New Point(396, 233)
+        Label4.Location = New Point(406, 233)
         Label4.Name = "Label4"
         Label4.Size = New Size(46, 20)
         Label4.TabIndex = 42
@@ -139,25 +139,25 @@ Partial Class W7_Array
         DataGridView1.AllowUserToResizeRows = False
         DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         DataGridView1.BackgroundColor = Color.FromArgb(CByte(15), CByte(15), CByte(15))
-        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = Color.FromArgb(CByte(180), CByte(20), CByte(20))
-        DataGridViewCellStyle1.Font = New Font("Segoe UI", 9F)
-        DataGridViewCellStyle1.ForeColor = Color.White
-        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
-        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.BackColor = Color.FromArgb(CByte(180), CByte(20), CByte(20))
+        DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F)
+        DataGridViewCellStyle3.ForeColor = Color.White
+        DataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.True
+        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
-        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F)
-        DataGridViewCellStyle2.ForeColor = Color.LimeGreen
-        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
-        DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle4.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        DataGridViewCellStyle4.Font = New Font("Segoe UI", 9F)
+        DataGridViewCellStyle4.ForeColor = Color.LimeGreen
+        DataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.False
+        DataGridView1.DefaultCellStyle = DataGridViewCellStyle4
         DataGridView1.EnableHeadersVisualStyles = False
-        DataGridView1.Location = New Point(396, 123)
+        DataGridView1.Location = New Point(406, 115)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersVisible = False
         DataGridView1.ScrollBars = ScrollBars.None
@@ -169,35 +169,43 @@ Partial Class W7_Array
         ComboBox1.BackColor = Color.Black
         ComboBox1.ForeColor = Color.White
         ComboBox1.FormattingEnabled = True
-        ComboBox1.Location = New Point(448, 197)
+        ComboBox1.Location = New Point(485, 193)
         ComboBox1.Name = "ComboBox1"
-        ComboBox1.Size = New Size(186, 23)
+        ComboBox1.Size = New Size(189, 23)
         ComboBox1.TabIndex = 44
         ' 
         ' Button3
         ' 
-        Button3.BackColor = Color.Black
+        Button3.BackColor = Color.Transparent
+        Button3.BackgroundImage = CType(resources.GetObject("Button3.BackgroundImage"), Image)
+        Button3.BackgroundImageLayout = ImageLayout.Stretch
+        Button3.FlatAppearance.BorderSize = 0
+        Button3.FlatAppearance.MouseDownBackColor = Color.Transparent
+        Button3.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button3.FlatStyle = FlatStyle.Flat
         Button3.Font = New Font("Arial", 8.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Button3.ForeColor = Color.White
-        Button3.Location = New Point(445, 279)
+        Button3.Location = New Point(485, 279)
         Button3.Name = "Button3"
-        Button3.Size = New Size(75, 21)
+        Button3.Size = New Size(75, 32)
         Button3.TabIndex = 45
-        Button3.Text = "SET"
         Button3.UseVisualStyleBackColor = False
         ' 
         ' Button2
         ' 
-        Button2.BackColor = Color.Black
+        Button2.BackColor = Color.Transparent
+        Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), Image)
+        Button2.BackgroundImageLayout = ImageLayout.Stretch
+        Button2.FlatAppearance.BorderSize = 0
+        Button2.FlatAppearance.MouseDownBackColor = Color.Transparent
+        Button2.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button2.FlatStyle = FlatStyle.Flat
         Button2.Font = New Font("Arial", 8.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Button2.ForeColor = Color.White
-        Button2.Location = New Point(559, 279)
+        Button2.Location = New Point(586, 279)
         Button2.Name = "Button2"
-        Button2.Size = New Size(75, 21)
+        Button2.Size = New Size(75, 32)
         Button2.TabIndex = 46
-        Button2.Text = "RESET"
         Button2.UseVisualStyleBackColor = False
         ' 
         ' Label5
@@ -216,7 +224,7 @@ Partial Class W7_Array
         ' 
         TextBox1.BackColor = Color.Black
         TextBox1.ForeColor = Color.White
-        TextBox1.Location = New Point(445, 234)
+        TextBox1.Location = New Point(485, 233)
         TextBox1.Name = "TextBox1"
         TextBox1.Size = New Size(189, 23)
         TextBox1.TabIndex = 48
