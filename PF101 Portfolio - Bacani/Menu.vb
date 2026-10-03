@@ -16,16 +16,14 @@
         Button1.Cursor = Cursors.Default
     End Sub
 
-    Private Sub Labels_MouseEnter(sender As Object, e As EventArgs) Handles _
-    Label8.MouseEnter, Label1.MouseEnter, Label2.MouseEnter
+    Private Sub Labels_MouseEnter(sender As Object, e As EventArgs) Handles Label8.MouseEnter, lvl2start.MouseEnter, Label2.MouseEnter
         Dim lbl = DirectCast(sender, Label)
         lbl.ForeColor = Color.Gold
         lbl.Top -= 2
         lbl.Cursor = Cursors.Hand
     End Sub
 
-    Private Sub Labels_MouseLeave(sender As Object, e As EventArgs) Handles _
-    Label8.MouseLeave, Label1.MouseLeave, Label2.MouseLeave
+    Private Sub Labels_MouseLeave(sender As Object, e As EventArgs) Handles Label8.MouseLeave, lvl2start.MouseLeave, Label2.MouseLeave
         Dim lbl = DirectCast(sender, Label)
         lbl.ForeColor = Color.White
         lbl.Top += 2
@@ -42,6 +40,11 @@
         lvl1popup.Left = (Me.ClientSize.Width - lvl1popup.Width) \ 2
         lvl1popup.Top = (Me.ClientSize.Height - lvl1popup.Height) \ 2
         lvl1popup.Visible = False
+
+        lvl2popup.Parent = Me
+        lvl2popup.Left = (Me.ClientSize.Width - lvl2popup.Width) \ 2
+        lvl2popup.Top = (Me.ClientSize.Height - lvl2popup.Height) \ 2
+        lvl2popup.Visible = False
     End Sub
 
     Private Sub Label8_Click(sender As Object, e As EventArgs) Handles Label8.Click
@@ -51,13 +54,22 @@
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
         lvl1popup.Visible = False
-
-        ' Destroys the hidden old level so a fresh one is built, restarting the timer automatically
         Level1.Dispose()
-
         Level1.Show()
         Level1.Update()
-        Me.Hide()
+        Hide()
     End Sub
 
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles lvl2start.Click
+        lvl2popup.Visible = True
+        lvl2popup.BringToFront()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        lvl2popup.Visible = False
+        Level2.Dispose()
+        Level2.Show()
+        Level2.Update()
+        Hide()
+    End Sub
 End Class

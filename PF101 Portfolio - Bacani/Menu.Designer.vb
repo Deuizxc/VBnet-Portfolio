@@ -25,11 +25,14 @@ Partial Class Menu
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Menu))
         Button1 = New Button()
         Label8 = New Label()
-        Label1 = New Label()
+        lvl2start = New Label()
         Label2 = New Label()
         lvl1popup = New Panel()
         Button7 = New Button()
+        lvl2popup = New Panel()
+        Button2 = New Button()
         lvl1popup.SuspendLayout()
+        lvl2popup.SuspendLayout()
         SuspendLayout()
         ' 
         ' Button1
@@ -62,18 +65,18 @@ Partial Class Menu
         Label8.TabIndex = 22
         Label8.Text = "START"
         ' 
-        ' Label1
+        ' lvl2start
         ' 
-        Label1.AutoSize = True
-        Label1.BackColor = Color.Transparent
-        Label1.FlatStyle = FlatStyle.Flat
-        Label1.Font = New Font("Impact", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label1.ForeColor = Color.White
-        Label1.Location = New Point(596, 267)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(45, 19)
-        Label1.TabIndex = 23
-        Label1.Text = "START"
+        lvl2start.AutoSize = True
+        lvl2start.BackColor = Color.Transparent
+        lvl2start.FlatStyle = FlatStyle.Flat
+        lvl2start.Font = New Font("Impact", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lvl2start.ForeColor = Color.White
+        lvl2start.Location = New Point(596, 267)
+        lvl2start.Name = "lvl2start"
+        lvl2start.Size = New Size(45, 19)
+        lvl2start.TabIndex = 23
+        lvl2start.Text = "START"
         ' 
         ' Label2
         ' 
@@ -94,7 +97,7 @@ Partial Class Menu
         lvl1popup.BackgroundImage = CType(resources.GetObject("lvl1popup.BackgroundImage"), Image)
         lvl1popup.BackgroundImageLayout = ImageLayout.Stretch
         lvl1popup.Controls.Add(Button7)
-        lvl1popup.Location = New Point(726, 332)
+        lvl1popup.Location = New Point(749, 373)
         lvl1popup.Name = "lvl1popup"
         lvl1popup.Size = New Size(608, 407)
         lvl1popup.TabIndex = 25
@@ -118,6 +121,36 @@ Partial Class Menu
         Button7.Text = "OK"
         Button7.UseVisualStyleBackColor = False
         ' 
+        ' lvl2popup
+        ' 
+        lvl2popup.BackColor = Color.Transparent
+        lvl2popup.BackgroundImage = CType(resources.GetObject("lvl2popup.BackgroundImage"), Image)
+        lvl2popup.BackgroundImageLayout = ImageLayout.Stretch
+        lvl2popup.Controls.Add(Button2)
+        lvl2popup.Location = New Point(362, 409)
+        lvl2popup.Name = "lvl2popup"
+        lvl2popup.Size = New Size(608, 407)
+        lvl2popup.TabIndex = 26
+        lvl2popup.Visible = False
+        ' 
+        ' Button2
+        ' 
+        Button2.BackColor = Color.Transparent
+        Button2.BackgroundImageLayout = ImageLayout.Stretch
+        Button2.FlatAppearance.BorderSize = 0
+        Button2.FlatAppearance.MouseDownBackColor = Color.Transparent
+        Button2.FlatAppearance.MouseOverBackColor = Color.Transparent
+        Button2.FlatStyle = FlatStyle.Flat
+        Button2.Font = New Font("Impact", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button2.ForeColor = Color.Red
+        Button2.Location = New Point(274, 343)
+        Button2.Name = "Button2"
+        Button2.Size = New Size(66, 28)
+        Button2.TabIndex = 16
+        Button2.Tag = ""
+        Button2.Text = "OK"
+        Button2.UseVisualStyleBackColor = False
+        ' 
         ' Menu
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -125,9 +158,10 @@ Partial Class Menu
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(800, 450)
+        Controls.Add(lvl2popup)
         Controls.Add(lvl1popup)
         Controls.Add(Label2)
-        Controls.Add(Label1)
+        Controls.Add(lvl2start)
         Controls.Add(Label8)
         Controls.Add(Button1)
         FormBorderStyle = FormBorderStyle.None
@@ -135,14 +169,17 @@ Partial Class Menu
         StartPosition = FormStartPosition.CenterScreen
         Text = "Menu"
         lvl1popup.ResumeLayout(False)
+        lvl2popup.ResumeLayout(False)
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
     Friend WithEvents Button1 As Button
     Friend WithEvents Label8 As Label
-    Friend WithEvents Label1 As Label
+    Friend WithEvents lvl2start As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents lvl1popup As Panel
     Friend WithEvents Button7 As Button
+    Friend WithEvents lvl2popup As Panel
+    Friend WithEvents Button2 As Button
 End Class
