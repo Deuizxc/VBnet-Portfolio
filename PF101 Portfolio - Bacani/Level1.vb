@@ -83,6 +83,7 @@
 
 
     Private Sub Level1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        AudioManager.AttachSounds(Me)
         Me.DoubleBuffered = True
         gameTimer.Interval = 16
         Me.DoubleBuffered = True

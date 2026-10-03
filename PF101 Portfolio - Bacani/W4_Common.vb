@@ -79,6 +79,7 @@ Public Class W4_Common
     End Sub
 
     Private Sub W4_Common_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        AudioManager.AttachSounds(Me)
         Me.DoubleBuffered = True
         Me.SetStyle(ControlStyles.AllPaintingInWmPaint Or ControlStyles.UserPaint Or ControlStyles.OptimizedDoubleBuffer, True)
         Me.UpdateStyles()

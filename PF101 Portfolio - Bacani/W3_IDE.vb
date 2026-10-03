@@ -34,6 +34,7 @@
     End Sub
 
     Private Sub Form_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        AudioManager.AttachSounds(Me)
         Label1.Text = "Click a window above to inspect its role."
     End Sub
 

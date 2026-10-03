@@ -37,6 +37,7 @@
     End Sub
 
     Private Sub Form_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        AudioManager.AttachSounds(Me)
         Label2.Text = "Enter amount"
     End Sub
 

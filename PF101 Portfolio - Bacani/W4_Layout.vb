@@ -46,6 +46,7 @@
     End Sub
 
     Private Sub W4_Layout_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        AudioManager.AttachSounds(Me)
         originalLocation = testbox.Location
         originalSize = testbox.Size
         Me.DoubleBuffered = True
