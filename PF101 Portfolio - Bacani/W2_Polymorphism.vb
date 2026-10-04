@@ -41,13 +41,13 @@
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         Dim myPet As Animal = New Cat()
         Label1.Text = "Morgana says: " & myPet.MakeSound()
-        My.Computer.Audio.Play(Application.StartupPath & "\meow.wav", AudioPlayMode.Background)
+
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         Dim myPet As Animal = New Dog()
         Label1.Text = "Koromaru says: " & myPet.MakeSound()
-        My.Computer.Audio.Play(Application.StartupPath & "\woof.wav", AudioPlayMode.Background)
+
     End Sub
 
     Private Sub Button4_MouseEnter(sender As Object, e As EventArgs) Handles Button4.MouseEnter

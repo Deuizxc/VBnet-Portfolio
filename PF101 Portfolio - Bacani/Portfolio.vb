@@ -1,7 +1,28 @@
 ﻿Imports System.Runtime.CompilerServices
+Imports System.Runtime.InteropServices
+Imports System.Text
 
 
 Public Class Portfolio
+
+    ' ---- Background music (volume control) ----
+    <DllImport("winmm.dll", CharSet:=CharSet.Auto)>
+    Private Shared Function mciSendString(command As String, returnValue As StringBuilder,
+                                          returnLength As Integer, callback As IntPtr) As Integer
+    End Function
+
+    Private Sub PlayBackgroundMusic(filePath As String, volume As Integer)
+        mciSendString("close bgm", Nothing, 0, IntPtr.Zero)
+        mciSendString($"open ""{filePath}"" type mpegvideo alias bgm", Nothing, 0, IntPtr.Zero)
+        mciSendString("play bgm repeat", Nothing, 0, IntPtr.Zero)
+        mciSendString($"setaudio bgm volume to {volume}", Nothing, 0, IntPtr.Zero)
+    End Sub
+
+    Private Sub StopBackgroundMusic()
+        mciSendString("stop bgm", Nothing, 0, IntPtr.Zero)
+        mciSendString("close bgm", Nothing, 0, IntPtr.Zero)
+    End Sub
+    ' -------------------------------------------
 
     Private Sub CenterStatsPanel()
         Dim centerX As Integer = (Me.ClientSize.Width - pnlStatsPopup.Width) \ 2
@@ -21,6 +42,12 @@ Public Class Portfolio
         AudioManager.InitializeAudio()
         AudioManager.AttachSounds(Me)
 
+        ' Volume: 0 = silent, 1000 = full. 250 = about 25%
+        PlayBackgroundMusic(System.IO.Path.Combine(Application.StartupPath, "Sounds", "BackgroundMusic.wav"), 200)
+    End Sub
+
+    Private Sub Portfolio_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        StopBackgroundMusic()
     End Sub
 
     Private Sub Portfolio_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize

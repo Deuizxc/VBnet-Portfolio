@@ -31,13 +31,14 @@ Partial Class Level3
         picTarget1 = New PictureBox()
         picTarget3 = New PictureBox()
         lblScore = New Label()
-        panTimer = New Panel()
         tmrCountdown = New Timer(components)
         tmrTeleport = New Timer(components)
         lose = New Panel()
         Button7 = New Button()
         win = New Panel()
         Button2 = New Button()
+        picDmg = New PictureBox()
+        hpBar = New ProgressBar()
         CType(picJoker, ComponentModel.ISupportInitialize).BeginInit()
         CType(picBoss, ComponentModel.ISupportInitialize).BeginInit()
         CType(picTarget2, ComponentModel.ISupportInitialize).BeginInit()
@@ -45,6 +46,7 @@ Partial Class Level3
         CType(picTarget3, ComponentModel.ISupportInitialize).BeginInit()
         lose.SuspendLayout()
         win.SuspendLayout()
+        CType(picDmg, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Button1
@@ -56,7 +58,7 @@ Partial Class Level3
         Button1.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button1.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("p5hatty", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button1.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button1.ForeColor = Color.Transparent
         Button1.Location = New Point(12, 12)
         Button1.Name = "Button1"
@@ -79,10 +81,10 @@ Partial Class Level3
         ' 
         picBoss.BackColor = Color.Transparent
         picBoss.Image = CType(resources.GetObject("picBoss.Image"), Image)
-        picBoss.Location = New Point(534, 81)
+        picBoss.Location = New Point(519, 90)
         picBoss.Name = "picBoss"
-        picBoss.Size = New Size(518, 466)
-        picBoss.SizeMode = PictureBoxSizeMode.StretchImage
+        picBoss.Size = New Size(518, 476)
+        picBoss.SizeMode = PictureBoxSizeMode.Zoom
         picBoss.TabIndex = 26
         picBoss.TabStop = False
         ' 
@@ -130,17 +132,6 @@ Partial Class Level3
         lblScore.TabIndex = 32
         lblScore.Text = "HITS: 0 / 40"
         lblScore.TextAlign = ContentAlignment.MiddleLeft
-        ' 
-        ' panTimer
-        ' 
-        panTimer.BackColor = Color.Red
-        panTimer.Location = New Point(315, 12)
-        panTimer.Name = "panTimer"
-        panTimer.Size = New Size(509, 22)
-        panTimer.TabIndex = 33
-        ' 
-        ' tmrCountdown
-        ' 
         ' 
         ' tmrTeleport
         ' 
@@ -206,6 +197,24 @@ Partial Class Level3
         Button2.Text = "OK"
         Button2.UseVisualStyleBackColor = False
         ' 
+        ' picDmg
+        ' 
+        picDmg.BackColor = Color.Transparent
+        picDmg.Location = New Point(848, 73)
+        picDmg.Name = "picDmg"
+        picDmg.Size = New Size(165, 143)
+        picDmg.SizeMode = PictureBoxSizeMode.Zoom
+        picDmg.TabIndex = 47
+        picDmg.TabStop = False
+        ' 
+        ' hpBar
+        ' 
+        hpBar.Location = New Point(313, 12)
+        hpBar.Maximum = 1000
+        hpBar.Name = "hpBar"
+        hpBar.Size = New Size(512, 26)
+        hpBar.TabIndex = 48
+        ' 
         ' Level3
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -213,9 +222,10 @@ Partial Class Level3
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(1064, 559)
+        Controls.Add(hpBar)
+        Controls.Add(picDmg)
         Controls.Add(win)
         Controls.Add(lose)
-        Controls.Add(panTimer)
         Controls.Add(lblScore)
         Controls.Add(picTarget3)
         Controls.Add(picTarget1)
@@ -234,6 +244,7 @@ Partial Class Level3
         CType(picTarget3, ComponentModel.ISupportInitialize).EndInit()
         lose.ResumeLayout(False)
         win.ResumeLayout(False)
+        CType(picDmg, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -244,11 +255,12 @@ Partial Class Level3
     Friend WithEvents picTarget1 As PictureBox
     Friend WithEvents picTarget3 As PictureBox
     Friend WithEvents lblScore As Label
-    Friend WithEvents panTimer As Panel
     Friend WithEvents tmrCountdown As Timer
     Friend WithEvents tmrTeleport As Timer
     Friend WithEvents lose As Panel
     Friend WithEvents Button7 As Button
     Friend WithEvents win As Panel
     Friend WithEvents Button2 As Button
+    Friend WithEvents picDmg As PictureBox
+    Friend WithEvents hpBar As ProgressBar
 End Class

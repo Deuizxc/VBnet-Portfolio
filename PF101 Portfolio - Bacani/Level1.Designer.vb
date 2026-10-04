@@ -45,22 +45,24 @@ Partial Class Level1
         ' Priest1
         ' 
         Priest1.BackColor = Color.Transparent
-        Priest1.BackgroundImage = CType(resources.GetObject("Priest1.BackgroundImage"), Image)
         Priest1.BackgroundImageLayout = ImageLayout.Stretch
-        Priest1.Location = New Point(715, 281)
+        Priest1.Image = CType(resources.GetObject("Priest1.Image"), Image)
+        Priest1.Location = New Point(715, 299)
         Priest1.Name = "Priest1"
-        Priest1.Size = New Size(46, 92)
+        Priest1.Size = New Size(113, 92)
+        Priest1.SizeMode = PictureBoxSizeMode.Zoom
         Priest1.TabIndex = 0
         Priest1.TabStop = False
         ' 
         ' Boat
         ' 
         Boat.BackColor = Color.Transparent
-        Boat.BackgroundImage = CType(resources.GetObject("Boat.BackgroundImage"), Image)
         Boat.BackgroundImageLayout = ImageLayout.Stretch
-        Boat.Location = New Point(543, 360)
+        Boat.Image = CType(resources.GetObject("Boat.Image"), Image)
+        Boat.Location = New Point(523, 360)
         Boat.Name = "Boat"
-        Boat.Size = New Size(121, 67)
+        Boat.Size = New Size(165, 67)
+        Boat.SizeMode = PictureBoxSizeMode.StretchImage
         Boat.TabIndex = 6
         Boat.TabStop = False
         ' 
@@ -69,6 +71,7 @@ Partial Class Level1
         btnMoveBoat.BackColor = Color.Transparent
         btnMoveBoat.BackgroundImage = CType(resources.GetObject("btnMoveBoat.BackgroundImage"), Image)
         btnMoveBoat.BackgroundImageLayout = ImageLayout.Stretch
+        btnMoveBoat.Cursor = Cursors.Hand
         btnMoveBoat.FlatAppearance.BorderSize = 0
         btnMoveBoat.FlatStyle = FlatStyle.Flat
         btnMoveBoat.Location = New Point(473, 493)
@@ -92,55 +95,60 @@ Partial Class Level1
         ' Devil1
         ' 
         Devil1.BackColor = Color.Transparent
-        Devil1.BackgroundImage = CType(resources.GetObject("Devil1.BackgroundImage"), Image)
         Devil1.BackgroundImageLayout = ImageLayout.Stretch
-        Devil1.Location = New Point(871, 281)
+        Devil1.Image = CType(resources.GetObject("Devil1.Image"), Image)
+        Devil1.Location = New Point(795, 345)
         Devil1.Name = "Devil1"
-        Devil1.Size = New Size(58, 92)
+        Devil1.Size = New Size(113, 92)
+        Devil1.SizeMode = PictureBoxSizeMode.Zoom
         Devil1.TabIndex = 16
         Devil1.TabStop = False
         ' 
         ' Devil2
         ' 
         Devil2.BackColor = Color.Transparent
-        Devil2.BackgroundImage = CType(resources.GetObject("Devil2.BackgroundImage"), Image)
         Devil2.BackgroundImageLayout = ImageLayout.Stretch
-        Devil2.Location = New Point(935, 281)
+        Devil2.Image = CType(resources.GetObject("Devil2.Image"), Image)
+        Devil2.Location = New Point(861, 335)
         Devil2.Name = "Devil2"
-        Devil2.Size = New Size(58, 92)
+        Devil2.Size = New Size(113, 92)
+        Devil2.SizeMode = PictureBoxSizeMode.Zoom
         Devil2.TabIndex = 17
         Devil2.TabStop = False
         ' 
         ' Devil3
         ' 
         Devil3.BackColor = Color.Transparent
-        Devil3.BackgroundImage = CType(resources.GetObject("Devil3.BackgroundImage"), Image)
         Devil3.BackgroundImageLayout = ImageLayout.Stretch
-        Devil3.Location = New Point(999, 281)
+        Devil3.Image = CType(resources.GetObject("Devil3.Image"), Image)
+        Devil3.Location = New Point(939, 335)
         Devil3.Name = "Devil3"
-        Devil3.Size = New Size(58, 92)
+        Devil3.Size = New Size(113, 92)
+        Devil3.SizeMode = PictureBoxSizeMode.Zoom
         Devil3.TabIndex = 18
         Devil3.TabStop = False
         ' 
         ' Priest2
         ' 
         Priest2.BackColor = Color.Transparent
-        Priest2.BackgroundImage = CType(resources.GetObject("Priest2.BackgroundImage"), Image)
         Priest2.BackgroundImageLayout = ImageLayout.Stretch
-        Priest2.Location = New Point(767, 281)
+        Priest2.Image = CType(resources.GetObject("Priest2.Image"), Image)
+        Priest2.Location = New Point(781, 287)
         Priest2.Name = "Priest2"
-        Priest2.Size = New Size(46, 92)
+        Priest2.Size = New Size(113, 92)
+        Priest2.SizeMode = PictureBoxSizeMode.Zoom
         Priest2.TabIndex = 20
         Priest2.TabStop = False
         ' 
         ' Priest3
         ' 
         Priest3.BackColor = Color.Transparent
-        Priest3.BackgroundImage = CType(resources.GetObject("Priest3.BackgroundImage"), Image)
         Priest3.BackgroundImageLayout = ImageLayout.Stretch
-        Priest3.Location = New Point(819, 281)
+        Priest3.Image = CType(resources.GetObject("Priest3.Image"), Image)
+        Priest3.Location = New Point(837, 288)
         Priest3.Name = "Priest3"
-        Priest3.Size = New Size(46, 92)
+        Priest3.Size = New Size(113, 92)
+        Priest3.SizeMode = PictureBoxSizeMode.Zoom
         Priest3.TabIndex = 21
         Priest3.TabStop = False
         ' 
@@ -153,7 +161,7 @@ Partial Class Level1
         Button1.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button1.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("p5hatty", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button1.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button1.ForeColor = Color.Transparent
         Button1.Location = New Point(12, 9)
         Button1.Name = "Button1"
@@ -168,16 +176,16 @@ Partial Class Level1
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(1064, 559)
-        Controls.Add(Button1)
-        Controls.Add(Priest3)
         Controls.Add(Devil3)
         Controls.Add(Devil2)
         Controls.Add(Devil1)
+        Controls.Add(Button1)
+        Controls.Add(Priest3)
         Controls.Add(Label1)
         Controls.Add(btnMoveBoat)
         Controls.Add(Boat)
-        Controls.Add(Priest1)
         Controls.Add(Priest2)
+        Controls.Add(Priest1)
         FormBorderStyle = FormBorderStyle.None
         Name = "Level1"
         StartPosition = FormStartPosition.CenterScreen
