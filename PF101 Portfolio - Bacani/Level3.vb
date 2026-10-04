@@ -150,23 +150,16 @@
         Menu.Update()
     End Sub
 
+    ' FIXED: Added ResetGame() so it actually restarts when you click Try Again
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
         lose.Visible = False
+        ResetGame()
     End Sub
 
+    ' FIXED: Added ResetGame() so it actually restarts when you click Try Again
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         win.Visible = False
+        ResetGame()
     End Sub
-
-    ' NOTE: If you have Retry buttons inside your Win/Lose panels, 
-    ' double-click them in the designer and point them to call ResetGame() like this:
-    '
-    ' Private Sub btnRetryWin_Click(sender As Object, e As EventArgs) Handles btnRetryWin.Click
-    '     ResetGame()
-    ' End Sub
-    ' 
-    ' Private Sub btnRetryLose_Click(sender As Object, e As EventArgs) Handles btnRetryLose.Click
-    '     ResetGame()
-    ' End Sub
 
 End Class
