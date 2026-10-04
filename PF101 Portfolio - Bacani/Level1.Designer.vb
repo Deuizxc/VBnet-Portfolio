@@ -22,7 +22,6 @@ Partial Class Level1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Level1))
         Priest1 = New PictureBox()
         Boat = New PictureBox()
@@ -34,8 +33,6 @@ Partial Class Level1
         Priest2 = New PictureBox()
         Priest3 = New PictureBox()
         Button1 = New Button()
-        ContextMenuStrip1 = New ContextMenuStrip(components)
-        TextBox1 = New TextBox()
         CType(Priest1, ComponentModel.ISupportInitialize).BeginInit()
         CType(Boat, ComponentModel.ISupportInitialize).BeginInit()
         CType(Devil1, ComponentModel.ISupportInitialize).BeginInit()
@@ -74,9 +71,9 @@ Partial Class Level1
         btnMoveBoat.BackgroundImageLayout = ImageLayout.Stretch
         btnMoveBoat.FlatAppearance.BorderSize = 0
         btnMoveBoat.FlatStyle = FlatStyle.Flat
-        btnMoveBoat.Location = New Point(490, 489)
+        btnMoveBoat.Location = New Point(473, 493)
         btnMoveBoat.Name = "btnMoveBoat"
-        btnMoveBoat.Size = New Size(115, 43)
+        btnMoveBoat.Size = New Size(129, 43)
         btnMoveBoat.TabIndex = 7
         btnMoveBoat.UseVisualStyleBackColor = False
         ' 
@@ -164,19 +161,6 @@ Partial Class Level1
         Button1.TabIndex = 23
         Button1.UseVisualStyleBackColor = False
         ' 
-        ' ContextMenuStrip1
-        ' 
-        ContextMenuStrip1.Name = "ContextMenuStrip1"
-        ContextMenuStrip1.Size = New Size(61, 4)
-        ' 
-        ' TextBox1
-        ' 
-        TextBox1.BackColor = Color.Black
-        TextBox1.Location = New Point(408, 127)
-        TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(28, 23)
-        TextBox1.TabIndex = 25
-        ' 
         ' Level1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -184,7 +168,6 @@ Partial Class Level1
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(1064, 559)
-        Controls.Add(TextBox1)
         Controls.Add(Button1)
         Controls.Add(Priest3)
         Controls.Add(Devil3)
@@ -207,7 +190,6 @@ Partial Class Level1
         CType(Priest2, ComponentModel.ISupportInitialize).EndInit()
         CType(Priest3, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
-        PerformLayout()
     End Sub
 
     Friend WithEvents Priest1 As PictureBox
@@ -220,6 +202,4 @@ Partial Class Level1
     Friend WithEvents Priest2 As PictureBox
     Friend WithEvents Priest3 As PictureBox
     Friend WithEvents Button1 As Button
-    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
-    Friend WithEvents TextBox1 As TextBox
 End Class

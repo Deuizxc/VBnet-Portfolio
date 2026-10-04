@@ -26,13 +26,16 @@ Partial Class Menu
         Button1 = New Button()
         Label8 = New Label()
         lvl2start = New Label()
-        Label2 = New Label()
+        lvl3start = New Label()
         lvl1popup = New Panel()
         Button7 = New Button()
         lvl2popup = New Panel()
         Button2 = New Button()
+        lvl3popup = New Panel()
+        Button3 = New Button()
         lvl1popup.SuspendLayout()
         lvl2popup.SuspendLayout()
+        lvl3popup.SuspendLayout()
         SuspendLayout()
         ' 
         ' Button1
@@ -44,7 +47,7 @@ Partial Class Menu
         Button1.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button1.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("p5hatty", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button1.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button1.ForeColor = Color.Transparent
         Button1.Location = New Point(12, 12)
         Button1.Name = "Button1"
@@ -59,7 +62,7 @@ Partial Class Menu
         Label8.FlatStyle = FlatStyle.Flat
         Label8.Font = New Font("Impact", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Label8.ForeColor = Color.White
-        Label8.Location = New Point(448, 125)
+        Label8.Location = New Point(447, 122)
         Label8.Name = "Label8"
         Label8.Size = New Size(45, 19)
         Label8.TabIndex = 22
@@ -72,24 +75,24 @@ Partial Class Menu
         lvl2start.FlatStyle = FlatStyle.Flat
         lvl2start.Font = New Font("Impact", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         lvl2start.ForeColor = Color.White
-        lvl2start.Location = New Point(596, 267)
+        lvl2start.Location = New Point(598, 264)
         lvl2start.Name = "lvl2start"
         lvl2start.Size = New Size(45, 19)
         lvl2start.TabIndex = 23
         lvl2start.Text = "START"
         ' 
-        ' Label2
+        ' lvl3start
         ' 
-        Label2.AutoSize = True
-        Label2.BackColor = Color.Transparent
-        Label2.FlatStyle = FlatStyle.Flat
-        Label2.Font = New Font("Impact", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label2.ForeColor = Color.White
-        Label2.Location = New Point(675, 409)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(45, 19)
-        Label2.TabIndex = 24
-        Label2.Text = "START"
+        lvl3start.AutoSize = True
+        lvl3start.BackColor = Color.Transparent
+        lvl3start.FlatStyle = FlatStyle.Flat
+        lvl3start.Font = New Font("Impact", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lvl3start.ForeColor = Color.White
+        lvl3start.Location = New Point(675, 406)
+        lvl3start.Name = "lvl3start"
+        lvl3start.Size = New Size(45, 19)
+        lvl3start.TabIndex = 24
+        lvl3start.Text = "START"
         ' 
         ' lvl1popup
         ' 
@@ -127,7 +130,7 @@ Partial Class Menu
         lvl2popup.BackgroundImage = CType(resources.GetObject("lvl2popup.BackgroundImage"), Image)
         lvl2popup.BackgroundImageLayout = ImageLayout.Stretch
         lvl2popup.Controls.Add(Button2)
-        lvl2popup.Location = New Point(362, 409)
+        lvl2popup.Location = New Point(770, 204)
         lvl2popup.Name = "lvl2popup"
         lvl2popup.Size = New Size(608, 407)
         lvl2popup.TabIndex = 26
@@ -151,16 +154,47 @@ Partial Class Menu
         Button2.Text = "OK"
         Button2.UseVisualStyleBackColor = False
         ' 
+        ' lvl3popup
+        ' 
+        lvl3popup.BackColor = Color.Transparent
+        lvl3popup.BackgroundImage = CType(resources.GetObject("lvl3popup.BackgroundImage"), Image)
+        lvl3popup.BackgroundImageLayout = ImageLayout.Stretch
+        lvl3popup.Controls.Add(Button3)
+        lvl3popup.Location = New Point(156, 417)
+        lvl3popup.Name = "lvl3popup"
+        lvl3popup.Size = New Size(608, 407)
+        lvl3popup.TabIndex = 27
+        lvl3popup.Visible = False
+        ' 
+        ' Button3
+        ' 
+        Button3.BackColor = Color.Transparent
+        Button3.BackgroundImageLayout = ImageLayout.Stretch
+        Button3.FlatAppearance.BorderSize = 0
+        Button3.FlatAppearance.MouseDownBackColor = Color.Transparent
+        Button3.FlatAppearance.MouseOverBackColor = Color.Transparent
+        Button3.FlatStyle = FlatStyle.Flat
+        Button3.Font = New Font("Impact", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button3.ForeColor = Color.Red
+        Button3.Location = New Point(274, 343)
+        Button3.Name = "Button3"
+        Button3.Size = New Size(66, 28)
+        Button3.TabIndex = 16
+        Button3.Tag = ""
+        Button3.Text = "OK"
+        Button3.UseVisualStyleBackColor = False
+        ' 
         ' Menu
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(800, 450)
+        Controls.Add(lvl3popup)
         Controls.Add(lvl2popup)
         Controls.Add(lvl1popup)
-        Controls.Add(Label2)
+        Controls.Add(lvl3start)
         Controls.Add(lvl2start)
         Controls.Add(Label8)
         Controls.Add(Button1)
@@ -170,6 +204,7 @@ Partial Class Menu
         Text = "Menu"
         lvl1popup.ResumeLayout(False)
         lvl2popup.ResumeLayout(False)
+        lvl3popup.ResumeLayout(False)
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -177,9 +212,11 @@ Partial Class Menu
     Friend WithEvents Button1 As Button
     Friend WithEvents Label8 As Label
     Friend WithEvents lvl2start As Label
-    Friend WithEvents Label2 As Label
+    Friend WithEvents lvl3start As Label
     Friend WithEvents lvl1popup As Panel
     Friend WithEvents Button7 As Button
     Friend WithEvents lvl2popup As Panel
     Friend WithEvents Button2 As Button
+    Friend WithEvents lvl3popup As Panel
+    Friend WithEvents Button3 As Button
 End Class

@@ -183,7 +183,7 @@ Partial Class Level2
         lose.BackgroundImage = CType(resources.GetObject("lose.BackgroundImage"), Image)
         lose.BackgroundImageLayout = ImageLayout.Stretch
         lose.Controls.Add(Button7)
-        lose.Location = New Point(670, 17)
+        lose.Location = New Point(601, 189)
         lose.Name = "lose"
         lose.Size = New Size(608, 407)
         lose.TabIndex = 44
@@ -213,7 +213,7 @@ Partial Class Level2
         win.BackgroundImage = CType(resources.GetObject("win.BackgroundImage"), Image)
         win.BackgroundImageLayout = ImageLayout.Stretch
         win.Controls.Add(Button2)
-        win.Location = New Point(38, 501)
+        win.Location = New Point(96, 481)
         win.Name = "win"
         win.Size = New Size(608, 407)
         win.TabIndex = 45

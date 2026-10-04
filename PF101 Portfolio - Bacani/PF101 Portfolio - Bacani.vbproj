@@ -10,11 +10,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\TakeOver.wav" />
     <None Remove="Sounds\click.wav" />
     <None Remove="Sounds\hover1.wav" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Resources\TakeOver.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Sounds\click.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -156,6 +160,18 @@
     </None>
     <None Update="Resources\REST.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Sounds\gunshot.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Sounds\meow.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Sounds\TakeOver.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Sounds\woof.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

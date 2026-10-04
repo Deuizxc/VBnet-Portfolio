@@ -20,6 +20,7 @@ Public Class Portfolio
         pnlStatsPopup.Visible = False
         AudioManager.InitializeAudio()
         AudioManager.AttachSounds(Me)
+
     End Sub
 
     Private Sub Portfolio_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize

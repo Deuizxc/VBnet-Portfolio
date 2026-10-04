@@ -16,14 +16,14 @@
         Button1.Cursor = Cursors.Default
     End Sub
 
-    Private Sub Labels_MouseEnter(sender As Object, e As EventArgs) Handles Label8.MouseEnter, lvl2start.MouseEnter, Label2.MouseEnter
+    Private Sub Labels_MouseEnter(sender As Object, e As EventArgs) Handles Label8.MouseEnter, lvl2start.MouseEnter, lvl3start.MouseEnter
         Dim lbl = DirectCast(sender, Label)
         lbl.ForeColor = Color.Gold
         lbl.Top -= 2
         lbl.Cursor = Cursors.Hand
     End Sub
 
-    Private Sub Labels_MouseLeave(sender As Object, e As EventArgs) Handles Label8.MouseLeave, lvl2start.MouseLeave, Label2.MouseLeave
+    Private Sub Labels_MouseLeave(sender As Object, e As EventArgs) Handles Label8.MouseLeave, lvl2start.MouseLeave, lvl3start.MouseLeave
         Dim lbl = DirectCast(sender, Label)
         lbl.ForeColor = Color.White
         lbl.Top += 2
@@ -45,6 +45,12 @@
         lvl2popup.Left = (Me.ClientSize.Width - lvl2popup.Width) \ 2
         lvl2popup.Top = (Me.ClientSize.Height - lvl2popup.Height) \ 2
         lvl2popup.Visible = False
+
+        ' --- ADDED: Initialize lvl3popup panel centering and visibility ---
+        lvl3popup.Parent = Me
+        lvl3popup.Left = (Me.ClientSize.Width - lvl3popup.Width) \ 2
+        lvl3popup.Top = (Me.ClientSize.Height - lvl3popup.Height) \ 2
+        lvl3popup.Visible = False
     End Sub
 
     Private Sub Label8_Click(sender As Object, e As EventArgs) Handles Label8.Click
@@ -72,4 +78,20 @@
         Level2.Update()
         Hide()
     End Sub
+
+    ' --- FIXED: Now centers and shows the lvl3popup panel instead of treating it like a Form ---
+    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles lvl3start.Click
+        lvl3popup.Location = New Point((Me.ClientSize.Width - lvl3popup.Width) \ 2, (Me.ClientSize.Height - lvl3popup.Height) \ 2)
+        lvl3popup.Visible = True
+        lvl3popup.BringToFront()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        lvl3popup.Visible = False
+        Level3.Dispose()
+        Level3.Show()
+        Level3.Update()
+        Hide()
+    End Sub
+
 End Class
