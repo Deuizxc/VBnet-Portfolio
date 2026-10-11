@@ -140,7 +140,7 @@ Public Class Level3
         If frame IsNot Nothing Then picBoss.Image = frame
     End Sub
 
-    ' Shows hurt_1 briefly, then goes back to idle starting from idle_1
+    ' Shows hurt_1 briefly, then goes back to idle starting from idle_
     Private Async Sub BossHurtImage()
         hurtId += 1
         Dim myId As Integer = hurtId
