@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="BaseForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Cert.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Confidant1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Confidant2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Lessons.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Level1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Level2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Level3.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Menu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Portfolio.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Profile.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W10_Classes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W10_Errors.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W10_Handling.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W1112_Classes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W1112_Net.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W1112_String.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W13_Database.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W13_Memory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W13_Sql.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W13_Visual.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W1415_Archi.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W1415_Database.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W1415_Dataset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W1415_Row.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W2_Classes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W2_Encapsulation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W2_Inheritance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W2_Interfaces.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W2_Polymorphism.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W3_Components.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W3_IDE.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W3_Programming.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W3_Vbnet.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W4_Basic.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W4_Common.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W4_Form.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W4_Layout.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W5_Conversion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W5_Data.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W5_Operator.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W5_Scope.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W5_Variable.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W6_Classes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W6_Date.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W6_Operator.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W6_Repeat.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W6_Selection.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W7_Array.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W7_Dimension.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W7_Procedure.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W8_Color.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W8_Dialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="W8_File.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Week10Selector.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Week11-12Selector.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Week13Selector.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Week14-15Selector.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Week2Selector.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Week3Selector.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Week4Selector.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Week5Selector.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Week6Selector.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Week7Selector.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Week8Selector.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Week9Selector.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
