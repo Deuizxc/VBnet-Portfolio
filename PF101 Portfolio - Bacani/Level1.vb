@@ -25,10 +25,11 @@ Public Class Level1
     Private ReadOnly farPos As New Dictionary(Of PictureBox, Point)
 
     ' True = character is on the start bank, False = on the far bank
-    ' (only meaningful while they are not sitting on the boat)
     Private ReadOnly charAtStart As New Dictionary(Of PictureBox, Boolean)
 
     Private gameOver As Boolean = False
+    Private moveCount As Integer = 0
+    Private hoveredChar As PictureBox = Nothing
 
     ' Countdown
     Private Const StartTime As Integer = 60
@@ -38,8 +39,9 @@ Public Class Level1
     ' Characters currently animating (ignore clicks until they finish)
     Private ReadOnly busy As New HashSet(Of PictureBox)
 
-    ' Sprite cache so files aren't reloaded (and locked) every time
+    ' Caches so files aren't reloaded every time
     Private ReadOnly spriteCache As New Dictionary(Of String, Image)
+    Private ReadOnly sfxCache As New Dictionary(Of String, SoundPlayer)
 
     ' Paint order: first = bottom, last = top.
     Private ReadOnly drawOrder As New List(Of PictureBox)
@@ -55,10 +57,10 @@ Public Class Level1
                  ControlStyles.UserPaint Or
                  ControlStyles.OptimizedDoubleBuffer, True)
         UpdateStyles()
+        Me.KeyPreview = True
     End Sub
 
     Private Sub Level1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' Boat goes first so it's drawn underneath the characters
         Boat.Location = boatStart
         drawOrder.Add(Boat)
 
@@ -82,34 +84,52 @@ Public Class Level1
             SetSprite(pb, "idle_left")
         Next
 
+        SortSpritesByDepth()
+
         ' Hide the real controls; the form paints them now
         For Each pb As PictureBox In drawOrder
             pb.Visible = False
         Next
 
-        Label1.Text = "Time Left: " & timeLeft
+        UpdateHud()
 
-        ' Hide the result panels initially on load
         win.Visible = False
         lose.Visible = False
 
         gameTimer.Start()
     End Sub
 
-    ' Current seat position (follows the boat)
+    Private Sub UpdateHud()
+        If timeLeft <= 10 Then
+            Label1.ForeColor = Color.Crimson
+        Else
+            Label1.ForeColor = Color.White ' Or your default label color
+        End If
+        Label1.Text = $"Time Left: {timeLeft}s | Crossings: {moveCount}"
+    End Sub
+
     Private Function SeatPos(seat As Integer) As Point
         Return Boat.Location + seatOffset(seat)
     End Function
+
+    ' ---------- KEYBOARD SHORTCUT ----------
+    Private Sub Level1_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.Space AndAlso btnMoveBoat.Enabled Then
+            e.SuppressKeyPress = True
+            btnMoveBoat.PerformClick()
+        End If
+    End Sub
 
     ' ---------- TIMER ----------
     Private Sub gameTimer_Tick(sender As Object, e As EventArgs) Handles gameTimer.Tick
         If gameOver Then Return
 
         timeLeft -= 1
-        Label1.Text = "Time Left: " & timeLeft
+        UpdateHud()
 
         If timeLeft <= 0 Then
-            Label1.Text = "Time Left: 0"
+            timeLeft = 0
+            UpdateHud()
             EndGame(False, "Time's up!")
         End If
     End Sub
@@ -139,17 +159,44 @@ Public Class Level1
         g.InterpolationMode = InterpolationMode.NearestNeighbor
         g.PixelOffsetMode = PixelOffsetMode.Half
         g.CompositingMode = CompositingMode.SourceOver
+        g.SmoothingMode = SmoothingMode.AntiAlias
 
-        For Each pb As PictureBox In drawOrder
-            If pb.Image IsNot Nothing Then
-                g.DrawImage(pb.Image, GetZoomRect(pb))
-            End If
-        Next
+        Using shadowBrush As New SolidBrush(Color.FromArgb(75, 0, 0, 0))
+            For Each pb As PictureBox In drawOrder
+                If pb.Image Is Nothing Then Continue For
+
+                Dim rect As RectangleF = GetZoomRect(pb)
+
+                ' Subtle ground shadow under characters
+                If characters.Contains(pb) AndAlso Not busy.Contains(pb) Then
+                    Dim shadowW As Single = rect.Width * 0.65F
+                    Dim shadowH As Single = 10.0F
+                    Dim shadowX As Single = rect.Left + (rect.Width - shadowW) / 2.0F
+                    Dim shadowY As Single = rect.Bottom - (shadowH / 2.0F)
+                    g.FillEllipse(shadowBrush, shadowX, shadowY, shadowW, shadowH)
+                End If
+
+                ' Slight lift when hovering a clickable character
+                If pb Is hoveredChar AndAlso CanClick(pb) Then
+                    rect.Y -= 4.0F
+                End If
+
+                g.DrawImage(pb.Image, rect)
+            Next
+        End Using
     End Sub
 
     Private Sub BringSpriteToFront(pb As PictureBox)
         drawOrder.Remove(pb)
         drawOrder.Add(pb)
+        Invalidate()
+    End Sub
+
+    Private Sub SortSpritesByDepth()
+        Dim sortedChars = drawOrder.Where(Function(p) p IsNot Boat).OrderBy(Function(p) p.Bottom).ToList()
+        drawOrder.Clear()
+        drawOrder.Add(Boat)
+        drawOrder.AddRange(sortedChars)
         Invalidate()
     End Sub
 
@@ -173,27 +220,30 @@ Public Class Level1
         Return Nothing
     End Function
 
-    ' Can this character be clicked right now?
     Private Function CanClick(pb As PictureBox) As Boolean
         If gameOver OrElse boatMoving OrElse busy.Contains(pb) Then Return False
-
-        ' On the boat -> can always get off
         If seatOf.ContainsKey(pb) Then Return True
-
-        ' On a bank -> must be on the boat's side and there must be a free seat
         If charAtStart(pb) <> boatAtStart Then Return False
         Return Not (slotTaken(0) AndAlso slotTaken(1))
     End Function
 
     Private Sub Level1_MouseMove(sender As Object, e As MouseEventArgs) Handles MyBase.MouseMove
         Dim pb As PictureBox = HitTest(e.Location)
-        Cursor = If(pb IsNot Nothing AndAlso CanClick(pb), Cursors.Hand, Cursors.Default)
+        Dim clickable As Boolean = (pb IsNot Nothing AndAlso CanClick(pb))
+        Cursor = If(clickable, Cursors.Hand, Cursors.Default)
+
+        Dim newHover As PictureBox = If(clickable, pb, Nothing)
+        If hoveredChar IsNot newHover Then
+            hoveredChar = newHover
+            Invalidate()
+        End If
     End Sub
 
     Private Async Sub Level1_MouseClick(sender As Object, e As MouseEventArgs) Handles MyBase.MouseClick
         Dim pb As PictureBox = HitTest(e.Location)
         If pb Is Nothing OrElse Not CanClick(pb) Then Return
 
+        hoveredChar = Nothing
         If seatOf.ContainsKey(pb) Then
             Await LeaveBoat(pb)
         Else
@@ -204,11 +254,12 @@ Public Class Level1
     ' ---------- BOAT ----------
     Private Async Sub btnMoveBoat_Click(sender As Object, e As EventArgs) Handles btnMoveBoat.Click
         If gameOver OrElse boatMoving OrElse busy.Count > 0 Then Return
-
-        ' The boat can't sail empty
         If seatOf.Count = 0 Then Return
 
         PlaySfx("click.wav")
+
+        moveCount += 1
+        UpdateHud()
 
         boatMoving = True
         btnMoveBoat.Enabled = False
@@ -238,10 +289,15 @@ Public Class Level1
         Dim sw As Stopwatch = Stopwatch.StartNew()
 
         Do While sw.ElapsedMilliseconds < duration
+            If Not Visible Then Return ' Abort if user exited to menu
+
             Dim t As Double = sw.ElapsedMilliseconds / duration
             Dim eased As Double = t * t * (3 - 2 * t)
+            ' Subtle wave bobbing while sailing
+            Dim bob As Integer = CInt(Math.Sin(t * Math.PI * 6) * 2)
+
             Dim ox As Integer = CInt(dx * eased)
-            Dim oy As Integer = CInt(dy * eased)
+            Dim oy As Integer = CInt(dy * eased) + bob
 
             Boat.Location = New Point(boatFrom.X + ox, boatFrom.Y + oy)
             For Each r As PictureBox In riders
@@ -274,21 +330,32 @@ Public Class Level1
         busy.Add(pb)
         BringSpriteToFront(pb)
 
-        ' Start bank: dash/land left. Far bank: dash/land right (inverted)
         Dim dir As String = If(charAtStart(pb), "left", "right")
 
         SetSprite(pb, "dash_" & dir)
         PlaySfx("sfx_dash_" & rng.Next(1, 3) & ".wav")
 
-        Await MoveTo(pb, SeatPos(seat))
+        Await MoveTo(pb, SeatPos(seat), jumpHeight:=35)
 
         PlaySfx("sfx_land_" & rng.Next(1, 3) & ".wav")
         SetSprite(pb, "land_" & dir)
+
+        ' Quick boat dip on landing
+        Boat.Top += 3
+        For Each r As PictureBox In seatOf.Keys
+            r.Top += 3
+        Next
+        Invalidate()
+
         Await Task.Delay(200)
 
-        ' Seat 0 (right one) faces left, seat 1 (left one) faces right
-        SetSprite(pb, If(seat = 1, "sit_right", "sit_left"))
+        Boat.Top -= 3
+        For Each r As PictureBox In seatOf.Keys
+            r.Top -= 3
+        Next
 
+        SetSprite(pb, If(seat = 1, "sit_right", "sit_left"))
+        SortSpritesByDepth()
         busy.Remove(pb)
     End Function
 
@@ -299,25 +366,23 @@ Public Class Level1
         busy.Add(pb)
         BringSpriteToFront(pb)
 
-        ' They get off on whichever bank the boat is at
         charAtStart(pb) = boatAtStart
         Dim target As Point = If(boatAtStart, originalPos(pb), farPos(pb))
 
-        ' Start bank: dash/land right, then idle_left
-        ' Far bank:   dash/land left,  then idle_right (inverted)
         Dim dir As String = If(boatAtStart, "right", "left")
         Dim idle As String = If(boatAtStart, "idle_left", "idle_right")
 
         SetSprite(pb, "dash_" & dir)
         PlaySfx("sfx_dash_" & rng.Next(1, 3) & ".wav")
 
-        Await MoveTo(pb, target)
+        Await MoveTo(pb, target, jumpHeight:=35)
 
         PlaySfx("sfx_land_" & rng.Next(1, 3) & ".wav")
         SetSprite(pb, "land_" & dir)
         Await Task.Delay(200)
         SetSprite(pb, idle)
 
+        SortSpritesByDepth()
         busy.Remove(pb)
 
         CheckGameState()
@@ -327,7 +392,6 @@ Public Class Level1
     Private Sub CheckGameState()
         If gameOver Then Return
 
-        ' Index 0 = start bank, 1 = far bank. Boat riders count for the boat's bank.
         Dim priests(1) As Integer
         Dim devils(1) As Integer
 
@@ -346,24 +410,23 @@ Public Class Level1
         Dim won As Boolean = (priests(1) = 3 AndAlso devils(1) = 3 AndAlso seatOf.Count = 0)
 
         If won Then
-            EndGame(True, "You got everyone across safely!")
+            EndGame(True, $"Cleared in {moveCount} crossings!")
         ElseIf lost Then
-            EndGame(False, "The devils outnumbered the priests...")
+            EndGame(False, "The devils outnumbered the priests!")
         End If
     End Sub
 
-    ' Shared by win, lose, and time-out
     Private Async Sub EndGame(won As Boolean, message As String)
         If gameOver Then Return
         gameOver = True
         gameTimer.Stop()
 
-        ' Let any animation (characters or boat) finish first
+        Label1.Text = message
+
         Do While busy.Count > 0 OrElse boatMoving
             Await Task.Delay(50)
         Loop
 
-        ' Center and display the correct panel instead of a MessageBox
         If won Then
             win.Location = New Point((Me.ClientSize.Width - win.Width) \ 2, (Me.ClientSize.Height - win.Height) \ 2)
             win.BringToFront()
@@ -373,13 +436,11 @@ Public Class Level1
             lose.BringToFront()
             lose.Visible = True
         End If
-
-        ' Note: Removed automatic ResetLevel() here so the panels stay on screen.
-        ' Make sure to call ResetLevel() in the click events of your retry/continue buttons!
     End Sub
 
     Public Sub ResetLevel()
         seatOf.Clear()
+        busy.Clear()
         slotTaken(0) = False
         slotTaken(1) = False
         boatAtStart = True
@@ -392,14 +453,15 @@ Public Class Level1
             SetSprite(pb, "idle_left")
         Next
 
+        SortSpritesByDepth()
         btnMoveBoat.Enabled = True
 
-        ' Hide panels when resetting
         win.Visible = False
         lose.Visible = False
 
         timeLeft = StartTime
-        Label1.Text = "Time Left: " & timeLeft
+        moveCount = 0
+        UpdateHud()
         gameTimer.Start()
 
         gameOver = False
@@ -407,17 +469,21 @@ Public Class Level1
     End Sub
 
     ' ---------- ANIMATION ----------
-    Private Async Function MoveTo(pb As PictureBox, target As Point) As Task
+    Private Async Function MoveTo(pb As PictureBox, target As Point, Optional jumpHeight As Integer = 0) As Task
         Const duration As Integer = 400 ' ms
         Dim start As Point = pb.Location
         Dim sw As Stopwatch = Stopwatch.StartNew()
 
         Do While sw.ElapsedMilliseconds < duration
+            If Not Visible Then Return
+
             Dim t As Double = sw.ElapsedMilliseconds / duration
             Dim eased As Double = 1 - (1 - t) * (1 - t)
+            Dim arc As Double = Math.Sin(t * Math.PI) * jumpHeight
+
             pb.Location = New Point(
                 CInt(start.X + (target.X - start.X) * eased),
-                CInt(start.Y + (target.Y - start.Y) * eased))
+                CInt(start.Y + (target.Y - start.Y) * eased - arc))
             Invalidate()
             Await Task.Delay(10)
         Loop
@@ -435,7 +501,9 @@ Public Class Level1
         Try
             If Not spriteCache.ContainsKey(fullPath) Then
                 Using fs As New FileStream(fullPath, FileMode.Open, FileAccess.Read)
-                    spriteCache(fullPath) = New Bitmap(fs)
+                    Using temp As New Bitmap(fs)
+                        spriteCache(fullPath) = New Bitmap(temp)
+                    End Using
                 End Using
             End If
             pb.Image = spriteCache(fullPath)
@@ -449,30 +517,27 @@ Public Class Level1
     Private Sub PlaySfx(fileName As String)
         Try
             Dim fullPath As String = Path.Combine(Application.StartupPath, "Sounds", fileName)
-            Dim player As New SoundPlayer(fullPath)
-            player.Play()
+            If Not sfxCache.ContainsKey(fullPath) Then
+                Dim player As New SoundPlayer(fullPath)
+                player.LoadAsync()
+                sfxCache(fullPath) = player
+            End If
+            sfxCache(fullPath).Play()
         Catch ex As Exception
         End Try
     End Sub
 
-    ' ---------- MENU ----------
+    ' ---------- MENU & BUTTONS ----------
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         gameTimer.Stop()
         Menu.Show()
         Hide()
     End Sub
 
-    ' Restart fresh whenever the level is shown again (e.g. coming back from the menu)
     Private Sub Level1_VisibleChanged(sender As Object, e As EventArgs) Handles MyBase.VisibleChanged
-        ' Only after Load has set everything up
         If Visible AndAlso characters.Count > 0 Then ResetLevel()
     End Sub
 
-    Private Sub lose_Paint(sender As Object, e As PaintEventArgs) Handles win.Paint
-
-    End Sub
-
-    ' FIXED: Added ResetLevel() to the retry buttons
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         lose.Visible = False
         ResetLevel()

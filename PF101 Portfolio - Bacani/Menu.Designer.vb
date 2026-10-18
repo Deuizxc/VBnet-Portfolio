@@ -47,7 +47,7 @@ Partial Class Menu
         Button1.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button1.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button1.Font = New Font("p5hatty", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button1.ForeColor = Color.Transparent
         Button1.Location = New Point(12, 12)
         Button1.Name = "Button1"
@@ -160,7 +160,7 @@ Partial Class Menu
         lvl3popup.BackgroundImage = CType(resources.GetObject("lvl3popup.BackgroundImage"), Image)
         lvl3popup.BackgroundImageLayout = ImageLayout.Stretch
         lvl3popup.Controls.Add(Button3)
-        lvl3popup.Location = New Point(156, 417)
+        lvl3popup.Location = New Point(313, 406)
         lvl3popup.Name = "lvl3popup"
         lvl3popup.Size = New Size(608, 407)
         lvl3popup.TabIndex = 27
@@ -186,7 +186,7 @@ Partial Class Menu
         ' 
         ' Menu
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
