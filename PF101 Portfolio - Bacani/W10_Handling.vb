@@ -28,9 +28,8 @@ Public Class W10_Handling
         Me.SetStyle(ControlStyles.AllPaintingInWmPaint Or ControlStyles.UserPaint Or ControlStyles.OptimizedDoubleBuffer, True)
         Me.UpdateStyles()
 
-
-
         ' Populate the demo combobox
+        cboOp.Items.Clear()
         cboOp.Items.Add("1. Valid Math Operation (100 / 2)")
         cboOp.Items.Add("2. Divide by Zero (100 / 0)")
         cboOp.Items.Add("3. Uninitialized Object (Null Reference)")
@@ -39,6 +38,8 @@ Public Class W10_Handling
         rtbOutput.Text = "> Awaiting execution trace..."
     End Sub
 
+    ' This tag forces Visual Studio's debugger to ignore the errors and let the Catch blocks handle them!
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub btnExecute_Click(sender As Object, e As EventArgs) Handles btnExecute.Click
         rtbOutput.Clear()
         rtbOutput.SelectionColor = Color.White

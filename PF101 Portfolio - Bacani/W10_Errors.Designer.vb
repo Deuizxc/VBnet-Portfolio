@@ -234,10 +234,10 @@ Partial Class W10_Errors
         rtbOutput.BorderStyle = BorderStyle.None
         rtbOutput.Font = New Font("Consolas", 8.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         rtbOutput.ForeColor = Color.LimeGreen
-        rtbOutput.Location = New Point(420, 265)
+        rtbOutput.Location = New Point(420, 279)
         rtbOutput.Name = "rtbOutput"
         rtbOutput.ReadOnly = True
-        rtbOutput.Size = New Size(291, 131)
+        rtbOutput.Size = New Size(284, 119)
         rtbOutput.TabIndex = 38
         rtbOutput.Text = ""
         ' 
