@@ -1,8 +1,7 @@
 ﻿Public Class W10_Classes
+    ' RETURN BUTTON (Closes the MDI Child)
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Week10Selector.Show()
-        Week10Selector.Update()
-        Me.Hide()
+        Me.Close()
     End Sub
 
     Private Sub Button1_MouseEnter(sender As Object, e As EventArgs) Handles Button1.MouseEnter
@@ -17,17 +16,15 @@
         Button1.Cursor = Cursors.Default
     End Sub
 
+    ' CONTINUE BUTTON (Swaps to next MDI Child)
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
-        Hide()
-        W10_Errors.Show()
+        Week10Selector.OpenChildForm(New W10_Errors())
     End Sub
 
     Private Sub W10_Classes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.DoubleBuffered = True
         Me.SetStyle(ControlStyles.AllPaintingInWmPaint Or ControlStyles.UserPaint Or ControlStyles.OptimizedDoubleBuffer, True)
         Me.UpdateStyles()
-
-
     End Sub
 
     Private Sub btnInstantiate_Click(sender As Object, e As EventArgs) Handles btnInstantiate.Click

@@ -1,9 +1,7 @@
-﻿' W10_Handling.vb
-Public Class W10_Handling
+﻿Public Class W10_Handling
+    ' RETURN BUTTON
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Week10Selector.Show()
-        Week10Selector.Update()
-        Me.Hide()
+        Me.Close()
     End Sub
 
     Private Sub Button1_MouseEnter(sender As Object, e As EventArgs) Handles Button1.MouseEnter
@@ -18,9 +16,9 @@ Public Class W10_Handling
         Button1.Cursor = Cursors.Default
     End Sub
 
+    ' PREVIOUS BUTTON (Swaps to previous MDI Child)
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        Hide()
-        W10_Errors.Show()
+        Week10Selector.OpenChildForm(New W10_Errors())
     End Sub
 
     Private Sub W10_Handling_Load(sender As Object, e As EventArgs) Handles MyBase.Load

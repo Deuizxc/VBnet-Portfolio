@@ -1,8 +1,7 @@
 ﻿Public Class W10_Errors
+    ' RETURN BUTTON
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Week10Selector.Show()
-        Week10Selector.Update()
-        Me.Hide()
+        Me.Close()
     End Sub
 
     Private Sub Button1_MouseEnter(sender As Object, e As EventArgs) Handles Button1.MouseEnter
@@ -17,23 +16,20 @@
         Button1.Cursor = Cursors.Default
     End Sub
 
+    ' CONTINUE BUTTON (Swaps to next MDI Child)
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
-        Hide()
-        W10_Handling.Show() ' Adjust to your Form 3 name
+        Week10Selector.OpenChildForm(New W10_Handling())
     End Sub
 
+    ' PREVIOUS BUTTON (Swaps to previous MDI Child)
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        Hide()
-        W10_Classes.Show()
+        Week10Selector.OpenChildForm(New W10_Classes())
     End Sub
 
     Private Sub W10_Errors_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.DoubleBuffered = True
         Me.SetStyle(ControlStyles.AllPaintingInWmPaint Or ControlStyles.UserPaint Or ControlStyles.OptimizedDoubleBuffer, True)
         Me.UpdateStyles()
-
-        ' Empty as requested, you will paste the text in the Designer
-
 
         cboRunDrive.Items.Add("C:\System\Config.sys (Valid)")
         cboRunDrive.Items.Add("Z:\Offline\Data.bin (Invalid)")
