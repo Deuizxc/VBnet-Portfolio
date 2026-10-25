@@ -1,9 +1,9 @@
 ﻿Public Class W1112_Classes
+    ' RETURN BUTTON (Closes MDI Child)
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Week11_12Selector.Show()
-        Week11_12Selector.Update()
-        Me.Hide()
+        Me.Close()
     End Sub
+
     Private Sub Button1_MouseEnter(sender As Object, e As EventArgs) Handles Button1.MouseEnter
         Button1.ForeColor = Color.Red
         Button1.Top -= 3
@@ -15,14 +15,15 @@
         Button1.Top += 3
         Button1.Cursor = Cursors.Default
     End Sub
-    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
-        Hide()
-        W1112_String.Show()
+
+    ' PREVIOUS BUTTON (Swaps to W1112_Net)
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Week11_12Selector.OpenChildForm(New W1112_Net())
     End Sub
 
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        Hide()
-        W1112_Net.Show()
+    ' CONTINUE BUTTON (Swaps to W1112_String)
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        Week11_12Selector.OpenChildForm(New W1112_String())
     End Sub
 
     Private Sub W1112_Classes_Load(sender As Object, e As EventArgs) Handles MyBase.Load

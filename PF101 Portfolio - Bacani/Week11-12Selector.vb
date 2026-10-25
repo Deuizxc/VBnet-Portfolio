@@ -1,10 +1,11 @@
 ﻿Public Class Week11_12Selector
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
-        Lessons.Show
-        Lessons.Update
-        Hide
+        Lessons.Show()
+        Lessons.Update()
+        Me.Hide()
     End Sub
-    'nudge sa home button
+
+    ' Nudge home button
     Private Sub Button7_MouseEnter(sender As Object, e As EventArgs) Handles Button7.MouseEnter
         Button7.Left -= 2
         Button7.Cursor = Cursors.Hand
@@ -14,53 +15,80 @@
         Button7.Left += 2
         Button7.Cursor = Cursors.Default
     End Sub
+
+    ' --- MDI NAVIGATION & OVERLAP FIX ---
+
+    Public Sub ToggleSelectorControls(showControls As Boolean)
+        For Each ctrl As Control In Me.Controls
+            If Not TypeOf ctrl Is MdiClient Then
+                ctrl.Visible = showControls
+            End If
+        Next
+    End Sub
+
+    Public Sub OpenChildForm(childForm As Form)
+        ' Remove handlers and close existing children first
+        For Each child As Form In Me.MdiChildren
+            RemoveHandler child.FormClosed, AddressOf ChildForm_Closed
+            child.Close()
+        Next
+
+        ' Hide selector labels/buttons so they don't bleed through
+        ToggleSelectorControls(False)
+
+        ' Attach child to MDI Parent
+        childForm.MdiParent = Me
+        childForm.FormBorderStyle = FormBorderStyle.None
+        childForm.Dock = DockStyle.Fill
+        AddHandler childForm.FormClosed, AddressOf ChildForm_Closed
+        childForm.Show()
+    End Sub
+
+    Private Sub ChildForm_Closed(sender As Object, e As FormClosedEventArgs)
+        ' Bring back the selector UI if no children are open
+        If Me.MdiChildren.Length <= 1 Then
+            ToggleSelectorControls(True)
+        End If
+    End Sub
+
     Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
-        W1112_Net.Show()
-        W1112_Net.Update()
-        Me.Hide()
+        OpenChildForm(New W1112_Net())
     End Sub
 
     Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
-        W1112_Classes.Show()
-        W1112_Classes.Update()
-        Me.Hide()
+        OpenChildForm(New W1112_Classes())
     End Sub
 
     Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label7.Click
-        W1112_String.Show()
-        W1112_String.Update()
-        Me.Hide()
+        OpenChildForm(New W1112_String())
     End Sub
 
+    ' --- HOVER EFFECTS (Fixed Designer Bug) ---
 
-    'HOVER EFFECTS
-    Private Sub Labels_MouseEnter(sender As Object, e As EventArgs) Handles _
-    Label3.MouseEnter, Label6.MouseEnter, Label7.MouseEnter
-
+    Private Sub Labels_MouseEnter(sender As Object, e As EventArgs) Handles Label3.MouseEnter, Label6.MouseEnter, Label7.MouseEnter
         Dim lbl = DirectCast(sender, Label)
         lbl.ForeColor = Color.Gold
         lbl.Top -= 3
         lbl.Cursor = Cursors.Hand
     End Sub
 
-    Private Sub Labels_MouseLeave(sender As Object, e As EventArgs) Handles _
-    Label3.MouseLeave, Label6.MouseLeave, Label7.MouseLeave
-
+    Private Sub Labels_MouseLeave(sender As Object, e As EventArgs) Handles Label3.MouseLeave, Label6.MouseLeave, Label7.MouseLeave
         Dim lbl = DirectCast(sender, Label)
         lbl.ForeColor = Color.White
         lbl.Top += 3
         lbl.Cursor = Cursors.Default
     End Sub
+
     Private Sub Week11_12Selector_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         AudioManager.AttachSounds(Me)
         Me.DoubleBuffered = True
         Me.SetStyle(ControlStyles.AllPaintingInWmPaint Or ControlStyles.UserPaint Or ControlStyles.OptimizedDoubleBuffer, True)
         Me.UpdateStyles()
-    End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs)
-        Lessons.Show()
-        Lessons.Update()
-        Hide()
+        ' Fix the gray background on the labels by matching the dark banner RGB
+        Dim bannerBlack As Color = Color.FromArgb(24, 24, 24)
+        Label3.BackColor = bannerBlack
+        Label6.BackColor = bannerBlack
+        Label7.BackColor = bannerBlack
     End Sub
 End Class

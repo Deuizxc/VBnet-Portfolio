@@ -47,7 +47,7 @@ Partial Class Week11_12Selector
         Label6.AutoSize = True
         Label6.BackColor = Color.Transparent
         Label6.FlatStyle = FlatStyle.Flat
-        Label6.Font = New Font("Impact", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label6.Font = New Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Label6.ForeColor = Color.White
         Label6.Location = New Point(347, 244)
         Label6.Name = "Label6"
@@ -75,7 +75,7 @@ Partial Class Week11_12Selector
         Button7.BackgroundImageLayout = ImageLayout.Stretch
         Button7.FlatAppearance.BorderSize = 0
         Button7.FlatStyle = FlatStyle.Flat
-        Button7.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button7.Font = New Font("p5hatty", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button7.ForeColor = SystemColors.ButtonHighlight
         Button7.Location = New Point(12, 12)
         Button7.Name = "Button7"
@@ -85,7 +85,7 @@ Partial Class Week11_12Selector
         ' 
         ' Week11_12Selector
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
@@ -94,7 +94,7 @@ Partial Class Week11_12Selector
         Controls.Add(Label6)
         Controls.Add(Label3)
         Controls.Add(Button7)
-        FormBorderStyle = FormBorderStyle.None
+        IsMdiContainer = True
         Name = "Week11_12Selector"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Week11_12Selector"
