@@ -110,6 +110,7 @@ Partial Class Week13Selector
         Controls.Add(Label3)
         Controls.Add(Button7)
         ForeColor = Color.White
+        IsMdiContainer = True
         Name = "Week13Selector"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Week13Selector"

@@ -1,23 +1,27 @@
 ﻿Public Class W13_Database
+    ' RETURN BUTTON (Closes MDI Child)
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Week13Selector.Show()
-        Week13Selector.Update()
-        Me.Hide()
-    End Sub
-    Private Sub Button1_MouseEnter(sender As Object, e As EventArgs) Handles Button1.MouseEnter
-        Button1.ForeColor = Color.Red
-        Button1.Top -= 3
-        Button1.Cursor = Cursors.Hand
+        Me.Close()
     End Sub
 
-    Private Sub Button1_MouseLeave(sender As Object, e As EventArgs) Handles Button1.MouseLeave
-        Button1.ForeColor = Color.Black
-        Button1.Top += 3
-        Button1.Cursor = Cursors.Default
-    End Sub
+    ' CONTINUE BUTTON (Swaps to W13_Sql)
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
-        Hide()
-        W13_Sql.Show()
+        Week13Selector.OpenChildForm(New W13_Sql())
+    End Sub
+
+    ' HOVER EFFECTS (Unified & Clean)
+    Private Sub NavButtons_MouseEnter(sender As Object, e As EventArgs) Handles Button1.MouseEnter, Button7.MouseEnter
+        Dim btn = DirectCast(sender, Button)
+        btn.FlatAppearance.MouseOverBackColor = Color.Transparent
+        btn.FlatAppearance.MouseDownBackColor = Color.Transparent
+        btn.Top -= 3
+        btn.Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub NavButtons_MouseLeave(sender As Object, e As EventArgs) Handles Button1.MouseLeave, Button7.MouseLeave
+        Dim btn = DirectCast(sender, Button)
+        btn.Top += 3
+        btn.Cursor = Cursors.Default
     End Sub
 
     Private Sub W13_Database_Load(sender As Object, e As EventArgs) Handles MyBase.Load
