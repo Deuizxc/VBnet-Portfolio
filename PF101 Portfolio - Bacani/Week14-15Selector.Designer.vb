@@ -109,7 +109,7 @@ Partial Class Week14_15Selector
         Controls.Add(Label7)
         Controls.Add(Label3)
         Controls.Add(Button7)
-        FormBorderStyle = FormBorderStyle.None
+        IsMdiContainer = True
         Name = "Week14_15Selector"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Week14_15Selector"

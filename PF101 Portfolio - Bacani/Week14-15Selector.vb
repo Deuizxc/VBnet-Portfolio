@@ -4,7 +4,8 @@
         Lessons.Update()
         Me.Hide()
     End Sub
-    'nudge sa home button
+
+    ' Nudge home button
     Private Sub Button7_MouseEnter(sender As Object, e As EventArgs) Handles Button7.MouseEnter
         Button7.Left -= 2
         Button7.Cursor = Cursors.Hand
@@ -14,31 +15,59 @@
         Button7.Left += 2
         Button7.Cursor = Cursors.Default
     End Sub
+
+    ' --- MDI NAVIGATION & OVERLAP FIX ---
+    Public Sub ToggleSelectorControls(showControls As Boolean)
+        For Each ctrl As Control In Me.Controls
+            If Not TypeOf ctrl Is MdiClient Then
+                ctrl.Visible = showControls
+            End If
+        Next
+    End Sub
+
+    Public Sub OpenChildForm(childForm As Form)
+        ' Remove handlers and close existing children first
+        For Each child As Form In Me.MdiChildren
+            RemoveHandler child.FormClosed, AddressOf ChildForm_Closed
+            child.Close()
+        Next
+
+        ' Hide selector labels/buttons so they don't bleed through
+        ToggleSelectorControls(False)
+
+        ' Attach child to MDI Parent
+        childForm.MdiParent = Me
+        childForm.FormBorderStyle = FormBorderStyle.None
+        childForm.Dock = DockStyle.Fill
+        AddHandler childForm.FormClosed, AddressOf ChildForm_Closed
+        childForm.Show()
+    End Sub
+
+    Private Sub ChildForm_Closed(sender As Object, e As FormClosedEventArgs)
+        ' Bring back the selector UI if no children are open
+        If Me.MdiChildren.Length <= 1 Then
+            ToggleSelectorControls(True)
+        End If
+    End Sub
+
+    ' Open the respective Child Forms
+    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
+        OpenChildForm(New W1415_Archi())
+    End Sub
+
     Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label7.Click
-        W1415_Dataset.Show()
-        W1415_Dataset.Update()
-        Me.Hide()
+        OpenChildForm(New W1415_Dataset())
     End Sub
 
     Private Sub Label8_Click(sender As Object, e As EventArgs) Handles Label8.Click
-        W1415_Row.Show()
-        W1415_Row.Update()
-        Me.Hide()
-    End Sub
-
-    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
-        W1415_Archi.Show()
-        W1415_Archi.Update()
-        Me.Hide()
+        OpenChildForm(New W1415_Row())
     End Sub
 
     Private Sub Label9_Click(sender As Object, e As EventArgs) Handles Label9.Click
-        W1415_Database.Show()
-        W1415_Database.Update()
-        Me.Hide()
+        OpenChildForm(New W1415_Database())
     End Sub
 
-    'HOVER EFFECTS
+    ' --- HOVER EFFECTS ---
     Private Sub Labels_MouseEnter(sender As Object, e As EventArgs) Handles _
     Label3.MouseEnter, Label7.MouseEnter, Label8.MouseEnter, Label9.MouseEnter
 
@@ -62,5 +91,12 @@
         Me.DoubleBuffered = True
         Me.SetStyle(ControlStyles.AllPaintingInWmPaint Or ControlStyles.UserPaint Or ControlStyles.OptimizedDoubleBuffer, True)
         Me.UpdateStyles()
+
+        ' Background blend for labels
+        Dim bannerBlack As Color = Color.FromArgb(24, 24, 24)
+        Label3.BackColor = bannerBlack
+        Label7.BackColor = bannerBlack
+        Label8.BackColor = bannerBlack
+        Label9.BackColor = bannerBlack
     End Sub
 End Class
