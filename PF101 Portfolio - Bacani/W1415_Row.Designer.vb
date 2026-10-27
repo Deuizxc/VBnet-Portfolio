@@ -1,9 +1,8 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class W1415_Row
     Inherits System.Windows.Forms.Form
 
-    'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -14,18 +13,22 @@ Partial Class W1415_Row
         End Try
     End Sub
 
-    'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
 
-    'NOTE: The following procedure is required by the Windows Form Designer
-    'It can be modified using the Windows Form Designer.  
-    'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(W1415_Row))
         Button1 = New Button()
         Button7 = New Button()
         Button6 = New Button()
+        lblTitle = New Label()
+        lblRowData = New Label()
+        btnPrev = New Button()
+        btnNext = New Button()
+        btnEvaluate = New Button()
+        rtbTerminal = New RichTextBox()
+        RichTextBox1 = New RichTextBox()
+        Label1 = New Label()
         SuspendLayout()
         ' 
         ' Button1
@@ -37,8 +40,6 @@ Partial Class W1415_Row
         Button1.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button1.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("p5hatty", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Button1.ForeColor = Color.Transparent
         Button1.Location = New Point(12, 12)
         Button1.Name = "Button1"
         Button1.Size = New Size(83, 33)
@@ -75,24 +76,146 @@ Partial Class W1415_Row
         Button6.TabIndex = 25
         Button6.UseVisualStyleBackColor = False
         ' 
+        ' lblTitle
+        ' 
+        lblTitle.AutoSize = True
+        lblTitle.BackColor = Color.Transparent
+        lblTitle.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
+        lblTitle.ForeColor = Color.White
+        lblTitle.Location = New Point(454, 25)
+        lblTitle.Name = "lblTitle"
+        lblTitle.Size = New Size(191, 20)
+        lblTitle.TabIndex = 26
+        lblTitle.Text = "ROW NAVIGATOR & NULLS"
+        ' 
+        ' lblRowData
+        ' 
+        lblRowData.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        lblRowData.BorderStyle = BorderStyle.FixedSingle
+        lblRowData.Font = New Font("Consolas", 8.5F)
+        lblRowData.ForeColor = Color.Gold
+        lblRowData.Location = New Point(466, 56)
+        lblRowData.Name = "lblRowData"
+        lblRowData.Size = New Size(212, 25)
+        lblRowData.TabIndex = 27
+        lblRowData.Text = "[Row 0] Data"
+        lblRowData.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' btnPrev
+        ' 
+        btnPrev.BackColor = Color.FromArgb(CByte(40), CByte(40), CByte(40))
+        btnPrev.FlatAppearance.BorderColor = Color.White
+        btnPrev.FlatStyle = FlatStyle.Flat
+        btnPrev.Font = New Font("Segoe UI", 8.25F, FontStyle.Bold)
+        btnPrev.ForeColor = Color.White
+        btnPrev.Location = New Point(454, 95)
+        btnPrev.Name = "btnPrev"
+        btnPrev.Size = New Size(115, 28)
+        btnPrev.TabIndex = 28
+        btnPrev.Text = "<< Prev Row"
+        btnPrev.UseVisualStyleBackColor = False
+        ' 
+        ' btnNext
+        ' 
+        btnNext.BackColor = Color.FromArgb(CByte(40), CByte(40), CByte(40))
+        btnNext.FlatAppearance.BorderColor = Color.White
+        btnNext.FlatStyle = FlatStyle.Flat
+        btnNext.Font = New Font("Segoe UI", 8.25F, FontStyle.Bold)
+        btnNext.ForeColor = Color.White
+        btnNext.Location = New Point(575, 95)
+        btnNext.Name = "btnNext"
+        btnNext.Size = New Size(112, 28)
+        btnNext.TabIndex = 29
+        btnNext.Text = "Next Row >>"
+        btnNext.UseVisualStyleBackColor = False
+        ' 
+        ' btnEvaluate
+        ' 
+        btnEvaluate.BackColor = Color.FromArgb(CByte(200), CByte(30), CByte(30))
+        btnEvaluate.FlatAppearance.BorderColor = Color.White
+        btnEvaluate.FlatStyle = FlatStyle.Flat
+        btnEvaluate.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+        btnEvaluate.ForeColor = Color.White
+        btnEvaluate.Location = New Point(465, 140)
+        btnEvaluate.Name = "btnEvaluate"
+        btnEvaluate.Size = New Size(213, 28)
+        btnEvaluate.TabIndex = 30
+        btnEvaluate.Text = "Evaluate Rule: Is Age >= 18?"
+        btnEvaluate.UseVisualStyleBackColor = False
+        ' 
+        ' rtbTerminal
+        ' 
+        rtbTerminal.BackColor = Color.FromArgb(CByte(15), CByte(15), CByte(15))
+        rtbTerminal.BorderStyle = BorderStyle.FixedSingle
+        rtbTerminal.Font = New Font("Consolas", 8.25F)
+        rtbTerminal.ForeColor = Color.White
+        rtbTerminal.Location = New Point(466, 185)
+        rtbTerminal.Name = "rtbTerminal"
+        rtbTerminal.ReadOnly = True
+        rtbTerminal.ScrollBars = RichTextBoxScrollBars.None
+        rtbTerminal.Size = New Size(213, 110)
+        rtbTerminal.TabIndex = 31
+        rtbTerminal.Text = "> Awaiting evaluation..."
+        ' 
+        ' RichTextBox1
+        ' 
+        RichTextBox1.BorderStyle = BorderStyle.None
+        RichTextBox1.Font = New Font("Franklin Gothic Book", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox1.Location = New Point(142, 40)
+        RichTextBox1.Name = "RichTextBox1"
+        RichTextBox1.ScrollBars = RichTextBoxScrollBars.None
+        RichTextBox1.Size = New Size(281, 190)
+        RichTextBox1.TabIndex = 50
+        RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
+        ' 
+        ' Label1
+        ' 
+        Label1.BackColor = Color.Transparent
+        Label1.Font = New Font("Trebuchet MS", 9.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label1.ForeColor = Color.White
+        Label1.Location = New Point(208, 369)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(409, 72)
+        Label1.TabIndex = 51
+        Label1.Text = "NULL represents unknown data—not zero or empty text. That is why comparisons evaluate strictly to True, False, or Unknown."
+        ' 
         ' W1415_Row
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(800, 450)
+        Controls.Add(Label1)
+        Controls.Add(RichTextBox1)
+        Controls.Add(rtbTerminal)
+        Controls.Add(btnEvaluate)
+        Controls.Add(btnNext)
+        Controls.Add(btnPrev)
+        Controls.Add(lblRowData)
+        Controls.Add(lblTitle)
         Controls.Add(Button6)
         Controls.Add(Button7)
         Controls.Add(Button1)
+        DoubleBuffered = True
         FormBorderStyle = FormBorderStyle.None
         Name = "W1415_Row"
         StartPosition = FormStartPosition.CenterScreen
         Text = "W1415_Row"
         ResumeLayout(False)
+        PerformLayout()
+
     End Sub
 
     Friend WithEvents Button1 As Button
     Friend WithEvents Button7 As Button
     Friend WithEvents Button6 As Button
+    Friend WithEvents lblTitle As Label
+    Friend WithEvents lblRowData As Label
+    Friend WithEvents btnPrev As Button
+    Friend WithEvents btnNext As Button
+    Friend WithEvents btnEvaluate As Button
+    Friend WithEvents rtbTerminal As RichTextBox
+    Friend WithEvents RichTextBox1 As RichTextBox
+    Friend WithEvents Label1 As Label
 End Class
