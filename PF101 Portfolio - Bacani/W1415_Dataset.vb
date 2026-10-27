@@ -70,6 +70,10 @@
         rtbTerminal.AppendText("CLOSED" & vbCrLf & vbCrLf)
 
         btnIterate.Enabled = True
+
+        ' Auto-scroll to the bottom so you can see the text
+        rtbTerminal.SelectionStart = rtbTerminal.Text.Length
+        rtbTerminal.ScrollToCaret()
     End Sub
 
     Private Sub btnIterate_Click(sender As Object, e As EventArgs) Handles btnIterate.Click
@@ -89,5 +93,9 @@
                 rtbTerminal.AppendText(String.Join(" | ", rowData) & vbCrLf)
             Next
         Next
+
+        ' Auto-scroll to the bottom so you can see the new nested iteration text
+        rtbTerminal.SelectionStart = rtbTerminal.Text.Length
+        rtbTerminal.ScrollToCaret()
     End Sub
 End Class
