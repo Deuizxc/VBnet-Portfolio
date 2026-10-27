@@ -89,13 +89,13 @@ Partial Class Week14_15Selector
         Label3.AutoSize = True
         Label3.BackColor = Color.Transparent
         Label3.FlatStyle = FlatStyle.Flat
-        Label3.Font = New Font("Impact", 12.75F)
+        Label3.Font = New Font("Impact", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Label3.ForeColor = Color.White
-        Label3.Location = New Point(351, 153)
+        Label3.Location = New Point(351, 163)
         Label3.Name = "Label3"
-        Label3.Size = New Size(128, 42)
+        Label3.Size = New Size(169, 23)
         Label3.TabIndex = 21
-        Label3.Text = "Architecture and" & vbCrLf & "View Models"
+        Label3.Text = "Architecture Models"
         ' 
         ' Week14_15Selector
         ' 
