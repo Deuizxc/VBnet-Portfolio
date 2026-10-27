@@ -28,5 +28,44 @@
         Me.DoubleBuffered = True
         Me.SetStyle(ControlStyles.AllPaintingInWmPaint Or ControlStyles.UserPaint Or ControlStyles.OptimizedDoubleBuffer, True)
         Me.UpdateStyles()
+
+        rbApproach2.Checked = True ' Default to Best Practice
+    End Sub
+
+    ' --- VIEWMODEL BUILDER DEMO LOGIC ---
+    Private Sub btnBuild_Click(sender As Object, e As EventArgs) Handles btnBuild.Click
+        rtbOutput.Clear()
+
+        rtbOutput.SelectionColor = Color.DodgerBlue
+        rtbOutput.AppendText("[Builder] Generating OrderSummary..." & vbCrLf & vbCrLf)
+
+        If rbApproach1.Checked Then
+            ' Simulate Approach 1: Direct Embedding (Leaks Data)
+            rtbOutput.SelectionColor = Color.White
+            rtbOutput.AppendText("class OrderSummary {" & vbCrLf)
+            rtbOutput.AppendText("  public Order obOrder = {" & vbCrLf)
+            rtbOutput.AppendText("    OrderNum: 88472," & vbCrLf)
+            rtbOutput.AppendText("    Lines: 4," & vbCrLf)
+            rtbOutput.SelectionColor = Color.Red
+            rtbOutput.AppendText("    DB_Hash: ""0x8F9A""," & vbCrLf)
+            rtbOutput.AppendText("    SysFlags: 00110" & vbCrLf)
+            rtbOutput.SelectionColor = Color.White
+            rtbOutput.AppendText("  }" & vbCrLf)
+            rtbOutput.AppendText("}" & vbCrLf & vbCrLf)
+
+            rtbOutput.SelectionColor = Color.Red
+            rtbOutput.AppendText("WARNING: Backend data leaked!")
+
+        ElseIf rbApproach2.Checked Then
+            ' Simulate Approach 2: Selective Mapping (Clean & Secure)
+            rtbOutput.SelectionColor = Color.White
+            rtbOutput.AppendText("class OrderSummary {" & vbCrLf)
+            rtbOutput.AppendText("  public int OrderNum = 88472;" & vbCrLf)
+            rtbOutput.AppendText("  public int Lines = 4;" & vbCrLf)
+            rtbOutput.AppendText("}" & vbCrLf & vbCrLf)
+
+            rtbOutput.SelectionColor = Color.LimeGreen
+            rtbOutput.AppendText("SUCCESS: Model is clean & secure.")
+        End If
     End Sub
 End Class
