@@ -105,7 +105,7 @@ Partial Class W13_Sql
         ' 
         lblSqlTerminal.BackColor = Color.FromArgb(CByte(15), CByte(15), CByte(15))
         lblSqlTerminal.BorderStyle = BorderStyle.FixedSingle
-        lblSqlTerminal.Font = New Font("Consolas", 9.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lblSqlTerminal.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         lblSqlTerminal.ForeColor = Color.LimeGreen
         lblSqlTerminal.Location = New Point(460, 109)
         lblSqlTerminal.Name = "lblSqlTerminal"
@@ -119,7 +119,7 @@ Partial Class W13_Sql
         btnExecute.BackColor = Color.FromArgb(CByte(200), CByte(30), CByte(30))
         btnExecute.FlatAppearance.BorderColor = Color.White
         btnExecute.FlatStyle = FlatStyle.Flat
-        btnExecute.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnExecute.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnExecute.ForeColor = Color.White
         btnExecute.Location = New Point(460, 187)
         btnExecute.Name = "btnExecute"
@@ -169,14 +169,14 @@ Partial Class W13_Sql
         RichTextBox1.Font = New Font("Franklin Gothic Book", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         RichTextBox1.Location = New Point(132, 59)
         RichTextBox1.Name = "RichTextBox1"
-        RichTextBox1.ScrollBars = RichTextBoxScrollBars.None
+        RichTextBox1.ScrollBars = RichTextBoxScrollBars.Vertical
         RichTextBox1.Size = New Size(277, 310)
         RichTextBox1.TabIndex = 46
         RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
         ' 
         ' W13_Sql
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch

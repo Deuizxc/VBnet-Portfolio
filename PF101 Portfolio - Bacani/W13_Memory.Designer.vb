@@ -210,14 +210,14 @@ Partial Class W13_Memory
         RichTextBox1.Font = New Font("Franklin Gothic Book", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         RichTextBox1.Location = New Point(134, 60)
         RichTextBox1.Name = "RichTextBox1"
-        RichTextBox1.ScrollBars = RichTextBoxScrollBars.None
+        RichTextBox1.ScrollBars = RichTextBoxScrollBars.Vertical
         RichTextBox1.Size = New Size(277, 310)
         RichTextBox1.TabIndex = 47
         RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
         ' 
         ' W13_Memory
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch

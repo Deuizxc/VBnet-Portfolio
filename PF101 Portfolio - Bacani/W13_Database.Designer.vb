@@ -68,7 +68,7 @@ Partial Class W13_Database
         RichTextBox1.Font = New Font("Franklin Gothic Book", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         RichTextBox1.Location = New Point(153, 56)
         RichTextBox1.Name = "RichTextBox1"
-        RichTextBox1.ScrollBars = RichTextBoxScrollBars.None
+        RichTextBox1.ScrollBars = RichTextBoxScrollBars.Vertical
         RichTextBox1.Size = New Size(277, 180)
         RichTextBox1.TabIndex = 45
         RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
@@ -92,7 +92,7 @@ Partial Class W13_Database
         RichTextBox2.ForeColor = Color.White
         RichTextBox2.Location = New Point(464, 38)
         RichTextBox2.Name = "RichTextBox2"
-        RichTextBox2.ScrollBars = RichTextBoxScrollBars.None
+        RichTextBox2.ScrollBars = RichTextBoxScrollBars.Vertical
         RichTextBox2.Size = New Size(272, 233)
         RichTextBox2.TabIndex = 47
         RichTextBox2.Text = resources.GetString("RichTextBox2.Text")
@@ -109,6 +109,7 @@ Partial Class W13_Database
         Controls.Add(RichTextBox1)
         Controls.Add(Button7)
         Controls.Add(Button1)
+        DoubleBuffered = True
         FormBorderStyle = FormBorderStyle.None
         Name = "W13_Database"
         StartPosition = FormStartPosition.CenterScreen
