@@ -26,18 +26,32 @@ It has three parts: a **profile section**, a **lessons library** covering Weeks 
 
 ## Visual Showcase
 
-<p align="center">
-  <img src="Portfolio%20assets/git1.png" width="48%" alt="Module Interface 1" />
-  <img src="Portfolio%20assets/git2.png" width="48%" alt="Module Interface 2" />
-</p>
-<p align="center">
-  <img src="Portfolio%20assets/git3.png" width="48%" alt="Module Interface 3" />
-  <img src="Portfolio%20assets/git4.png" width="48%" alt="Module Interface 4" />
-</p>
-<p align="center">
-  <img src="Portfolio%20assets/git5.png" width="48%" alt="Module Interface 5" />
-  <img src="Portfolio%20assets/git7.png" width="48%" alt="Module Interface 6" />
-</p>
+<table align="center" width="100%">
+  <tr>
+    <td width="50%" align="center">
+      <img src="Portfolio%20assets/git1clean.png" alt="Module Interface 1" width="100%"/>
+    </td>
+    <td width="50%" align="center">
+      <img src="Portfolio%20assets/git2.png" alt="Module Interface 2" width="100%"/>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" align="center">
+      <img src="Portfolio%20assets/git3.png" alt="Module Interface 3" width="100%"/>
+    </td>
+    <td width="50%" align="center">
+      <img src="Portfolio%20assets/git4clean.png" alt="Module Interface 4" width="100%"/>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" align="center">
+      <img src="Portfolio%20assets/git5.png" alt="Module Interface 5" width="100%"/>
+    </td>
+    <td width="50%" align="center">
+      <img src="Portfolio%20assets/git7.png" alt="Module Interface 6" width="100%"/>
+    </td>
+  </tr>
+</table>
 
 ---
 
