@@ -80,7 +80,7 @@ Partial Class W1415_Row
         ' 
         lblTitle.AutoSize = True
         lblTitle.BackColor = Color.Transparent
-        lblTitle.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
+        lblTitle.Font = New Font("Segoe UI", 11F, FontStyle.Bold)
         lblTitle.ForeColor = Color.White
         lblTitle.Location = New Point(454, 25)
         lblTitle.Name = "lblTitle"
@@ -134,7 +134,7 @@ Partial Class W1415_Row
         btnEvaluate.BackColor = Color.FromArgb(CByte(200), CByte(30), CByte(30))
         btnEvaluate.FlatAppearance.BorderColor = Color.White
         btnEvaluate.FlatStyle = FlatStyle.Flat
-        btnEvaluate.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+        btnEvaluate.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         btnEvaluate.ForeColor = Color.White
         btnEvaluate.Location = New Point(465, 140)
         btnEvaluate.Name = "btnEvaluate"
@@ -163,7 +163,7 @@ Partial Class W1415_Row
         RichTextBox1.Font = New Font("Franklin Gothic Book", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         RichTextBox1.Location = New Point(142, 40)
         RichTextBox1.Name = "RichTextBox1"
-        RichTextBox1.ScrollBars = RichTextBoxScrollBars.None
+        RichTextBox1.ScrollBars = RichTextBoxScrollBars.Vertical
         RichTextBox1.Size = New Size(281, 190)
         RichTextBox1.TabIndex = 50
         RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
@@ -171,7 +171,7 @@ Partial Class W1415_Row
         ' Label1
         ' 
         Label1.BackColor = Color.Transparent
-        Label1.Font = New Font("Trebuchet MS", 9.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label1.Font = New Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Label1.ForeColor = Color.White
         Label1.Location = New Point(208, 369)
         Label1.Name = "Label1"
@@ -181,7 +181,7 @@ Partial Class W1415_Row
         ' 
         ' W1415_Row
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch

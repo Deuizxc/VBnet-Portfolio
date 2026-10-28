@@ -112,7 +112,7 @@ Partial Class W1415_Archi
         btnBuild.BackColor = Color.FromArgb(CByte(200), CByte(30), CByte(30))
         btnBuild.FlatAppearance.BorderColor = Color.White
         btnBuild.FlatStyle = FlatStyle.Flat
-        btnBuild.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+        btnBuild.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         btnBuild.ForeColor = Color.White
         btnBuild.Location = New Point(419, 200)
         btnBuild.Name = "btnBuild"
@@ -141,14 +141,14 @@ Partial Class W1415_Archi
         RichTextBox1.Font = New Font("Franklin Gothic Book", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         RichTextBox1.Location = New Point(101, 73)
         RichTextBox1.Name = "RichTextBox1"
-        RichTextBox1.ScrollBars = RichTextBoxScrollBars.None
+        RichTextBox1.ScrollBars = RichTextBoxScrollBars.Vertical
         RichTextBox1.Size = New Size(277, 320)
         RichTextBox1.TabIndex = 48
         RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
         ' 
         ' W1415_Archi
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
