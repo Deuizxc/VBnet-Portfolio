@@ -1,8 +1,16 @@
-﻿Public Class W3_IDE
+﻿Imports System.Text.RegularExpressions
+
+Public Class W3_IDE
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Week3Selector.Show()
-        Week3Selector.Update()
-        Me.Hide()
+        Hide()
+        Try
+            Week3Selector.Show()
+            Week3Selector.Update()
+        Catch ex As Exception
+            Dim w3 As New Week3Selector()
+            w3.Show()
+            w3.Update()
+        End Try
     End Sub
 
     Private Sub Button1_MouseEnter(sender As Object, e As EventArgs) Handles Button1.MouseEnter
@@ -19,23 +27,67 @@
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
         Hide()
-        W3_Components.Show()
+        Try
+            W3_Components.Show()
+        Catch ex As Exception
+            Dim comp As New W3_Components()
+            comp.Show()
+        End Try
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
         Hide()
-        W3_Vbnet.Show()
+        Try
+            W3_Vbnet.Show()
+        Catch ex As Exception
+            Dim vbnet As New W3_Vbnet()
+            vbnet.Show()
+        End Try
     End Sub
 
     Private Sub W3_IDE_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        AudioManager.AttachSounds(Me)
         Me.DoubleBuffered = True
         Me.SetStyle(ControlStyles.AllPaintingInWmPaint Or ControlStyles.UserPaint Or ControlStyles.OptimizedDoubleBuffer, True)
         Me.UpdateStyles()
+        Label1.Text = "Click a window above to inspect its role."
+        FormatRichText()
     End Sub
 
-    Private Sub Form_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        AudioManager.AttachSounds(Me)
-        Label1.Text = "Click a window above to inspect its role."
+    Private Sub FormatRichText()
+        Try
+            Dim rtb As RichTextBox = Nothing
+            If Me.Controls.Find("RichTextBox1", True).Length > 0 Then
+                rtb = DirectCast(Me.Controls.Find("RichTextBox1", True)(0), RichTextBox)
+            End If
+            If rtb Is Nothing OrElse String.IsNullOrWhiteSpace(rtb.Text) Then Return
+
+            rtb.SuspendLayout()
+            Dim origStart As Integer = rtb.SelectionStart
+            Dim origLen As Integer = rtb.SelectionLength
+
+            rtb.SelectAll()
+            rtb.SelectionFont = New Font("Segoe UI", 9.0F, FontStyle.Regular)
+            rtb.SelectionColor = Color.FromArgb(40, 40, 40)
+
+            Dim mc As MatchCollection = Regex.Matches(rtb.Text, "(?m)^[•\-]\s*([^:]+):")
+            For Each m As Match In mc
+                rtb.Select(m.Index, m.Length)
+                rtb.SelectionFont = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+                rtb.SelectionColor = Color.FromArgb(190, 20, 20)
+            Next
+
+            Dim mc2 As MatchCollection = Regex.Matches(rtb.Text, "(?m)^\d+\.\s+.*$|\[.*?\]")
+            For Each m As Match In mc2
+                rtb.Select(m.Index, m.Length)
+                rtb.SelectionFont = New Font("Segoe UI", 9.5F, FontStyle.Bold)
+                rtb.SelectionColor = Color.FromArgb(190, 20, 20)
+            Next
+
+            rtb.Select(origStart, origLen)
+            rtb.ResumeLayout()
+        Catch ex As Exception
+        End Try
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
