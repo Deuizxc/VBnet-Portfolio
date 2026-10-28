@@ -46,7 +46,7 @@ Partial Class W10_Errors
         Button1.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button1.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button1.Font = New Font("p5hatty", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button1.ForeColor = Color.Transparent
         Button1.Location = New Point(12, 12)
         Button1.Name = "Button1"
@@ -88,7 +88,7 @@ Partial Class W10_Errors
         ' 
         lblTitle.AutoSize = True
         lblTitle.BackColor = Color.Transparent
-        lblTitle.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblTitle.Font = New Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblTitle.ForeColor = Color.White
         lblTitle.Location = New Point(420, 34)
         lblTitle.Name = "lblTitle"
@@ -100,7 +100,7 @@ Partial Class W10_Errors
         ' 
         lblSynTitle.AutoSize = True
         lblSynTitle.BackColor = Color.Transparent
-        lblSynTitle.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblSynTitle.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblSynTitle.ForeColor = Color.LightGray
         lblSynTitle.Location = New Point(420, 56)
         lblSynTitle.Name = "lblSynTitle"
@@ -148,7 +148,7 @@ Partial Class W10_Errors
         ' 
         lblRunTitle.AutoSize = True
         lblRunTitle.BackColor = Color.Transparent
-        lblRunTitle.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblRunTitle.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblRunTitle.ForeColor = Color.LightGray
         lblRunTitle.Location = New Point(420, 128)
         lblRunTitle.Name = "lblRunTitle"
@@ -184,7 +184,7 @@ Partial Class W10_Errors
         ' 
         lblLogTitle.AutoSize = True
         lblLogTitle.BackColor = Color.Transparent
-        lblLogTitle.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblLogTitle.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblLogTitle.ForeColor = Color.LightGray
         lblLogTitle.Location = New Point(420, 195)
         lblLogTitle.Name = "lblLogTitle"
@@ -247,14 +247,14 @@ Partial Class W10_Errors
         RichTextBox1.Font = New Font("Franklin Gothic Book", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         RichTextBox1.Location = New Point(122, 55)
         RichTextBox1.Name = "RichTextBox1"
-        RichTextBox1.ScrollBars = RichTextBoxScrollBars.None
+        RichTextBox1.ScrollBars = RichTextBoxScrollBars.Vertical
         RichTextBox1.Size = New Size(271, 329)
         RichTextBox1.TabIndex = 39
         RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
         ' 
         ' W10_Errors
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch

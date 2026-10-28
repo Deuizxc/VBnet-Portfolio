@@ -39,7 +39,7 @@ Partial Class W10_Handling
         Button1.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button1.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button1.Font = New Font("p5hatty", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button1.ForeColor = Color.Transparent
         Button1.Location = New Point(12, 12)
         Button1.Name = "Button1"
@@ -78,7 +78,7 @@ Partial Class W10_Handling
         ' 
         lblOp.AutoSize = True
         lblOp.BackColor = Color.Transparent
-        lblOp.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblOp.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblOp.ForeColor = Color.LightGray
         lblOp.Location = New Point(478, 67)
         lblOp.Name = "lblOp"
@@ -102,7 +102,7 @@ Partial Class W10_Handling
         ' 
         btnExecute.BackColor = Color.FromArgb(CByte(45), CByte(45), CByte(45))
         btnExecute.FlatStyle = FlatStyle.Flat
-        btnExecute.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnExecute.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnExecute.ForeColor = Color.White
         btnExecute.Location = New Point(478, 130)
         btnExecute.Name = "btnExecute"
@@ -130,7 +130,7 @@ Partial Class W10_Handling
         RichTextBox1.Font = New Font("Franklin Gothic Book", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         RichTextBox1.Location = New Point(198, 66)
         RichTextBox1.Name = "RichTextBox1"
-        RichTextBox1.ScrollBars = RichTextBoxScrollBars.None
+        RichTextBox1.ScrollBars = RichTextBoxScrollBars.Vertical
         RichTextBox1.Size = New Size(243, 227)
         RichTextBox1.TabIndex = 40
         RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
@@ -139,7 +139,7 @@ Partial Class W10_Handling
         ' 
         Label1.AutoSize = True
         Label1.BackColor = Color.Transparent
-        Label1.Font = New Font("Trebuchet MS", 9.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label1.Font = New Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Label1.ForeColor = Color.White
         Label1.Location = New Point(253, 381)
         Label1.Name = "Label1"
@@ -149,7 +149,7 @@ Partial Class W10_Handling
         ' 
         ' W10_Handling
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
