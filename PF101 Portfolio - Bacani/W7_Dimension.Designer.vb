@@ -97,7 +97,7 @@ Partial Class W7_Dimension
         RichTextBox2.ForeColor = Color.White
         RichTextBox2.Location = New Point(430, 55)
         RichTextBox2.Name = "RichTextBox2"
-        RichTextBox2.Size = New Size(253, 146)
+        RichTextBox2.Size = New Size(311, 146)
         RichTextBox2.TabIndex = 36
         RichTextBox2.Text = resources.GetString("RichTextBox2.Text")
         ' 
@@ -121,7 +121,7 @@ Partial Class W7_Dimension
         RichTextBox3.ForeColor = Color.White
         RichTextBox3.Location = New Point(430, 207)
         RichTextBox3.Name = "RichTextBox3"
-        RichTextBox3.Size = New Size(304, 101)
+        RichTextBox3.Size = New Size(322, 101)
         RichTextBox3.TabIndex = 39
         RichTextBox3.Text = "For r As Integer = 0 To 2" & vbLf & "    For c As Integer = 0 To 3" & vbLf & "        scores(r, c) = 0" & vbLf & "    Next c" & vbLf & "Next r"
         ' 
