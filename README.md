@@ -36,7 +36,7 @@ It has three parts: a **profile section**, a **lessons library** covering Weeks 
 </p>
 <p align="center">
   <img src="Portfolio%20assets/git5.png" width="48%" alt="Module Interface 5" />
-  <img src="Portfolio%20assets/git6.png" width="48%" alt="Module Interface 6" />
+  <img src="Portfolio%20assets/git7.png" width="48%" alt="Module Interface 6" />
 </p>
 
 ---
