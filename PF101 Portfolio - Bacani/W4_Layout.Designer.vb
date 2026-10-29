@@ -1,9 +1,8 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class W4_Layout
     Inherits System.Windows.Forms.Form
 
-    'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -14,13 +13,9 @@ Partial Class W4_Layout
         End Try
     End Sub
 
-    'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
 
-    'NOTE: The following procedure is required by the Windows Form Designer
-    'It can be modified using the Windows Form Designer.  
-    'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(W4_Layout))
         Button1 = New Button()
@@ -44,7 +39,7 @@ Partial Class W4_Layout
         Button1.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button1.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("p5hatty", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button1.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button1.ForeColor = Color.Transparent
         Button1.Location = New Point(12, 12)
         Button1.Name = "Button1"
@@ -120,12 +115,11 @@ Partial Class W4_Layout
         ' 
         ' btnToggleLayout
         ' 
-        btnToggleLayout.BackColor = Color.Transparent
-        btnToggleLayout.BackgroundImage = CType(resources.GetObject("btnToggleLayout.BackgroundImage"), Image)
-        btnToggleLayout.BackgroundImageLayout = ImageLayout.Stretch
-        btnToggleLayout.FlatAppearance.BorderSize = 0
-        btnToggleLayout.FlatAppearance.MouseDownBackColor = Color.Transparent
-        btnToggleLayout.FlatAppearance.MouseOverBackColor = Color.Transparent
+        btnToggleLayout.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnToggleLayout.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnToggleLayout.FlatAppearance.BorderSize = 2
+        btnToggleLayout.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnToggleLayout.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnToggleLayout.FlatStyle = FlatStyle.Flat
         btnToggleLayout.Font = New Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnToggleLayout.ForeColor = Color.White
@@ -133,6 +127,7 @@ Partial Class W4_Layout
         btnToggleLayout.Name = "btnToggleLayout"
         btnToggleLayout.Size = New Size(113, 37)
         btnToggleLayout.TabIndex = 36
+        btnToggleLayout.Text = "TOGGLE"
         btnToggleLayout.UseVisualStyleBackColor = False
         ' 
         ' Label1
@@ -149,7 +144,7 @@ Partial Class W4_Layout
         ' 
         ' W4_Layout
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch

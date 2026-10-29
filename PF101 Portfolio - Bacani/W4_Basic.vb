@@ -36,7 +36,7 @@ Public Class W4_Basic
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        MessageBox.Show("Sir, this is my portfolio hi hello kumusta")
+        MessageBox.Show("Sir, this is my portfolio hi hello kumusta", "System Alert", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
     Private Sub Button2_MouseEnter(sender As Object, e As EventArgs) Handles Button2.MouseEnter

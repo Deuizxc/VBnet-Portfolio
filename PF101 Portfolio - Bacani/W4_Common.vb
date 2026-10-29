@@ -45,36 +45,54 @@ Public Class W4_Common
         End Try
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Async Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Dim userName As String = txtDemo.Text.Trim()
-        If userName = "" Then userName = "User"
 
-        If ProgressBar1.Value < 100 Then
-            ProgressBar1.Value = Math.Min(100, ProgressBar1.Value + 25)
-        Else
-            ProgressBar1.Value = 25
+        If String.IsNullOrEmpty(userName) Then
+            lblStatus.ForeColor = Color.Red
+            lblStatus.Text = "Error: Name is required."
+            Exit Sub
         End If
 
-        Dim selectedMessage As String = ""
-        If RadioButton1.Checked Then
-            selectedMessage = "Role: Student"
-        ElseIf RadioButton2.Checked Then
-            selectedMessage = "Role: Admin"
-        Else
-            selectedMessage = "Role: Unselected"
+        If Not RadioButton1.Checked AndAlso Not RadioButton2.Checked Then
+            lblStatus.ForeColor = Color.Red
+            lblStatus.Text = "Error: Select a role."
+            Exit Sub
         End If
 
-        lblStatus.Text = "Name: " & userName & " | " & selectedMessage
+        If Not CheckBox1.Checked Then
+            lblStatus.ForeColor = Color.Red
+            lblStatus.Text = "Error: Accept terms."
+            Exit Sub
+        End If
+
+        lblStatus.ForeColor = Color.Gold
+        lblStatus.Text = "Authenticating..."
+        Button2.Enabled = False
+        ProgressBar1.Value = 0
+
+        For i As Integer = 1 To 100
+            ProgressBar1.Value = i
+            Await Task.Delay(10)
+        Next
+
+        Dim selectedRole As String = If(RadioButton1.Checked, "Student", "Prof")
+
+        lblStatus.ForeColor = Color.LimeGreen
+        lblStatus.Text = $"Welcome, {selectedRole} {userName}!"
+        Button2.Enabled = True
     End Sub
 
     Private Sub Button2_MouseEnter(sender As Object, e As EventArgs) Handles Button2.MouseEnter
-        Button2.Top -= 3
-        Button2.Cursor = Cursors.Hand
+        Dim btn As Button = DirectCast(sender, Button)
+        btn.Top -= 3
+        btn.Cursor = Cursors.Hand
     End Sub
 
     Private Sub Button2_MouseLeave(sender As Object, e As EventArgs) Handles Button2.MouseLeave
-        Button2.Top += 3
-        Button2.Cursor = Cursors.Default
+        Dim btn As Button = DirectCast(sender, Button)
+        btn.Top += 3
+        btn.Cursor = Cursors.Default
     End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles txtDemo.TextChanged

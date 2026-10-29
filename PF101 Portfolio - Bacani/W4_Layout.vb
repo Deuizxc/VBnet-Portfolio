@@ -3,6 +3,7 @@
 Public Class W4_Layout
     Private originalLocation As Point
     Private originalSize As Size
+    Private layoutMode As Integer = 0
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Hide()
@@ -39,22 +40,29 @@ Public Class W4_Layout
     End Sub
 
     Private Sub btnToggleLayout_Click(sender As Object, e As EventArgs) Handles btnToggleLayout.Click
-        If testbox.Dock = DockStyle.None AndAlso testbox.Anchor = (AnchorStyles.Top Or AnchorStyles.Left) Then
-            testbox.Dock = DockStyle.Bottom
-            lblLayoutStatus.Text = "Mode: Docked"
-        ElseIf testbox.Dock = DockStyle.Bottom Then
-            testbox.Dock = DockStyle.None
-            testbox.Size = New Size(80, 30)
-            testbox.Location = New Point(testbox.Parent.ClientSize.Width - testbox.Width - 15, 15)
-            testbox.Anchor = AnchorStyles.Top Or AnchorStyles.Right
-            lblLayoutStatus.Text = "Mode: Anchored"
-        Else
-            testbox.Dock = DockStyle.None
-            testbox.Anchor = AnchorStyles.Top Or AnchorStyles.Left
-            testbox.Size = originalSize
-            testbox.Location = originalLocation
-            lblLayoutStatus.Text = "Mode: Default"
-        End If
+        layoutMode += 1
+        If layoutMode > 2 Then layoutMode = 0
+
+        Select Case layoutMode
+            Case 1
+                testbox.Dock = DockStyle.Bottom
+                lblLayoutStatus.ForeColor = Color.Gold
+                lblLayoutStatus.Text = "Mode: Docked (Bottom)"
+            Case 2
+                testbox.Dock = DockStyle.None
+                testbox.Size = New Size(113, 30)
+                testbox.Location = New Point(Me.ClientSize.Width - testbox.Width - 20, 20)
+                testbox.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+                lblLayoutStatus.ForeColor = Color.Cyan
+                lblLayoutStatus.Text = "Mode: Anchored (Top, Right)"
+            Case Else
+                testbox.Dock = DockStyle.None
+                testbox.Anchor = AnchorStyles.Top Or AnchorStyles.Left
+                testbox.Size = originalSize
+                testbox.Location = originalLocation
+                lblLayoutStatus.ForeColor = Color.White
+                lblLayoutStatus.Text = "Mode: Default Layout"
+        End Select
     End Sub
 
     Private Sub W4_Layout_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -68,13 +76,15 @@ Public Class W4_Layout
     End Sub
 
     Private Sub btnToggleLayout_MouseEnter(sender As Object, e As EventArgs) Handles btnToggleLayout.MouseEnter
-        btnToggleLayout.Top -= 3
-        btnToggleLayout.Cursor = Cursors.Hand
+        Dim btn As Button = DirectCast(sender, Button)
+        btn.Top -= 3
+        btn.Cursor = Cursors.Hand
     End Sub
 
-    Private Sub Button2_MouseLeave(sender As Object, e As EventArgs) Handles btnToggleLayout.MouseLeave
-        btnToggleLayout.Top += 3
-        btnToggleLayout.Cursor = Cursors.Default
+    Private Sub btnToggleLayout_MouseLeave(sender As Object, e As EventArgs) Handles btnToggleLayout.MouseLeave
+        Dim btn As Button = DirectCast(sender, Button)
+        btn.Top += 3
+        btn.Cursor = Cursors.Default
     End Sub
 
     Private Sub lblLayoutStatus_Click(sender As Object, e As EventArgs) Handles lblLayoutStatus.Click
