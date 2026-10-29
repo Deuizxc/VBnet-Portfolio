@@ -82,7 +82,11 @@ Partial Class W1112_String
         ' 
         ' btnUCase
         ' 
-        btnUCase.BackColor = Color.FromArgb(CByte(200), CByte(30), CByte(30))
+        btnUCase.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnUCase.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnUCase.FlatAppearance.BorderSize = 2
+        btnUCase.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnUCase.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnUCase.FlatStyle = FlatStyle.Flat
         btnUCase.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
         btnUCase.ForeColor = Color.White
@@ -95,7 +99,11 @@ Partial Class W1112_String
         ' 
         ' btnReverse
         ' 
-        btnReverse.BackColor = Color.FromArgb(CByte(200), CByte(30), CByte(30))
+        btnReverse.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnReverse.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnReverse.FlatAppearance.BorderSize = 2
+        btnReverse.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnReverse.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnReverse.FlatStyle = FlatStyle.Flat
         btnReverse.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
         btnReverse.ForeColor = Color.White
@@ -108,7 +116,11 @@ Partial Class W1112_String
         ' 
         ' btnTrim
         ' 
-        btnTrim.BackColor = Color.FromArgb(CByte(40), CByte(40), CByte(40))
+        btnTrim.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnTrim.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnTrim.FlatAppearance.BorderSize = 2
+        btnTrim.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnTrim.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnTrim.FlatStyle = FlatStyle.Flat
         btnTrim.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
         btnTrim.ForeColor = Color.White
@@ -121,7 +133,11 @@ Partial Class W1112_String
         ' 
         ' btnCurrency
         ' 
-        btnCurrency.BackColor = Color.FromArgb(CByte(40), CByte(40), CByte(40))
+        btnCurrency.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnCurrency.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnCurrency.FlatAppearance.BorderSize = 2
+        btnCurrency.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnCurrency.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnCurrency.FlatStyle = FlatStyle.Flat
         btnCurrency.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
         btnCurrency.ForeColor = Color.White
@@ -129,7 +145,7 @@ Partial Class W1112_String
         btnCurrency.Name = "btnCurrency"
         btnCurrency.Size = New Size(111, 35)
         btnCurrency.TabIndex = 29
-        btnCurrency.Text = "FormatCurrency()"
+        btnCurrency.Text = "FormatCurrency"
         btnCurrency.UseVisualStyleBackColor = False
         ' 
         ' rtbOutput

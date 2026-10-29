@@ -100,8 +100,11 @@ Partial Class W1112_Net
         ' 
         ' btnCompile
         ' 
-        btnCompile.BackColor = Color.FromArgb(CByte(200), CByte(30), CByte(30))
-        btnCompile.FlatAppearance.BorderColor = Color.White
+        btnCompile.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnCompile.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnCompile.FlatAppearance.BorderSize = 2
+        btnCompile.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnCompile.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnCompile.FlatStyle = FlatStyle.Flat
         btnCompile.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
         btnCompile.ForeColor = Color.White
@@ -109,7 +112,7 @@ Partial Class W1112_Net
         btnCompile.Name = "btnCompile"
         btnCompile.Size = New Size(220, 30)
         btnCompile.TabIndex = 28
-        btnCompile.Text = "Compile && Execute via CLR"
+        btnCompile.Text = "COMPILE && EXECUTE (CLR)"
         btnCompile.UseVisualStyleBackColor = False
         ' 
         ' rtbOutput

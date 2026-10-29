@@ -79,14 +79,19 @@ Partial Class W1112_Classes
         ' 
         ' btnSpawn
         ' 
-        btnSpawn.BackColor = Color.FromArgb(CByte(45), CByte(45), CByte(45))
+        btnSpawn.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnSpawn.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnSpawn.FlatAppearance.BorderSize = 2
+        btnSpawn.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnSpawn.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnSpawn.FlatStyle = FlatStyle.Flat
+        btnSpawn.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnSpawn.ForeColor = Color.White
         btnSpawn.Location = New Point(455, 76)
         btnSpawn.Name = "btnSpawn"
         btnSpawn.Size = New Size(200, 30)
         btnSpawn.TabIndex = 1
-        btnSpawn.Text = "Spawn Virtual Child Form"
+        btnSpawn.Text = "SPAWN VIRTUAL CHILD FORM"
         btnSpawn.UseVisualStyleBackColor = False
         ' 
         ' pnlParent

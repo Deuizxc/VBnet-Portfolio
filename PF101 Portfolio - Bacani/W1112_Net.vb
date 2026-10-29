@@ -128,6 +128,18 @@ Public Class W1112_Net
         End Try
     End Sub
 
+    Private Sub btnCompile_MouseEnter(sender As Object, e As EventArgs) Handles btnCompile.MouseEnter
+        Dim btn = DirectCast(sender, Button)
+        btn.Top -= 3
+        btn.Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub btnCompile_MouseLeave(sender As Object, e As EventArgs) Handles btnCompile.MouseLeave
+        Dim btn = DirectCast(sender, Button)
+        btn.Top += 3
+        btn.Cursor = Cursors.Default
+    End Sub
+
     Private Sub FormatRichText(rtb As RichTextBox)
         Try
             If rtb Is Nothing OrElse String.IsNullOrWhiteSpace(rtb.Text) Then Return

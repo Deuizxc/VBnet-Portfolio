@@ -74,6 +74,10 @@ Public Class W1112_String
 
     Private Sub btnUCase_Click(sender As Object, e As EventArgs) Handles btnUCase.Click
         Try
+            If String.IsNullOrWhiteSpace(txtInput.Text) Then
+                UpdateOutput("UCase()", "Error: Input is empty.")
+                Exit Sub
+            End If
             UpdateOutput("UCase()", UCase(txtInput.Text))
         Catch ex As Exception
         End Try
@@ -81,14 +85,19 @@ Public Class W1112_String
 
     Private Sub btnTrim_Click(sender As Object, e As EventArgs) Handles btnTrim.Click
         Try
+            ' Pre-pad to actually demonstrate trim working visually
             Dim rawStr As String = "   " & txtInput.Text & "   "
-            UpdateOutput("Trim()", Trim(rawStr))
+            UpdateOutput("Trim()", "'" & Trim(rawStr) & "'")
         Catch ex As Exception
         End Try
     End Sub
 
     Private Sub btnReverse_Click(sender As Object, e As EventArgs) Handles btnReverse.Click
         Try
+            If String.IsNullOrWhiteSpace(txtInput.Text) Then
+                UpdateOutput("StrReverse()", "Error: Input is empty.")
+                Exit Sub
+            End If
             UpdateOutput("StrReverse()", StrReverse(txtInput.Text))
         Catch ex As Exception
         End Try
@@ -96,13 +105,28 @@ Public Class W1112_String
 
     Private Sub btnCurrency_Click(sender As Object, e As EventArgs) Handles btnCurrency.Click
         Try
-            Dim val As Double = Convert.ToDouble(txtInput.Text.Trim())
-            UpdateOutput("FormatCurrency()", FormatCurrency(val))
+            Dim val As Double
+            If Double.TryParse(txtInput.Text.Trim(), val) Then
+                UpdateOutput("FormatCurrency()", FormatCurrency(val))
+            Else
+                rtbOutput.Clear()
+                rtbOutput.SelectionColor = Color.Red
+                rtbOutput.AppendText("[ERROR]" & vbCrLf & "Input must be numeric to format as currency.")
+            End If
         Catch ex As Exception
-            rtbOutput.Clear()
-            rtbOutput.SelectionColor = Color.Red
-            rtbOutput.AppendText("[ERROR]" & vbCrLf & "Input must be numeric to format as currency.")
         End Try
+    End Sub
+
+    Private Sub MutatorButtons_MouseEnter(sender As Object, e As EventArgs) Handles btnUCase.MouseEnter, btnReverse.MouseEnter, btnTrim.MouseEnter, btnCurrency.MouseEnter
+        Dim btn = DirectCast(sender, Button)
+        btn.Top -= 3
+        btn.Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub MutatorButtons_MouseLeave(sender As Object, e As EventArgs) Handles btnUCase.MouseLeave, btnReverse.MouseLeave, btnTrim.MouseLeave, btnCurrency.MouseLeave
+        Dim btn = DirectCast(sender, Button)
+        btn.Top += 3
+        btn.Cursor = Cursors.Default
     End Sub
 
     Private Sub FormatRichText(rtb As RichTextBox)

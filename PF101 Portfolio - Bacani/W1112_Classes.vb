@@ -61,19 +61,38 @@ Public Class W1112_Classes
             childCount += 1
             Dim child As New Label()
             child.Text = "Child " & childCount
-            child.Size = New Size(60, 30)
-            child.BackColor = Color.DodgerBlue
-            child.ForeColor = Color.White
-            child.TextAlign = ContentAlignment.MiddleCenter
+            child.Size = New Size(70, 30)
 
             Dim rnd As New Random()
-            child.Left = rnd.Next(0, pnlParent.Width - child.Width)
-            child.Top = rnd.Next(0, pnlParent.Height - child.Height)
+            ' Random dark colors for the spawned labels to match theme
+            Dim r As Integer = rnd.Next(20, 100)
+            Dim g As Integer = rnd.Next(20, 100)
+            Dim b As Integer = rnd.Next(20, 150)
+
+            child.BackColor = Color.FromArgb(r, g, b)
+            child.ForeColor = Color.White
+            child.BorderStyle = BorderStyle.FixedSingle
+            child.TextAlign = ContentAlignment.MiddleCenter
+
+            child.Left = rnd.Next(0, Math.Max(1, pnlParent.Width - child.Width))
+            child.Top = rnd.Next(0, Math.Max(1, pnlParent.Height - child.Height))
 
             pnlParent.Controls.Add(child)
             child.BringToFront()
         Catch ex As Exception
         End Try
+    End Sub
+
+    Private Sub btnSpawn_MouseEnter(sender As Object, e As EventArgs) Handles btnSpawn.MouseEnter
+        Dim btn = DirectCast(sender, Button)
+        btn.Top -= 3
+        btn.Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub btnSpawn_MouseLeave(sender As Object, e As EventArgs) Handles btnSpawn.MouseLeave
+        Dim btn = DirectCast(sender, Button)
+        btn.Top += 3
+        btn.Cursor = Cursors.Default
     End Sub
 
     Private Sub pnlParent_Paint(sender As Object, e As PaintEventArgs) Handles pnlParent.Paint
