@@ -49,23 +49,36 @@ Public Class W5_Conversion
     End Sub
 
     Private Sub btnConvertTest_Click(sender As Object, e As EventArgs) Handles btnConvertTest.Click
-        If String.IsNullOrWhiteSpace(txtInputNumber.Text) Then Exit Sub
-        Dim rawDecimal As Decimal = Decimal.Parse(txtInputNumber.Text)
+        Dim rawDecimal As Decimal
+
+        If Not Decimal.TryParse(txtInputNumber.Text, rawDecimal) Then
+            lblParsed.ForeColor = Color.Red
+            lblParsed.Text = "// Error: Invalid Decimal Input"
+            lblIntConverted.Text = "// Convert.ToInt32: -"
+            lblDoubleImplicit.Text = "// Implicit (Double): -"
+            Exit Sub
+        End If
+
+        lblParsed.ForeColor = Color.White
         lblParsed.Text = "// Parsed (Decimal): " & rawDecimal.ToString("F2")
+
         Dim roundedInt As Integer = Convert.ToInt32(rawDecimal)
         lblIntConverted.Text = "// Convert.ToInt32: " & roundedInt.ToString() & " (Rounded)"
+
         Dim widenedDouble As Double = roundedInt
         lblDoubleImplicit.Text = "// Implicit (Double): " & widenedDouble.ToString("F1")
     End Sub
 
     Private Sub btnConverTest_MouseEnter(sender As Object, e As EventArgs) Handles btnConvertTest.MouseEnter
-        btnConvertTest.Top -= 3
-        btnConvertTest.Cursor = Cursors.Hand
+        Dim btn = DirectCast(sender, Button)
+        btn.Top -= 3
+        btn.Cursor = Cursors.Hand
     End Sub
 
     Private Sub Button2_MouseLeave(sender As Object, e As EventArgs) Handles btnConvertTest.MouseLeave
-        btnConvertTest.Top += 3
-        btnConvertTest.Cursor = Cursors.Default
+        Dim btn = DirectCast(sender, Button)
+        btn.Top += 3
+        btn.Cursor = Cursors.Default
     End Sub
 
     Private Sub W5_Conversion_Load(sender As Object, e As EventArgs) Handles MyBase.Load

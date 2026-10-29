@@ -1,9 +1,8 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class W5_Operator
     Inherits System.Windows.Forms.Form
 
-    'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -14,13 +13,9 @@ Partial Class W5_Operator
         End Try
     End Sub
 
-    'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
 
-    'NOTE: The following procedure is required by the Windows Form Designer
-    'It can be modified using the Windows Form Designer.  
-    'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(W5_Operator))
         Button1 = New Button()
@@ -52,7 +47,7 @@ Partial Class W5_Operator
         Button1.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button1.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("p5hatty", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button1.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button1.ForeColor = Color.Transparent
         Button1.Location = New Point(12, 12)
         Button1.Name = "Button1"
@@ -94,19 +89,19 @@ Partial Class W5_Operator
         ' 
         ' btnCalcDivision
         ' 
-        btnCalcDivision.BackColor = Color.Black
-        btnCalcDivision.BackgroundImage = CType(resources.GetObject("btnCalcDivision.BackgroundImage"), Image)
-        btnCalcDivision.BackgroundImageLayout = ImageLayout.Stretch
-        btnCalcDivision.FlatAppearance.BorderSize = 0
-        btnCalcDivision.FlatAppearance.MouseDownBackColor = Color.Transparent
-        btnCalcDivision.FlatAppearance.MouseOverBackColor = Color.Transparent
+        btnCalcDivision.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnCalcDivision.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnCalcDivision.FlatAppearance.BorderSize = 2
+        btnCalcDivision.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnCalcDivision.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnCalcDivision.FlatStyle = FlatStyle.Flat
-        btnCalcDivision.Font = New Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnCalcDivision.Font = New Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnCalcDivision.ForeColor = Color.WhiteSmoke
         btnCalcDivision.Location = New Point(415, 324)
         btnCalcDivision.Name = "btnCalcDivision"
-        btnCalcDivision.Size = New Size(92, 39)
+        btnCalcDivision.Size = New Size(92, 35)
         btnCalcDivision.TabIndex = 32
+        btnCalcDivision.Text = "COMPUTE"
         btnCalcDivision.UseVisualStyleBackColor = False
         ' 
         ' lblNormalDiv
@@ -173,60 +168,68 @@ Partial Class W5_Operator
         ' 
         ' Button3
         ' 
-        Button3.BackColor = Color.Transparent
-        Button3.FlatAppearance.MouseDownBackColor = Color.Transparent
-        Button3.FlatAppearance.MouseOverBackColor = Color.Transparent
+        Button3.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        Button3.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        Button3.FlatAppearance.BorderSize = 2
+        Button3.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        Button3.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         Button3.FlatStyle = FlatStyle.Flat
         Button3.Font = New Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Button3.ForeColor = Color.White
         Button3.Location = New Point(433, 123)
         Button3.Name = "Button3"
-        Button3.Size = New Size(45, 27)
+        Button3.Size = New Size(45, 30)
         Button3.TabIndex = 41
         Button3.Text = "+"
         Button3.UseVisualStyleBackColor = False
         ' 
         ' Button4
         ' 
-        Button4.BackColor = Color.Transparent
-        Button4.FlatAppearance.MouseDownBackColor = Color.Transparent
-        Button4.FlatAppearance.MouseOverBackColor = Color.Transparent
+        Button4.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        Button4.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        Button4.FlatAppearance.BorderSize = 2
+        Button4.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        Button4.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         Button4.FlatStyle = FlatStyle.Flat
         Button4.Font = New Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Button4.ForeColor = Color.White
         Button4.Location = New Point(597, 123)
         Button4.Name = "Button4"
-        Button4.Size = New Size(45, 27)
+        Button4.Size = New Size(45, 30)
         Button4.TabIndex = 42
         Button4.Text = "/"
         Button4.UseVisualStyleBackColor = False
         ' 
         ' Button5
         ' 
-        Button5.BackColor = Color.Transparent
-        Button5.FlatAppearance.MouseDownBackColor = Color.Transparent
-        Button5.FlatAppearance.MouseOverBackColor = Color.Transparent
+        Button5.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        Button5.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        Button5.FlatAppearance.BorderSize = 2
+        Button5.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        Button5.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         Button5.FlatStyle = FlatStyle.Flat
         Button5.Font = New Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Button5.ForeColor = Color.White
         Button5.Location = New Point(539, 123)
         Button5.Name = "Button5"
-        Button5.Size = New Size(45, 27)
+        Button5.Size = New Size(45, 30)
         Button5.TabIndex = 43
         Button5.Text = "*"
         Button5.UseVisualStyleBackColor = False
         ' 
         ' Button7
         ' 
-        Button7.BackColor = Color.Transparent
-        Button7.FlatAppearance.MouseDownBackColor = Color.Transparent
-        Button7.FlatAppearance.MouseOverBackColor = Color.Transparent
+        Button7.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        Button7.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        Button7.FlatAppearance.BorderSize = 2
+        Button7.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        Button7.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         Button7.FlatStyle = FlatStyle.Flat
         Button7.Font = New Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Button7.ForeColor = Color.White
         Button7.Location = New Point(484, 123)
         Button7.Name = "Button7"
-        Button7.Size = New Size(45, 27)
+        Button7.Size = New Size(45, 30)
         Button7.TabIndex = 44
         Button7.Text = "-"
         Button7.UseVisualStyleBackColor = False
@@ -245,15 +248,17 @@ Partial Class W5_Operator
         ' 
         ' Button8
         ' 
-        Button8.BackColor = Color.Transparent
-        Button8.FlatAppearance.MouseDownBackColor = Color.Transparent
-        Button8.FlatAppearance.MouseOverBackColor = Color.Transparent
+        Button8.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        Button8.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        Button8.FlatAppearance.BorderSize = 2
+        Button8.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        Button8.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         Button8.FlatStyle = FlatStyle.Flat
         Button8.Font = New Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Button8.ForeColor = Color.White
         Button8.Location = New Point(652, 123)
         Button8.Name = "Button8"
-        Button8.Size = New Size(45, 27)
+        Button8.Size = New Size(45, 30)
         Button8.TabIndex = 46
         Button8.Text = "^"
         Button8.UseVisualStyleBackColor = False
@@ -272,7 +277,7 @@ Partial Class W5_Operator
         ' 
         ' W5_Operator
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch

@@ -36,12 +36,23 @@ Public Class W5_Operator
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnCalcDivision.Click
-        If String.IsNullOrWhiteSpace(txtMinutes.Text) Then Exit Sub
-        Dim totalMinutes As Integer = Integer.Parse(txtMinutes.Text)
+        Dim totalMinutes As Integer
+
+        If Not Integer.TryParse(txtMinutes.Text, totalMinutes) Then
+            lblNormalDiv.ForeColor = Color.Red
+            lblNormalDiv.Text = "Error: Invalid Input"
+            lblIntDiv.Text = "Integer (\) : -"
+            lblMod.Text = "Mod (Remainder) : -"
+            Exit Sub
+        End If
+
+        lblNormalDiv.ForeColor = Color.White
         Dim normalDiv As Double = totalMinutes / 60
         lblNormalDiv.Text = "Normal (/) : " & normalDiv.ToString("F2") & " hrs"
+
         Dim hours As Integer = totalMinutes \ 60
         lblIntDiv.Text = "Integer (\) : " & hours.ToString() & " hrs"
+
         Dim remainingMinutes As Integer = totalMinutes Mod 60
         lblMod.Text = "Mod (Remainder): " & remainingMinutes.ToString() & " mins"
     End Sub
@@ -78,9 +89,12 @@ Public Class W5_Operator
     Private Sub Arithmetic_Click(sender As Object, e As EventArgs) Handles Button3.Click, Button7.Click, Button5.Click, Button4.Click, Button8.Click
         Dim num1 As Double
         Dim num2 As Double
+
         If Double.TryParse(TextBox1.Text.Trim(), num1) AndAlso Double.TryParse(TextBox2.Text.Trim(), num2) Then
             Dim btn = DirectCast(sender, Button)
             Dim result As Double = 0
+            Label3.ForeColor = Color.LimeGreen
+
             Select Case btn.Name
                 Case "Button3"
                     result = num1 + num2
@@ -93,6 +107,7 @@ Public Class W5_Operator
                     Label3.Text = $"Results: {num1} * {num2} = {result}"
                 Case "Button4"
                     If num2 = 0 Then
+                        Label3.ForeColor = Color.Red
                         Label3.Text = "Results: Cannot divide by zero!"
                         Exit Sub
                     End If
@@ -103,6 +118,7 @@ Public Class W5_Operator
                     Label3.Text = $"Results: {num1} ^ {num2} = {result}"
             End Select
         Else
+            Label3.ForeColor = Color.Red
             Label3.Text = "Results: Enter valid numbers!"
         End If
     End Sub

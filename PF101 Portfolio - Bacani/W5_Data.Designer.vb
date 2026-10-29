@@ -80,7 +80,7 @@ Partial Class W5_Data
         RichTextBox1.Font = New Font("Franklin Gothic Book", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         RichTextBox1.Location = New Point(174, 55)
         RichTextBox1.Name = "RichTextBox1"
-        RichTextBox1.ScrollBars = RichTextBoxScrollBars.None
+        RichTextBox1.ScrollBars = RichTextBoxScrollBars.Vertical
         RichTextBox1.Size = New Size(266, 236)
         RichTextBox1.TabIndex = 28
         RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
