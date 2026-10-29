@@ -1,9 +1,8 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class W2_Interfaces
     Inherits System.Windows.Forms.Form
 
-    'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -14,13 +13,9 @@ Partial Class W2_Interfaces
         End Try
     End Sub
 
-    'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
 
-    'NOTE: The following procedure is required by the Windows Form Designer
-    'It can be modified using the Windows Form Designer.  
-    'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(W2_Interfaces))
         Button1 = New Button()
@@ -44,7 +39,7 @@ Partial Class W2_Interfaces
         Button1.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button1.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("p5hatty", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button1.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button1.ForeColor = Color.Transparent
         Button1.Location = New Point(12, 12)
         Button1.Name = "Button1"
@@ -70,7 +65,7 @@ Partial Class W2_Interfaces
         ' RichTextBox1
         ' 
         RichTextBox1.BorderStyle = BorderStyle.None
-        RichTextBox1.Font = New Font("Franklin Gothic Book", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        RichTextBox1.Font = New Font("Franklin Gothic Book", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         RichTextBox1.Location = New Point(162, 80)
         RichTextBox1.Name = "RichTextBox1"
         RichTextBox1.Size = New Size(257, 273)
@@ -99,11 +94,13 @@ Partial Class W2_Interfaces
         ' 
         ' Button5
         ' 
-        Button5.BackColor = Color.Transparent
-        Button5.FlatAppearance.MouseDownBackColor = Color.Transparent
-        Button5.FlatAppearance.MouseOverBackColor = Color.Transparent
+        Button5.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        Button5.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        Button5.FlatAppearance.BorderSize = 2
+        Button5.FlatAppearance.MouseDownBackColor = Color.White
+        Button5.FlatAppearance.MouseOverBackColor = Color.White
         Button5.FlatStyle = FlatStyle.Flat
-        Button5.Font = New Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button5.Font = New Font("Trebuchet MS", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Button5.ForeColor = Color.White
         Button5.Location = New Point(542, 259)
         Button5.Name = "Button5"
@@ -114,11 +111,13 @@ Partial Class W2_Interfaces
         ' 
         ' Button4
         ' 
-        Button4.BackColor = Color.Transparent
-        Button4.FlatAppearance.MouseDownBackColor = Color.Transparent
-        Button4.FlatAppearance.MouseOverBackColor = Color.Transparent
+        Button4.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        Button4.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        Button4.FlatAppearance.BorderSize = 2
+        Button4.FlatAppearance.MouseDownBackColor = Color.White
+        Button4.FlatAppearance.MouseOverBackColor = Color.White
         Button4.FlatStyle = FlatStyle.Flat
-        Button4.Font = New Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button4.Font = New Font("Trebuchet MS", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Button4.ForeColor = Color.White
         Button4.Location = New Point(542, 208)
         Button4.Name = "Button4"
@@ -129,11 +128,13 @@ Partial Class W2_Interfaces
         ' 
         ' Button2
         ' 
-        Button2.BackColor = Color.Transparent
-        Button2.FlatAppearance.MouseDownBackColor = Color.Transparent
-        Button2.FlatAppearance.MouseOverBackColor = Color.Transparent
+        Button2.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        Button2.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        Button2.FlatAppearance.BorderSize = 2
+        Button2.FlatAppearance.MouseDownBackColor = Color.White
+        Button2.FlatAppearance.MouseOverBackColor = Color.White
         Button2.FlatStyle = FlatStyle.Flat
-        Button2.Font = New Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button2.Font = New Font("Trebuchet MS", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Button2.ForeColor = Color.White
         Button2.Location = New Point(542, 160)
         Button2.Name = "Button2"
@@ -144,16 +145,14 @@ Partial Class W2_Interfaces
         ' 
         ' Label2
         ' 
-        Label2.AutoSize = True
         Label2.BackColor = Color.Transparent
         Label2.FlatStyle = FlatStyle.Flat
-        Label2.Font = New Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label2.Font = New Font("Trebuchet MS", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label2.ForeColor = Color.Red
         Label2.Location = New Point(476, 347)
         Label2.Name = "Label2"
-        Label2.Size = New Size(66, 22)
+        Label2.Size = New Size(264, 64)
         Label2.TabIndex = 28
-        Label2.Text = "Output:"
         Label2.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' Button6
@@ -164,7 +163,7 @@ Partial Class W2_Interfaces
         Button6.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button6.FlatStyle = FlatStyle.Flat
         Button6.Font = New Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Button6.ForeColor = Color.Red
+        Button6.ForeColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
         Button6.Location = New Point(542, 301)
         Button6.Name = "Button6"
         Button6.Size = New Size(142, 27)
@@ -174,7 +173,7 @@ Partial Class W2_Interfaces
         ' 
         ' W2_Interfaces
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch

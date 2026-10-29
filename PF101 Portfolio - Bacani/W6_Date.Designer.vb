@@ -81,13 +81,12 @@ Partial Class W6_Date
         ' 
         ' Label1
         ' 
-        Label1.AutoSize = True
         Label1.BackColor = Color.Transparent
         Label1.Font = New Font("Franklin Gothic Book", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.ForeColor = Color.White
         Label1.Location = New Point(479, 182)
         Label1.Name = "Label1"
-        Label1.Size = New Size(253, 20)
+        Label1.Size = New Size(264, 20)
         Label1.TabIndex = 35
         Label1.Text = "// Click below to get system time"
         ' 
