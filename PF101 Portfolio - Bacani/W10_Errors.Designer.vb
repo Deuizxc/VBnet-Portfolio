@@ -46,7 +46,7 @@ Partial Class W10_Errors
         Button1.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button1.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("p5hatty", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button1.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button1.ForeColor = Color.Transparent
         Button1.Location = New Point(12, 12)
         Button1.Name = "Button1"
@@ -88,7 +88,7 @@ Partial Class W10_Errors
         ' 
         lblTitle.AutoSize = True
         lblTitle.BackColor = Color.Transparent
-        lblTitle.Font = New Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblTitle.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblTitle.ForeColor = Color.White
         lblTitle.Location = New Point(420, 34)
         lblTitle.Name = "lblTitle"
@@ -100,7 +100,7 @@ Partial Class W10_Errors
         ' 
         lblSynTitle.AutoSize = True
         lblSynTitle.BackColor = Color.Transparent
-        lblSynTitle.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblSynTitle.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblSynTitle.ForeColor = Color.LightGray
         lblSynTitle.Location = New Point(420, 56)
         lblSynTitle.Name = "lblSynTitle"
@@ -134,21 +134,26 @@ Partial Class W10_Errors
         ' 
         ' btnSynTest
         ' 
-        btnSynTest.BackColor = Color.FromArgb(CByte(45), CByte(45), CByte(45))
+        btnSynTest.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnSynTest.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnSynTest.FlatAppearance.BorderSize = 2
+        btnSynTest.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnSynTest.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnSynTest.FlatStyle = FlatStyle.Flat
+        btnSynTest.Font = New Font("Segoe UI", 8.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnSynTest.ForeColor = Color.White
-        btnSynTest.Location = New Point(555, 97)
+        btnSynTest.Location = New Point(555, 95)
         btnSynTest.Name = "btnSynTest"
         btnSynTest.Size = New Size(125, 25)
         btnSynTest.TabIndex = 30
-        btnSynTest.Text = "Compile Code"
+        btnSynTest.Text = "COMPILE CODE"
         btnSynTest.UseVisualStyleBackColor = False
         ' 
         ' lblRunTitle
         ' 
         lblRunTitle.AutoSize = True
         lblRunTitle.BackColor = Color.Transparent
-        lblRunTitle.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblRunTitle.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblRunTitle.ForeColor = Color.LightGray
         lblRunTitle.Location = New Point(420, 128)
         lblRunTitle.Name = "lblRunTitle"
@@ -165,26 +170,31 @@ Partial Class W10_Errors
         cboRunDrive.FormattingEnabled = True
         cboRunDrive.Location = New Point(420, 154)
         cboRunDrive.Name = "cboRunDrive"
-        cboRunDrive.Size = New Size(135, 23)
+        cboRunDrive.Size = New Size(170, 23)
         cboRunDrive.TabIndex = 32
         ' 
         ' btnRunTest
         ' 
-        btnRunTest.BackColor = Color.FromArgb(CByte(45), CByte(45), CByte(45))
+        btnRunTest.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnRunTest.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnRunTest.FlatAppearance.BorderSize = 2
+        btnRunTest.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnRunTest.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnRunTest.FlatStyle = FlatStyle.Flat
+        btnRunTest.Font = New Font("Segoe UI", 8.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnRunTest.ForeColor = Color.White
-        btnRunTest.Location = New Point(580, 152)
+        btnRunTest.Location = New Point(598, 153)
         btnRunTest.Name = "btnRunTest"
-        btnRunTest.Size = New Size(100, 25)
+        btnRunTest.Size = New Size(82, 25)
         btnRunTest.TabIndex = 33
-        btnRunTest.Text = "Fetch File"
+        btnRunTest.Text = "FETCH FILE"
         btnRunTest.UseVisualStyleBackColor = False
         ' 
         ' lblLogTitle
         ' 
         lblLogTitle.AutoSize = True
         lblLogTitle.BackColor = Color.Transparent
-        lblLogTitle.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblLogTitle.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblLogTitle.ForeColor = Color.LightGray
         lblLogTitle.Location = New Point(420, 195)
         lblLogTitle.Name = "lblLogTitle"
@@ -218,14 +228,19 @@ Partial Class W10_Errors
         ' 
         ' btnLogTest
         ' 
-        btnLogTest.BackColor = Color.FromArgb(CByte(45), CByte(45), CByte(45))
+        btnLogTest.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnLogTest.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnLogTest.FlatAppearance.BorderSize = 2
+        btnLogTest.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnLogTest.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnLogTest.FlatStyle = FlatStyle.Flat
+        btnLogTest.Font = New Font("Segoe UI", 8.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnLogTest.ForeColor = Color.White
-        btnLogTest.Location = New Point(534, 234)
+        btnLogTest.Location = New Point(555, 227)
         btnLogTest.Name = "btnLogTest"
         btnLogTest.Size = New Size(125, 25)
         btnLogTest.TabIndex = 37
-        btnLogTest.Text = "Execute Math"
+        btnLogTest.Text = "EXECUTE MATH"
         btnLogTest.UseVisualStyleBackColor = False
         ' 
         ' rtbOutput
@@ -234,10 +249,10 @@ Partial Class W10_Errors
         rtbOutput.BorderStyle = BorderStyle.None
         rtbOutput.Font = New Font("Consolas", 8.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         rtbOutput.ForeColor = Color.LimeGreen
-        rtbOutput.Location = New Point(420, 279)
+        rtbOutput.Location = New Point(420, 268)
         rtbOutput.Name = "rtbOutput"
         rtbOutput.ReadOnly = True
-        rtbOutput.Size = New Size(284, 119)
+        rtbOutput.Size = New Size(288, 124)
         rtbOutput.TabIndex = 38
         rtbOutput.Text = ""
         ' 
@@ -254,7 +269,7 @@ Partial Class W10_Errors
         ' 
         ' W10_Errors
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
@@ -283,7 +298,6 @@ Partial Class W10_Errors
         Text = "W10_Errors"
         ResumeLayout(False)
         PerformLayout()
-
     End Sub
 
     Friend WithEvents Button1 As Button

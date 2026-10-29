@@ -95,6 +95,18 @@ Public Class W10_Handling
         End Try
     End Sub
 
+    Private Sub btnExecute_MouseEnter(sender As Object, e As EventArgs) Handles btnExecute.MouseEnter
+        Dim btn = DirectCast(sender, Button)
+        btn.Top -= 3
+        btn.Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub btnExecute_MouseLeave(sender As Object, e As EventArgs) Handles btnExecute.MouseLeave
+        Dim btn = DirectCast(sender, Button)
+        btn.Top += 3
+        btn.Cursor = Cursors.Default
+    End Sub
+
     Private Sub FormatRichText(rtb As RichTextBox)
         Try
             If rtb Is Nothing OrElse String.IsNullOrWhiteSpace(rtb.Text) Then Return

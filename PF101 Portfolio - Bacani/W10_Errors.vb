@@ -91,7 +91,8 @@ Public Class W10_Errors
             Else
                 rtbOutput.ForeColor = Color.Red
                 Try
-                    Dim testPath As String = System.IO.File.ReadAllText("Z:\Offline\Data.bin")
+                    ' Intentionally triggering exception for demo
+                    Throw New System.IO.FileNotFoundException("Could not find file 'Z:\Offline\Data.bin'.")
                 Catch ex As Exception
                     rtbOutput.AppendText("> [CRASH] RUN-TIME ERROR" & vbCrLf)
                     rtbOutput.AppendText("> Type: " & ex.GetType().Name & vbCrLf)
@@ -136,6 +137,18 @@ Public Class W10_Errors
             End If
         Catch ex As Exception
         End Try
+    End Sub
+
+    Private Sub DiagnosticButtons_MouseEnter(sender As Object, e As EventArgs) Handles btnSynTest.MouseEnter, btnRunTest.MouseEnter, btnLogTest.MouseEnter
+        Dim btn = DirectCast(sender, Button)
+        btn.Top -= 3
+        btn.Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub DiagnosticButtons_MouseLeave(sender As Object, e As EventArgs) Handles btnSynTest.MouseLeave, btnRunTest.MouseLeave, btnLogTest.MouseLeave
+        Dim btn = DirectCast(sender, Button)
+        btn.Top += 3
+        btn.Cursor = Cursors.Default
     End Sub
 
     Private Sub FormatRichText(rtb As RichTextBox)

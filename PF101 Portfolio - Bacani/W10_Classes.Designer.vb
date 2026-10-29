@@ -40,7 +40,7 @@ Partial Class W10_Classes
         Button1.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button1.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("p5hatty", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button1.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button1.ForeColor = Color.Transparent
         Button1.Location = New Point(12, 12)
         Button1.Name = "Button1"
@@ -67,7 +67,7 @@ Partial Class W10_Classes
         ' 
         lblTitle.AutoSize = True
         lblTitle.BackColor = Color.Transparent
-        lblTitle.Font = New Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblTitle.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblTitle.ForeColor = Color.White
         lblTitle.Location = New Point(430, 38)
         lblTitle.Name = "lblTitle"
@@ -79,7 +79,7 @@ Partial Class W10_Classes
         ' 
         lblClassInfo.AutoSize = True
         lblClassInfo.BackColor = Color.Transparent
-        lblClassInfo.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lblClassInfo.Font = New Font("Segoe UI", 9.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         lblClassInfo.ForeColor = Color.LightGray
         lblClassInfo.Location = New Point(429, 70)
         lblClassInfo.Name = "lblClassInfo"
@@ -91,7 +91,7 @@ Partial Class W10_Classes
         ' 
         lblEngine.AutoSize = True
         lblEngine.BackColor = Color.Transparent
-        lblEngine.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lblEngine.Font = New Font("Segoe UI", 9.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         lblEngine.ForeColor = Color.LightGray
         lblEngine.Location = New Point(429, 120)
         lblEngine.Name = "lblEngine"
@@ -114,7 +114,7 @@ Partial Class W10_Classes
         ' 
         lblWheels.AutoSize = True
         lblWheels.BackColor = Color.Transparent
-        lblWheels.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lblWheels.Font = New Font("Segoe UI", 9.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         lblWheels.ForeColor = Color.LightGray
         lblWheels.Location = New Point(429, 159)
         lblWheels.Name = "lblWheels"
@@ -135,9 +135,13 @@ Partial Class W10_Classes
         ' 
         ' btnInstantiate
         ' 
-        btnInstantiate.BackColor = Color.FromArgb(CByte(45), CByte(45), CByte(45))
+        btnInstantiate.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnInstantiate.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnInstantiate.FlatAppearance.BorderSize = 2
+        btnInstantiate.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnInstantiate.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnInstantiate.FlatStyle = FlatStyle.Flat
-        btnInstantiate.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnInstantiate.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnInstantiate.ForeColor = Color.White
         btnInstantiate.Location = New Point(462, 194)
         btnInstantiate.Name = "btnInstantiate"
@@ -172,7 +176,7 @@ Partial Class W10_Classes
         ' 
         ' W10_Classes
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
@@ -195,7 +199,6 @@ Partial Class W10_Classes
         Text = "W10_Classes"
         ResumeLayout(False)
         PerformLayout()
-
     End Sub
 
     Friend WithEvents Button1 As Button

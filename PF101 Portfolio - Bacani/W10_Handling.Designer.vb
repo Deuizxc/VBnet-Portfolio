@@ -1,5 +1,4 @@
-﻿' W10_Handling.Designer.vb
-<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class W10_Handling
     Inherits System.Windows.Forms.Form
 
@@ -39,7 +38,7 @@ Partial Class W10_Handling
         Button1.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button1.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("p5hatty", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button1.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button1.ForeColor = Color.Transparent
         Button1.Location = New Point(12, 12)
         Button1.Name = "Button1"
@@ -78,7 +77,7 @@ Partial Class W10_Handling
         ' 
         lblOp.AutoSize = True
         lblOp.BackColor = Color.Transparent
-        lblOp.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblOp.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblOp.ForeColor = Color.LightGray
         lblOp.Location = New Point(478, 67)
         lblOp.Name = "lblOp"
@@ -100,9 +99,13 @@ Partial Class W10_Handling
         ' 
         ' btnExecute
         ' 
-        btnExecute.BackColor = Color.FromArgb(CByte(45), CByte(45), CByte(45))
+        btnExecute.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnExecute.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnExecute.FlatAppearance.BorderSize = 2
+        btnExecute.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnExecute.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnExecute.FlatStyle = FlatStyle.Flat
-        btnExecute.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnExecute.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnExecute.ForeColor = Color.White
         btnExecute.Location = New Point(478, 130)
         btnExecute.Name = "btnExecute"
@@ -139,7 +142,7 @@ Partial Class W10_Handling
         ' 
         Label1.AutoSize = True
         Label1.BackColor = Color.Transparent
-        Label1.Font = New Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label1.Font = New Font("Trebuchet MS", 9.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Label1.ForeColor = Color.White
         Label1.Location = New Point(253, 381)
         Label1.Name = "Label1"
@@ -149,7 +152,7 @@ Partial Class W10_Handling
         ' 
         ' W10_Handling
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
@@ -170,7 +173,6 @@ Partial Class W10_Handling
         Text = "W10_Handling"
         ResumeLayout(False)
         PerformLayout()
-
     End Sub
 
     Friend WithEvents Button1 As Button

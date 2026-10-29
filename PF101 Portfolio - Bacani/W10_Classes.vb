@@ -39,21 +39,49 @@ Public Class W10_Classes
 
     Private Sub btnInstantiate_Click(sender As Object, e As EventArgs) Handles btnInstantiate.Click
         Try
-            Dim engine As Integer = Integer.Parse(txtEngine.Text)
-            Dim wheels As Integer = Integer.Parse(txtWheels.Text)
+            Dim engine As Integer
+            Dim wheels As Integer
+
+            If Not Integer.TryParse(txtEngine.Text, engine) OrElse Not Integer.TryParse(txtWheels.Text, wheels) Then
+                rtbOutput.Clear()
+                rtbOutput.SelectionColor = Color.Red
+                rtbOutput.AppendText("> ERROR: Initialization Failed!" & vbCrLf)
+                rtbOutput.AppendText("> Please input valid numeric values for Engine and Wheels.")
+                Exit Sub
+            End If
+
             Dim myCar As New Car(engine, wheels)
 
             rtbOutput.Clear()
+            rtbOutput.SelectionColor = Color.White
             rtbOutput.AppendText("Object Memory Instance" & vbCrLf)
             rtbOutput.AppendText("----------------------" & vbCrLf)
+
+            rtbOutput.SelectionColor = Color.LimeGreen
             rtbOutput.AppendText("Status: Active" & vbCrLf)
+
+            rtbOutput.SelectionColor = Color.Cyan
             rtbOutput.AppendText("Type: PF101.Car" & vbCrLf)
             rtbOutput.AppendText("Base: PF101.Vehicle" & vbCrLf)
+
+            rtbOutput.SelectionColor = Color.Gold
             rtbOutput.AppendText("DisplayWheelCount() -> " & myCar.DisplayWheelCount().ToString() & vbCrLf)
             rtbOutput.AppendText("DisplayEngineSize() -> " & myCar.DisplayEngineSize().ToString() & "cc")
         Catch ex As Exception
-            rtbOutput.Text = "> ERROR: Invalid numeric input!"
+            rtbOutput.Text = "> ERROR: " & ex.Message
         End Try
+    End Sub
+
+    Private Sub btnInstantiate_MouseEnter(sender As Object, e As EventArgs) Handles btnInstantiate.MouseEnter
+        Dim btn = DirectCast(sender, Button)
+        btn.Top -= 3
+        btn.Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub btnInstantiate_MouseLeave(sender As Object, e As EventArgs) Handles btnInstantiate.MouseLeave
+        Dim btn = DirectCast(sender, Button)
+        btn.Top += 3
+        btn.Cursor = Cursors.Default
     End Sub
 
     Private Sub FormatRichText(rtb As RichTextBox)
