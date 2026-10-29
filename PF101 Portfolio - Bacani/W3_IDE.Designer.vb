@@ -1,9 +1,8 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class W3_IDE
     Inherits System.Windows.Forms.Form
 
-    'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -14,13 +13,9 @@ Partial Class W3_IDE
         End Try
     End Sub
 
-    'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
 
-    'NOTE: The following procedure is required by the Windows Form Designer
-    'It can be modified using the Windows Form Designer.  
-    'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(W3_IDE))
         Button1 = New Button()
@@ -44,7 +39,7 @@ Partial Class W3_IDE
         Button1.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button1.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("p5hatty", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button1.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button1.ForeColor = Color.Transparent
         Button1.Location = New Point(12, 12)
         Button1.Name = "Button1"
@@ -95,13 +90,17 @@ Partial Class W3_IDE
         ' 
         ' Button2
         ' 
-        Button2.BackColor = Color.Black
+        Button2.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        Button2.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        Button2.FlatAppearance.BorderSize = 2
+        Button2.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        Button2.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         Button2.FlatStyle = FlatStyle.Flat
-        Button2.Font = New Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button2.Font = New Font("Trebuchet MS", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Button2.ForeColor = Color.White
         Button2.Location = New Point(474, 91)
         Button2.Name = "Button2"
-        Button2.Size = New Size(75, 31)
+        Button2.Size = New Size(87, 31)
         Button2.TabIndex = 30
         Button2.Text = "Toolbox"
         Button2.UseVisualStyleBackColor = False
@@ -121,56 +120,68 @@ Partial Class W3_IDE
         Label2.AutoSize = True
         Label2.BackColor = Color.Transparent
         Label2.FlatStyle = FlatStyle.Flat
-        Label2.Font = New Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label2.Font = New Font("Trebuchet MS", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label2.ForeColor = Color.White
         Label2.Location = New Point(511, 59)
         Label2.Name = "Label2"
-        Label2.Size = New Size(133, 20)
+        Label2.Size = New Size(143, 20)
         Label2.TabIndex = 36
         Label2.Text = "Select window tool"
         ' 
         ' Button3
         ' 
-        Button3.BackColor = Color.Black
+        Button3.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        Button3.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        Button3.FlatAppearance.BorderSize = 2
+        Button3.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        Button3.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         Button3.FlatStyle = FlatStyle.Flat
-        Button3.Font = New Font("Trebuchet MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button3.Font = New Font("Trebuchet MS", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Button3.ForeColor = Color.White
         Button3.Location = New Point(588, 91)
         Button3.Name = "Button3"
-        Button3.Size = New Size(75, 31)
+        Button3.Size = New Size(93, 31)
         Button3.TabIndex = 37
         Button3.Text = "Solution Explorer"
         Button3.UseVisualStyleBackColor = False
         ' 
         ' Button4
         ' 
-        Button4.BackColor = Color.Black
+        Button4.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        Button4.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        Button4.FlatAppearance.BorderSize = 2
+        Button4.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        Button4.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         Button4.FlatStyle = FlatStyle.Flat
-        Button4.Font = New Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button4.Font = New Font("Trebuchet MS", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Button4.ForeColor = Color.White
         Button4.Location = New Point(474, 140)
         Button4.Name = "Button4"
-        Button4.Size = New Size(75, 31)
+        Button4.Size = New Size(87, 31)
         Button4.TabIndex = 38
         Button4.Text = "Properties"
         Button4.UseVisualStyleBackColor = False
         ' 
         ' Button5
         ' 
-        Button5.BackColor = Color.Black
+        Button5.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        Button5.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        Button5.FlatAppearance.BorderSize = 2
+        Button5.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        Button5.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         Button5.FlatStyle = FlatStyle.Flat
-        Button5.Font = New Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button5.Font = New Font("Trebuchet MS", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Button5.ForeColor = Color.White
         Button5.Location = New Point(588, 140)
         Button5.Name = "Button5"
-        Button5.Size = New Size(75, 31)
+        Button5.Size = New Size(93, 31)
         Button5.TabIndex = 39
         Button5.Text = "Error List"
         Button5.UseVisualStyleBackColor = False
         ' 
         ' W3_IDE
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
