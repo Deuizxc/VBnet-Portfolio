@@ -36,23 +36,36 @@ Public Class W6_Date
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Label1.ForeColor = Color.LimeGreen
         Label1.Text = DateTime.Now.ToString("hh:mm tt dddd, dd MMMM yyyy")
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        Dim pickedDate As Date = DateTimePicker1.Value
-        Dim currentDate As Date = DateTime.Now
+        Try
+            Dim pickedDate As Date = DateTimePicker1.Value.Date
+            Dim currentDate As Date = DateTime.Now.Date
 
-        Dim weekNum As Long = DatePart(DateInterval.WeekOfYear, pickedDate)
-        Label2.Text = "Week of Year: " & weekNum.ToString()
+            Dim weekNum As Long = DatePart(DateInterval.WeekOfYear, pickedDate)
+            Label2.ForeColor = Color.Gold
+            Label2.Text = "Week of Year: " & weekNum.ToString()
 
-        Dim diff As Long = DateDiff(DateInterval.Month, pickedDate, currentDate)
-        Label3.Text = "Difference in Months: " & Math.Abs(diff).ToString()
+            Dim diff As Long = DateDiff(DateInterval.Month, pickedDate, currentDate)
+            Label3.ForeColor = Color.Gold
+            Label3.Text = "Difference in Months: " & Math.Abs(diff).ToString()
+        Catch ex As Exception
+            Label2.ForeColor = Color.Red
+            Label2.Text = "Error calculating week."
+            Label3.ForeColor = Color.Red
+            Label3.Text = "Error calculating difference."
+        End Try
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        Label1.Text = "Click below to fetch system time"
+        Label1.ForeColor = Color.White
+        Label1.Text = "// Click below to get system time"
+        Label2.ForeColor = Color.White
         Label2.Text = "Week of Year: -"
+        Label3.ForeColor = Color.White
         Label3.Text = "Difference in Months: -"
         DateTimePicker1.Value = DateTime.Now
     End Sub

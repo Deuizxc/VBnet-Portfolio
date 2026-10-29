@@ -1,9 +1,8 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class W6_Repeat
     Inherits System.Windows.Forms.Form
 
-    'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -14,13 +13,9 @@ Partial Class W6_Repeat
         End Try
     End Sub
 
-    'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
 
-    'NOTE: The following procedure is required by the Windows Form Designer
-    'It can be modified using the Windows Form Designer.  
-    'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(W6_Repeat))
         Button1 = New Button()
@@ -49,7 +44,7 @@ Partial Class W6_Repeat
         Button1.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button1.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("p5hatty", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button1.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button1.ForeColor = Color.Transparent
         Button1.Location = New Point(12, 11)
         Button1.Name = "Button1"
@@ -139,7 +134,7 @@ Partial Class W6_Repeat
         ListBox1.FormattingEnabled = True
         ListBox1.Location = New Point(446, 296)
         ListBox1.Name = "ListBox1"
-        ListBox1.Size = New Size(171, 88)
+        ListBox1.Size = New Size(232, 88)
         ListBox1.TabIndex = 37
         ' 
         ' Label1
@@ -170,7 +165,7 @@ Partial Class W6_Repeat
         ' 
         Label3.AutoSize = True
         Label3.BackColor = Color.Transparent
-        Label3.Font = New Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label3.Font = New Font("Arial", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label3.ForeColor = Color.White
         Label3.Location = New Point(446, 387)
         Label3.Name = "Label3"
@@ -180,36 +175,36 @@ Partial Class W6_Repeat
         ' 
         ' Button2
         ' 
-        Button2.BackColor = Color.Transparent
-        Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), Image)
-        Button2.BackgroundImageLayout = ImageLayout.Stretch
-        Button2.FlatAppearance.BorderSize = 0
-        Button2.FlatAppearance.MouseDownBackColor = Color.Transparent
-        Button2.FlatAppearance.MouseOverBackColor = Color.Transparent
+        Button2.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        Button2.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        Button2.FlatAppearance.BorderSize = 2
+        Button2.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        Button2.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         Button2.FlatStyle = FlatStyle.Flat
         Button2.Font = New Font("Arial", 8.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Button2.ForeColor = Color.White
-        Button2.Location = New Point(449, 259)
+        Button2.Location = New Point(467, 259)
         Button2.Name = "Button2"
-        Button2.Size = New Size(70, 31)
+        Button2.Size = New Size(80, 31)
         Button2.TabIndex = 41
+        Button2.Text = "EXECUTE"
         Button2.UseVisualStyleBackColor = False
         ' 
         ' Button3
         ' 
-        Button3.BackColor = Color.Transparent
-        Button3.BackgroundImage = CType(resources.GetObject("Button3.BackgroundImage"), Image)
-        Button3.BackgroundImageLayout = ImageLayout.Stretch
-        Button3.FlatAppearance.BorderSize = 0
-        Button3.FlatAppearance.MouseDownBackColor = Color.Transparent
-        Button3.FlatAppearance.MouseOverBackColor = Color.Transparent
+        Button3.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        Button3.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        Button3.FlatAppearance.BorderSize = 2
+        Button3.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        Button3.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         Button3.FlatStyle = FlatStyle.Flat
         Button3.Font = New Font("Arial", 8.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Button3.ForeColor = Color.White
-        Button3.Location = New Point(542, 259)
+        Button3.Location = New Point(573, 259)
         Button3.Name = "Button3"
-        Button3.Size = New Size(75, 31)
+        Button3.Size = New Size(80, 31)
         Button3.TabIndex = 42
+        Button3.Text = "CLEAR"
         Button3.UseVisualStyleBackColor = False
         ' 
         ' RadioButton3
@@ -242,7 +237,7 @@ Partial Class W6_Repeat
         ' 
         ' W6_Repeat
         ' 
-        AutoScaleDimensions = New SizeF(7F, 14F)
+        AutoScaleDimensions = New SizeF(7.0F, 14.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
@@ -262,7 +257,7 @@ Partial Class W6_Repeat
         Controls.Add(Button6)
         Controls.Add(Button7)
         Controls.Add(Button1)
-        Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Font = New Font("Consolas", 9.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         ForeColor = Color.White
         FormBorderStyle = FormBorderStyle.None
         Name = "W6_Repeat"

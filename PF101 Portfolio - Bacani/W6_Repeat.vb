@@ -31,27 +31,8 @@ Public Class W6_Repeat
         Button1.Cursor = Cursors.Hand
     End Sub
 
-    Private Sub Button2_MouseEnter(sender As Object, e As EventArgs) Handles Button2.MouseEnter
-        Button2.Top -= 3
-        Button2.Cursor = Cursors.Hand
-    End Sub
-
-    Private Sub Button2_MouseLeave(sender As Object, e As EventArgs) Handles Button2.MouseLeave
-        Button2.Top += 3
-        Button2.Cursor = Cursors.Default
-    End Sub
-
-    Private Sub Button3_MouseEnter(sender As Object, e As EventArgs) Handles Button3.MouseEnter
-        Button3.Top -= 3
-        Button3.Cursor = Cursors.Hand
-    End Sub
-
-    Private Sub Button3_MouseLeave(sender As Object, e As EventArgs) Handles Button3.MouseLeave
-        Button3.Top += 3
-        Button3.Cursor = Cursors.Default
-    End Sub
-
     Private Sub Button1_MouseLeave(sender As Object, e As EventArgs) Handles Button1.MouseLeave
+        Button1.ForeColor = Color.Black
         Button1.Top += 3
         Button1.Cursor = Cursors.Default
     End Sub
@@ -79,14 +60,22 @@ Public Class W6_Repeat
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         ListBox1.Items.Clear()
         Dim maxCount As Integer
+
         If Not Integer.TryParse(TextBox1.Text, maxCount) OrElse maxCount <= 0 Then
-            MessageBox.Show("Please enter a valid positive number.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            MessageBox.Show("Please enter a valid positive integer.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Label3.ForeColor = Color.Red
+            Label3.Text = "Total Iterations: Error"
             TextBox1.SelectAll()
             TextBox1.Focus()
             Exit Sub
         End If
 
+        ' Arbitrary limit to prevent accidental infinite hangs during demo
+        If maxCount > 10000 Then maxCount = 10000
+
+        ListBox1.BeginUpdate()
         Dim iterations As Integer = 0
+
         If RadioButton1.Checked Then
             Dim i As Integer = 0
             Do While i < maxCount
@@ -114,15 +103,35 @@ Public Class W6_Repeat
                 Next
             Next
         End If
+        ListBox1.EndUpdate()
 
-        Label3.Text = "Total Iterations: " & iterations.ToString()
+        Label3.ForeColor = Color.LimeGreen
+        Label3.Text = "Total Iterations: " & iterations.ToString("N0")
+
+        ' Auto-scroll listbox
+        If ListBox1.Items.Count > 0 Then
+            ListBox1.TopIndex = ListBox1.Items.Count - 1
+        End If
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         TextBox1.Clear()
         ListBox1.Items.Clear()
+        Label3.ForeColor = Color.White
         Label3.Text = "Total Iterations: -"
         TextBox1.Focus()
+    End Sub
+
+    Private Sub HoverButtons_MouseEnter(sender As Object, e As EventArgs) Handles Button2.MouseEnter, Button3.MouseEnter
+        Dim btn = DirectCast(sender, Button)
+        btn.Top -= 3
+        btn.Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub HoverButtons_MouseLeave(sender As Object, e As EventArgs) Handles Button2.MouseLeave, Button3.MouseLeave
+        Dim btn = DirectCast(sender, Button)
+        btn.Top += 3
+        btn.Cursor = Cursors.Default
     End Sub
 
     Private Sub FormatRichText(rtb As RichTextBox)
