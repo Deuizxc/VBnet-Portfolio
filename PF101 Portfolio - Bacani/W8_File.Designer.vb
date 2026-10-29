@@ -1,9 +1,8 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class W8_File
     Inherits System.Windows.Forms.Form
 
-    'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -14,13 +13,9 @@ Partial Class W8_File
         End Try
     End Sub
 
-    'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
 
-    'NOTE: The following procedure is required by the Windows Form Designer
-    'It can be modified using the Windows Form Designer.  
-    'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(W8_File))
         Button1 = New Button()
@@ -47,7 +42,7 @@ Partial Class W8_File
         Button1.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button1.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("p5hatty", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button1.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button1.ForeColor = Color.Transparent
         Button1.Location = New Point(12, 12)
         Button1.Name = "Button1"
@@ -131,28 +126,36 @@ Partial Class W8_File
         ' 
         ' btnExpand
         ' 
-        btnExpand.BackColor = Color.Black
+        btnExpand.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnExpand.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnExpand.FlatAppearance.BorderSize = 2
+        btnExpand.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnExpand.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnExpand.FlatStyle = FlatStyle.Flat
-        btnExpand.Font = New Font("Arial", 8.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnExpand.Font = New Font("Arial", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnExpand.ForeColor = Color.White
-        btnExpand.Location = New Point(498, 360)
+        btnExpand.Location = New Point(475, 360)
         btnExpand.Name = "btnExpand"
-        btnExpand.Size = New Size(81, 24)
+        btnExpand.Size = New Size(110, 30)
         btnExpand.TabIndex = 48
-        btnExpand.Text = "Expand"
+        btnExpand.Text = "EXPAND"
         btnExpand.UseVisualStyleBackColor = False
         ' 
         ' btnToggle
         ' 
-        btnToggle.BackColor = Color.Black
+        btnToggle.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnToggle.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnToggle.FlatAppearance.BorderSize = 2
+        btnToggle.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnToggle.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnToggle.FlatStyle = FlatStyle.Flat
-        btnToggle.Font = New Font("Arial", 8.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnToggle.Font = New Font("Arial", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnToggle.ForeColor = Color.White
         btnToggle.Location = New Point(602, 360)
         btnToggle.Name = "btnToggle"
-        btnToggle.Size = New Size(81, 24)
+        btnToggle.Size = New Size(110, 30)
         btnToggle.TabIndex = 49
-        btnToggle.Text = "Toggle view"
+        btnToggle.Text = "TOGGLE"
         btnToggle.UseVisualStyleBackColor = False
         ' 
         ' lblFeedback
@@ -160,7 +163,7 @@ Partial Class W8_File
         lblFeedback.BackColor = Color.Transparent
         lblFeedback.Font = New Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblFeedback.ForeColor = Color.LimeGreen
-        lblFeedback.Location = New Point(426, 387)
+        lblFeedback.Location = New Point(426, 395)
         lblFeedback.Name = "lblFeedback"
         lblFeedback.Size = New Size(334, 34)
         lblFeedback.TabIndex = 53
@@ -193,7 +196,7 @@ Partial Class W8_File
         ' 
         ' W8_File
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch

@@ -42,9 +42,6 @@ Public Class W8_File
         Me.SetStyle(ControlStyles.AllPaintingInWmPaint Or ControlStyles.UserPaint Or ControlStyles.OptimizedDoubleBuffer, True)
         Me.UpdateStyles()
 
-        btnExpand.Text = "Scan Drive"
-        btnToggle.Text = "Properties"
-
         lvDetails.View = View.Details
         lvDetails.HeaderStyle = ColumnHeaderStyle.Nonclickable
         lvDetails.FullRowSelect = True
@@ -114,16 +111,20 @@ Public Class W8_File
     Private Sub btnExpand_Click(sender As Object, e As EventArgs) Handles btnExpand.Click
         If tvCategories.Nodes.Count > 0 AndAlso tvCategories.Nodes(0).IsExpanded Then
             tvCategories.CollapseAll()
+            lblFeedback.Text = "Executed: TreeView Collapsed"
         Else
             tvCategories.ExpandAll()
+            lblFeedback.Text = "Executed: TreeView Expanded"
         End If
     End Sub
 
     Private Sub btnToggle_Click(sender As Object, e As EventArgs) Handles btnToggle.Click
         If lvDetails.View = View.Details Then
             lvDetails.View = View.List
+            lblFeedback.Text = "Executed: ListView Mode = List"
         Else
             lvDetails.View = View.Details
+            lblFeedback.Text = "Executed: ListView Mode = Details"
             If lvDetails.Columns.Count >= 3 Then
                 Dim w As Integer = lvDetails.ClientSize.Width
                 If w > 50 Then
