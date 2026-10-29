@@ -133,24 +133,16 @@ Public Class W7_Array
         End If
     End Sub
 
-    Private Sub Button2_MouseEnter(sender As Object, e As EventArgs) Handles Button2.MouseEnter
-        Button2.Top -= 3
-        Button2.Cursor = Cursors.Hand
+    Private Sub ActionButtons_MouseEnter(sender As Object, e As EventArgs) Handles Button2.MouseEnter, Button3.MouseEnter
+        Dim btn As Button = DirectCast(sender, Button)
+        btn.Top -= 3
+        btn.Cursor = Cursors.Hand
     End Sub
 
-    Private Sub Button2_MouseLeave(sender As Object, e As EventArgs) Handles Button2.MouseLeave
-        Button2.Top += 3
-        Button2.Cursor = Cursors.Default
-    End Sub
-
-    Private Sub Button3_MouseEnter(sender As Object, e As EventArgs) Handles Button3.MouseEnter
-        Button3.Top -= 3
-        Button3.Cursor = Cursors.Hand
-    End Sub
-
-    Private Sub Button3_MouseLeave(sender As Object, e As EventArgs) Handles Button3.MouseLeave
-        Button3.Top += 3
-        Button3.Cursor = Cursors.Default
+    Private Sub ActionButtons_MouseLeave(sender As Object, e As EventArgs) Handles Button2.MouseLeave, Button3.MouseLeave
+        Dim btn As Button = DirectCast(sender, Button)
+        btn.Top += 3
+        btn.Cursor = Cursors.Default
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -200,5 +192,4 @@ Public Class W7_Array
         Catch ex As Exception
         End Try
     End Sub
-
 End Class

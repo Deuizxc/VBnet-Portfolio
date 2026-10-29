@@ -1,9 +1,8 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class W7_Array
     Inherits System.Windows.Forms.Form
 
-    'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -14,17 +13,13 @@ Partial Class W7_Array
         End Try
     End Sub
 
-    'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
 
-    'NOTE: The following procedure is required by the Windows Form Designer
-    'It can be modified using the Windows Form Designer.  
-    'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(W7_Array))
-        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Button1 = New Button()
         Button7 = New Button()
         RichTextBox1 = New RichTextBox()
@@ -51,7 +46,7 @@ Partial Class W7_Array
         Button1.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button1.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("p5hatty", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button1.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button1.ForeColor = Color.Transparent
         Button1.Location = New Point(12, 12)
         Button1.Name = "Button1"
@@ -139,29 +134,29 @@ Partial Class W7_Array
         DataGridView1.AllowUserToResizeRows = False
         DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         DataGridView1.BackgroundColor = Color.FromArgb(CByte(15), CByte(15), CByte(15))
-        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.BackColor = Color.FromArgb(CByte(180), CByte(20), CByte(20))
-        DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F)
-        DataGridViewCellStyle3.ForeColor = Color.White
-        DataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.True
-        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = Color.FromArgb(CByte(180), CByte(20), CByte(20))
+        DataGridViewCellStyle1.Font = New Font("Segoe UI", 9.0F)
+        DataGridViewCellStyle1.ForeColor = Color.White
+        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
+        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle4.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
-        DataGridViewCellStyle4.Font = New Font("Segoe UI", 9F)
-        DataGridViewCellStyle4.ForeColor = Color.LimeGreen
-        DataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.False
-        DataGridView1.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9.0F)
+        DataGridViewCellStyle2.ForeColor = Color.LimeGreen
+        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
+        DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
         DataGridView1.EnableHeadersVisualStyles = False
         DataGridView1.Location = New Point(406, 115)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersVisible = False
         DataGridView1.ScrollBars = ScrollBars.None
-        DataGridView1.Size = New Size(294, 53)
+        DataGridView1.Size = New Size(300, 53)
         DataGridView1.TabIndex = 43
         ' 
         ' ComboBox1
@@ -176,36 +171,36 @@ Partial Class W7_Array
         ' 
         ' Button3
         ' 
-        Button3.BackColor = Color.Transparent
-        Button3.BackgroundImage = CType(resources.GetObject("Button3.BackgroundImage"), Image)
-        Button3.BackgroundImageLayout = ImageLayout.Stretch
-        Button3.FlatAppearance.BorderSize = 0
-        Button3.FlatAppearance.MouseDownBackColor = Color.Transparent
-        Button3.FlatAppearance.MouseOverBackColor = Color.Transparent
+        Button3.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        Button3.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        Button3.FlatAppearance.BorderSize = 2
+        Button3.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        Button3.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         Button3.FlatStyle = FlatStyle.Flat
         Button3.Font = New Font("Arial", 8.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Button3.ForeColor = Color.White
         Button3.Location = New Point(485, 279)
         Button3.Name = "Button3"
-        Button3.Size = New Size(75, 32)
+        Button3.Size = New Size(85, 32)
         Button3.TabIndex = 45
+        Button3.Text = "UPDATE"
         Button3.UseVisualStyleBackColor = False
         ' 
         ' Button2
         ' 
-        Button2.BackColor = Color.Transparent
-        Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), Image)
-        Button2.BackgroundImageLayout = ImageLayout.Stretch
-        Button2.FlatAppearance.BorderSize = 0
-        Button2.FlatAppearance.MouseDownBackColor = Color.Transparent
-        Button2.FlatAppearance.MouseOverBackColor = Color.Transparent
+        Button2.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        Button2.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        Button2.FlatAppearance.BorderSize = 2
+        Button2.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        Button2.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         Button2.FlatStyle = FlatStyle.Flat
         Button2.Font = New Font("Arial", 8.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Button2.ForeColor = Color.White
-        Button2.Location = New Point(586, 279)
+        Button2.Location = New Point(589, 279)
         Button2.Name = "Button2"
-        Button2.Size = New Size(75, 32)
+        Button2.Size = New Size(85, 32)
         Button2.TabIndex = 46
+        Button2.Text = "RESET"
         Button2.UseVisualStyleBackColor = False
         ' 
         ' Label5
@@ -214,7 +209,7 @@ Partial Class W7_Array
         Label5.BackColor = Color.Transparent
         Label5.Font = New Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label5.ForeColor = Color.White
-        Label5.Location = New Point(396, 314)
+        Label5.Location = New Point(396, 326)
         Label5.Name = "Label5"
         Label5.Size = New Size(72, 20)
         Label5.TabIndex = 47
@@ -235,7 +230,7 @@ Partial Class W7_Array
         Label6.BackColor = Color.Transparent
         Label6.Font = New Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label6.ForeColor = Color.White
-        Label6.Location = New Point(396, 340)
+        Label6.Location = New Point(396, 356)
         Label6.Name = "Label6"
         Label6.Size = New Size(159, 20)
         Label6.TabIndex = 49
@@ -243,7 +238,7 @@ Partial Class W7_Array
         ' 
         ' W7_Array
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch

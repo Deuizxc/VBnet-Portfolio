@@ -1,9 +1,8 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class W7_Procedure
     Inherits System.Windows.Forms.Form
 
-    'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -14,13 +13,9 @@ Partial Class W7_Procedure
         End Try
     End Sub
 
-    'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
 
-    'NOTE: The following procedure is required by the Windows Form Designer
-    'It can be modified using the Windows Form Designer.  
-    'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(W7_Procedure))
         Button1 = New Button()
@@ -47,7 +42,7 @@ Partial Class W7_Procedure
         Button1.FlatAppearance.MouseDownBackColor = Color.Transparent
         Button1.FlatAppearance.MouseOverBackColor = Color.Transparent
         Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("p5hatty", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button1.Font = New Font("p5hatty", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Button1.ForeColor = Color.Transparent
         Button1.Location = New Point(12, 12)
         Button1.Name = "Button1"
@@ -106,70 +101,70 @@ Partial Class W7_Procedure
         ' 
         ' btnByVal
         ' 
-        btnByVal.BackColor = Color.Transparent
-        btnByVal.BackgroundImage = CType(resources.GetObject("btnByVal.BackgroundImage"), Image)
-        btnByVal.BackgroundImageLayout = ImageLayout.Stretch
-        btnByVal.FlatAppearance.BorderSize = 0
-        btnByVal.FlatAppearance.MouseDownBackColor = Color.Transparent
-        btnByVal.FlatAppearance.MouseOverBackColor = Color.Transparent
+        btnByVal.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnByVal.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnByVal.FlatAppearance.BorderSize = 2
+        btnByVal.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnByVal.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnByVal.FlatStyle = FlatStyle.Flat
-        btnByVal.Font = New Font("Arial", 8.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnByVal.Font = New Font("Arial", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnByVal.ForeColor = Color.White
         btnByVal.Location = New Point(28, 21)
         btnByVal.Name = "btnByVal"
-        btnByVal.Size = New Size(102, 25)
+        btnByVal.Size = New Size(102, 30)
         btnByVal.TabIndex = 46
+        btnByVal.Text = "BYVAL"
         btnByVal.UseVisualStyleBackColor = False
         ' 
         ' btnByRef
         ' 
-        btnByRef.BackColor = Color.Black
-        btnByRef.BackgroundImage = CType(resources.GetObject("btnByRef.BackgroundImage"), Image)
-        btnByRef.BackgroundImageLayout = ImageLayout.Stretch
-        btnByRef.FlatAppearance.BorderSize = 0
-        btnByRef.FlatAppearance.MouseDownBackColor = Color.Transparent
-        btnByRef.FlatAppearance.MouseOverBackColor = Color.Transparent
+        btnByRef.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnByRef.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnByRef.FlatAppearance.BorderSize = 2
+        btnByRef.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnByRef.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnByRef.FlatStyle = FlatStyle.Flat
-        btnByRef.Font = New Font("Arial", 8.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnByRef.Font = New Font("Arial", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnByRef.ForeColor = Color.White
         btnByRef.Location = New Point(162, 21)
         btnByRef.Name = "btnByRef"
-        btnByRef.Size = New Size(102, 25)
+        btnByRef.Size = New Size(102, 30)
         btnByRef.TabIndex = 47
+        btnByRef.Text = "BYREF"
         btnByRef.UseVisualStyleBackColor = False
         ' 
         ' btnFunc
         ' 
-        btnFunc.BackColor = Color.Transparent
-        btnFunc.BackgroundImage = CType(resources.GetObject("btnFunc.BackgroundImage"), Image)
-        btnFunc.BackgroundImageLayout = ImageLayout.Stretch
-        btnFunc.FlatAppearance.BorderSize = 0
-        btnFunc.FlatAppearance.MouseDownBackColor = Color.Transparent
-        btnFunc.FlatAppearance.MouseOverBackColor = Color.Transparent
+        btnFunc.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnFunc.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnFunc.FlatAppearance.BorderSize = 2
+        btnFunc.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnFunc.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnFunc.FlatStyle = FlatStyle.Flat
-        btnFunc.Font = New Font("Arial", 8.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnFunc.Font = New Font("Arial", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnFunc.ForeColor = Color.White
         btnFunc.Location = New Point(28, 69)
         btnFunc.Name = "btnFunc"
-        btnFunc.Size = New Size(102, 25)
+        btnFunc.Size = New Size(102, 30)
         btnFunc.TabIndex = 48
+        btnFunc.Text = "FUNCTION"
         btnFunc.UseVisualStyleBackColor = False
         ' 
         ' btnResetP
         ' 
-        btnResetP.BackColor = Color.Transparent
-        btnResetP.BackgroundImage = CType(resources.GetObject("btnResetP.BackgroundImage"), Image)
-        btnResetP.BackgroundImageLayout = ImageLayout.Stretch
-        btnResetP.FlatAppearance.BorderSize = 0
-        btnResetP.FlatAppearance.MouseDownBackColor = Color.Transparent
-        btnResetP.FlatAppearance.MouseOverBackColor = Color.Transparent
+        btnResetP.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnResetP.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnResetP.FlatAppearance.BorderSize = 2
+        btnResetP.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnResetP.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnResetP.FlatStyle = FlatStyle.Flat
-        btnResetP.Font = New Font("Arial", 8.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnResetP.Font = New Font("Arial", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnResetP.ForeColor = Color.White
         btnResetP.Location = New Point(162, 69)
         btnResetP.Name = "btnResetP"
-        btnResetP.Size = New Size(102, 25)
+        btnResetP.Size = New Size(102, 30)
         btnResetP.TabIndex = 49
+        btnResetP.Text = "RESET"
         btnResetP.UseVisualStyleBackColor = False
         ' 
         ' lblDisplay
@@ -197,7 +192,7 @@ Partial Class W7_Procedure
         ' 
         ' Panel1
         ' 
-        Panel1.BackColor = Color.Black
+        Panel1.BackColor = Color.Transparent
         Panel1.Controls.Add(btnByVal)
         Panel1.Controls.Add(btnByRef)
         Panel1.Controls.Add(btnResetP)
@@ -209,7 +204,7 @@ Partial Class W7_Procedure
         ' 
         ' W7_Procedure
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
