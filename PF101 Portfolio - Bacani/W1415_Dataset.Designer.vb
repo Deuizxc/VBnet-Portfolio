@@ -77,7 +77,7 @@ Partial Class W1415_Dataset
         ' 
         lblTitle.AutoSize = True
         lblTitle.BackColor = Color.Transparent
-        lblTitle.Font = New Font("Segoe UI", 11F, FontStyle.Bold)
+        lblTitle.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
         lblTitle.ForeColor = Color.White
         lblTitle.Location = New Point(423, 56)
         lblTitle.Name = "lblTitle"
@@ -87,31 +87,37 @@ Partial Class W1415_Dataset
         ' 
         ' btnFill
         ' 
-        btnFill.BackColor = Color.FromArgb(CByte(200), CByte(30), CByte(30))
-        btnFill.FlatAppearance.BorderColor = Color.White
+        btnFill.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnFill.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnFill.FlatAppearance.BorderSize = 2
+        btnFill.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnFill.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnFill.FlatStyle = FlatStyle.Flat
-        btnFill.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        btnFill.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
         btnFill.ForeColor = Color.White
         btnFill.Location = New Point(439, 92)
         btnFill.Name = "btnFill"
         btnFill.Size = New Size(240, 30)
         btnFill.TabIndex = 27
-        btnFill.Text = "1. Execute da.Fill()"
+        btnFill.Text = "1. EXECUTE da.Fill()"
         btnFill.UseVisualStyleBackColor = False
         ' 
         ' btnIterate
         ' 
-        btnIterate.BackColor = Color.FromArgb(CByte(40), CByte(40), CByte(40))
+        btnIterate.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnIterate.Enabled = False
-        btnIterate.FlatAppearance.BorderColor = Color.White
+        btnIterate.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnIterate.FlatAppearance.BorderSize = 2
+        btnIterate.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnIterate.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnIterate.FlatStyle = FlatStyle.Flat
-        btnIterate.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        btnIterate.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
         btnIterate.ForeColor = Color.White
-        btnIterate.Location = New Point(439, 149)
+        btnIterate.Location = New Point(439, 137)
         btnIterate.Name = "btnIterate"
         btnIterate.Size = New Size(240, 30)
         btnIterate.TabIndex = 28
-        btnIterate.Text = "2. Iterate Disconnected Hierarchy"
+        btnIterate.Text = "2. ITERATE HIERARCHY"
         btnIterate.UseVisualStyleBackColor = False
         ' 
         ' rtbTerminal
@@ -120,11 +126,11 @@ Partial Class W1415_Dataset
         rtbTerminal.BorderStyle = BorderStyle.FixedSingle
         rtbTerminal.Font = New Font("Consolas", 8.25F)
         rtbTerminal.ForeColor = Color.White
-        rtbTerminal.Location = New Point(439, 213)
+        rtbTerminal.Location = New Point(439, 185)
         rtbTerminal.Name = "rtbTerminal"
         rtbTerminal.ReadOnly = True
         rtbTerminal.ScrollBars = RichTextBoxScrollBars.None
-        rtbTerminal.Size = New Size(240, 125)
+        rtbTerminal.Size = New Size(240, 153)
         rtbTerminal.TabIndex = 29
         rtbTerminal.Text = "> System Ready..." & vbLf
         ' 
@@ -141,7 +147,7 @@ Partial Class W1415_Dataset
         ' 
         ' W1415_Dataset
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch

@@ -121,6 +121,22 @@ Public Class W1415_Dataset
         End Try
     End Sub
 
+    Private Sub ActionButtons_MouseEnter(sender As Object, e As EventArgs) Handles btnFill.MouseEnter, btnIterate.MouseEnter
+        Dim btn = DirectCast(sender, Button)
+        If btn.Enabled Then
+            btn.Top -= 3
+            btn.Cursor = Cursors.Hand
+        End If
+    End Sub
+
+    Private Sub ActionButtons_MouseLeave(sender As Object, e As EventArgs) Handles btnFill.MouseLeave, btnIterate.MouseLeave
+        Dim btn = DirectCast(sender, Button)
+        If btn.Enabled Then
+            btn.Top += 3
+            btn.Cursor = Cursors.Default
+        End If
+    End Sub
+
     Private Sub FormatRichText(rtb As RichTextBox)
         Try
             If rtb Is Nothing OrElse String.IsNullOrWhiteSpace(rtb.Text) Then Return

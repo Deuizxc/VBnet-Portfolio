@@ -61,7 +61,7 @@ Partial Class W1415_Database
         ' 
         lblTitle.AutoSize = True
         lblTitle.BackColor = Color.Transparent
-        lblTitle.Font = New Font("Segoe UI", 11F, FontStyle.Bold)
+        lblTitle.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
         lblTitle.ForeColor = Color.White
         lblTitle.Location = New Point(431, 42)
         lblTitle.Name = "lblTitle"
@@ -84,16 +84,19 @@ Partial Class W1415_Database
         ' 
         ' btnSync
         ' 
-        btnSync.BackColor = Color.FromArgb(CByte(200), CByte(30), CByte(30))
-        btnSync.FlatAppearance.BorderColor = Color.White
+        btnSync.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnSync.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnSync.FlatAppearance.BorderSize = 2
+        btnSync.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnSync.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnSync.FlatStyle = FlatStyle.Flat
-        btnSync.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        btnSync.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
         btnSync.ForeColor = Color.White
         btnSync.Location = New Point(431, 121)
         btnSync.Name = "btnSync"
         btnSync.Size = New Size(257, 30)
         btnSync.TabIndex = 28
-        btnSync.Text = "Execute Adapter Update"
+        btnSync.Text = "EXECUTE ADAPTER UPDATE"
         btnSync.UseVisualStyleBackColor = False
         ' 
         ' rtbTerminal
@@ -123,7 +126,7 @@ Partial Class W1415_Database
         ' 
         ' W1415_Database
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch

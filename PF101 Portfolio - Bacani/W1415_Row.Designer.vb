@@ -80,7 +80,7 @@ Partial Class W1415_Row
         ' 
         lblTitle.AutoSize = True
         lblTitle.BackColor = Color.Transparent
-        lblTitle.Font = New Font("Segoe UI", 11F, FontStyle.Bold)
+        lblTitle.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
         lblTitle.ForeColor = Color.White
         lblTitle.Location = New Point(454, 25)
         lblTitle.Name = "lblTitle"
@@ -103,8 +103,11 @@ Partial Class W1415_Row
         ' 
         ' btnPrev
         ' 
-        btnPrev.BackColor = Color.FromArgb(CByte(40), CByte(40), CByte(40))
-        btnPrev.FlatAppearance.BorderColor = Color.White
+        btnPrev.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnPrev.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnPrev.FlatAppearance.BorderSize = 2
+        btnPrev.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnPrev.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnPrev.FlatStyle = FlatStyle.Flat
         btnPrev.Font = New Font("Segoe UI", 8.25F, FontStyle.Bold)
         btnPrev.ForeColor = Color.White
@@ -112,13 +115,16 @@ Partial Class W1415_Row
         btnPrev.Name = "btnPrev"
         btnPrev.Size = New Size(115, 28)
         btnPrev.TabIndex = 28
-        btnPrev.Text = "<< Prev Row"
+        btnPrev.Text = "<< PREV ROW"
         btnPrev.UseVisualStyleBackColor = False
         ' 
         ' btnNext
         ' 
-        btnNext.BackColor = Color.FromArgb(CByte(40), CByte(40), CByte(40))
-        btnNext.FlatAppearance.BorderColor = Color.White
+        btnNext.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnNext.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnNext.FlatAppearance.BorderSize = 2
+        btnNext.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnNext.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnNext.FlatStyle = FlatStyle.Flat
         btnNext.Font = New Font("Segoe UI", 8.25F, FontStyle.Bold)
         btnNext.ForeColor = Color.White
@@ -126,21 +132,24 @@ Partial Class W1415_Row
         btnNext.Name = "btnNext"
         btnNext.Size = New Size(112, 28)
         btnNext.TabIndex = 29
-        btnNext.Text = "Next Row >>"
+        btnNext.Text = "NEXT ROW >>"
         btnNext.UseVisualStyleBackColor = False
         ' 
         ' btnEvaluate
         ' 
-        btnEvaluate.BackColor = Color.FromArgb(CByte(200), CByte(30), CByte(30))
-        btnEvaluate.FlatAppearance.BorderColor = Color.White
+        btnEvaluate.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnEvaluate.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnEvaluate.FlatAppearance.BorderSize = 2
+        btnEvaluate.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnEvaluate.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnEvaluate.FlatStyle = FlatStyle.Flat
-        btnEvaluate.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        btnEvaluate.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
         btnEvaluate.ForeColor = Color.White
         btnEvaluate.Location = New Point(465, 140)
         btnEvaluate.Name = "btnEvaluate"
-        btnEvaluate.Size = New Size(213, 28)
+        btnEvaluate.Size = New Size(213, 30)
         btnEvaluate.TabIndex = 30
-        btnEvaluate.Text = "Evaluate Rule: Is Age >= 18?"
+        btnEvaluate.Text = "EVALUATE RULE: AGE >= 18?"
         btnEvaluate.UseVisualStyleBackColor = False
         ' 
         ' rtbTerminal
@@ -171,7 +180,7 @@ Partial Class W1415_Row
         ' Label1
         ' 
         Label1.BackColor = Color.Transparent
-        Label1.Font = New Font("Trebuchet MS", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label1.Font = New Font("Trebuchet MS", 9.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Label1.ForeColor = Color.White
         Label1.Location = New Point(208, 369)
         Label1.Name = "Label1"
@@ -181,7 +190,7 @@ Partial Class W1415_Row
         ' 
         ' W1415_Row
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch

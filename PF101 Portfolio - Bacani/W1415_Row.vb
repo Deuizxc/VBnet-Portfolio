@@ -82,7 +82,10 @@ Public Class W1415_Row
 
             btnPrev.Enabled = (currentRowIndex > 0)
             btnNext.Enabled = (currentRowIndex < dtMock.Rows.Count - 1)
+
             rtbTerminal.Clear()
+            rtbTerminal.ForeColor = Color.White
+            rtbTerminal.Text = "> Awaiting evaluation..."
         Catch ex As Exception
         End Try
     End Sub
@@ -136,6 +139,22 @@ Public Class W1415_Row
             End If
         Catch ex As Exception
         End Try
+    End Sub
+
+    Private Sub ActionButtons_MouseEnter(sender As Object, e As EventArgs) Handles btnPrev.MouseEnter, btnNext.MouseEnter, btnEvaluate.MouseEnter
+        Dim btn = DirectCast(sender, Button)
+        If btn.Enabled Then
+            btn.Top -= 3
+            btn.Cursor = Cursors.Hand
+        End If
+    End Sub
+
+    Private Sub ActionButtons_MouseLeave(sender As Object, e As EventArgs) Handles btnPrev.MouseLeave, btnNext.MouseLeave, btnEvaluate.MouseLeave
+        Dim btn = DirectCast(sender, Button)
+        If btn.Enabled Then
+            btn.Top += 3
+            btn.Cursor = Cursors.Default
+        End If
     End Sub
 
     Private Sub FormatRichText(rtb As RichTextBox)

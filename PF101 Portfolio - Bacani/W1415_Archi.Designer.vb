@@ -109,16 +109,19 @@ Partial Class W1415_Archi
         ' 
         ' btnBuild
         ' 
-        btnBuild.BackColor = Color.FromArgb(CByte(200), CByte(30), CByte(30))
-        btnBuild.FlatAppearance.BorderColor = Color.White
+        btnBuild.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnBuild.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnBuild.FlatAppearance.BorderSize = 2
+        btnBuild.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnBuild.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnBuild.FlatStyle = FlatStyle.Flat
-        btnBuild.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        btnBuild.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
         btnBuild.ForeColor = Color.White
         btnBuild.Location = New Point(419, 200)
         btnBuild.Name = "btnBuild"
         btnBuild.Size = New Size(240, 30)
         btnBuild.TabIndex = 28
-        btnBuild.Text = "Execute Builder()"
+        btnBuild.Text = "EXECUTE BUILDER()"
         btnBuild.UseVisualStyleBackColor = False
         ' 
         ' rtbOutput
@@ -131,7 +134,7 @@ Partial Class W1415_Archi
         rtbOutput.Name = "rtbOutput"
         rtbOutput.ReadOnly = True
         rtbOutput.ScrollBars = RichTextBoxScrollBars.None
-        rtbOutput.Size = New Size(178, 143)
+        rtbOutput.Size = New Size(181, 143)
         rtbOutput.TabIndex = 29
         rtbOutput.Text = "> Waiting for build execution..."
         ' 
@@ -148,7 +151,7 @@ Partial Class W1415_Archi
         ' 
         ' W1415_Archi
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
