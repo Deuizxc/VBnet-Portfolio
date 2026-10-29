@@ -128,7 +128,11 @@ Partial Class W13_Memory
         ' 
         ' btnAdd
         ' 
-        btnAdd.BackColor = Color.FromArgb(CByte(40), CByte(40), CByte(40))
+        btnAdd.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnAdd.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnAdd.FlatAppearance.BorderSize = 2
+        btnAdd.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnAdd.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnAdd.FlatStyle = FlatStyle.Flat
         btnAdd.Font = New Font("Segoe UI", 8.25F, FontStyle.Bold)
         btnAdd.ForeColor = Color.White
@@ -141,7 +145,11 @@ Partial Class W13_Memory
         ' 
         ' btnEdit
         ' 
-        btnEdit.BackColor = Color.FromArgb(CByte(40), CByte(40), CByte(40))
+        btnEdit.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnEdit.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnEdit.FlatAppearance.BorderSize = 2
+        btnEdit.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnEdit.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnEdit.FlatStyle = FlatStyle.Flat
         btnEdit.Font = New Font("Segoe UI", 8.25F, FontStyle.Bold)
         btnEdit.ForeColor = Color.White
@@ -154,7 +162,11 @@ Partial Class W13_Memory
         ' 
         ' btnDelete
         ' 
-        btnDelete.BackColor = Color.FromArgb(CByte(40), CByte(40), CByte(40))
+        btnDelete.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnDelete.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnDelete.FlatAppearance.BorderSize = 2
+        btnDelete.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnDelete.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnDelete.FlatStyle = FlatStyle.Flat
         btnDelete.Font = New Font("Segoe UI", 8.25F, FontStyle.Bold)
         btnDelete.ForeColor = Color.White
@@ -162,12 +174,16 @@ Partial Class W13_Memory
         btnDelete.Name = "btnDelete"
         btnDelete.Size = New Size(83, 28)
         btnDelete.TabIndex = 30
-        btnDelete.Text = "- Delete (.Del)"
+        btnDelete.Text = "- Delete"
         btnDelete.UseVisualStyleBackColor = False
         ' 
         ' btnAccept
         ' 
-        btnAccept.BackColor = Color.FromArgb(CByte(200), CByte(30), CByte(30))
+        btnAccept.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnAccept.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnAccept.FlatAppearance.BorderSize = 2
+        btnAccept.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnAccept.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnAccept.FlatStyle = FlatStyle.Flat
         btnAccept.Font = New Font("Segoe UI", 8.25F, FontStyle.Bold)
         btnAccept.ForeColor = Color.White
@@ -180,13 +196,17 @@ Partial Class W13_Memory
         ' 
         ' btnReject
         ' 
-        btnReject.BackColor = Color.FromArgb(CByte(200), CByte(30), CByte(30))
+        btnReject.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnReject.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnReject.FlatAppearance.BorderSize = 2
+        btnReject.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnReject.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnReject.FlatStyle = FlatStyle.Flat
         btnReject.Font = New Font("Segoe UI", 8.25F, FontStyle.Bold)
         btnReject.ForeColor = Color.White
         btnReject.Location = New Point(587, 215)
         btnReject.Name = "btnReject"
-        btnReject.Size = New Size(125, 28)
+        btnReject.Size = New Size(131, 28)
         btnReject.TabIndex = 32
         btnReject.Text = "RejectChanges()"
         btnReject.UseVisualStyleBackColor = False
@@ -217,7 +237,7 @@ Partial Class W13_Memory
         ' 
         ' W13_Memory
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
@@ -242,7 +262,6 @@ Partial Class W13_Memory
         CType(dgvData, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
-
     End Sub
 
     Friend WithEvents Button1 As Button

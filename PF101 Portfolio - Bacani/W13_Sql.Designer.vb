@@ -105,7 +105,7 @@ Partial Class W13_Sql
         ' 
         lblSqlTerminal.BackColor = Color.FromArgb(CByte(15), CByte(15), CByte(15))
         lblSqlTerminal.BorderStyle = BorderStyle.FixedSingle
-        lblSqlTerminal.Font = New Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lblSqlTerminal.Font = New Font("Consolas", 9.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         lblSqlTerminal.ForeColor = Color.LimeGreen
         lblSqlTerminal.Location = New Point(460, 109)
         lblSqlTerminal.Name = "lblSqlTerminal"
@@ -116,16 +116,19 @@ Partial Class W13_Sql
         ' 
         ' btnExecute
         ' 
-        btnExecute.BackColor = Color.FromArgb(CByte(200), CByte(30), CByte(30))
-        btnExecute.FlatAppearance.BorderColor = Color.White
+        btnExecute.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnExecute.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnExecute.FlatAppearance.BorderSize = 2
+        btnExecute.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnExecute.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnExecute.FlatStyle = FlatStyle.Flat
-        btnExecute.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnExecute.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnExecute.ForeColor = Color.White
         btnExecute.Location = New Point(460, 187)
         btnExecute.Name = "btnExecute"
         btnExecute.Size = New Size(246, 30)
         btnExecute.TabIndex = 29
-        btnExecute.Text = "Execute Query"
+        btnExecute.Text = "EXECUTE QUERY"
         btnExecute.UseVisualStyleBackColor = False
         ' 
         ' dgvResults
@@ -176,7 +179,7 @@ Partial Class W13_Sql
         ' 
         ' W13_Sql
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
@@ -198,7 +201,6 @@ Partial Class W13_Sql
         CType(dgvResults, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
-
     End Sub
 
     Friend WithEvents Button1 As Button

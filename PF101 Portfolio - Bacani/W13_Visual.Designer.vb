@@ -68,7 +68,7 @@ Partial Class W13_Visual
         ' 
         lblTitle.AutoSize = True
         lblTitle.BackColor = Color.Transparent
-        lblTitle.Font = New Font("Segoe UI", 11F, FontStyle.Bold)
+        lblTitle.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
         lblTitle.ForeColor = Color.White
         lblTitle.Location = New Point(450, 37)
         lblTitle.Name = "lblTitle"
@@ -154,7 +154,7 @@ Partial Class W13_Visual
         ' 
         lblSqlPane.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         lblSqlPane.BorderStyle = BorderStyle.FixedSingle
-        lblSqlPane.Font = New Font("Consolas", 9F)
+        lblSqlPane.Font = New Font("Consolas", 9.0F)
         lblSqlPane.ForeColor = Color.White
         lblSqlPane.Location = New Point(452, 155)
         lblSqlPane.Name = "lblSqlPane"
@@ -165,16 +165,19 @@ Partial Class W13_Visual
         ' 
         ' btnExecute
         ' 
-        btnExecute.BackColor = Color.FromArgb(CByte(200), CByte(30), CByte(30))
-        btnExecute.FlatAppearance.BorderColor = Color.White
+        btnExecute.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnExecute.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnExecute.FlatAppearance.BorderSize = 2
+        btnExecute.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnExecute.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnExecute.FlatStyle = FlatStyle.Flat
-        btnExecute.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        btnExecute.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
         btnExecute.ForeColor = Color.White
         btnExecute.Location = New Point(452, 210)
         btnExecute.Name = "btnExecute"
         btnExecute.Size = New Size(260, 30)
         btnExecute.TabIndex = 28
-        btnExecute.Text = "Execute Command (DataReader)"
+        btnExecute.Text = "EXECUTE COMMAND"
         btnExecute.UseVisualStyleBackColor = False
         ' 
         ' rtbResults
@@ -186,7 +189,7 @@ Partial Class W13_Visual
         rtbResults.Location = New Point(452, 250)
         rtbResults.Name = "rtbResults"
         rtbResults.ReadOnly = True
-        rtbResults.Size = New Size(184, 117)
+        rtbResults.Size = New Size(189, 117)
         rtbResults.TabIndex = 29
         rtbResults.Text = ""
         ' 
@@ -203,7 +206,7 @@ Partial Class W13_Visual
         ' 
         ' W13_Visual
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         BackgroundImageLayout = ImageLayout.Stretch
@@ -226,7 +229,6 @@ Partial Class W13_Visual
         grpGridPane.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
-
     End Sub
 
     Friend WithEvents Button1 As Button

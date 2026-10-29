@@ -100,8 +100,16 @@ Public Class W13_Memory
             If dgvData.SelectedRows.Count > 0 Then
                 Dim selectedView As DataRowView = DirectCast(dgvData.SelectedRows(0).DataBoundItem, DataRowView)
                 Dim editRow As DataRow = selectedView.Row
+
+                If editRow.RowState = DataRowState.Deleted Then
+                    LogAction("Error", "Cannot edit a row marked for deletion.")
+                    Exit Sub
+                End If
+
                 editRow.BeginEdit()
-                editRow("Title") = editRow("Title").ToString().ToUpper() & " (EDITED)"
+                If Not editRow("Title").ToString().Contains("(EDITED)") Then
+                    editRow("Title") = editRow("Title").ToString() & " (EDITED)"
+                End If
                 editRow.EndEdit()
                 LogAction("BeginEdit() / EndEdit()", "Row data modified. RowState is now [Modified].")
             Else
@@ -116,6 +124,12 @@ Public Class W13_Memory
             If dgvData.SelectedRows.Count > 0 Then
                 Dim selectedView As DataRowView = DirectCast(dgvData.SelectedRows(0).DataBoundItem, DataRowView)
                 Dim delRow As DataRow = selectedView.Row
+
+                If delRow.RowState = DataRowState.Deleted Then
+                    LogAction("Error", "Row is already marked for deletion.")
+                    Exit Sub
+                End If
+
                 delRow.Delete()
                 LogAction("Row.Delete()", "Row marked for deletion. It is hidden but still in memory! Call AcceptChanges() to permanently delete it, or RejectChanges() to bring it back.")
             Else
@@ -139,6 +153,18 @@ Public Class W13_Memory
             LogAction("RejectChanges()", "All uncommitted changes have been rolled back. Deleted rows have been restored.")
         Catch ex As Exception
         End Try
+    End Sub
+
+    Private Sub ActionButtons_MouseEnter(sender As Object, e As EventArgs) Handles btnAdd.MouseEnter, btnEdit.MouseEnter, btnDelete.MouseEnter, btnAccept.MouseEnter, btnReject.MouseEnter
+        Dim btn = DirectCast(sender, Button)
+        btn.Top -= 3
+        btn.Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub ActionButtons_MouseLeave(sender As Object, e As EventArgs) Handles btnAdd.MouseLeave, btnEdit.MouseLeave, btnDelete.MouseLeave, btnAccept.MouseLeave, btnReject.MouseLeave
+        Dim btn = DirectCast(sender, Button)
+        btn.Top += 3
+        btn.Cursor = Cursors.Default
     End Sub
 
     Private Sub FormatRichText(rtb As RichTextBox)
