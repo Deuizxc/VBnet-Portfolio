@@ -35,7 +35,7 @@ Partial Class FPdashboard
         lblTitle.ForeColor = Color.White
         lblTitle.Location = New Point(35, 25)
         lblTitle.Name = "lblTitle"
-        lblTitle.Size = New Size(310, 41)
+        lblTitle.Size = New Size(335, 41)
         lblTitle.TabIndex = 0
         lblTitle.Text = "PHANTOM KIOSK POS"
         ' 
@@ -46,7 +46,7 @@ Partial Class FPdashboard
         lblSubtitle.ForeColor = Color.FromArgb(CByte(220), CByte(40), CByte(40))
         lblSubtitle.Location = New Point(38, 68)
         lblSubtitle.Name = "lblSubtitle"
-        lblSubtitle.Size = New Size(302, 20)
+        lblSubtitle.Size = New Size(285, 20)
         lblSubtitle.TabIndex = 1
         lblSubtitle.Text = "RETAIL BUY & SELL OBSERVATION SUITE"
         ' 
@@ -83,7 +83,7 @@ Partial Class FPdashboard
         btnKiosk.Name = "btnKiosk"
         btnKiosk.Size = New Size(415, 68)
         btnKiosk.TabIndex = 3
-        btnKiosk.Text = "🛒 CUSTOMER ORDERING KIOSK (BUY)"
+        btnKiosk.Text = ChrW(55357) & ChrW(57042) & " CUSTOMER ORDERING KIOSK (BUY)"
         btnKiosk.UseVisualStyleBackColor = False
         ' 
         ' btnInventory
@@ -141,7 +141,7 @@ Partial Class FPdashboard
         ' 
         AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = Color.FromArgb(CByte(25), CByte(25), CByte(25))
+        BackColor = Color.DarkGray
         ClientSize = New Size(940, 450)
         Controls.Add(btnClose)
         Controls.Add(btnReports)
