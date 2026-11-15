@@ -179,7 +179,7 @@
             flpCartItems.Controls.Add(rowPanel)
         Next
 
-        Dim tax As Decimal = subtotal * 0.12D
+        Dim tax As Decimal = CalculateTax(subtotal)
         Dim grandTotal As Decimal = subtotal + tax
 
         lblTaxValue.Text = $"₱{tax:N2}"
@@ -202,14 +202,31 @@
         LoadMenu("Desserts")
     End Sub
 
+    Private Function CalculateTax(subtotal As Decimal) As Decimal
+        Return Math.Round(subtotal * 0.12D, 2, MidpointRounding.AwayFromZero)
+    End Function
+
     Private Sub btnPay_Click(sender As Object, e As EventArgs) Handles btnPay.Click
-        If cartList.Count > 0 Then
-            MessageBox.Show("Transaction processed successfully! Order sent to kitchen database.", "Checkout Complete", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            cartList.Clear()
-            RefreshCartDisplay()
-        Else
+        If cartList.Count = 0 Then
             MessageBox.Show("Your cart is empty. Please select items first.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
         End If
+
+        Dim orderItems As New List(Of FPorders.OrderItem)()
+        Dim subtotal As Decimal = 0D
+
+        For Each item In cartList
+            orderItems.Add(New FPorders.OrderItem(item.Name, item.Price, item.Quantity))
+            subtotal += item.Price * item.Quantity
+        Next
+
+        Dim orderNumber As String = FPorders.PlaceOrder(orderItems, subtotal + CalculateTax(subtotal))
+        cartList.Clear()
+        RefreshCartDisplay()
+
+        MessageBox.Show(Me, $"Your order number is {orderNumber}." & vbCrLf &
+                        "Please wait for your order number to be called.",
+                        "Order Placed", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click

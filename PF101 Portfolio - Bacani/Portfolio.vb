@@ -157,5 +157,9 @@ Public Class Portfolio
 
     End Sub
 
-
+    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
+        FPdashboard.Show()
+        FPdashboard.Update()
+        Me.Hide()
+    End Sub
 End Class

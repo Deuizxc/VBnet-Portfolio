@@ -15,6 +15,12 @@
         Me.Hide()
     End Sub
 
+    Private Sub btnOrders_Click(sender As Object, e As EventArgs) Handles btnOrders.Click
+        Using ordersForm As New FPorders()
+            ordersForm.ShowDialog(Me)
+        End Using
+    End Sub
+
     Private Sub btnReports_Click(sender As Object, e As EventArgs) Handles btnReports.Click
         Dim repForm As New FPsalesreport()
         repForm.Show()

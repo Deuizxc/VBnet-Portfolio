@@ -23,6 +23,7 @@ Partial Class FPdashboard
         lblTagline = New Label()
         btnKiosk = New Button()
         btnInventory = New Button()
+        btnOrders = New Button()
         btnReports = New Button()
         btnClose = New Button()
         pnlHeroBanner.SuspendLayout()
@@ -81,7 +82,7 @@ Partial Class FPdashboard
         btnKiosk.ForeColor = Color.White
         btnKiosk.Location = New Point(490, 105)
         btnKiosk.Name = "btnKiosk"
-        btnKiosk.Size = New Size(415, 68)
+        btnKiosk.Size = New Size(415, 55)
         btnKiosk.TabIndex = 3
         btnKiosk.Text = ChrW(55357) & ChrW(57042) & " CUSTOMER ORDERING KIOSK (BUY)"
         btnKiosk.UseVisualStyleBackColor = False
@@ -96,12 +97,29 @@ Partial Class FPdashboard
         btnInventory.FlatStyle = FlatStyle.Flat
         btnInventory.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
         btnInventory.ForeColor = Color.White
-        btnInventory.Location = New Point(490, 187)
+        btnInventory.Location = New Point(490, 170)
         btnInventory.Name = "btnInventory"
-        btnInventory.Size = New Size(415, 68)
+        btnInventory.Size = New Size(415, 55)
         btnInventory.TabIndex = 4
         btnInventory.Text = "📦 INVENTORY & CATALOG MANAGER (SELL)"
         btnInventory.UseVisualStyleBackColor = False
+        ' 
+        ' btnOrders
+        ' 
+        btnOrders.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnOrders.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnOrders.FlatAppearance.BorderSize = 2
+        btnOrders.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnOrders.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnOrders.FlatStyle = FlatStyle.Flat
+        btnOrders.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
+        btnOrders.ForeColor = Color.White
+        btnOrders.Location = New Point(490, 235)
+        btnOrders.Name = "btnOrders"
+        btnOrders.Size = New Size(415, 55)
+        btnOrders.TabIndex = 5
+        btnOrders.Text = "ORDERS"
+        btnOrders.UseVisualStyleBackColor = False
         ' 
         ' btnReports
         ' 
@@ -113,10 +131,10 @@ Partial Class FPdashboard
         btnReports.FlatStyle = FlatStyle.Flat
         btnReports.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
         btnReports.ForeColor = Color.White
-        btnReports.Location = New Point(490, 269)
+        btnReports.Location = New Point(490, 300)
         btnReports.Name = "btnReports"
-        btnReports.Size = New Size(415, 68)
-        btnReports.TabIndex = 5
+        btnReports.Size = New Size(415, 55)
+        btnReports.TabIndex = 6
         btnReports.Text = "📈 SALES REPORTS & ANALYTICS"
         btnReports.UseVisualStyleBackColor = False
         ' 
@@ -130,10 +148,10 @@ Partial Class FPdashboard
         btnClose.FlatStyle = FlatStyle.Flat
         btnClose.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
         btnClose.ForeColor = Color.White
-        btnClose.Location = New Point(490, 351)
+        btnClose.Location = New Point(490, 365)
         btnClose.Name = "btnClose"
-        btnClose.Size = New Size(415, 69)
-        btnClose.TabIndex = 6
+        btnClose.Size = New Size(415, 55)
+        btnClose.TabIndex = 7
         btnClose.Text = "EXIT APPLICATION"
         btnClose.UseVisualStyleBackColor = False
         ' 
@@ -145,6 +163,7 @@ Partial Class FPdashboard
         ClientSize = New Size(940, 450)
         Controls.Add(btnClose)
         Controls.Add(btnReports)
+        Controls.Add(btnOrders)
         Controls.Add(btnInventory)
         Controls.Add(btnKiosk)
         Controls.Add(pnlHeroBanner)
@@ -165,6 +184,7 @@ Partial Class FPdashboard
     Friend WithEvents lblTagline As Label
     Friend WithEvents btnKiosk As Button
     Friend WithEvents btnInventory As Button
+    Friend WithEvents btnOrders As Button
     Friend WithEvents btnReports As Button
     Friend WithEvents btnClose As Button
 End Class
