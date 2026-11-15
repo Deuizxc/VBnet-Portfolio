@@ -44,7 +44,7 @@ Partial Class FPkiosk
         lblTitle.ForeColor = Color.White
         lblTitle.Location = New Point(30, 15)
         lblTitle.Name = "lblTitle"
-        lblTitle.Size = New Size(244, 30)
+        lblTitle.Size = New Size(260, 30)
         lblTitle.TabIndex = 0
         lblTitle.Text = "SELF-ORDER KIOSK POS"
         ' 
@@ -111,7 +111,7 @@ Partial Class FPkiosk
         btnCatDrinks.Name = "btnCatDrinks"
         btnCatDrinks.Size = New Size(115, 35)
         btnCatDrinks.TabIndex = 2
-        btnCatDrinks.Text = "🥤 Drinks"
+        btnCatDrinks.Text = ChrW(55358) & ChrW(56676) & " Drinks"
         btnCatDrinks.UseVisualStyleBackColor = False
         ' 
         ' btnCatDesserts
@@ -166,7 +166,7 @@ Partial Class FPkiosk
         lblCartHeader.ForeColor = Color.White
         lblCartHeader.Location = New Point(15, 12)
         lblCartHeader.Name = "lblCartHeader"
-        lblCartHeader.Size = New Size(103, 20)
+        lblCartHeader.Size = New Size(106, 20)
         lblCartHeader.TabIndex = 0
         lblCartHeader.Text = "Current Order"
         ' 
@@ -185,7 +185,7 @@ Partial Class FPkiosk
         lblTaxLabel.ForeColor = Color.DarkGray
         lblTaxLabel.Location = New Point(15, 258)
         lblTaxLabel.Name = "lblTaxLabel"
-        lblTaxLabel.Size = New Size(58, 15)
+        lblTaxLabel.Size = New Size(57, 15)
         lblTaxLabel.TabIndex = 2
         lblTaxLabel.Text = "Tax (12%)"
         ' 
@@ -195,7 +195,7 @@ Partial Class FPkiosk
         lblTaxValue.ForeColor = Color.White
         lblTaxValue.Location = New Point(255, 258)
         lblTaxValue.Name = "lblTaxValue"
-        lblTaxValue.Size = New Size(42, 15)
+        lblTaxValue.Size = New Size(35, 15)
         lblTaxValue.TabIndex = 3
         lblTaxValue.Text = "₱0.00"
         ' 
@@ -217,7 +217,7 @@ Partial Class FPkiosk
         lblTotalValue.ForeColor = Color.LimeGreen
         lblTotalValue.Location = New Point(220, 283)
         lblTotalValue.Name = "lblTotalValue"
-        lblTotalValue.Size = New Size(76, 23)
+        lblTotalValue.Size = New Size(56, 23)
         lblTotalValue.TabIndex = 5
         lblTotalValue.Text = "₱0.00"
         ' 
@@ -259,7 +259,7 @@ Partial Class FPkiosk
         ' 
         AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = Color.FromArgb(CByte(25), CByte(25), CByte(25))
+        BackColor = Color.Silver
         ClientSize = New Size(940, 440)
         Controls.Add(pnlCartContainer)
         Controls.Add(flpMenuGrid)
