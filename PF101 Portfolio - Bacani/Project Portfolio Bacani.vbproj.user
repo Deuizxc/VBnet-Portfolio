@@ -16,6 +16,9 @@
     <Compile Update="FPdashboard.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FPkiosk.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Lessons.vb">
       <SubType>Form</SubType>
     </Compile>
