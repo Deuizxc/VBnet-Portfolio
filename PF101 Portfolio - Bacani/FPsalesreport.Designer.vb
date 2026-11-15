@@ -50,7 +50,7 @@ Partial Class FPsalesreport
         lblTitle.ForeColor = Color.White
         lblTitle.Location = New Point(25, 15)
         lblTitle.Name = "lblTitle"
-        lblTitle.Size = New Size(295, 30)
+        lblTitle.Size = New Size(304, 30)
         lblTitle.TabIndex = 0
         lblTitle.Text = "SALES REPORTS & ANALYTICS"
         ' 
@@ -89,7 +89,7 @@ Partial Class FPsalesreport
         lblTotalRevenue.ForeColor = Color.LimeGreen
         lblTotalRevenue.Location = New Point(12, 32)
         lblTotalRevenue.Name = "lblTotalRevenue"
-        lblTotalRevenue.Size = New Size(85, 25)
+        lblTotalRevenue.Size = New Size(62, 25)
         lblTotalRevenue.TabIndex = 1
         lblTotalRevenue.Text = "₱0.00"
         ' 
@@ -100,7 +100,7 @@ Partial Class FPsalesreport
         lblRevTitle.ForeColor = Color.DarkGray
         lblRevTitle.Location = New Point(12, 12)
         lblRevTitle.Name = "lblRevTitle"
-        lblRevTitle.Size = New Size(94, 15)
+        lblRevTitle.Size = New Size(98, 15)
         lblRevTitle.TabIndex = 0
         lblRevTitle.Text = "TOTAL REVENUE"
         ' 
@@ -122,7 +122,7 @@ Partial Class FPsalesreport
         lblTotalTxn.ForeColor = Color.White
         lblTotalTxn.Location = New Point(12, 32)
         lblTotalTxn.Name = "lblTotalTxn"
-        lblTotalTxn.Size = New Size(34, 25)
+        lblTotalTxn.Size = New Size(23, 25)
         lblTotalTxn.TabIndex = 1
         lblTotalTxn.Text = "0"
         ' 
@@ -133,7 +133,7 @@ Partial Class FPsalesreport
         lblTxnTitle.ForeColor = Color.DarkGray
         lblTxnTitle.Location = New Point(12, 12)
         lblTxnTitle.Name = "lblTxnTitle"
-        lblTxnTitle.Size = New Size(130, 15)
+        lblTxnTitle.Size = New Size(136, 15)
         lblTxnTitle.TabIndex = 0
         lblTxnTitle.Text = "TOTAL TRANSACTIONS"
         ' 
@@ -155,7 +155,7 @@ Partial Class FPsalesreport
         lblAvgTicket.ForeColor = Color.Cyan
         lblAvgTicket.Location = New Point(12, 32)
         lblAvgTicket.Name = "lblAvgTicket"
-        lblAvgTicket.Size = New Size(70, 25)
+        lblAvgTicket.Size = New Size(62, 25)
         lblAvgTicket.TabIndex = 1
         lblAvgTicket.Text = "₱0.00"
         ' 
@@ -166,7 +166,7 @@ Partial Class FPsalesreport
         lblAvgTitle.ForeColor = Color.DarkGray
         lblAvgTitle.Location = New Point(12, 12)
         lblAvgTitle.Name = "lblAvgTitle"
-        lblAvgTitle.Size = New Size(115, 15)
+        lblAvgTitle.Size = New Size(129, 15)
         lblAvgTitle.TabIndex = 0
         lblAvgTitle.Text = "AVERAGE ORDER SIZE"
         ' 
@@ -255,7 +255,7 @@ Partial Class FPsalesreport
         lblSearch.ForeColor = Color.DarkGray
         lblSearch.Location = New Point(600, 14)
         lblSearch.Name = "lblSearch"
-        lblSearch.Size = New Size(47, 15)
+        lblSearch.Size = New Size(48, 15)
         lblSearch.TabIndex = 1
         lblSearch.Text = "Search:"
         ' 
@@ -274,7 +274,7 @@ Partial Class FPsalesreport
         ' 
         AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = Color.FromArgb(CByte(25), CByte(25), CByte(25))
+        BackColor = Color.Silver
         ClientSize = New Size(940, 500)
         Controls.Add(pnlGridContainer)
         Controls.Add(pnlCard3)
