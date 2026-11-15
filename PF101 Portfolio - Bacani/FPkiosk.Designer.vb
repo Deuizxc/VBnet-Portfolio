@@ -18,120 +18,225 @@ Partial Class FPkiosk
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         lblTitle = New Label()
-        lstMenu = New ListBox()
-        lstCart = New ListBox()
-        lblMenu = New Label()
-        lblCart = New Label()
-        btnAddCart = New Button()
-        btnRemoveCart = New Button()
-        btnCheckout = New Button()
+        pnlCategories = New FlowLayoutPanel()
+        btnCatFavorites = New Button()
+        btnCatBurgers = New Button()
+        btnCatDrinks = New Button()
+        btnCatDesserts = New Button()
+        flpMenuGrid = New FlowLayoutPanel()
+        pnlCartContainer = New Panel()
+        lblCartHeader = New Label()
+        flpCartItems = New FlowLayoutPanel()
+        lblTaxLabel = New Label()
+        lblTaxValue = New Label()
+        lblTotalLabel = New Label()
+        lblTotalValue = New Label()
+        btnPay = New Button()
         btnBack = New Button()
-        lblTotal = New Label()
+        pnlCategories.SuspendLayout()
+        pnlCartContainer.SuspendLayout()
         SuspendLayout()
         ' 
         ' lblTitle
         ' 
         lblTitle.AutoSize = True
-        lblTitle.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold)
+        lblTitle.Font = New Font("Segoe UI", 16.25F, FontStyle.Bold)
         lblTitle.ForeColor = Color.White
-        lblTitle.Location = New Point(300, 20)
+        lblTitle.Location = New Point(30, 15)
         lblTitle.Name = "lblTitle"
-        lblTitle.Size = New Size(198, 25)
+        lblTitle.Size = New Size(244, 30)
         lblTitle.TabIndex = 0
-        lblTitle.Text = "SELF-ORDER KIOSK"
+        lblTitle.Text = "SELF-ORDER KIOSK POS"
         ' 
-        ' lstMenu
+        ' pnlCategories
         ' 
-        lstMenu.BackColor = Color.FromArgb(CByte(40), CByte(40), CByte(40))
-        lstMenu.ForeColor = Color.White
-        lstMenu.FormattingEnabled = True
-        lstMenu.ItemHeight = 15
-        lstMenu.Location = New Point(30, 80)
-        lstMenu.Name = "lstMenu"
-        lstMenu.Size = New Size(320, 229)
-        lstMenu.TabIndex = 1
+        pnlCategories.BackColor = Color.FromArgb(CByte(35), CByte(35), CByte(35))
+        pnlCategories.Controls.Add(btnCatFavorites)
+        pnlCategories.Controls.Add(btnCatBurgers)
+        pnlCategories.Controls.Add(btnCatDrinks)
+        pnlCategories.Controls.Add(btnCatDesserts)
+        pnlCategories.Location = New Point(30, 60)
+        pnlCategories.Name = "pnlCategories"
+        pnlCategories.Size = New Size(540, 50)
+        pnlCategories.TabIndex = 1
         ' 
-        ' lstCart
+        ' btnCatFavorites
         ' 
-        lstCart.BackColor = Color.FromArgb(CByte(40), CByte(40), CByte(40))
-        lstCart.ForeColor = Color.White
-        lstCart.FormattingEnabled = True
-        lstCart.ItemHeight = 15
-        lstCart.Location = New Point(440, 80)
-        lstCart.Name = "lstCart"
-        lstCart.Size = New Size(320, 229)
-        lstCart.TabIndex = 2
+        btnCatFavorites.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnCatFavorites.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnCatFavorites.FlatAppearance.BorderSize = 2
+        btnCatFavorites.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnCatFavorites.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnCatFavorites.FlatStyle = FlatStyle.Flat
+        btnCatFavorites.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+        btnCatFavorites.ForeColor = Color.White
+        btnCatFavorites.Location = New Point(8, 8)
+        btnCatFavorites.Margin = New Padding(8)
+        btnCatFavorites.Name = "btnCatFavorites"
+        btnCatFavorites.Size = New Size(115, 35)
+        btnCatFavorites.TabIndex = 0
+        btnCatFavorites.Text = "★ Favorites"
+        btnCatFavorites.UseVisualStyleBackColor = False
         ' 
-        ' lblMenu
+        ' btnCatBurgers
         ' 
-        lblMenu.AutoSize = True
-        lblMenu.ForeColor = Color.White
-        lblMenu.Location = New Point(30, 60)
-        lblMenu.Name = "lblMenu"
-        lblMenu.Size = New Size(81, 15)
-        lblMenu.TabIndex = 3
-        lblMenu.Text = "Available Menu"
+        btnCatBurgers.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnCatBurgers.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnCatBurgers.FlatAppearance.BorderSize = 2
+        btnCatBurgers.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnCatBurgers.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnCatBurgers.FlatStyle = FlatStyle.Flat
+        btnCatBurgers.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+        btnCatBurgers.ForeColor = Color.White
+        btnCatBurgers.Location = New Point(139, 8)
+        btnCatBurgers.Margin = New Padding(8)
+        btnCatBurgers.Name = "btnCatBurgers"
+        btnCatBurgers.Size = New Size(115, 35)
+        btnCatBurgers.TabIndex = 1
+        btnCatBurgers.Text = "🍔 Meals"
+        btnCatBurgers.UseVisualStyleBackColor = False
         ' 
-        ' lblCart
+        ' btnCatDrinks
         ' 
-        lblCart.AutoSize = True
-        lblCart.ForeColor = Color.White
-        lblCart.Location = New Point(440, 60)
-        lblCart.Name = "lblCart"
-        lblCart.Size = New Size(62, 15)
-        lblCart.TabIndex = 4
-        lblCart.Text = "Current Cart"
+        btnCatDrinks.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnCatDrinks.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnCatDrinks.FlatAppearance.BorderSize = 2
+        btnCatDrinks.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnCatDrinks.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnCatDrinks.FlatStyle = FlatStyle.Flat
+        btnCatDrinks.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+        btnCatDrinks.ForeColor = Color.White
+        btnCatDrinks.Location = New Point(270, 8)
+        btnCatDrinks.Margin = New Padding(8)
+        btnCatDrinks.Name = "btnCatDrinks"
+        btnCatDrinks.Size = New Size(115, 35)
+        btnCatDrinks.TabIndex = 2
+        btnCatDrinks.Text = "🥤 Drinks"
+        btnCatDrinks.UseVisualStyleBackColor = False
         ' 
-        ' btnAddCart
+        ' btnCatDesserts
         ' 
-        btnAddCart.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
-        btnAddCart.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
-        btnAddCart.FlatAppearance.BorderSize = 2
-        btnAddCart.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
-        btnAddCart.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
-        btnAddCart.FlatStyle = FlatStyle.Flat
-        btnAddCart.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
-        btnAddCart.ForeColor = Color.White
-        btnAddCart.Location = New Point(30, 325)
-        btnAddCart.Name = "btnAddCart"
-        btnAddCart.Size = New Size(150, 30)
-        btnAddCart.TabIndex = 5
-        btnAddCart.Text = "ADD TO CART"
-        btnAddCart.UseVisualStyleBackColor = False
+        btnCatDesserts.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnCatDesserts.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnCatDesserts.FlatAppearance.BorderSize = 2
+        btnCatDesserts.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnCatDesserts.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnCatDesserts.FlatStyle = FlatStyle.Flat
+        btnCatDesserts.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+        btnCatDesserts.ForeColor = Color.White
+        btnCatDesserts.Location = New Point(401, 8)
+        btnCatDesserts.Margin = New Padding(8)
+        btnCatDesserts.Name = "btnCatDesserts"
+        btnCatDesserts.Size = New Size(115, 35)
+        btnCatDesserts.TabIndex = 3
+        btnCatDesserts.Text = "🍦 Desserts"
+        btnCatDesserts.UseVisualStyleBackColor = False
         ' 
-        ' btnRemoveCart
+        ' flpMenuGrid
         ' 
-        btnRemoveCart.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
-        btnRemoveCart.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
-        btnRemoveCart.FlatAppearance.BorderSize = 2
-        btnRemoveCart.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
-        btnRemoveCart.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
-        btnRemoveCart.FlatStyle = FlatStyle.Flat
-        btnRemoveCart.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
-        btnRemoveCart.ForeColor = Color.White
-        btnRemoveCart.Location = New Point(200, 325)
-        btnRemoveCart.Name = "btnRemoveCart"
-        btnRemoveCart.Size = New Size(150, 30)
-        btnRemoveCart.TabIndex = 6
-        btnRemoveCart.Text = "REMOVE ITEM"
-        btnRemoveCart.UseVisualStyleBackColor = False
+        flpMenuGrid.AutoScroll = True
+        flpMenuGrid.BackColor = Color.FromArgb(CByte(35), CByte(35), CByte(35))
+        flpMenuGrid.BorderStyle = BorderStyle.FixedSingle
+        flpMenuGrid.Location = New Point(30, 120)
+        flpMenuGrid.Name = "flpMenuGrid"
+        flpMenuGrid.Size = New Size(540, 305)
+        flpMenuGrid.TabIndex = 2
         ' 
-        ' btnCheckout
+        ' pnlCartContainer
         ' 
-        btnCheckout.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
-        btnCheckout.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
-        btnCheckout.FlatAppearance.BorderSize = 2
-        btnCheckout.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
-        btnCheckout.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
-        btnCheckout.FlatStyle = FlatStyle.Flat
-        btnCheckout.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
-        btnCheckout.ForeColor = Color.White
-        btnCheckout.Location = New Point(440, 325)
-        btnCheckout.Name = "btnCheckout"
-        btnCheckout.Size = New Size(150, 30)
-        btnCheckout.TabIndex = 7
-        btnCheckout.Text = "CHECKOUT"
-        btnCheckout.UseVisualStyleBackColor = False
+        pnlCartContainer.BackColor = Color.FromArgb(CByte(35), CByte(35), CByte(35))
+        pnlCartContainer.BorderStyle = BorderStyle.FixedSingle
+        pnlCartContainer.Controls.Add(lblCartHeader)
+        pnlCartContainer.Controls.Add(flpCartItems)
+        pnlCartContainer.Controls.Add(lblTaxLabel)
+        pnlCartContainer.Controls.Add(lblTaxValue)
+        pnlCartContainer.Controls.Add(lblTotalLabel)
+        pnlCartContainer.Controls.Add(lblTotalValue)
+        pnlCartContainer.Controls.Add(btnPay)
+        pnlCartContainer.Controls.Add(btnBack)
+        pnlCartContainer.Location = New Point(585, 15)
+        pnlCartContainer.Name = "pnlCartContainer"
+        pnlCartContainer.Size = New Size(340, 410)
+        pnlCartContainer.TabIndex = 3
+        ' 
+        ' lblCartHeader
+        ' 
+        lblCartHeader.AutoSize = True
+        lblCartHeader.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold)
+        lblCartHeader.ForeColor = Color.White
+        lblCartHeader.Location = New Point(15, 12)
+        lblCartHeader.Name = "lblCartHeader"
+        lblCartHeader.Size = New Size(103, 20)
+        lblCartHeader.TabIndex = 0
+        lblCartHeader.Text = "Current Order"
+        ' 
+        ' flpCartItems
+        ' 
+        flpCartItems.AutoScroll = True
+        flpCartItems.BackColor = Color.FromArgb(CByte(28), CByte(28), CByte(28))
+        flpCartItems.Location = New Point(15, 45)
+        flpCartItems.Name = "flpCartItems"
+        flpCartItems.Size = New Size(308, 200)
+        flpCartItems.TabIndex = 1
+        ' 
+        ' lblTaxLabel
+        ' 
+        lblTaxLabel.AutoSize = True
+        lblTaxLabel.ForeColor = Color.DarkGray
+        lblTaxLabel.Location = New Point(15, 258)
+        lblTaxLabel.Name = "lblTaxLabel"
+        lblTaxLabel.Size = New Size(58, 15)
+        lblTaxLabel.TabIndex = 2
+        lblTaxLabel.Text = "Tax (12%)"
+        ' 
+        ' lblTaxValue
+        ' 
+        lblTaxValue.AutoSize = True
+        lblTaxValue.ForeColor = Color.White
+        lblTaxValue.Location = New Point(255, 258)
+        lblTaxValue.Name = "lblTaxValue"
+        lblTaxValue.Size = New Size(42, 15)
+        lblTaxValue.TabIndex = 3
+        lblTaxValue.Text = "₱0.00"
+        ' 
+        ' lblTotalLabel
+        ' 
+        lblTotalLabel.AutoSize = True
+        lblTotalLabel.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold)
+        lblTotalLabel.ForeColor = Color.White
+        lblTotalLabel.Location = New Point(15, 285)
+        lblTotalLabel.Name = "lblTotalLabel"
+        lblTotalLabel.Size = New Size(44, 20)
+        lblTotalLabel.TabIndex = 4
+        lblTotalLabel.Text = "Total"
+        ' 
+        ' lblTotalValue
+        ' 
+        lblTotalValue.AutoSize = True
+        lblTotalValue.Font = New Font("Segoe UI", 12.25F, FontStyle.Bold)
+        lblTotalValue.ForeColor = Color.LimeGreen
+        lblTotalValue.Location = New Point(220, 283)
+        lblTotalValue.Name = "lblTotalValue"
+        lblTotalValue.Size = New Size(76, 23)
+        lblTotalValue.TabIndex = 5
+        lblTotalValue.Text = "₱0.00"
+        ' 
+        ' btnPay
+        ' 
+        btnPay.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnPay.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnPay.FlatAppearance.BorderSize = 2
+        btnPay.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnPay.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnPay.FlatStyle = FlatStyle.Flat
+        btnPay.Font = New Font("Segoe UI", 10.0F, FontStyle.Bold)
+        btnPay.ForeColor = Color.White
+        btnPay.Location = New Point(15, 320)
+        btnPay.Name = "btnPay"
+        btnPay.Size = New Size(145, 38)
+        btnPay.TabIndex = 6
+        btnPay.Text = "CHECKOUT / PAY"
+        btnPay.UseVisualStyleBackColor = False
         ' 
         ' btnBack
         ' 
@@ -141,58 +246,50 @@ Partial Class FPkiosk
         btnBack.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnBack.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         btnBack.FlatStyle = FlatStyle.Flat
-        btnBack.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+        btnBack.Font = New Font("Segoe UI", 10.0F, FontStyle.Bold)
         btnBack.ForeColor = Color.White
-        btnBack.Location = New Point(610, 325)
+        btnBack.Location = New Point(175, 320)
         btnBack.Name = "btnBack"
-        btnBack.Size = New Size(150, 30)
-        btnBack.TabIndex = 8
+        btnBack.Size = New Size(145, 38)
+        btnBack.TabIndex = 7
         btnBack.Text = "BACK"
         btnBack.UseVisualStyleBackColor = False
-        ' 
-        ' lblTotal
-        ' 
-        lblTotal.AutoSize = True
-        lblTotal.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold)
-        lblTotal.ForeColor = Color.LimeGreen
-        lblTotal.Location = New Point(440, 375)
-        lblTotal.Name = "lblTotal"
-        lblTotal.Size = New Size(117, 21)
-        lblTotal.TabIndex = 9
-        lblTotal.Text = "Total: ₱0.00"
         ' 
         ' FPkiosk
         ' 
         AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = Color.FromArgb(CByte(30), CByte(30), CByte(30))
-        ClientSize = New Size(800, 450)
-        Controls.Add(lblTotal)
-        Controls.Add(btnBack)
-        Controls.Add(btnCheckout)
-        Controls.Add(btnRemoveCart)
-        Controls.Add(btnAddCart)
-        Controls.Add(lblCart)
-        Controls.Add(lblMenu)
-        Controls.Add(lstCart)
-        Controls.Add(lstMenu)
+        BackColor = Color.FromArgb(CByte(25), CByte(25), CByte(25))
+        ClientSize = New Size(940, 440)
+        Controls.Add(pnlCartContainer)
+        Controls.Add(flpMenuGrid)
+        Controls.Add(pnlCategories)
         Controls.Add(lblTitle)
         FormBorderStyle = FormBorderStyle.None
         Name = "FPkiosk"
         StartPosition = FormStartPosition.CenterScreen
         Text = "FPkiosk"
+        pnlCategories.ResumeLayout(False)
+        pnlCartContainer.ResumeLayout(False)
+        pnlCartContainer.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
     Friend WithEvents lblTitle As Label
-    Friend WithEvents lstMenu As ListBox
-    Friend WithEvents lstCart As ListBox
-    Friend WithEvents lblMenu As Label
-    Friend WithEvents lblCart As Label
-    Friend WithEvents btnAddCart As Button
-    Friend WithEvents btnRemoveCart As Button
-    Friend WithEvents btnCheckout As Button
+    Friend WithEvents pnlCategories As FlowLayoutPanel
+    Friend WithEvents btnCatFavorites As Button
+    Friend WithEvents btnCatBurgers As Button
+    Friend WithEvents btnCatDrinks As Button
+    Friend WithEvents btnCatDesserts As Button
+    Friend WithEvents flpMenuGrid As FlowLayoutPanel
+    Friend WithEvents pnlCartContainer As Panel
+    Friend WithEvents lblCartHeader As Label
+    Friend WithEvents flpCartItems As FlowLayoutPanel
+    Friend WithEvents lblTaxLabel As Label
+    Friend WithEvents lblTaxValue As Label
+    Friend WithEvents lblTotalLabel As Label
+    Friend WithEvents lblTotalValue As Label
+    Friend WithEvents btnPay As Button
     Friend WithEvents btnBack As Button
-    Friend WithEvents lblTotal As Label
 End Class
