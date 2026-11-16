@@ -5,9 +5,8 @@ Imports System.IO
 Imports Microsoft.Data.Sqlite
 
 Friend Module KioskDatabase
-    Private ReadOnly DbPath As String = Path.Combine(
-        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-        "PhantomKiosk", "phantom-kiosk.db")
+    Private ReadOnly DbPath As String =
+    Path.Combine(AppContext.BaseDirectory, "phantom-kiosk.db")
     Private ReadOnly SetupLock As New Object()
     Private Initialized As Boolean
 
