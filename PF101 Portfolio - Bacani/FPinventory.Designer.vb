@@ -38,6 +38,8 @@ Partial Class FPinventory
         lblEditorHeader = New Label()
         pnlGridContainer = New Panel()
         dgvInventory = New DataGridView()
+        chkLowStockOnly = New CheckBox()
+        lblStockAlert = New Label()
         txtSearch = New TextBox()
         lblSearch = New Label()
         lblGridHeader = New Label()
@@ -286,6 +288,8 @@ Partial Class FPinventory
         pnlGridContainer.BackColor = Color.FromArgb(CByte(35), CByte(35), CByte(35))
         pnlGridContainer.BorderStyle = BorderStyle.FixedSingle
         pnlGridContainer.Controls.Add(dgvInventory)
+        pnlGridContainer.Controls.Add(chkLowStockOnly)
+        pnlGridContainer.Controls.Add(lblStockAlert)
         pnlGridContainer.Controls.Add(txtSearch)
         pnlGridContainer.Controls.Add(lblSearch)
         pnlGridContainer.Controls.Add(lblGridHeader)
@@ -294,8 +298,28 @@ Partial Class FPinventory
         pnlGridContainer.Size = New Size(545, 420)
         pnlGridContainer.TabIndex = 3
         ' 
+        ' chkLowStockOnly
+        '
+        chkLowStockOnly.AutoSize = True
+        chkLowStockOnly.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+        chkLowStockOnly.ForeColor = Color.White
+        chkLowStockOnly.Location = New Point(15, 43)
+        chkLowStockOnly.Name = "chkLowStockOnly"
+        chkLowStockOnly.TabIndex = 3
+        chkLowStockOnly.Text = "Low Stock Only"
+        chkLowStockOnly.UseVisualStyleBackColor = True
+        '
+        ' lblStockAlert
+        '
+        lblStockAlert.Font = New Font("Segoe UI", 9.0F)
+        lblStockAlert.ForeColor = Color.Gainsboro
+        lblStockAlert.Location = New Point(245, 41)
+        lblStockAlert.Name = "lblStockAlert"
+        lblStockAlert.Size = New Size(283, 22)
+        lblStockAlert.TextAlign = ContentAlignment.MiddleRight
+        '
         ' dgvInventory
-        ' 
+        '
         dgvInventory.AllowUserToAddRows = False
         dgvInventory.AllowUserToDeleteRows = False
         dgvInventory.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
@@ -320,15 +344,15 @@ Partial Class FPinventory
         dgvInventory.DefaultCellStyle = DataGridViewCellStyle2
         dgvInventory.EnableHeadersVisualStyles = False
         dgvInventory.GridColor = Color.FromArgb(CByte(50), CByte(50), CByte(50))
-        dgvInventory.Location = New Point(15, 45)
+        dgvInventory.Location = New Point(15, 73)
         dgvInventory.MultiSelect = False
         dgvInventory.Name = "dgvInventory"
         dgvInventory.ReadOnly = True
         dgvInventory.RowHeadersVisible = False
         dgvInventory.RowTemplate.Height = 48
         dgvInventory.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgvInventory.Size = New Size(513, 360)
-        dgvInventory.TabIndex = 3
+        dgvInventory.Size = New Size(513, 332)
+        dgvInventory.TabIndex = 4
         ' 
         ' txtSearch
         ' 
@@ -427,4 +451,6 @@ Partial Class FPinventory
     Friend WithEvents lblSearch As Label
     Friend WithEvents txtSearch As TextBox
     Friend WithEvents dgvInventory As DataGridView
+    Friend WithEvents chkLowStockOnly As CheckBox
+    Friend WithEvents lblStockAlert As Label
 End Class

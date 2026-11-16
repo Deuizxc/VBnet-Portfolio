@@ -3,6 +3,7 @@ Imports System.Data
 Imports System.IO
 
 Public Class FPinventory
+    Private Const LowStockThreshold As Integer = 5
     Private dtInventory As New DataTable()
     Private currentPhoto As Byte()
     Private selectedProductId As Long
@@ -54,6 +55,10 @@ Public Class FPinventory
                 dtInventory.Rows.Add(picture, product.Name, product.Category, product.Price,
                                      product.Stock, product.Id, If(CType(product.Photo, Object), DBNull.Value))
             Next
+            Dim lowStockCount As Integer = dtInventory.Select($"Stock <= {LowStockThreshold}").Length
+            Dim productLabel As String = If(lowStockCount = 1, "product", "products")
+            lblStockAlert.Text = $"{lowStockCount} {productLabel} at {LowStockThreshold} units or fewer"
+            lblStockAlert.ForeColor = If(lowStockCount > 0, Color.Khaki, Color.Gainsboro)
             dgvInventory.ClearSelection()
         Catch ex As Exception
             KioskDatabase.ShowDatabaseError(Me, "The product catalog could not be loaded.", ex)
@@ -174,13 +179,44 @@ Public Class FPinventory
         SetPreview(New Bitmap(DirectCast(row("Photo"), Image)))
     End Sub
 
-    Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
+    Private Sub InventoryFilterChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged, chkLowStockOnly.CheckedChanged
+        If Not dtInventory.Columns.Contains("Stock") Then Return
+
         Dim keyword As String = System.Text.RegularExpressions.Regex.Replace(txtSearch.Text.Trim(), "[\[\]\*%]", "[$0]").Replace("'", "''")
-        If String.IsNullOrEmpty(keyword) Then
-            dtInventory.DefaultView.RowFilter = String.Empty
-        Else
-            dtInventory.DefaultView.RowFilter = $"ItemName LIKE '%{keyword}%' OR Category LIKE '%{keyword}%'"
+        Dim searchFilter As String = ""
+        If keyword.Length > 0 Then
+            searchFilter = $"(ItemName LIKE '%{keyword}%' OR Category LIKE '%{keyword}%')"
         End If
+
+        If chkLowStockOnly.Checked Then
+            Dim lowStockFilter As String = $"Stock <= {LowStockThreshold}"
+            searchFilter = If(searchFilter.Length = 0, lowStockFilter, $"{searchFilter} AND {lowStockFilter}")
+        End If
+
+        dtInventory.DefaultView.RowFilter = searchFilter
+        If selectedProductId = 0 Then Return
+
+        For Each product As DataRowView In dtInventory.DefaultView
+            If CLng(product("ProductId")) = selectedProductId Then Return
+        Next
+
+        dgvInventory.ClearSelection()
+        ClearEditorFields()
+    End Sub
+
+    Private Sub dgvInventory_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles dgvInventory.CellFormatting
+        If e.ColumnIndex < 0 OrElse dgvInventory.Columns(e.ColumnIndex).Name <> "Stock" OrElse
+            Not TypeOf e.Value Is Integer Then Return
+
+        Dim stock As Integer = CInt(e.Value)
+        If stock > LowStockThreshold Then Return
+
+        e.Value = If(stock = 0, "0 · Out of stock", $"{stock} · Low")
+        e.FormattingApplied = True
+        e.CellStyle.BackColor = Color.FromArgb(68, 47, 22)
+        e.CellStyle.ForeColor = Color.Khaki
+        e.CellStyle.SelectionBackColor = Color.FromArgb(102, 68, 24)
+        e.CellStyle.SelectionForeColor = Color.LemonChiffon
     End Sub
 
     Private Sub ClearEditorFields()
