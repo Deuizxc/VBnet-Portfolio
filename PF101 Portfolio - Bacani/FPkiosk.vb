@@ -116,6 +116,17 @@ Public Class FPkiosk
 
             flpMenuGrid.Controls.Add(card)
         Next
+
+
+        Dim gridWidth As Integer = 3 * (160 + 6)
+        Dim availableWidth As Integer = flpMenuGrid.Width
+
+        If items.Count > 3 Then
+            availableWidth -= SystemInformation.VerticalScrollBarWidth
+        End If
+
+        Dim leftPadding As Integer = Math.Max(0, (availableWidth - gridWidth) \ 2)
+        flpMenuGrid.Padding = New Padding(leftPadding, 0, 0, 0)
     End Sub
 
     Private Function LoadMenuPhoto(data As Byte()) As Image
