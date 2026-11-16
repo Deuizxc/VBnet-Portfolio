@@ -1,11 +1,17 @@
-﻿Public Class FPkiosk
+﻿Imports System.Collections.Generic
+Imports System.Linq
+
+Public Class FPkiosk
 
     Private Class CartItem
+        Public Property ProductId As Long
+        Public Property Stock As Integer
         Public Property Name As String
         Public Property Price As Decimal
         Public Property Quantity As Integer
     End Class
 
+    Private currentCategory As String = "Favorites"
     Private cartList As New List(Of CartItem)()
 
     Private Sub FPkiosk_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -14,26 +20,23 @@
     End Sub
 
     Private Sub LoadMenu(category As String)
-        flpMenuGrid.Controls.Clear()
+        currentCategory = category
+        Do While flpMenuGrid.Controls.Count > 0
+            flpMenuGrid.Controls(0).Dispose()
+        Loop
 
-        Dim items As New List(Of Tuple(Of String, Decimal, String))()
+        Dim items As List(Of KioskDatabase.ProductRecord)
+        Try
+            items = KioskDatabase.GetProducts(category)
+        Catch ex As Exception
+            KioskDatabase.ShowDatabaseError(Me, "The menu could not be loaded.", ex)
+            Return
+        End Try
 
-        If category = "Favorites" Then
-            items.Add(New Tuple(Of String, Decimal, String)("🍔 Big Mac Meal", 199D, "Popular Combo"))
-            items.Add(New Tuple(Of String, Decimal, String)("🍗 2-pc Chicken Joy", 149D, "Crispy & Juicy"))
-            items.Add(New Tuple(Of String, Decimal, String)("🍟 Large Fries", 75D, "Golden & Salted Float"))
-            items.Add(New Tuple(Of String, Decimal, String)("🥤 Coca-Cola Float", 55D, "Icy Refreshment"))
-        ElseIf category = "Burgers" Then
-            items.Add(New Tuple(Of String, Decimal, String)("🍔 Big Mac Meal", 199D, "Signature Burger"))
-            items.Add(New Tuple(Of String, Decimal, String)("🧀 Cheeseburger", 89D, "Classic Cheese"))
-            items.Add(New Tuple(Of String, Decimal, String)("🥓 Bacon Burger", 139D, "Smoky Bacon"))
-        ElseIf category = "Drinks" Then
-            items.Add(New Tuple(Of String, Decimal, String)("🥤 Coca-Cola Float", 55D, "Large Cup"))
-            items.Add(New Tuple(Of String, Decimal, String)("🍵 Lemon Iced Tea", 69D, "Fresh Brew"))
-            items.Add(New Tuple(Of String, Decimal, String)("🥭 Mango Shake", 89D, "Real Fruit"))
-        ElseIf category = "Desserts" Then
-            items.Add(New Tuple(Of String, Decimal, String)("🍦 Sundae Cone", 35D, "Vanilla Soft Serve"))
-            items.Add(New Tuple(Of String, Decimal, String)("🥧 Apple Pie", 50D, "Crisp & Warm"))
+        If items.Count = 0 Then
+            flpMenuGrid.Controls.Add(New Label With {
+                .Text = "No products in this category.", .AutoSize = True, .ForeColor = Color.White
+            })
         End If
 
         For Each item In items
@@ -44,7 +47,7 @@
             card.Cursor = Cursors.Hand
 
             Dim lblName As New Label()
-            lblName.Text = item.Item1
+            lblName.Text = item.Name
             lblName.Font = New Font("Segoe UI", 9.5F, FontStyle.Bold)
             lblName.ForeColor = Color.White
             lblName.AutoSize = False
@@ -53,7 +56,7 @@
             lblName.Location = New Point(8, 10)
 
             Dim lblSub As New Label()
-            lblSub.Text = item.Item3
+            lblSub.Text = If(item.Stock > 0, item.Description, "Sold out")
             lblSub.Font = New Font("Segoe UI", 8.0F, FontStyle.Regular)
             lblSub.ForeColor = Color.DarkGray
             lblSub.AutoSize = False
@@ -62,7 +65,7 @@
             lblSub.Location = New Point(8, 48)
 
             Dim lblPrice As New Label()
-            lblPrice.Text = $"₱{item.Item2:N2}"
+            lblPrice.Text = $"₱{item.Price:N2}"
             lblPrice.Font = New Font("Segoe UI", 10.0F, FontStyle.Bold)
             lblPrice.ForeColor = Color.LightGreen
             lblPrice.AutoSize = False
@@ -74,31 +77,41 @@
             card.Controls.Add(lblSub)
             card.Controls.Add(lblPrice)
 
-            ' Click handlers to add to cart
-            Dim productName = item.Item1
-            Dim productPrice = item.Item2
-
-            AddHandler card.Click, Sub(s, ev) AddToCart(productName, productPrice)
-            AddHandler lblName.Click, Sub(s, ev) AddToCart(productName, productPrice)
-            AddHandler lblSub.Click, Sub(s, ev) AddToCart(productName, productPrice)
-            AddHandler lblPrice.Click, Sub(s, ev) AddToCart(productName, productPrice)
+            If item.Stock > 0 Then
+                Dim product = item
+                AddHandler card.Click, Sub(sender, args) AddToCart(product)
+                AddHandler lblName.Click, Sub(sender, args) AddToCart(product)
+                AddHandler lblSub.Click, Sub(sender, args) AddToCart(product)
+                AddHandler lblPrice.Click, Sub(sender, args) AddToCart(product)
+            Else
+                card.Cursor = Cursors.Default
+                lblPrice.ForeColor = Color.DarkGray
+            End If
 
             flpMenuGrid.Controls.Add(card)
         Next
     End Sub
 
-    Private Sub AddToCart(name As String, price As Decimal)
-        Dim existing = cartList.FirstOrDefault(Function(x) x.Name = name)
-        If existing IsNot Nothing Then
+    Private Sub AddToCart(product As KioskDatabase.ProductRecord)
+        Dim existing = cartList.FirstOrDefault(Function(item) item.ProductId = product.Id)
+        If existing Is Nothing Then
+            cartList.Add(New CartItem With {
+                .ProductId = product.Id, .Name = product.Name, .Price = product.Price,
+                .Stock = product.Stock, .Quantity = 1
+            })
+        ElseIf existing.Quantity < product.Stock Then
+            existing.Stock = product.Stock
             existing.Quantity += 1
         Else
-            cartList.Add(New CartItem With {.Name = name, .Price = price, .Quantity = 1})
+            MessageBox.Show(Me, "There is no additional stock for this item.")
         End If
         RefreshCartDisplay()
     End Sub
 
     Private Sub RefreshCartDisplay()
-        flpCartItems.Controls.Clear()
+        Do While flpCartItems.Controls.Count > 0
+            flpCartItems.Controls(0).Dispose()
+        Loop
         Dim subtotal As Decimal = 0D
 
         For Each item In cartList
@@ -146,6 +159,7 @@
 
             Dim btnPlus As New Button()
             btnPlus.Text = "+"
+            btnPlus.Enabled = item.Quantity < item.Stock
             btnPlus.Width = 25
             btnPlus.Height = 25
             btnPlus.Location = New Point(226, 10)
@@ -179,7 +193,7 @@
             flpCartItems.Controls.Add(rowPanel)
         Next
 
-        Dim tax As Decimal = CalculateTax(subtotal)
+        Dim tax As Decimal = KioskDatabase.CalculateTax(subtotal)
         Dim grandTotal As Decimal = subtotal + tax
 
         lblTaxValue.Text = $"₱{tax:N2}"
@@ -191,7 +205,7 @@
     End Sub
 
     Private Sub btnCatBurgers_Click(sender As Object, e As EventArgs) Handles btnCatBurgers.Click
-        LoadMenu("Burgers")
+        LoadMenu("Meals")
     End Sub
 
     Private Sub btnCatDrinks_Click(sender As Object, e As EventArgs) Handles btnCatDrinks.Click
@@ -202,28 +216,35 @@
         LoadMenu("Desserts")
     End Sub
 
-    Private Function CalculateTax(subtotal As Decimal) As Decimal
-        Return Math.Round(subtotal * 0.12D, 2, MidpointRounding.AwayFromZero)
-    End Function
-
     Private Sub btnPay_Click(sender As Object, e As EventArgs) Handles btnPay.Click
         If cartList.Count = 0 Then
-            MessageBox.Show("Your cart is empty. Please select items first.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            MessageBox.Show(Me, "Your cart is empty. Please select items first.")
             Return
         End If
 
-        Dim orderItems As New List(Of FPorders.OrderItem)()
-        Dim subtotal As Decimal = 0D
-
+        Dim orderItems As New List(Of KioskDatabase.OrderLine)()
         For Each item In cartList
-            orderItems.Add(New FPorders.OrderItem(item.Name, item.Price, item.Quantity))
-            subtotal += item.Price * item.Quantity
+            orderItems.Add(New KioskDatabase.OrderLine With {
+                .ProductId = item.ProductId, .ProductName = item.Name,
+                .UnitPrice = item.Price, .Quantity = item.Quantity
+            })
         Next
 
-        Dim orderNumber As String = FPorders.PlaceOrder(orderItems, subtotal + CalculateTax(subtotal))
+        Dim orderNumber As String
+        Try
+            orderNumber = KioskDatabase.PlaceOrder(orderItems)
+        Catch ex As KioskDatabase.OrderUnavailableException
+            KioskDatabase.ShowDatabaseError(Me, "Review your cart and try again.", ex)
+            LoadMenu(currentCategory)
+            Return
+        Catch ex As Exception
+            KioskDatabase.ShowDatabaseError(Me, "The order could not be saved.", ex)
+            Return
+        End Try
+
         cartList.Clear()
         RefreshCartDisplay()
-
+        LoadMenu(currentCategory)
         MessageBox.Show(Me, $"Your order number is {orderNumber}." & vbCrLf &
                         "Please wait for your order number to be called.",
                         "Order Placed", MessageBoxButtons.OK, MessageBoxIcon.Information)

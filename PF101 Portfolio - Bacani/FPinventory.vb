@@ -1,28 +1,24 @@
 ﻿Imports System.Drawing
+Imports System.Data
 Imports System.IO
 
 Public Class FPinventory
     Private dtInventory As New DataTable()
-    Private currentImagePath As String = String.Empty
+    Private currentPhoto As Byte()
+    Private selectedProductId As Long
+    Private selectedStock As Integer
 
     Private Sub FPinventory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.DoubleBuffered = True
         cmbCategory.SelectedIndex = 0
 
-        ' Setup DataTable schema with Image and ImagePath columns
         dtInventory.Columns.Add("Photo", GetType(Image))
         dtInventory.Columns.Add("ItemName", GetType(String))
         dtInventory.Columns.Add("Category", GetType(String))
         dtInventory.Columns.Add("Price", GetType(Decimal))
         dtInventory.Columns.Add("Stock", GetType(Integer))
-        dtInventory.Columns.Add("ImagePath", GetType(String))
-
-        ' Sample placeholder items with generated badge thumbnails
-        AddSampleRow("Big Mac Meal", "Favorites", 199D, 50, "BM")
-        AddSampleRow("2-pc Chicken Joy", "Meals", 149D, 45, "CJ")
-        AddSampleRow("Large Fries", "Favorites", 75D, 120, "FR")
-        AddSampleRow("Coca-Cola Float", "Drinks", 55D, 60, "CF")
-        AddSampleRow("Sundae Cone", "Desserts", 35D, 90, "SC")
+        dtInventory.Columns.Add("ProductId", GetType(Long))
+        dtInventory.Columns.Add("PhotoBytes", GetType(Byte()))
 
         dgvInventory.DataSource = dtInventory
 
@@ -38,15 +34,43 @@ Public Class FPinventory
             dgvInventory.Columns("Price").DefaultCellStyle.Format = "₱#,##0.00"
         End If
 
-        If dgvInventory.Columns.Contains("ImagePath") Then
-            dgvInventory.Columns("ImagePath").Visible = False
-        End If
-
-        picPreview.Image = CreatePlaceholderBadge("NO IMG")
+        dgvInventory.Columns("ProductId").Visible = False
+        dgvInventory.Columns("PhotoBytes").Visible = False
+        ReloadInventory()
     End Sub
 
-    Private Sub AddSampleRow(itemName As String, category As String, price As Decimal, stock As Integer, code As String)
-        dtInventory.Rows.Add(CreatePlaceholderBadge(code), itemName, category, price, stock, String.Empty)
+    Private Sub ReloadInventory()
+        Try
+            Dim products = KioskDatabase.GetProducts()
+            ClearEditorFields()
+            For Each row As DataRow In dtInventory.Rows
+                DirectCast(row("Photo"), Image).Dispose()
+            Next
+            dtInventory.Clear()
+
+            For Each product In products
+                Dim initials = product.Name.Substring(0, Math.Min(2, product.Name.Length)).ToUpperInvariant()
+                Dim picture = If(product.Photo Is Nothing, CreatePlaceholderBadge(initials), LoadPhoto(product.Photo))
+                dtInventory.Rows.Add(picture, product.Name, product.Category, product.Price,
+                                     product.Stock, product.Id, If(CType(product.Photo, Object), DBNull.Value))
+            Next
+            dgvInventory.ClearSelection()
+        Catch ex As Exception
+            KioskDatabase.ShowDatabaseError(Me, "The product catalog could not be loaded.", ex)
+        End Try
+    End Sub
+
+    Private Function LoadPhoto(data As Byte()) As Image
+        Using stream As New MemoryStream(data),
+              original = Image.FromStream(stream)
+            Return New Bitmap(original)
+        End Using
+    End Function
+
+    Private Sub SetPreview(picture As Image)
+        Dim previous = picPreview.Image
+        picPreview.Image = picture
+        If previous IsNot Nothing Then previous.Dispose()
     End Sub
 
     Private Function CreatePlaceholderBadge(labelText As String) As Bitmap
@@ -68,114 +92,90 @@ Public Class FPinventory
     End Function
 
     Private Sub btnBrowseImage_Click(sender As Object, e As EventArgs) Handles btnBrowseImage.Click
-        Using ofd As New OpenFileDialog()
-            ofd.Title = "Select Product Photo"
-            ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.webp"
-            If ofd.ShowDialog() = DialogResult.OK Then
-                currentImagePath = ofd.FileName
-                Using fs As New FileStream(currentImagePath, FileMode.Open, FileAccess.Read)
-                    picPreview.Image = Image.FromStream(fs)
-                End Using
-            End If
+        Using dialog As New OpenFileDialog()
+            dialog.Title = "Select Product Photo"
+            dialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp"
+            If dialog.ShowDialog() <> DialogResult.OK Then Return
+            Try
+                Dim data = File.ReadAllBytes(dialog.FileName)
+                SetPreview(LoadPhoto(data))
+                currentPhoto = data
+            Catch ex As Exception
+                KioskDatabase.ShowDatabaseError(Me, "The photo could not be opened.", ex)
+            End Try
         End Using
     End Sub
 
     Private Sub btnClearImage_Click(sender As Object, e As EventArgs) Handles btnClearImage.Click
-        currentImagePath = String.Empty
-        picPreview.Image = CreatePlaceholderBadge("NO IMG")
+        currentPhoto = Nothing
+        SetPreview(CreatePlaceholderBadge("NO IMG"))
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        If String.IsNullOrWhiteSpace(txtItemName.Text) Then
-            MessageBox.Show("Please enter a product name.", "Missing Field", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Exit Sub
-        End If
-
-        Dim price As Decimal
-        Dim stock As Integer
-        If Not Decimal.TryParse(txtPrice.Text, price) OrElse Not Integer.TryParse(txtStock.Text, stock) Then
-            MessageBox.Show("Please enter valid numeric values for Price and Stock.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Exit Sub
-        End If
-
-        Dim thumb As Image
-        If Not String.IsNullOrEmpty(currentImagePath) AndAlso File.Exists(currentImagePath) Then
-            Using fs As New FileStream(currentImagePath, FileMode.Open, FileAccess.Read)
-                thumb = Image.FromStream(fs)
-            End Using
-        Else
-            Dim initials As String = txtItemName.Text.Trim().Substring(0, Math.Min(2, txtItemName.Text.Trim().Length)).ToUpper()
-            thumb = CreatePlaceholderBadge(initials)
-        End If
-
-        Dim categoryText As String = If(cmbCategory.SelectedItem IsNot Nothing, cmbCategory.SelectedItem.ToString(), "Favorites")
-        dtInventory.Rows.Add(thumb, txtItemName.Text.Trim(), categoryText, price, stock, currentImagePath)
-
-        ClearEditorFields()
+        SaveProduct(0)
     End Sub
 
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
-        If dgvInventory.SelectedRows.Count = 0 Then
-            MessageBox.Show("Select a product from the catalog first.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Exit Sub
+        If selectedProductId = 0 Then
+            MessageBox.Show(Me, "Select a product from the catalog first.")
+            Return
         End If
+        SaveProduct(selectedProductId)
+    End Sub
 
+    Private Sub SaveProduct(productId As Long)
         Dim price As Decimal
         Dim stock As Integer
-        If String.IsNullOrWhiteSpace(txtItemName.Text) OrElse Not Decimal.TryParse(txtPrice.Text, price) OrElse Not Integer.TryParse(txtStock.Text, stock) Then
-            MessageBox.Show("Please verify the product name, price, and stock values.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Exit Sub
+        If String.IsNullOrWhiteSpace(txtItemName.Text) OrElse cmbCategory.SelectedIndex < 0 OrElse
+            Not Decimal.TryParse(txtPrice.Text, price) OrElse price < 0D OrElse
+            price > Long.MaxValue / 100D OrElse Decimal.Round(price, 2) <> price OrElse
+            Not Integer.TryParse(txtStock.Text, stock) OrElse stock < 0 Then
+            MessageBox.Show(Me, "Enter a product name, category, nonnegative price with up to two decimals, and whole-number stock.")
+            Return
         End If
 
-        Dim selectedRowView = TryCast(dgvInventory.SelectedRows(0).DataBoundItem, DataRowView)
-        If selectedRowView IsNot Nothing Then
-            Dim row = selectedRowView.Row
-            row("ItemName") = txtItemName.Text.Trim()
-            row("Category") = If(cmbCategory.SelectedItem IsNot Nothing, cmbCategory.SelectedItem.ToString(), "Favorites")
-            row("Price") = price
-            row("Stock") = stock
-            row("ImagePath") = currentImagePath
-
-            If Not String.IsNullOrEmpty(currentImagePath) AndAlso File.Exists(currentImagePath) Then
-                Using fs As New FileStream(currentImagePath, FileMode.Open, FileAccess.Read)
-                    row("Photo") = Image.FromStream(fs)
-                End Using
-            End If
-        End If
+        Try
+            KioskDatabase.SaveProduct(New KioskDatabase.ProductRecord With {
+                .Id = productId, .Name = txtItemName.Text.Trim(),
+                .Category = cmbCategory.SelectedItem.ToString(), .Price = price,
+                .Stock = stock, .Photo = currentPhoto
+            }, selectedStock)
+            ReloadInventory()
+        Catch ex As Exception
+            KioskDatabase.ShowDatabaseError(Me, "The product could not be saved.", ex)
+        End Try
     End Sub
 
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
-        If dgvInventory.SelectedRows.Count = 0 Then Exit Sub
-
-        Dim selectedRowView = TryCast(dgvInventory.SelectedRows(0).DataBoundItem, DataRowView)
-        If selectedRowView IsNot Nothing Then
-            selectedRowView.Row.Delete()
-            ClearEditorFields()
-        End If
+        If selectedProductId = 0 Then Return
+        If MessageBox.Show(Me, "Remove this product from the menu?", "Remove Product",
+                           MessageBoxButtons.YesNo, MessageBoxIcon.Question) <> DialogResult.Yes Then Return
+        Try
+            KioskDatabase.RemoveProduct(selectedProductId)
+            ReloadInventory()
+        Catch ex As Exception
+            KioskDatabase.ShowDatabaseError(Me, "The product could not be removed.", ex)
+        End Try
     End Sub
 
     Private Sub dgvInventory_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvInventory.CellClick
-        If e.RowIndex < 0 Then Exit Sub
+        If e.RowIndex < 0 Then Return
+        Dim item = TryCast(dgvInventory.Rows(e.RowIndex).DataBoundItem, DataRowView)
+        If item Is Nothing Then Return
 
-        Dim selectedRowView = TryCast(dgvInventory.Rows(e.RowIndex).DataBoundItem, DataRowView)
-        If selectedRowView IsNot Nothing Then
-            Dim row = selectedRowView.Row
-            txtItemName.Text = row("ItemName").ToString()
-            cmbCategory.SelectedItem = row("Category").ToString()
-            txtPrice.Text = Convert.ToDecimal(row("Price")).ToString("0.00")
-            txtStock.Text = row("Stock").ToString()
-            currentImagePath = row("ImagePath").ToString()
-
-            If TypeOf row("Photo") Is Image Then
-                picPreview.Image = DirectCast(row("Photo"), Image)
-            Else
-                picPreview.Image = CreatePlaceholderBadge("NO IMG")
-            End If
-        End If
+        Dim row = item.Row
+        selectedProductId = CLng(row("ProductId"))
+        selectedStock = CInt(row("Stock"))
+        txtItemName.Text = CStr(row("ItemName"))
+        cmbCategory.SelectedItem = CStr(row("Category"))
+        txtPrice.Text = CDec(row("Price")).ToString("0.00")
+        txtStock.Text = selectedStock.ToString()
+        currentPhoto = If(row.IsNull("PhotoBytes"), Nothing, DirectCast(row("PhotoBytes"), Byte()))
+        SetPreview(New Bitmap(DirectCast(row("Photo"), Image)))
     End Sub
 
     Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
-        Dim keyword As String = txtSearch.Text.Trim().Replace("'", "''")
+        Dim keyword As String = System.Text.RegularExpressions.Regex.Replace(txtSearch.Text.Trim(), "[\[\]\*%]", "[$0]").Replace("'", "''")
         If String.IsNullOrEmpty(keyword) Then
             dtInventory.DefaultView.RowFilter = String.Empty
         Else
@@ -188,8 +188,10 @@ Public Class FPinventory
         txtPrice.Clear()
         txtStock.Clear()
         cmbCategory.SelectedIndex = 0
-        currentImagePath = String.Empty
-        picPreview.Image = CreatePlaceholderBadge("NO IMG")
+        selectedProductId = 0
+        selectedStock = 0
+        currentPhoto = Nothing
+        SetPreview(CreatePlaceholderBadge("NO IMG"))
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
