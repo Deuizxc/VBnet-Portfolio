@@ -65,17 +65,26 @@ Public Class FPkiosk
             lblName.ForeColor = Color.White
             lblName.AutoSize = False
             lblName.Width = 145
-            lblName.Height = 35
+            lblName.Height = 30
             lblName.Location = New Point(8, 119)
 
             Dim lblSub As New Label()
-            lblSub.Text = If(item.Stock > 0, item.Description, "Sold out")
+            lblSub.Text = item.Description
             lblSub.Font = New Font("Segoe UI", 8.0F, FontStyle.Regular)
             lblSub.ForeColor = Color.DarkGray
             lblSub.AutoSize = False
             lblSub.Width = 145
-            lblSub.Height = 20
-            lblSub.Location = New Point(8, 155)
+            lblSub.Height = 16
+            lblSub.Location = New Point(8, 151)
+
+            Dim lblStock As New Label With {
+                .Text = If(item.Stock > 0, $"Stock: {item.Stock}", "Stock: 0 (Sold out)"),
+                .Font = New Font("Segoe UI", 8.0F, FontStyle.Bold),
+                .ForeColor = If(item.Stock > 0, Color.Gainsboro, Color.LightSalmon),
+                .AutoSize = False,
+                .Location = New Point(8, 168),
+                .Size = New Size(145, 17)
+            }
 
             Dim lblPrice As New Label()
             lblPrice.Text = $"₱{item.Price:N2}"
@@ -83,12 +92,13 @@ Public Class FPkiosk
             lblPrice.ForeColor = Color.LightGreen
             lblPrice.AutoSize = False
             lblPrice.Width = 145
-            lblPrice.Height = 25
-            lblPrice.Location = New Point(8, 178)
+            lblPrice.Height = 21
+            lblPrice.Location = New Point(8, 185)
 
             card.Controls.Add(photo)
             card.Controls.Add(lblName)
             card.Controls.Add(lblSub)
+            card.Controls.Add(lblStock)
             card.Controls.Add(lblPrice)
 
             If item.Stock > 0 Then
@@ -97,6 +107,7 @@ Public Class FPkiosk
                 AddHandler photo.Click, Sub(sender, args) AddToCart(product)
                 AddHandler lblName.Click, Sub(sender, args) AddToCart(product)
                 AddHandler lblSub.Click, Sub(sender, args) AddToCart(product)
+                AddHandler lblStock.Click, Sub(sender, args) AddToCart(product)
                 AddHandler lblPrice.Click, Sub(sender, args) AddToCart(product)
             Else
                 card.Cursor = Cursors.Default

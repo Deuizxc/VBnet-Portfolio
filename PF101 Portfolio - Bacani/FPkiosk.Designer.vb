@@ -49,7 +49,7 @@ Partial Class FPkiosk
         ' 
         ' pnlCategories
         ' 
-        pnlCategories.BackColor = Color.FromArgb(CByte(35), CByte(35), CByte(35))
+        pnlCategories.BackColor = Color.FromArgb(35, 35, 35)
         pnlCategories.Controls.Add(btnCatBurgers)
         pnlCategories.Controls.Add(btnCatDrinks)
         pnlCategories.Controls.Add(btnCatDesserts)
@@ -60,13 +60,13 @@ Partial Class FPkiosk
         ' 
         ' btnCatBurgers
         ' 
-        btnCatBurgers.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
-        btnCatBurgers.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnCatBurgers.BackColor = Color.FromArgb(20, 20, 20)
+        btnCatBurgers.FlatAppearance.BorderColor = Color.FromArgb(190, 20, 20)
         btnCatBurgers.FlatAppearance.BorderSize = 2
-        btnCatBurgers.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
-        btnCatBurgers.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnCatBurgers.FlatAppearance.MouseDownBackColor = Color.FromArgb(20, 20, 20)
+        btnCatBurgers.FlatAppearance.MouseOverBackColor = Color.FromArgb(20, 20, 20)
         btnCatBurgers.FlatStyle = FlatStyle.Flat
-        btnCatBurgers.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+        btnCatBurgers.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         btnCatBurgers.ForeColor = Color.White
         btnCatBurgers.Location = New Point(8, 8)
         btnCatBurgers.Margin = New Padding(8)
@@ -78,31 +78,31 @@ Partial Class FPkiosk
         ' 
         ' btnCatDrinks
         ' 
-        btnCatDrinks.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
-        btnCatDrinks.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnCatDrinks.BackColor = Color.FromArgb(20, 20, 20)
+        btnCatDrinks.FlatAppearance.BorderColor = Color.FromArgb(190, 20, 20)
         btnCatDrinks.FlatAppearance.BorderSize = 2
-        btnCatDrinks.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
-        btnCatDrinks.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnCatDrinks.FlatAppearance.MouseDownBackColor = Color.FromArgb(20, 20, 20)
+        btnCatDrinks.FlatAppearance.MouseOverBackColor = Color.FromArgb(20, 20, 20)
         btnCatDrinks.FlatStyle = FlatStyle.Flat
-        btnCatDrinks.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+        btnCatDrinks.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         btnCatDrinks.ForeColor = Color.White
         btnCatDrinks.Location = New Point(188, 8)
         btnCatDrinks.Margin = New Padding(8)
         btnCatDrinks.Name = "btnCatDrinks"
         btnCatDrinks.Size = New Size(164, 35)
         btnCatDrinks.TabIndex = 1
-        btnCatDrinks.Text = ChrW(55358) & ChrW(56676) & " Drinks"
+        btnCatDrinks.Text = ChrW(55358) + ChrW(56676) + " Drinks"
         btnCatDrinks.UseVisualStyleBackColor = False
         ' 
         ' btnCatDesserts
         ' 
-        btnCatDesserts.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
-        btnCatDesserts.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnCatDesserts.BackColor = Color.FromArgb(20, 20, 20)
+        btnCatDesserts.FlatAppearance.BorderColor = Color.FromArgb(190, 20, 20)
         btnCatDesserts.FlatAppearance.BorderSize = 2
-        btnCatDesserts.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
-        btnCatDesserts.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnCatDesserts.FlatAppearance.MouseDownBackColor = Color.FromArgb(20, 20, 20)
+        btnCatDesserts.FlatAppearance.MouseOverBackColor = Color.FromArgb(20, 20, 20)
         btnCatDesserts.FlatStyle = FlatStyle.Flat
-        btnCatDesserts.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+        btnCatDesserts.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         btnCatDesserts.ForeColor = Color.White
         btnCatDesserts.Location = New Point(368, 8)
         btnCatDesserts.Margin = New Padding(8)
@@ -115,7 +115,7 @@ Partial Class FPkiosk
         ' flpMenuGrid
         ' 
         flpMenuGrid.AutoScroll = True
-        flpMenuGrid.BackColor = Color.FromArgb(CByte(35), CByte(35), CByte(35))
+        flpMenuGrid.BackColor = Color.FromArgb(35, 35, 35)
         flpMenuGrid.BorderStyle = BorderStyle.FixedSingle
         flpMenuGrid.Location = New Point(30, 120)
         flpMenuGrid.Name = "flpMenuGrid"
@@ -124,7 +124,7 @@ Partial Class FPkiosk
         ' 
         ' pnlCartContainer
         ' 
-        pnlCartContainer.BackColor = Color.FromArgb(CByte(35), CByte(35), CByte(35))
+        pnlCartContainer.BackColor = Color.FromArgb(35, 35, 35)
         pnlCartContainer.BorderStyle = BorderStyle.FixedSingle
         pnlCartContainer.Controls.Add(lblCartHeader)
         pnlCartContainer.Controls.Add(flpCartItems)
@@ -153,7 +153,7 @@ Partial Class FPkiosk
         ' flpCartItems
         ' 
         flpCartItems.AutoScroll = True
-        flpCartItems.BackColor = Color.FromArgb(CByte(28), CByte(28), CByte(28))
+        flpCartItems.BackColor = Color.FromArgb(28, 28, 28)
         flpCartItems.Location = New Point(15, 45)
         flpCartItems.Name = "flpCartItems"
         flpCartItems.Size = New Size(308, 200)
@@ -203,13 +203,13 @@ Partial Class FPkiosk
         ' 
         ' btnPay
         ' 
-        btnPay.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
-        btnPay.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnPay.BackColor = Color.FromArgb(20, 20, 20)
+        btnPay.FlatAppearance.BorderColor = Color.FromArgb(190, 20, 20)
         btnPay.FlatAppearance.BorderSize = 2
-        btnPay.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
-        btnPay.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnPay.FlatAppearance.MouseDownBackColor = Color.FromArgb(20, 20, 20)
+        btnPay.FlatAppearance.MouseOverBackColor = Color.FromArgb(20, 20, 20)
         btnPay.FlatStyle = FlatStyle.Flat
-        btnPay.Font = New Font("Segoe UI", 10.0F, FontStyle.Bold)
+        btnPay.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
         btnPay.ForeColor = Color.White
         btnPay.Location = New Point(15, 320)
         btnPay.Name = "btnPay"
@@ -220,13 +220,13 @@ Partial Class FPkiosk
         ' 
         ' btnBack
         ' 
-        btnBack.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
-        btnBack.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
+        btnBack.BackColor = Color.FromArgb(20, 20, 20)
+        btnBack.FlatAppearance.BorderColor = Color.FromArgb(190, 20, 20)
         btnBack.FlatAppearance.BorderSize = 2
-        btnBack.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
-        btnBack.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        btnBack.FlatAppearance.MouseDownBackColor = Color.FromArgb(20, 20, 20)
+        btnBack.FlatAppearance.MouseOverBackColor = Color.FromArgb(20, 20, 20)
         btnBack.FlatStyle = FlatStyle.Flat
-        btnBack.Font = New Font("Segoe UI", 10.0F, FontStyle.Bold)
+        btnBack.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
         btnBack.ForeColor = Color.White
         btnBack.Location = New Point(175, 320)
         btnBack.Name = "btnBack"
@@ -237,7 +237,7 @@ Partial Class FPkiosk
         ' 
         ' FPkiosk
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.Silver
         ClientSize = New Size(940, 440)

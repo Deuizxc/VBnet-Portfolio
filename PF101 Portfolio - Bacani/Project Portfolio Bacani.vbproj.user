@@ -19,9 +19,6 @@
     <Compile Update="FPinventory.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FPkiosk.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="FPorders.vb">
       <SubType>Form</SubType>
     </Compile>
