@@ -1,4 +1,5 @@
 ﻿Imports System.Collections.Generic
+Imports System.IO
 Imports System.Linq
 
 Public Class FPkiosk
@@ -11,12 +12,12 @@ Public Class FPkiosk
         Public Property Quantity As Integer
     End Class
 
-    Private currentCategory As String = "Favorites"
+    Private currentCategory As String = "Meals"
     Private cartList As New List(Of CartItem)()
 
     Private Sub FPkiosk_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.DoubleBuffered = True
-        LoadMenu("Favorites")
+        LoadMenu(currentCategory)
     End Sub
 
     Private Sub LoadMenu(category As String)
@@ -42,9 +43,21 @@ Public Class FPkiosk
         For Each item In items
             Dim card As New Panel()
             card.Width = 160
-            card.Height = 125
+            card.Height = 208
             card.BackColor = Color.FromArgb(20, 20, 20)
             card.Cursor = Cursors.Hand
+
+            Dim photo As New PictureBox With {
+                .Location = New Point(8, 8),
+                .Size = New Size(144, 104),
+                .BackColor = Color.FromArgb(32, 32, 32),
+                .SizeMode = PictureBoxSizeMode.Zoom
+            }
+            Dim thumbnail As Image = LoadMenuPhoto(item.Photo)
+            photo.Image = thumbnail
+            If thumbnail IsNot Nothing Then
+                AddHandler photo.Disposed, Sub(sender, args) thumbnail.Dispose()
+            End If
 
             Dim lblName As New Label()
             lblName.Text = item.Name
@@ -53,7 +66,7 @@ Public Class FPkiosk
             lblName.AutoSize = False
             lblName.Width = 145
             lblName.Height = 35
-            lblName.Location = New Point(8, 10)
+            lblName.Location = New Point(8, 119)
 
             Dim lblSub As New Label()
             lblSub.Text = If(item.Stock > 0, item.Description, "Sold out")
@@ -62,7 +75,7 @@ Public Class FPkiosk
             lblSub.AutoSize = False
             lblSub.Width = 145
             lblSub.Height = 20
-            lblSub.Location = New Point(8, 48)
+            lblSub.Location = New Point(8, 155)
 
             Dim lblPrice As New Label()
             lblPrice.Text = $"₱{item.Price:N2}"
@@ -71,8 +84,9 @@ Public Class FPkiosk
             lblPrice.AutoSize = False
             lblPrice.Width = 145
             lblPrice.Height = 25
-            lblPrice.Location = New Point(8, 75)
+            lblPrice.Location = New Point(8, 178)
 
+            card.Controls.Add(photo)
             card.Controls.Add(lblName)
             card.Controls.Add(lblSub)
             card.Controls.Add(lblPrice)
@@ -80,6 +94,7 @@ Public Class FPkiosk
             If item.Stock > 0 Then
                 Dim product = item
                 AddHandler card.Click, Sub(sender, args) AddToCart(product)
+                AddHandler photo.Click, Sub(sender, args) AddToCart(product)
                 AddHandler lblName.Click, Sub(sender, args) AddToCart(product)
                 AddHandler lblSub.Click, Sub(sender, args) AddToCart(product)
                 AddHandler lblPrice.Click, Sub(sender, args) AddToCart(product)
@@ -91,6 +106,25 @@ Public Class FPkiosk
             flpMenuGrid.Controls.Add(card)
         Next
     End Sub
+
+    Private Function LoadMenuPhoto(data As Byte()) As Image
+        If data Is Nothing OrElse data.Length = 0 Then Return Nothing
+
+        Try
+            Using stream As New MemoryStream(data),
+                  original As Image = Image.FromStream(stream)
+                Dim scale As Double = Math.Min(1.0, Math.Min(288.0 / original.Width, 208.0 / original.Height))
+                Dim width As Integer = Math.Max(1, CInt(Math.Round(original.Width * scale)))
+                Dim height As Integer = Math.Max(1, CInt(Math.Round(original.Height * scale)))
+                Return New Bitmap(original, width, height)
+            End Using
+        Catch ex As ArgumentException
+            Return Nothing
+        Catch ex As OutOfMemoryException
+            ' GDI+ can report invalid or unsupported image data with this exception.
+            Return Nothing
+        End Try
+    End Function
 
     Private Sub AddToCart(product As KioskDatabase.ProductRecord)
         Dim existing = cartList.FirstOrDefault(Function(item) item.ProductId = product.Id)
@@ -200,10 +234,6 @@ Public Class FPkiosk
         lblTotalValue.Text = $"₱{grandTotal:N2}"
     End Sub
 
-    Private Sub btnCatFavorites_Click(sender As Object, e As EventArgs) Handles btnCatFavorites.Click
-        LoadMenu("Favorites")
-    End Sub
-
     Private Sub btnCatBurgers_Click(sender As Object, e As EventArgs) Handles btnCatBurgers.Click
         LoadMenu("Meals")
     End Sub
@@ -256,13 +286,13 @@ Public Class FPkiosk
         Me.Close()
     End Sub
 
-    Private Sub ActionButtons_MouseEnter(sender As Object, e As EventArgs) Handles btnCatFavorites.MouseEnter, btnCatBurgers.MouseEnter, btnCatDrinks.MouseEnter, btnCatDesserts.MouseEnter, btnPay.MouseEnter, btnBack.MouseEnter
+    Private Sub ActionButtons_MouseEnter(sender As Object, e As EventArgs) Handles btnCatBurgers.MouseEnter, btnCatDrinks.MouseEnter, btnCatDesserts.MouseEnter, btnPay.MouseEnter, btnBack.MouseEnter
         Dim btn = DirectCast(sender, Button)
         btn.Top -= 3
         btn.Cursor = Cursors.Hand
     End Sub
 
-    Private Sub ActionButtons_MouseLeave(sender As Object, e As EventArgs) Handles btnCatFavorites.MouseLeave, btnCatBurgers.MouseLeave, btnCatDrinks.MouseLeave, btnCatDesserts.MouseLeave, btnPay.MouseLeave, btnBack.MouseLeave
+    Private Sub ActionButtons_MouseLeave(sender As Object, e As EventArgs) Handles btnCatBurgers.MouseLeave, btnCatDrinks.MouseLeave, btnCatDesserts.MouseLeave, btnPay.MouseLeave, btnBack.MouseLeave
         Dim btn = DirectCast(sender, Button)
         btn.Top += 3
         btn.Cursor = Cursors.Default

@@ -186,7 +186,7 @@ Partial Class FPinventory
         cmbCategory.Font = New Font("Segoe UI", 9.5F)
         cmbCategory.ForeColor = Color.White
         cmbCategory.FormattingEnabled = True
-        cmbCategory.Items.AddRange(New Object() {"Favorites", "Meals", "Drinks", "Desserts"})
+        cmbCategory.Items.AddRange(New Object() {"Meals", "Drinks", "Desserts"})
         cmbCategory.Location = New Point(15, 234)
         cmbCategory.Name = "cmbCategory"
         cmbCategory.Size = New Size(295, 25)

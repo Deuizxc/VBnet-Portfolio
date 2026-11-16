@@ -19,7 +19,6 @@ Partial Class FPkiosk
     Private Sub InitializeComponent()
         lblTitle = New Label()
         pnlCategories = New FlowLayoutPanel()
-        btnCatFavorites = New Button()
         btnCatBurgers = New Button()
         btnCatDrinks = New Button()
         btnCatDesserts = New Button()
@@ -51,7 +50,6 @@ Partial Class FPkiosk
         ' pnlCategories
         ' 
         pnlCategories.BackColor = Color.FromArgb(CByte(35), CByte(35), CByte(35))
-        pnlCategories.Controls.Add(btnCatFavorites)
         pnlCategories.Controls.Add(btnCatBurgers)
         pnlCategories.Controls.Add(btnCatDrinks)
         pnlCategories.Controls.Add(btnCatDesserts)
@@ -59,24 +57,6 @@ Partial Class FPkiosk
         pnlCategories.Name = "pnlCategories"
         pnlCategories.Size = New Size(540, 50)
         pnlCategories.TabIndex = 1
-        ' 
-        ' btnCatFavorites
-        ' 
-        btnCatFavorites.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
-        btnCatFavorites.FlatAppearance.BorderColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
-        btnCatFavorites.FlatAppearance.BorderSize = 2
-        btnCatFavorites.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
-        btnCatFavorites.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
-        btnCatFavorites.FlatStyle = FlatStyle.Flat
-        btnCatFavorites.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
-        btnCatFavorites.ForeColor = Color.White
-        btnCatFavorites.Location = New Point(8, 8)
-        btnCatFavorites.Margin = New Padding(8)
-        btnCatFavorites.Name = "btnCatFavorites"
-        btnCatFavorites.Size = New Size(115, 35)
-        btnCatFavorites.TabIndex = 0
-        btnCatFavorites.Text = "★ Favorites"
-        btnCatFavorites.UseVisualStyleBackColor = False
         ' 
         ' btnCatBurgers
         ' 
@@ -88,11 +68,11 @@ Partial Class FPkiosk
         btnCatBurgers.FlatStyle = FlatStyle.Flat
         btnCatBurgers.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
         btnCatBurgers.ForeColor = Color.White
-        btnCatBurgers.Location = New Point(139, 8)
+        btnCatBurgers.Location = New Point(8, 8)
         btnCatBurgers.Margin = New Padding(8)
         btnCatBurgers.Name = "btnCatBurgers"
-        btnCatBurgers.Size = New Size(115, 35)
-        btnCatBurgers.TabIndex = 1
+        btnCatBurgers.Size = New Size(164, 35)
+        btnCatBurgers.TabIndex = 0
         btnCatBurgers.Text = "🍔 Meals"
         btnCatBurgers.UseVisualStyleBackColor = False
         ' 
@@ -106,11 +86,11 @@ Partial Class FPkiosk
         btnCatDrinks.FlatStyle = FlatStyle.Flat
         btnCatDrinks.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
         btnCatDrinks.ForeColor = Color.White
-        btnCatDrinks.Location = New Point(270, 8)
+        btnCatDrinks.Location = New Point(188, 8)
         btnCatDrinks.Margin = New Padding(8)
         btnCatDrinks.Name = "btnCatDrinks"
-        btnCatDrinks.Size = New Size(115, 35)
-        btnCatDrinks.TabIndex = 2
+        btnCatDrinks.Size = New Size(164, 35)
+        btnCatDrinks.TabIndex = 1
         btnCatDrinks.Text = ChrW(55358) & ChrW(56676) & " Drinks"
         btnCatDrinks.UseVisualStyleBackColor = False
         ' 
@@ -124,11 +104,11 @@ Partial Class FPkiosk
         btnCatDesserts.FlatStyle = FlatStyle.Flat
         btnCatDesserts.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
         btnCatDesserts.ForeColor = Color.White
-        btnCatDesserts.Location = New Point(401, 8)
+        btnCatDesserts.Location = New Point(368, 8)
         btnCatDesserts.Margin = New Padding(8)
         btnCatDesserts.Name = "btnCatDesserts"
-        btnCatDesserts.Size = New Size(115, 35)
-        btnCatDesserts.TabIndex = 3
+        btnCatDesserts.Size = New Size(164, 35)
+        btnCatDesserts.TabIndex = 2
         btnCatDesserts.Text = "🍦 Desserts"
         btnCatDesserts.UseVisualStyleBackColor = False
         ' 
@@ -278,7 +258,6 @@ Partial Class FPkiosk
 
     Friend WithEvents lblTitle As Label
     Friend WithEvents pnlCategories As FlowLayoutPanel
-    Friend WithEvents btnCatFavorites As Button
     Friend WithEvents btnCatBurgers As Button
     Friend WithEvents btnCatDrinks As Button
     Friend WithEvents btnCatDesserts As Button

@@ -75,20 +75,30 @@ Friend Module KioskDatabase
 
     Private Sub InitializeDatabase(connection As SqliteConnection)
         Using transaction = connection.BeginTransaction()
+            Dim schemaVersion As Integer
             Using command = CreateCommand(connection, transaction, "PRAGMA user_version")
-                If Convert.ToInt32(command.ExecuteScalar()) <> 0 Then
-                    transaction.Commit()
-                    Return
-                End If
+                schemaVersion = Convert.ToInt32(command.ExecuteScalar())
             End Using
+
+            If schemaVersion = 1 Then
+                Using command = CreateCommand(connection, transaction,
+                    "UPDATE Products SET Category = 'Meals' WHERE Category = 'Favorites';
+                     PRAGMA user_version = 2;")
+                    command.ExecuteNonQuery()
+                End Using
+            End If
+
+            If schemaVersion <> 0 Then
+                transaction.Commit()
+                Return
+            End If
 
             Using command = CreateCommand(connection, transaction,
                 "CREATE TABLE Products (
                     Id INTEGER PRIMARY KEY AUTOINCREMENT,
                     Name TEXT NOT NULL CHECK (length(trim(Name)) > 0),
-                    Category TEXT NOT NULL CHECK (Category IN ('Favorites','Meals','Drinks','Desserts')),
+                    Category TEXT NOT NULL CHECK (Category IN ('Meals','Drinks','Desserts')),
                     Description TEXT NOT NULL DEFAULT '',
-                    IsFeatured INTEGER NOT NULL DEFAULT 0 CHECK (IsFeatured IN (0,1)),
                     PriceCents INTEGER NOT NULL CHECK (PriceCents >= 0),
                     Stock INTEGER NOT NULL CHECK (Stock >= 0),
                     Photo BLOB,
@@ -112,19 +122,19 @@ Friend Module KioskDatabase
                 );
                 CREATE INDEX IX_OrderItems_OrderId ON OrderItems(OrderId);
 
-                INSERT INTO Products (Name, Category, Description, IsFeatured, PriceCents, Stock) VALUES
-                    ('Big Mac Meal', 'Meals', 'Signature Burger', 1, 19900, 50),
-                    ('2-pc Chicken Joy', 'Meals', 'Crispy & Juicy', 1, 14900, 45),
-                    ('Large Fries', 'Favorites', 'Golden & Salted', 1, 7500, 120),
-                    ('Coca-Cola Float', 'Drinks', 'Icy Refreshment', 1, 5500, 60),
-                    ('Cheeseburger', 'Meals', 'Classic Cheese', 0, 8900, 50),
-                    ('Bacon Burger', 'Meals', 'Smoky Bacon', 0, 13900, 50),
-                    ('Lemon Iced Tea', 'Drinks', 'Fresh Brew', 0, 6900, 60),
-                    ('Mango Shake', 'Drinks', 'Real Fruit', 0, 8900, 60),
-                    ('Sundae Cone', 'Desserts', 'Vanilla Soft Serve', 0, 3500, 90),
-                    ('Apple Pie', 'Desserts', 'Crisp & Warm', 0, 5000, 90);
+                INSERT INTO Products (Name, Category, Description, PriceCents, Stock) VALUES
+                    ('Big Mac Meal', 'Meals', 'Signature Burger', 19900, 50),
+                    ('2-pc Chicken Joy', 'Meals', 'Crispy & Juicy', 14900, 45),
+                    ('Large Fries', 'Meals', 'Golden & Salted', 7500, 120),
+                    ('Coca-Cola Float', 'Drinks', 'Icy Refreshment', 5500, 60),
+                    ('Cheeseburger', 'Meals', 'Classic Cheese', 8900, 50),
+                    ('Bacon Burger', 'Meals', 'Smoky Bacon', 13900, 50),
+                    ('Lemon Iced Tea', 'Drinks', 'Fresh Brew', 6900, 60),
+                    ('Mango Shake', 'Drinks', 'Real Fruit', 8900, 60),
+                    ('Sundae Cone', 'Desserts', 'Vanilla Soft Serve', 3500, 90),
+                    ('Apple Pie', 'Desserts', 'Crisp & Warm', 5000, 90);
 
-                PRAGMA user_version = 1;")
+                PRAGMA user_version = 2;")
                 command.ExecuteNonQuery()
             End Using
             transaction.Commit()
@@ -137,12 +147,9 @@ Friend Module KioskDatabase
         Using connection = OpenDatabase(),
               command = connection.CreateCommand()
             command.CommandText =
-                "SELECT Id, Name, Category, Description, PriceCents, Stock,
-                        CASE WHEN $category IS NULL THEN Photo ELSE NULL END AS Photo
+                "SELECT Id, Name, Category, Description, PriceCents, Stock, Photo
                  FROM Products
-                 WHERE Active = 1 AND
-                       ($category IS NULL OR Category = $category OR
-                        ($category = 'Favorites' AND IsFeatured = 1))
+                 WHERE Active = 1 AND ($category IS NULL OR Category = $category)
                  ORDER BY Id"
             command.Parameters.AddWithValue("$category", If(CType(category, Object), DBNull.Value))
             Using reader = command.ExecuteReader()
