@@ -32,6 +32,8 @@ Partial Class FPorders
         btnBack = New Button()
         pnlQueue = New Panel()
         lblQueue = New Label()
+        cmbOrderView = New ComboBox()
+        btnArchiveCompleted = New Button()
         dgvOrders = New DataGridView()
         colOrderNumber = New DataGridViewTextBoxColumn()
         colPlacedAt = New DataGridViewTextBoxColumn()
@@ -96,7 +98,7 @@ Partial Class FPorders
         pnlQueue.Size = New Size(500, 420)
         pnlQueue.BackColor = Color.FromArgb(35, 35, 35)
         pnlQueue.TabIndex = 0
-        pnlQueue.Controls.AddRange(New Control() {lblQueue, dgvOrders})
+        pnlQueue.Controls.AddRange(New Control() {lblQueue, cmbOrderView, btnArchiveCompleted, dgvOrders})
         lblQueue.Location = New Point(15, 10)
         lblQueue.Name = "lblQueue"
         lblQueue.Size = New Size(470, 24)
@@ -104,10 +106,38 @@ Partial Class FPorders
         lblQueue.Font = New Font("Segoe UI", 11F, FontStyle.Bold)
         lblQueue.ForeColor = Color.White
         lblQueue.TextAlign = ContentAlignment.MiddleLeft
-        dgvOrders.Location = New Point(15, 45)
+        cmbOrderView.Location = New Point(15, 39)
+        cmbOrderView.Name = "cmbOrderView"
+        cmbOrderView.Size = New Size(215, 28)
+        cmbOrderView.TabIndex = 0
+        cmbOrderView.AccessibleName = "Order view"
+        cmbOrderView.DropDownStyle = ComboBoxStyle.DropDownList
+        cmbOrderView.FlatStyle = FlatStyle.Flat
+        cmbOrderView.Font = New Font("Segoe UI", 11F)
+        cmbOrderView.BackColor = Color.FromArgb(48, 48, 48)
+        cmbOrderView.ForeColor = Color.White
+        cmbOrderView.Items.AddRange(New Object() {"Active", "History", "Archived"})
+
+        btnArchiveCompleted.Location = New Point(255, 37)
+        btnArchiveCompleted.Name = "btnArchiveCompleted"
+        btnArchiveCompleted.Size = New Size(230, 31)
+        btnArchiveCompleted.Text = "ARCHIVE COMPLETED"
+        btnArchiveCompleted.TabIndex = 1
+        btnArchiveCompleted.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        btnArchiveCompleted.ForeColor = Color.White
+        btnArchiveCompleted.BackColor = Color.FromArgb(20, 20, 20)
+        btnArchiveCompleted.FlatStyle = FlatStyle.Flat
+        btnArchiveCompleted.Cursor = Cursors.Hand
+        btnArchiveCompleted.UseVisualStyleBackColor = False
+        btnArchiveCompleted.FlatAppearance.BorderColor = Color.FromArgb(190, 20, 20)
+        btnArchiveCompleted.FlatAppearance.BorderSize = 2
+        btnArchiveCompleted.Visible = False
+        btnArchiveCompleted.Enabled = False
+
+        dgvOrders.Location = New Point(15, 79)
         dgvOrders.Name = "dgvOrders"
-        dgvOrders.Size = New Size(470, 360)
-        dgvOrders.TabIndex = 0
+        dgvOrders.Size = New Size(470, 326)
+        dgvOrders.TabIndex = 2
         dgvOrders.AllowUserToAddRows = False
         dgvOrders.AllowUserToDeleteRows = False
         dgvOrders.AllowUserToResizeRows = False
@@ -292,6 +322,8 @@ Partial Class FPorders
     Friend WithEvents btnBack As Button
     Friend WithEvents pnlQueue As Panel
     Friend WithEvents lblQueue As Label
+    Friend WithEvents cmbOrderView As ComboBox
+    Friend WithEvents btnArchiveCompleted As Button
     Friend WithEvents dgvOrders As DataGridView
     Friend WithEvents colOrderNumber As DataGridViewTextBoxColumn
     Friend WithEvents colPlacedAt As DataGridViewTextBoxColumn

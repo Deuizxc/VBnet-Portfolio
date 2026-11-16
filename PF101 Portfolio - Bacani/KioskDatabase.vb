@@ -11,6 +11,13 @@ Friend Module KioskDatabase
     Private ReadOnly SetupLock As New Object()
     Private Initialized As Boolean
 
+    Friend Enum OrderQueueView
+        Active
+        History
+        Archived
+        All
+    End Enum
+
     Friend NotInheritable Class ProductRecord
         Public Property Id As Long
         Public Property Name As String
@@ -98,11 +105,18 @@ Friend Module KioskDatabase
                          CHECK (PaymentStatus IN ('Not recorded','Unpaid','Paid'));
                      ALTER TABLE Orders ADD COLUMN DiningOption TEXT CHECK (DiningOption IS NULL OR DiningOption IN ('Dine In','Takeout'));
                      ALTER TABLE Orders ADD COLUMN CancelledAt TEXT;
-                     UPDATE Orders SET PaymentStatus = 'Unpaid' WHERE Status = 'New';
-                     PRAGMA user_version = 3;")
+                     UPDATE Orders SET PaymentStatus = 'Unpaid' WHERE Status = 'New';")
                     command.ExecuteNonQuery()
                 End Using
-            ElseIf schemaVersion <> 0 AndAlso schemaVersion <> 3 Then
+            End If
+
+            If schemaVersion >= 1 AndAlso schemaVersion <= 3 Then
+                Using command = CreateCommand(connection, transaction,
+                    "ALTER TABLE Orders ADD COLUMN ArchivedAt TEXT;
+                     PRAGMA user_version = 4;")
+                    command.ExecuteNonQuery()
+                End Using
+            ElseIf schemaVersion <> 0 AndAlso schemaVersion <> 4 Then
                 Throw New InvalidOperationException("This database was created by a newer version of Phantom Kiosk.")
             End If
 
@@ -132,7 +146,8 @@ Friend Module KioskDatabase
                     PaymentMethod TEXT CHECK (PaymentMethod IS NULL OR PaymentMethod = 'Pay at Counter'),
                     PaymentStatus TEXT NOT NULL DEFAULT 'Not recorded' CHECK (PaymentStatus IN ('Not recorded','Unpaid','Paid')),
                     DiningOption TEXT CHECK (DiningOption IS NULL OR DiningOption IN ('Dine In','Takeout')),
-                    CancelledAt TEXT
+                    CancelledAt TEXT,
+                    ArchivedAt TEXT
                 );
                 CREATE TABLE OrderItems (
                     Id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -156,7 +171,7 @@ Friend Module KioskDatabase
                     ('Sundae Cone', 'Desserts', 'Vanilla Soft Serve', 3500, 90),
                     ('Apple Pie', 'Desserts', 'Crisp & Warm', 5000, 90);
 
-                PRAGMA user_version = 3;")
+                PRAGMA user_version = 4;")
                 command.ExecuteNonQuery()
             End Using
             transaction.Commit()
@@ -300,7 +315,8 @@ Friend Module KioskDatabase
         End Using
     End Function
 
-    Friend Function GetOrders(Optional completedOnly As Boolean = False) As List(Of OrderRecord)
+    Friend Function GetOrders(Optional completedOnly As Boolean = False,
+                              Optional queueView As OrderQueueView = OrderQueueView.All) As List(Of OrderRecord)
         Dim orders As New List(Of OrderRecord)()
         Dim order As OrderRecord = Nothing
 
@@ -313,11 +329,17 @@ Friend Module KioskDatabase
                         i.ProductId, i.ProductName, i.UnitPriceCents, i.Quantity,
                         o.PaymentStatus, o.PaymentMethod, o.DiningOption
                  FROM Orders o INNER JOIN OrderItems i ON o.Id = i.OrderId
-                 WHERE $completedOnly = 0 OR
+                 WHERE ($completedOnly = 0 OR
                        (o.Status = 'Completed' AND o.CancelledAt IS NULL AND
-                        o.PaymentStatus IN ('Paid','Not recorded'))
+                        o.PaymentStatus IN ('Paid','Not recorded')))
+                   AND ($queueView = 'All'
+                     OR ($queueView = 'Active' AND o.Status <> 'Completed' AND o.CancelledAt IS NULL)
+                     OR ($queueView = 'History' AND o.ArchivedAt IS NULL AND
+                         (o.Status = 'Completed' OR o.CancelledAt IS NOT NULL))
+                     OR ($queueView = 'Archived' AND o.ArchivedAt IS NOT NULL))
                  ORDER BY o.Id DESC, i.Id"
             command.Parameters.AddWithValue("$completedOnly", If(completedOnly, 1, 0))
+            command.Parameters.AddWithValue("$queueView", queueView.ToString())
 
             Using reader = command.ExecuteReader()
                 While reader.Read()
@@ -344,6 +366,17 @@ Friend Module KioskDatabase
             End Using
         End Using
         Return orders
+    End Function
+
+    Friend Function ArchiveCompletedOrders() As Integer
+        Using connection = OpenDatabase(),
+              command = connection.CreateCommand()
+            command.CommandText =
+                "UPDATE Orders SET ArchivedAt = $now
+                 WHERE Status = 'Completed' AND CancelledAt IS NULL AND ArchivedAt IS NULL"
+            command.Parameters.AddWithValue("$now", UtcTimestamp())
+            Return command.ExecuteNonQuery()
+        End Using
     End Function
 
     Friend Function UpdateOrderStatus(orderId As Long, currentStatus As String, nextStatus As String) As Boolean

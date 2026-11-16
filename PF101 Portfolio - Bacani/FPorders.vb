@@ -4,19 +4,35 @@ Imports System.Windows.Forms
 Public Class FPorders
     Private Sub FPorders_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DoubleBuffered = True
+        cmbOrderView.SelectedIndex = CInt(KioskDatabase.OrderQueueView.Active)
+    End Sub
+
+    Private ReadOnly Property CurrentOrderView As KioskDatabase.OrderQueueView
+        Get
+            Return CType(cmbOrderView.SelectedIndex, KioskDatabase.OrderQueueView)
+        End Get
+    End Property
+
+    Private Sub cmbOrderView_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbOrderView.SelectedIndexChanged
+        If cmbOrderView.SelectedIndex < 0 Then Return
+        btnArchiveCompleted.Visible = CurrentOrderView = KioskDatabase.OrderQueueView.History
         ReloadOrders()
     End Sub
 
     Private Sub ReloadOrders(Optional selectedId As Long = 0)
+        dgvOrders.Rows.Clear()
+        btnArchiveCompleted.Enabled = False
+
         Dim orders As List(Of KioskDatabase.OrderRecord)
         Try
-            orders = KioskDatabase.GetOrders()
+            orders = KioskDatabase.GetOrders(queueView:=CurrentOrderView)
         Catch ex As Exception
+            ShowSelectedOrder()
+            lblOrderStatus.Text = "The order list could not be loaded."
             KioskDatabase.ShowDatabaseError(Me, "Orders could not be loaded.", ex)
             Return
         End Try
 
-        dgvOrders.Rows.Clear()
         Dim selection As Integer = 0
         For Each order In orders
             Dim rowIndex = dgvOrders.Rows.Add(order.OrderNumber,
@@ -26,6 +42,9 @@ Public Class FPorders
                                              order.Total)
             dgvOrders.Rows(rowIndex).Tag = order
             If order.Id = selectedId Then selection = rowIndex
+            If order.Status = "Completed" AndAlso CurrentOrderView = KioskDatabase.OrderQueueView.History Then
+                btnArchiveCompleted.Enabled = True
+            End If
         Next
 
         If dgvOrders.Rows.Count > 0 Then
@@ -48,8 +67,8 @@ Public Class FPorders
         btnCancelOrder.Enabled = awaitingPayment
 
         If order Is Nothing Then
-            lblOrderNumber.Text = If(dgvOrders.Rows.Count = 0, "No orders yet", "Select an order")
-            lblOrderStatus.Text = If(dgvOrders.Rows.Count = 0, "Place an order from the customer kiosk.", "")
+            lblOrderNumber.Text = If(dgvOrders.Rows.Count = 0, "No orders in this view", "Select an order")
+            lblOrderStatus.Text = ""
             lblOrderTotal.Text = ""
             lblPayment.Text = ""
             lblDiningOption.Text = ""
@@ -115,9 +134,13 @@ Public Class FPorders
             Return
         End Try
 
-        order.Status = nextStatus
-        row.Cells(colStatus.Index).Value = nextStatus
-        ShowSelectedOrder()
+        If nextStatus = "Completed" Then
+            ReloadOrders()
+        Else
+            order.Status = nextStatus
+            row.Cells(colStatus.Index).Value = nextStatus
+            ShowSelectedOrder()
+        End If
     End Sub
 
     Private Function SelectedOrder() As KioskDatabase.OrderRecord
@@ -156,6 +179,19 @@ Public Class FPorders
             ReloadOrders(order.Id)
         Catch ex As Exception
             KioskDatabase.ShowDatabaseError(Me, "The order could not be cancelled.", ex)
+        End Try
+    End Sub
+
+    Private Sub btnArchiveCompleted_Click(sender As Object, e As EventArgs) Handles btnArchiveCompleted.Click
+        If MessageBox.Show(Me, "Move all completed orders in History to Archived? They will still appear in Sales Reports.",
+                           "Archive Completed Orders", MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                           MessageBoxDefaultButton.Button2) <> DialogResult.Yes Then Return
+
+        Try
+            KioskDatabase.ArchiveCompletedOrders()
+            ReloadOrders()
+        Catch ex As Exception
+            KioskDatabase.ShowDatabaseError(Me, "Completed orders could not be archived.", ex)
         End Try
     End Sub
 
