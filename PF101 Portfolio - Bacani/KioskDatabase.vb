@@ -7,6 +7,7 @@ Imports Microsoft.Data.Sqlite
 Friend Module KioskDatabase
     Private ReadOnly DbPath As String =
     Path.Combine(AppContext.BaseDirectory, "phantom-kiosk.db")
+    Friend Const PayAtCounter As String = "Pay at Counter"
     Private ReadOnly SetupLock As New Object()
     Private Initialized As Boolean
 
@@ -32,6 +33,9 @@ Friend Module KioskDatabase
         Public Property PlacedAt As Date
         Public Property CompletedAt As Date?
         Public Property Status As String
+        Public Property PaymentStatus As String
+        Public Property PaymentMethod As String
+        Public Property DiningOption As String
         Public Property Total As Decimal
         Public ReadOnly Property Items As New List(Of OrderLine)()
         Public ReadOnly Property OrderNumber As String
@@ -87,6 +91,21 @@ Friend Module KioskDatabase
                 End Using
             End If
 
+            If schemaVersion = 1 OrElse schemaVersion = 2 Then
+                Using command = CreateCommand(connection, transaction,
+                    "ALTER TABLE Orders ADD COLUMN PaymentMethod TEXT CHECK (PaymentMethod IS NULL OR PaymentMethod = 'Pay at Counter');
+                     ALTER TABLE Orders ADD COLUMN PaymentStatus TEXT NOT NULL DEFAULT 'Not recorded'
+                         CHECK (PaymentStatus IN ('Not recorded','Unpaid','Paid'));
+                     ALTER TABLE Orders ADD COLUMN DiningOption TEXT CHECK (DiningOption IS NULL OR DiningOption IN ('Dine In','Takeout'));
+                     ALTER TABLE Orders ADD COLUMN CancelledAt TEXT;
+                     UPDATE Orders SET PaymentStatus = 'Unpaid' WHERE Status = 'New';
+                     PRAGMA user_version = 3;")
+                    command.ExecuteNonQuery()
+                End Using
+            ElseIf schemaVersion <> 0 AndAlso schemaVersion <> 3 Then
+                Throw New InvalidOperationException("This database was created by a newer version of Phantom Kiosk.")
+            End If
+
             If schemaVersion <> 0 Then
                 transaction.Commit()
                 Return
@@ -109,7 +128,11 @@ Friend Module KioskDatabase
                     CompletedAt TEXT,
                     Status TEXT NOT NULL DEFAULT 'New' CHECK (Status IN ('New','Preparing','Ready','Completed')),
                     SubtotalCents INTEGER NOT NULL CHECK (SubtotalCents >= 0),
-                    TaxCents INTEGER NOT NULL CHECK (TaxCents >= 0)
+                    TaxCents INTEGER NOT NULL CHECK (TaxCents >= 0),
+                    PaymentMethod TEXT CHECK (PaymentMethod IS NULL OR PaymentMethod = 'Pay at Counter'),
+                    PaymentStatus TEXT NOT NULL DEFAULT 'Not recorded' CHECK (PaymentStatus IN ('Not recorded','Unpaid','Paid')),
+                    DiningOption TEXT CHECK (DiningOption IS NULL OR DiningOption IN ('Dine In','Takeout')),
+                    CancelledAt TEXT
                 );
                 CREATE TABLE OrderItems (
                     Id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -133,7 +156,7 @@ Friend Module KioskDatabase
                     ('Sundae Cone', 'Desserts', 'Vanilla Soft Serve', 3500, 90),
                     ('Apple Pie', 'Desserts', 'Crisp & Warm', 5000, 90);
 
-                PRAGMA user_version = 2;")
+                PRAGMA user_version = 3;")
                 command.ExecuteNonQuery()
             End Using
             transaction.Commit()
@@ -208,8 +231,12 @@ Friend Module KioskDatabase
         Return Math.Round(subtotal * 0.12D, 2, MidpointRounding.AwayFromZero)
     End Function
 
-    Friend Function PlaceOrder(items As List(Of OrderLine)) As String
+    Friend Function PlaceOrder(items As List(Of OrderLine), paymentMethod As String, diningOption As String) As String
         If items.Count = 0 Then Throw New ArgumentException("The cart is empty.")
+        If paymentMethod <> PayAtCounter Then Throw New ArgumentException("Choose Pay at Counter.")
+        If diningOption <> "Dine In" AndAlso diningOption <> "Takeout" Then
+            Throw New ArgumentException("Choose Dine In or Takeout.")
+        End If
 
         Using connection = OpenDatabase(),
               transaction = connection.BeginTransaction()
@@ -241,8 +268,10 @@ Friend Module KioskDatabase
 
             Dim orderId As Long
             Using command = CreateCommand(connection, transaction,
-                "INSERT INTO Orders (PlacedAt, SubtotalCents, TaxCents)
-                 VALUES ($placedAt, $subtotal, $tax)")
+                "INSERT INTO Orders (PlacedAt, SubtotalCents, TaxCents, PaymentMethod, PaymentStatus, DiningOption)
+                 VALUES ($placedAt, $subtotal, $tax, $method, 'Unpaid', $diningOption)")
+                command.Parameters.AddWithValue("$method", paymentMethod)
+                command.Parameters.AddWithValue("$diningOption", diningOption)
                 command.Parameters.AddWithValue("$placedAt", UtcTimestamp())
                 command.Parameters.AddWithValue("$subtotal", subtotalCents)
                 command.Parameters.AddWithValue("$tax", ToCents(CalculateTax(subtotalCents / 100D)))
@@ -278,10 +307,15 @@ Friend Module KioskDatabase
         Using connection = OpenDatabase(),
               command = connection.CreateCommand()
             command.CommandText =
-                "SELECT o.Id, o.PlacedAt, o.Status, o.SubtotalCents + o.TaxCents, o.CompletedAt,
-                        i.ProductId, i.ProductName, i.UnitPriceCents, i.Quantity
+                "SELECT o.Id, o.PlacedAt,
+                        CASE WHEN o.CancelledAt IS NOT NULL THEN 'Cancelled' ELSE o.Status END,
+                        o.SubtotalCents + o.TaxCents, o.CompletedAt,
+                        i.ProductId, i.ProductName, i.UnitPriceCents, i.Quantity,
+                        o.PaymentStatus, o.PaymentMethod, o.DiningOption
                  FROM Orders o INNER JOIN OrderItems i ON o.Id = i.OrderId
-                 WHERE $completedOnly = 0 OR o.Status = 'Completed'
+                 WHERE $completedOnly = 0 OR
+                       (o.Status = 'Completed' AND o.CancelledAt IS NULL AND
+                        o.PaymentStatus IN ('Paid','Not recorded'))
                  ORDER BY o.Id DESC, i.Id"
             command.Parameters.AddWithValue("$completedOnly", If(completedOnly, 1, 0))
 
@@ -292,7 +326,10 @@ Friend Module KioskDatabase
                             .Id = reader.GetInt64(0),
                             .PlacedAt = ParseTimestamp(reader.GetString(1)),
                             .Status = reader.GetString(2),
-                            .Total = reader.GetInt64(3) / 100D
+                            .Total = reader.GetInt64(3) / 100D,
+                            .PaymentStatus = reader.GetString(9),
+                            .PaymentMethod = If(reader.IsDBNull(10), "", reader.GetString(10)),
+                            .DiningOption = If(reader.IsDBNull(11), "", reader.GetString(11))
                         }
                         If Not reader.IsDBNull(4) Then order.CompletedAt = ParseTimestamp(reader.GetString(4))
                         orders.Add(order)
@@ -315,7 +352,8 @@ Friend Module KioskDatabase
             command.CommandText =
                 "UPDATE Orders SET Status = $next,
                        CompletedAt = CASE WHEN $next = 'Completed' THEN $now ELSE CompletedAt END
-                 WHERE Id = $id AND Status = $current
+                 WHERE Id = $id AND Status = $current AND CancelledAt IS NULL
+                   AND PaymentStatus IN ('Paid','Not recorded')
                    AND (($current = 'New' AND $next = 'Preparing')
                      OR ($current = 'Preparing' AND $next = 'Ready')
                      OR ($current = 'Ready' AND $next = 'Completed'))"
@@ -324,6 +362,43 @@ Friend Module KioskDatabase
             command.Parameters.AddWithValue("$next", nextStatus)
             command.Parameters.AddWithValue("$now", UtcTimestamp())
             Return command.ExecuteNonQuery() = 1
+        End Using
+    End Function
+
+    Friend Function MarkOrderPaid(orderId As Long) As Boolean
+        Using connection = OpenDatabase(),
+              command = connection.CreateCommand()
+            command.CommandText =
+                "UPDATE Orders SET PaymentStatus = 'Paid', PaymentMethod = $method
+                 WHERE Id = $id AND Status = 'New' AND CancelledAt IS NULL AND PaymentStatus = 'Unpaid'"
+            command.Parameters.AddWithValue("$id", orderId)
+            command.Parameters.AddWithValue("$method", PayAtCounter)
+            Return command.ExecuteNonQuery() = 1
+        End Using
+    End Function
+
+    Friend Function CancelUnpaidOrder(orderId As Long) As Boolean
+        Using connection = OpenDatabase(),
+              transaction = connection.BeginTransaction()
+            Using command = CreateCommand(connection, transaction,
+                "UPDATE Orders SET CancelledAt = $now
+                 WHERE Id = $id AND Status = 'New' AND CancelledAt IS NULL AND PaymentStatus = 'Unpaid'")
+                command.Parameters.AddWithValue("$id", orderId)
+                command.Parameters.AddWithValue("$now", UtcTimestamp())
+                If command.ExecuteNonQuery() <> 1 Then Return False
+            End Using
+
+            Using command = CreateCommand(connection, transaction,
+                "UPDATE Products SET Stock = Stock + (
+                    SELECT SUM(Quantity) FROM OrderItems WHERE OrderId = $id AND ProductId = Products.Id
+                 )
+                 WHERE Id IN (SELECT ProductId FROM OrderItems WHERE OrderId = $id)")
+                command.Parameters.AddWithValue("$id", orderId)
+                command.ExecuteNonQuery()
+            End Using
+
+            transaction.Commit()
+            Return True
         End Using
     End Function
 

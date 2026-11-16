@@ -22,6 +22,7 @@ Public Class FPorders
             Dim rowIndex = dgvOrders.Rows.Add(order.OrderNumber,
                                              order.PlacedAt.ToString("h:mm tt"),
                                              order.Status,
+                                             If(order.Status = "Cancelled", "—", order.PaymentStatus),
                                              order.Total)
             dgvOrders.Rows(rowIndex).Tag = order
             If order.Id = selectedId Then selection = rowIndex
@@ -40,15 +41,18 @@ Public Class FPorders
     Private Sub ShowSelectedOrder()
         dgvOrderItems.Rows.Clear()
 
-        Dim order As KioskDatabase.OrderRecord = Nothing
-        If dgvOrders.SelectedRows.Count > 0 Then
-            order = TryCast(dgvOrders.SelectedRows(0).Tag, KioskDatabase.OrderRecord)
-        End If
+        Dim order = SelectedOrder()
+        Dim awaitingPayment As Boolean = order IsNot Nothing AndAlso
+            order.Status = "New" AndAlso order.PaymentStatus = "Unpaid"
+        btnMarkPaid.Enabled = awaitingPayment
+        btnCancelOrder.Enabled = awaitingPayment
 
         If order Is Nothing Then
             lblOrderNumber.Text = If(dgvOrders.Rows.Count = 0, "No orders yet", "Select an order")
             lblOrderStatus.Text = If(dgvOrders.Rows.Count = 0, "Place an order from the customer kiosk.", "")
             lblOrderTotal.Text = ""
+            lblPayment.Text = ""
+            lblDiningOption.Text = ""
             btnAdvance.Text = "UPDATE STATUS"
             btnAdvance.Enabled = False
             Return
@@ -57,21 +61,27 @@ Public Class FPorders
         lblOrderNumber.Text = order.OrderNumber
         lblOrderStatus.Text = $"Status: {order.Status}   |   {order.PlacedAt:MMM d, h:mm tt}"
         lblOrderTotal.Text = $"Order total: ₱{order.Total:N2}"
+        lblPayment.Text = $"Payment: {order.PaymentStatus}"
+        If order.PaymentMethod <> "" Then lblPayment.Text &= $" · {order.PaymentMethod}"
+        lblDiningOption.Text = If(order.DiningOption = "", "", $"Order type: {order.DiningOption}")
 
         For Each item In order.Items
             dgvOrderItems.Rows.Add(item.ProductName, item.Quantity, item.UnitPrice * item.Quantity)
         Next
 
-        btnAdvance.Enabled = order.Status <> "Completed"
+        btnAdvance.Enabled = order.Status <> "Completed" AndAlso order.Status <> "Cancelled" AndAlso
+            order.PaymentStatus <> "Unpaid"
         Select Case order.Status
             Case "New"
-                btnAdvance.Text = "START PREPARING"
+                btnAdvance.Text = If(awaitingPayment, "AWAITING PAYMENT", "START PREPARING")
             Case "Preparing"
                 btnAdvance.Text = "MARK READY"
             Case "Ready"
                 btnAdvance.Text = "COMPLETE ORDER"
             Case "Completed"
                 btnAdvance.Text = "ORDER COMPLETED"
+            Case "Cancelled"
+                btnAdvance.Text = "ORDER CANCELLED"
         End Select
     End Sub
 
@@ -108,6 +118,45 @@ Public Class FPorders
         order.Status = nextStatus
         row.Cells(colStatus.Index).Value = nextStatus
         ShowSelectedOrder()
+    End Sub
+
+    Private Function SelectedOrder() As KioskDatabase.OrderRecord
+        If dgvOrders.SelectedRows.Count = 0 Then Return Nothing
+        Return TryCast(dgvOrders.SelectedRows(0).Tag, KioskDatabase.OrderRecord)
+    End Function
+
+    Private Sub btnMarkPaid_Click(sender As Object, e As EventArgs) Handles btnMarkPaid.Click
+        Dim order = SelectedOrder()
+        If order Is Nothing Then Return
+        If MessageBox.Show(Me, $"Confirm that ₱{order.Total:N2} was received for {order.OrderNumber}.",
+                           "Mark as Paid", MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                           MessageBoxDefaultButton.Button2) <> DialogResult.Yes Then Return
+
+        Try
+            If Not KioskDatabase.MarkOrderPaid(order.Id) Then
+                MessageBox.Show(Me, "The order is no longer awaiting payment.")
+            End If
+            ReloadOrders(order.Id)
+        Catch ex As Exception
+            KioskDatabase.ShowDatabaseError(Me, "Payment status could not be saved.", ex)
+        End Try
+    End Sub
+
+    Private Sub btnCancelOrder_Click(sender As Object, e As EventArgs) Handles btnCancelOrder.Click
+        Dim order = SelectedOrder()
+        If order Is Nothing Then Return
+        If MessageBox.Show(Me, $"Cancel {order.OrderNumber} and return its items to stock?",
+                           "Cancel Order", MessageBoxButtons.YesNo, MessageBoxIcon.Warning,
+                           MessageBoxDefaultButton.Button2) <> DialogResult.Yes Then Return
+
+        Try
+            If Not KioskDatabase.CancelUnpaidOrder(order.Id) Then
+                MessageBox.Show(Me, "The order is no longer awaiting payment.")
+            End If
+            ReloadOrders(order.Id)
+        Catch ex As Exception
+            KioskDatabase.ShowDatabaseError(Me, "The order could not be cancelled.", ex)
+        End Try
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click

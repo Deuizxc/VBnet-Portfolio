@@ -215,7 +215,7 @@ Partial Class FPkiosk
         btnPay.Name = "btnPay"
         btnPay.Size = New Size(145, 38)
         btnPay.TabIndex = 6
-        btnPay.Text = "CHECKOUT / PAY"
+        btnPay.Text = "CHECKOUT"
         btnPay.UseVisualStyleBackColor = False
         ' 
         ' btnBack

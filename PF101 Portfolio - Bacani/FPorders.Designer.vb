@@ -36,6 +36,7 @@ Partial Class FPorders
         colOrderNumber = New DataGridViewTextBoxColumn()
         colPlacedAt = New DataGridViewTextBoxColumn()
         colStatus = New DataGridViewTextBoxColumn()
+        colPayment = New DataGridViewTextBoxColumn()
         colTotal = New DataGridViewTextBoxColumn()
         pnlDetails = New Panel()
         lblOrderNumber = New Label()
@@ -45,6 +46,10 @@ Partial Class FPorders
         colQty = New DataGridViewTextBoxColumn()
         colLineTotal = New DataGridViewTextBoxColumn()
         lblOrderTotal = New Label()
+        lblPayment = New Label()
+        lblDiningOption = New Label()
+        btnMarkPaid = New Button()
+        btnCancelOrder = New Button()
         btnAdvance = New Button()
         pnlQueue.SuspendLayout()
         pnlDetails.SuspendLayout()
@@ -75,7 +80,7 @@ Partial Class FPorders
         btnBack.Name = "btnBack"
         btnBack.Size = New Size(120, 34)
         btnBack.Text = "BACK"
-        btnBack.TabIndex = 2
+        btnBack.TabIndex = 4
         btnBack.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
         btnBack.ForeColor = Color.White
         btnBack.BackColor = Color.FromArgb(20, 20, 20)
@@ -120,22 +125,26 @@ Partial Class FPorders
         dgvOrders.RowTemplate.Height = 32
         dgvOrders.ColumnHeadersDefaultCellStyle = headerStyle
         dgvOrders.DefaultCellStyle = rowStyle
-        dgvOrders.Columns.AddRange(New DataGridViewColumn() {colOrderNumber, colPlacedAt, colStatus, colTotal})
+        dgvOrders.Columns.AddRange(New DataGridViewColumn() {colOrderNumber, colPlacedAt, colStatus, colPayment, colTotal})
         colOrderNumber.Name = "colOrderNumber"
         colOrderNumber.HeaderText = "Order No."
-        colOrderNumber.FillWeight = 28
+        colOrderNumber.FillWeight = 22
         colOrderNumber.SortMode = DataGridViewColumnSortMode.NotSortable
         colPlacedAt.Name = "colPlacedAt"
         colPlacedAt.HeaderText = "Time"
-        colPlacedAt.FillWeight = 21
+        colPlacedAt.FillWeight = 16
         colPlacedAt.SortMode = DataGridViewColumnSortMode.NotSortable
         colStatus.Name = "colStatus"
         colStatus.HeaderText = "Status"
-        colStatus.FillWeight = 28
+        colStatus.FillWeight = 21
         colStatus.SortMode = DataGridViewColumnSortMode.NotSortable
+        colPayment.Name = "colPayment"
+        colPayment.HeaderText = "Payment"
+        colPayment.FillWeight = 22
+        colPayment.SortMode = DataGridViewColumnSortMode.NotSortable
         colTotal.Name = "colTotal"
         colTotal.HeaderText = "Total"
-        colTotal.FillWeight = 23
+        colTotal.FillWeight = 19
         colTotal.SortMode = DataGridViewColumnSortMode.NotSortable
         colTotal.DefaultCellStyle.Format = "₱#,##0.00"
         colTotal.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
@@ -145,7 +154,7 @@ Partial Class FPorders
         pnlDetails.Size = New Size(375, 420)
         pnlDetails.BackColor = Color.FromArgb(35, 35, 35)
         pnlDetails.TabIndex = 1
-        pnlDetails.Controls.AddRange(New Control() {lblOrderNumber, lblOrderStatus, dgvOrderItems, lblOrderTotal, btnAdvance})
+        pnlDetails.Controls.AddRange(New Control() {lblOrderNumber, lblOrderStatus, lblPayment, lblDiningOption, dgvOrderItems, lblOrderTotal, btnMarkPaid, btnCancelOrder, btnAdvance})
         lblOrderNumber.Location = New Point(15, 9)
         lblOrderNumber.Name = "lblOrderNumber"
         lblOrderNumber.Size = New Size(345, 27)
@@ -161,9 +170,9 @@ Partial Class FPorders
         lblOrderStatus.ForeColor = Color.White
         lblOrderStatus.TextAlign = ContentAlignment.MiddleLeft
         lblOrderStatus.ForeColor = Color.Gainsboro
-        dgvOrderItems.Location = New Point(15, 72)
+        dgvOrderItems.Location = New Point(15, 111)
         dgvOrderItems.Name = "dgvOrderItems"
-        dgvOrderItems.Size = New Size(345, 236)
+        dgvOrderItems.Size = New Size(345, 149)
         dgvOrderItems.TabIndex = 0
         dgvOrderItems.AllowUserToAddRows = False
         dgvOrderItems.AllowUserToDeleteRows = False
@@ -200,18 +209,58 @@ Partial Class FPorders
         colLineTotal.SortMode = DataGridViewColumnSortMode.NotSortable
         colLineTotal.DefaultCellStyle.Format = "₱#,##0.00"
         colLineTotal.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-        lblOrderTotal.Location = New Point(15, 318)
+        lblPayment.Name = "lblPayment"
+        lblPayment.Location = New Point(15, 63)
+        lblPayment.Size = New Size(345, 20)
+        lblPayment.Font = New Font("Segoe UI", 9F, FontStyle.Regular)
+        lblPayment.ForeColor = Color.Gainsboro
+        lblPayment.TextAlign = ContentAlignment.MiddleLeft
+        lblDiningOption.Name = "lblDiningOption"
+        lblDiningOption.Location = New Point(15, 84)
+        lblDiningOption.Size = New Size(345, 20)
+        lblDiningOption.Font = New Font("Segoe UI", 9F, FontStyle.Regular)
+        lblDiningOption.ForeColor = Color.Gainsboro
+        lblDiningOption.TextAlign = ContentAlignment.MiddleLeft
+        btnMarkPaid.Name = "btnMarkPaid"
+        btnMarkPaid.Location = New Point(15, 308)
+        btnMarkPaid.Size = New Size(168, 40)
+        btnMarkPaid.Text = "MARK AS PAID"
+        btnMarkPaid.TabIndex = 1
+        btnMarkPaid.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        btnMarkPaid.ForeColor = Color.White
+        btnMarkPaid.BackColor = Color.FromArgb(20, 20, 20)
+        btnMarkPaid.FlatStyle = FlatStyle.Flat
+        btnMarkPaid.Cursor = Cursors.Hand
+        btnMarkPaid.UseVisualStyleBackColor = False
+        btnMarkPaid.FlatAppearance.BorderColor = Color.FromArgb(190, 20, 20)
+        btnMarkPaid.FlatAppearance.BorderSize = 2
+        btnMarkPaid.Enabled = False
+        btnCancelOrder.Name = "btnCancelOrder"
+        btnCancelOrder.Location = New Point(192, 308)
+        btnCancelOrder.Size = New Size(168, 40)
+        btnCancelOrder.Text = "CANCEL ORDER"
+        btnCancelOrder.TabIndex = 2
+        btnCancelOrder.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
+        btnCancelOrder.ForeColor = Color.White
+        btnCancelOrder.BackColor = Color.FromArgb(20, 20, 20)
+        btnCancelOrder.FlatStyle = FlatStyle.Flat
+        btnCancelOrder.Cursor = Cursors.Hand
+        btnCancelOrder.UseVisualStyleBackColor = False
+        btnCancelOrder.FlatAppearance.BorderColor = Color.FromArgb(190, 20, 20)
+        btnCancelOrder.FlatAppearance.BorderSize = 2
+        btnCancelOrder.Enabled = False
+        lblOrderTotal.Location = New Point(15, 265)
         lblOrderTotal.Name = "lblOrderTotal"
         lblOrderTotal.Size = New Size(345, 32)
         lblOrderTotal.Text = ""
         lblOrderTotal.Font = New Font("Segoe UI", 13F, FontStyle.Bold)
         lblOrderTotal.ForeColor = Color.White
         lblOrderTotal.TextAlign = ContentAlignment.MiddleLeft
-        btnAdvance.Location = New Point(15, 362)
+        btnAdvance.Location = New Point(15, 358)
         btnAdvance.Name = "btnAdvance"
         btnAdvance.Size = New Size(345, 43)
         btnAdvance.Text = "UPDATE STATUS"
-        btnAdvance.TabIndex = 1
+        btnAdvance.TabIndex = 3
         btnAdvance.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
         btnAdvance.ForeColor = Color.White
         btnAdvance.BackColor = Color.FromArgb(190, 20, 20)
@@ -256,5 +305,10 @@ Partial Class FPorders
     Friend WithEvents colQty As DataGridViewTextBoxColumn
     Friend WithEvents colLineTotal As DataGridViewTextBoxColumn
     Friend WithEvents lblOrderTotal As Label
+    Friend WithEvents colPayment As DataGridViewTextBoxColumn
+    Friend WithEvents lblPayment As Label
+    Friend WithEvents lblDiningOption As Label
+    Friend WithEvents btnMarkPaid As Button
+    Friend WithEvents btnCancelOrder As Button
     Friend WithEvents btnAdvance As Button
 End Class

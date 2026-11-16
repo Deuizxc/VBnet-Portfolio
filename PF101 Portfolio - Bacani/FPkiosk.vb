@@ -282,9 +282,21 @@ Public Class FPkiosk
             })
         Next
 
+        Dim paymentMethod As String
+        Dim diningOption As String
+        Using review As New FPcheckout()
+            review.SetOrder(orderItems)
+            If review.ShowDialog(Me) <> DialogResult.OK Then Return
+            paymentMethod = review.PaymentMethod
+            diningOption = review.DiningOption
+        End Using
+
+        Dim total As Decimal = orderItems.Sum(Function(item) item.UnitPrice * item.Quantity)
+        total += KioskDatabase.CalculateTax(total)
+
         Dim orderNumber As String
         Try
-            orderNumber = KioskDatabase.PlaceOrder(orderItems)
+            orderNumber = KioskDatabase.PlaceOrder(orderItems, paymentMethod, diningOption)
         Catch ex As KioskDatabase.OrderUnavailableException
             KioskDatabase.ShowDatabaseError(Me, "Review your cart and try again.", ex)
             LoadMenu(currentCategory)
@@ -297,8 +309,8 @@ Public Class FPkiosk
         cartList.Clear()
         RefreshCartDisplay()
         LoadMenu(currentCategory)
-        MessageBox.Show(Me, $"Your order number is {orderNumber}." & vbCrLf &
-                        "Please wait for your order number to be called.",
+        MessageBox.Show(Me, $"Order {orderNumber} · {diningOption}" & vbCrLf &
+                        $"Please pay ₱{total:N2} at the counter and give your order number.",
                         "Order Placed", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
