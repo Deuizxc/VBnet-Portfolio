@@ -17,58 +17,13 @@ Partial Class FPdashboard
 
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        lblTitle = New Label()
-        lblSubtitle = New Label()
-        pnlHeroBanner = New Panel()
-        lblTagline = New Label()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FPdashboard))
         btnKiosk = New Button()
         btnInventory = New Button()
         btnOrders = New Button()
         btnReports = New Button()
         btnClose = New Button()
-        pnlHeroBanner.SuspendLayout()
         SuspendLayout()
-        ' 
-        ' lblTitle
-        ' 
-        lblTitle.AutoSize = True
-        lblTitle.Font = New Font("Segoe UI", 22.0F, FontStyle.Bold)
-        lblTitle.ForeColor = Color.White
-        lblTitle.Location = New Point(35, 25)
-        lblTitle.Name = "lblTitle"
-        lblTitle.Size = New Size(335, 41)
-        lblTitle.TabIndex = 0
-        lblTitle.Text = "PHANTOM KIOSK POS"
-        ' 
-        ' lblSubtitle
-        ' 
-        lblSubtitle.AutoSize = True
-        lblSubtitle.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
-        lblSubtitle.ForeColor = Color.FromArgb(CByte(220), CByte(40), CByte(40))
-        lblSubtitle.Location = New Point(38, 68)
-        lblSubtitle.Name = "lblSubtitle"
-        lblSubtitle.Size = New Size(285, 20)
-        lblSubtitle.TabIndex = 1
-        lblSubtitle.Text = "RETAIL BUY & SELL OBSERVATION SUITE"
-        ' 
-        ' pnlHeroBanner
-        ' 
-        pnlHeroBanner.BackColor = Color.FromArgb(CByte(190), CByte(20), CByte(20))
-        pnlHeroBanner.Controls.Add(lblTagline)
-        pnlHeroBanner.Location = New Point(35, 105)
-        pnlHeroBanner.Name = "pnlHeroBanner"
-        pnlHeroBanner.Size = New Size(430, 315)
-        pnlHeroBanner.TabIndex = 2
-        ' 
-        ' lblTagline
-        ' 
-        lblTagline.Font = New Font("Segoe UI", 15.0F, FontStyle.Bold)
-        lblTagline.ForeColor = Color.White
-        lblTagline.Location = New Point(25, 25)
-        lblTagline.Name = "lblTagline"
-        lblTagline.Size = New Size(380, 260)
-        lblTagline.TabIndex = 0
-        lblTagline.Text = "TAKE CONTROL OF YOUR TRANSACTIONS." & vbCrLf & vbCrLf & "Manage customer ordering queues, update live inventory stock levels, and audit business performance in real time."
         ' 
         ' btnKiosk
         ' 
@@ -80,7 +35,7 @@ Partial Class FPdashboard
         btnKiosk.FlatStyle = FlatStyle.Flat
         btnKiosk.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
         btnKiosk.ForeColor = Color.White
-        btnKiosk.Location = New Point(490, 105)
+        btnKiosk.Location = New Point(490, 56)
         btnKiosk.Name = "btnKiosk"
         btnKiosk.Size = New Size(415, 55)
         btnKiosk.TabIndex = 3
@@ -97,7 +52,7 @@ Partial Class FPdashboard
         btnInventory.FlatStyle = FlatStyle.Flat
         btnInventory.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
         btnInventory.ForeColor = Color.White
-        btnInventory.Location = New Point(490, 170)
+        btnInventory.Location = New Point(490, 135)
         btnInventory.Name = "btnInventory"
         btnInventory.Size = New Size(415, 55)
         btnInventory.TabIndex = 4
@@ -114,7 +69,7 @@ Partial Class FPdashboard
         btnOrders.FlatStyle = FlatStyle.Flat
         btnOrders.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
         btnOrders.ForeColor = Color.White
-        btnOrders.Location = New Point(490, 235)
+        btnOrders.Location = New Point(490, 212)
         btnOrders.Name = "btnOrders"
         btnOrders.Size = New Size(415, 55)
         btnOrders.TabIndex = 5
@@ -131,11 +86,11 @@ Partial Class FPdashboard
         btnReports.FlatStyle = FlatStyle.Flat
         btnReports.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
         btnReports.ForeColor = Color.White
-        btnReports.Location = New Point(490, 300)
+        btnReports.Location = New Point(490, 286)
         btnReports.Name = "btnReports"
         btnReports.Size = New Size(415, 55)
         btnReports.TabIndex = 6
-        btnReports.Text = "📈 SALES REPORTS & ANALYTICS"
+        btnReports.Text = "📈 SALES REPORTS "
         btnReports.UseVisualStyleBackColor = False
         ' 
         ' btnClose
@@ -160,28 +115,20 @@ Partial Class FPdashboard
         AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.DarkGray
+        BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
+        BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(940, 450)
         Controls.Add(btnClose)
         Controls.Add(btnReports)
         Controls.Add(btnOrders)
         Controls.Add(btnInventory)
         Controls.Add(btnKiosk)
-        Controls.Add(pnlHeroBanner)
-        Controls.Add(lblSubtitle)
-        Controls.Add(lblTitle)
         FormBorderStyle = FormBorderStyle.None
         Name = "FPdashboard"
         StartPosition = FormStartPosition.CenterScreen
         Text = "FPdashboard"
-        pnlHeroBanner.ResumeLayout(False)
         ResumeLayout(False)
-        PerformLayout()
     End Sub
-
-    Friend WithEvents lblTitle As Label
-    Friend WithEvents lblSubtitle As Label
-    Friend WithEvents pnlHeroBanner As Panel
-    Friend WithEvents lblTagline As Label
     Friend WithEvents btnKiosk As Button
     Friend WithEvents btnInventory As Button
     Friend WithEvents btnOrders As Button
